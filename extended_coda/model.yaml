@@ -1,0 +1,15 @@
+author: Johnny Israeli
+name: extended CODA
+version: 0.1
+description: Single bp resolution ChIP-seq denoising
+model:
+    type: keras
+    args:
+        weights: model_files/weights.h5
+        arch: model_files/model.json
+    inputs:
+        H3K27ac_subsampled:
+            type: bigwig
+    targets:
+        H3K27ac:
+            type: bigwig
