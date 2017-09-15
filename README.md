@@ -1,34 +1,33 @@
 # models
+
 Repository hosting Kipoi models
+
+## Setup - Install git lfs
+
+```bash
+# on Ubuntu
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install -y git-lfs
+git-lfs install
+```
+
+## Contributing to the model zoo
+
+1. Fork this repository
+2. Clone your repository fork, ignore all the git lfs files
+  - `git lfs clone git@github.com:<username>/models.git '-I /'`
+3. Create a new folder `<mynewmodel>` containing all the model files in the repostiory root
+  - See how to contribute models in [kipoi/model-zoo/docs/contributing_models.md](https://github.com/kipoi/model-zoo/blob/master/docs/contributing_models.md)
+4. Test your repository locally:
+  - `modelzoo test <mynewmodel>`
+5. Commit, push to your forked remote, submit a pull request
+
 
 ## TODO
 
-### Contributing
+### Open questions
 
-- we need some sort of version control at the beginning
-  - pull requests...
-
-- [ ] explore the pull push possibilities
-  - via pull requiest
-    - since we are hosting everything on git lfs
-      - How to prevent from downloading the whole model zoo when contributing/pulling models?
-		- [x] google: git pull only a subpart of the repository (one specific folder)
-	      - not possible for saving disk space: https://stackoverflow.com/a/13738951
-   		    - the repo will still get loaded into .git/
-  		  - proposed solutions:
-			- https://lakehanne.github.io/git-sparse-checkout
-			- https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository
-        - [ ] google: git pull everything except the git lfs stuff
-          - 
-        - [ ] google: make a pull request for only one folder?
-	  - [x] git lfs track
-	    - can't track by size: https://github.com/git-lfs/git-lfs/issues/282
-		  - what would be the asterix?
-	- how to automatically issue a pull request?
-      - models push?
-
-- [ ] shall the folder structure be: <github username>__model?
-
+- [ ] shall the folder structure be: <github username>__model? (not concerning about the implementation)
 
 ## Docs
 
