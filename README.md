@@ -15,11 +15,11 @@ git-lfs install
 
 1. Fork this repository
 2. Clone your repository fork, ignore all the git lfs files
-  - `git lfs clone git@github.com:<username>/models.git '-I /'`
+    - `git lfs clone git@github.com:<username>/models.git '-I /'`
 3. Create a new folder `<mynewmodel>` containing all the model files in the repostiory root
-  - See how to contribute models in [kipoi/model-zoo/docs/contributing_models.md](https://github.com/kipoi/model-zoo/blob/master/docs/contributing_models.md)
+    - See how to contribute models in [kipoi/model-zoo/docs/contributing_models.md](https://github.com/kipoi/model-zoo/blob/master/docs/contributing_models.md)
 4. Test your repository locally:
-  - `modelzoo test <mynewmodel>`
+    - `modelzoo test <mynewmodel>`
 5. Commit, push to your forked remote, submit a pull request
 
 
