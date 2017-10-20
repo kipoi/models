@@ -1,0 +1,17 @@
+author: Lara Urban
+name: DeepSEA
+version: 0.1
+description: Prediction of epigenetic features from DNA sequence
+model:
+    type: keras
+    args:
+      arch: model_files/model.json
+      weights: model_files/weights.h5
+      custom_objects: custom_keras_objects.py
+    inputs:
+        seq:
+            type: DNA
+            provide_ranges: True
+    targets:
+        epigen_mod:
+            shape: (None, 918)
