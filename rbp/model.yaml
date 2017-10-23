@@ -3,7 +3,7 @@ args:
     arch: model/model.json
     weights: model/weights.h5
     custom_objects: model/custom_keras_objects.py
-default_dataloader: dataloader.yaml
+default_dataloader: . # relative path to the default dataloader
 info:
     author: Ziga Avsec
     name: rbp_eclip
