@@ -1,7 +1,7 @@
 type: keras
 args:
-    weights: weights.h5
-    arch: model.json
+    weights: model_files/weights.h5
+    arch: model_files/model.json
 info:
     author: Johnny Israeli
     name: extended CODA
