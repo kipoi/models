@@ -76,7 +76,7 @@ class TxtDataset(Dataset):
         return len(self.lines)
 
     def __getitem__(self, idx):
-        return self.lines[idx]
+        return float(self.lines[idx].strip())
 
 
 # File paths
