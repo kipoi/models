@@ -7,6 +7,10 @@ info:
     name: extended CODA
     version: 0.1
     descr: Single bp resolution ChIP-seq denoising
+dependencies:
+    pip:
+      - tensorflow==1.0.0
+      - keras==1.2.2
 schema:
     inputs:
         H3K27ac_subsampled:
