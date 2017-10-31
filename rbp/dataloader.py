@@ -68,6 +68,7 @@ class DistToClosestLandmarkExtractor(BaseExtractor):
 
 
 class TxtDataset(Dataset):
+
     def __init__(self, path):
         with open(path, "r") as f:
             self.lines = f.readlines()
@@ -144,7 +145,7 @@ class SeqDistDataset(Dataset):
                                                                                warn=False), axis=0)
 
         if self.target_dataset is not None:
-            out["targets"] = {"binding_site": self.target_dataset[idx]}
+            out["targets"] = self.target_dataset[idx]
 
         # get metadata
         out['metadata'] = {}

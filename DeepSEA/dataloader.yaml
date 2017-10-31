@@ -23,15 +23,15 @@ dependencies:
     - pybedtools
 output_schema:
   inputs:
-    seq:
-      special_type: DNASeq
-      shape: (1000, 4)
-      descr: DNA sequence
-      associated_metadata: ranges
+    name: seq
+    shape: (1000, 4)
+    special_type: DNASeq
+    descr: DNA sequence
+    associated_metadata: ranges
   targets:
-    epigen_mod:
-      shape: (918, )
-      descr: Specific epigentic feature class (multi-task binary classification)
+    name: epigen_mod
+    shape: (918, )
+    descr: Specific epigentic feature class (multi-task binary classification)
   metadata:
     ranges:
       type: Ranges

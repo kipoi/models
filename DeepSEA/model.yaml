@@ -23,12 +23,12 @@ dependencies:
     - keras==1.2.2
 schema:
   inputs:
-    seq:
-      special_type: DNASeq
-      shape: (1000, 4)
-      descr: DNA sequence
-      associated_metadata: ranges
+    name: seq
+    special_type: DNASeq
+    shape: (1000, 4)
+    descr: DNA sequence
+    associated_metadata: ranges
   targets:
-    epigen_mod:
-      shape: (918, )
-      descr: Probability of a specific epigentic feature
+    name: epigen_mod
+    shape: (918, )
+    descr: Probability of a specific epigentic feature

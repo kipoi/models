@@ -49,12 +49,8 @@ class SeqDataset(Dataset):
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
         return {
-            # TODO - how to refect this in the yaml file?
-            #        schema.feed_type: list # dict, single_array?
-            "inputs": [seq],
-            "targets": {
-                "epigen_mod": y
-            },
+            "inputs": seq,
+            "targets": y,
             "metadata": {
                 "ranges": {
                     "chr": interval.chrom,
