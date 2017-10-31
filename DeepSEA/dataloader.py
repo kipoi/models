@@ -38,6 +38,9 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
+        # Intervals need to be 1000bp wide
+        assert interval.stop - interval.start == 1000
+
         if self.targets is not None:
             y = self.targets.iloc[idx].values
         else:
@@ -46,9 +49,9 @@ class SeqDataset(Dataset):
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
         return {
-            "inputs": {
-                "seq": seq
-            },
+            # TODO - how to refect this in the yaml file?
+            #        schema.feed_type: list # dict, single_array?
+            "inputs": [seq],
             "targets": {
                 "epigen_mod": y
             },
