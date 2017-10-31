@@ -1,17 +1,35 @@
-author: Lara Urban
-name: DeepSEA
-version: 0.1
-description: Prediction of epigenetic features from DNA sequence
-model:
-    type: keras
-    args:
-      arch: model_files/model.json
-      weights: model_files/weights.h5
-      custom_objects: custom_keras_objects.py
-    inputs:
-        seq:
-            type: DNA
-            provide_ranges: True
-    targets:
-        epigen_mod:
-            shape: (None, 918)
+type: keras
+args:
+  arch: model_files/model.json
+  weights: model_files/weights.h5
+info:
+  author: Lara Urban
+  name: DeepSEA
+  version: 0.1
+  descr: >
+    This CNN is based on the DeepSEA model from Zhou and Troyanskaya (2015).
+    It categorically predicts 918 cell type-specific epigenetic features
+    from DNA sequence. The model is trained on publicly available ENCODE
+    and Roadmap Epigenomics data and on DNA sequences of size 1000bp. The
+    input of the tensor has to be (N, 1000, 4) for N samples, 1000bp window
+    size and 4 nucleotides. Per sample, 918 probabilities of showing a
+    specific epigentic feature will be predicted. 
+default_dataloader: .
+dependencies:
+  conda:
+    - python=3.5
+    - h5py
+  pip:
+    # TODO - which keras version was used?
+    - keras
+schema:
+  inputs:
+    seq:
+      special_type: DNASeq
+      shape: (1000, 4)
+      descr: DNA sequence
+      associated_metadata: ranges
+  targets:
+    epigen_mod:
+      shape: (918, )
+      descr: Probability of a specific epigentic feature
