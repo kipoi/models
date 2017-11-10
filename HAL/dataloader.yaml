@@ -24,7 +24,7 @@ output_schema:
             descr: "Predicted 3' psi"
     metadata:
         ranges:
-            type: Ranges
+            type: GenomicRanges
             descr: Ranges describing inputs.seq
 
 # d: is an alias for description

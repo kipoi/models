@@ -38,15 +38,6 @@ output_schema:
             descr: Measured track
     metadata:
         ranges:
-            chr:
-                type: str
-                descr: Chromosome
-            start:
-                type: int
-                descr: Start position
-            end:
-                type: int
-                descr: End position
-            id:
-                type: str
-                descr: Id of the sequence
+            type: GenomicRanges
+            descr: Ranges describing inputs.seq
+	    

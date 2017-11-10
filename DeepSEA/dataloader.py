@@ -8,6 +8,7 @@ import pandas as pd
 from pybedtools import BedTool
 from genomelake.extractors import FastaExtractor
 from kipoi.data import Dataset
+from kipoi.metadata import GenomicRanges
 
 # --------------------------------------------
 
@@ -52,12 +53,6 @@ class SeqDataset(Dataset):
             "inputs": seq,
             "targets": y,
             "metadata": {
-                "ranges": {
-                    "chr": interval.chrom,
-                    "start": interval.start,
-                    "end": interval.stop,
-                    "id": interval.name,
-                    "strand": interval.strand,
-                }
+                "ranges": GenomicRanges.from_interval(interval)
             }
         }

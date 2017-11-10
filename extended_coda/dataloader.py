@@ -5,7 +5,7 @@ import numpy as np
 import pybedtools
 
 from genomelake.extractors import ArrayExtractor
-
+from kipoi.metadata import GenomicRanges
 
 def batch_iter(iterable, batch_size):
     """
@@ -62,10 +62,11 @@ def extractor(intervals_file, input_data_sources, target_data_sources=None, batc
             end.append(interval.stop)
             ids.append(interval.name)
 
-        out['metadata']['ranges'] = {}
-        out['metadata']['ranges']['chr'] = np.array(chrom)
-        out['metadata']['ranges']['start'] = np.array(start)
-        out['metadata']['ranges']['end'] = np.array(end)
-        out['metadata']['ranges']['id'] = np.array(ids)
+        out['metadata'] = {
+            'ranges': GenomicRanges(chr=np.array(chrom),
+                                    start=np.array(start),
+                                    end=np.array(end),
+                                    id=np.array(id))
+        }
 
         yield out

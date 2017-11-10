@@ -15,7 +15,7 @@ dependencies:
       - keras==1.2.2
 schema:
     inputs:
-        H3K27ac_subsampled:
+        H3K27AC_subsampled:
             shape: (None, 1)
             special_type: bigwig
             descr: Track representing ...

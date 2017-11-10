@@ -34,5 +34,5 @@ output_schema:
     descr: Specific epigentic feature class (multi-task binary classification)
   metadata:
     ranges:
-      type: Ranges
+      type: GenomicRanges
       descr: Ranges describing inputs.seq
