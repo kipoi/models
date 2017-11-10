@@ -17,7 +17,7 @@ dependencies:
 schema:
     inputs:
         seq:
-            shape: (4, 101)
+            shape: (101, 4)
             special_type: DNASeq
             descr: One-hot encoded RNA sequence
             # associated_metadata: ranges # --> has to be defined in dataloader.yaml.

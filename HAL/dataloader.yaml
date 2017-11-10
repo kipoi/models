@@ -13,7 +13,7 @@ info:
     name: HAL
     version: 0.1
     descr: Model from Rosenberg ... TODO 
-schema:
+output_schema:
     inputs:
         seq:
             shape: (1000,) # TODO  number of k-mers
