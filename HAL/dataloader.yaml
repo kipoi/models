@@ -3,11 +3,14 @@ defined_as: dataloader.py::SplicingKmerDataset
 args:
     fasta_file:
         descr: Reference Genome sequence in fasta format
+        example: example_files/hg38_chr22.fa
     gtf_file:
         descr: file path; Genome annotation GTF file
+        example: example_files/gencode_v25_chr22.gtf.pkl.gz
     target_file:
         descr: path to the targets (txt) file
         optional: True
+        example: example_files/targets.tsv
 info:
     author: Jun Cheng, Ziga Avsec
     name: HAL

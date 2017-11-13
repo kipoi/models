@@ -3,8 +3,10 @@ defined_as: dataloader.py::SeqDataset
 args:
   intervals_file:
     descr: bed3 file with `chrom start end id score strand`
+    example: example_files/intervals.bed
   fasta_file:
     descr: Reference genome sequence
+    example: example_files/hg38_chr22.fa
   target_file:
     descr: path to the targets (.tsv) file
     optional: True
