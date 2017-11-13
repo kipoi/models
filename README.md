@@ -17,7 +17,7 @@ git-lfs install
 2. Clone your repository fork, ignore all the git lfs files
     - `git lfs clone git@github.com:<username>/models.git '-I /'`
 3. Create a new folder `<mynewmodel>` containing all the model files in the repostiory root
-    - See how to structure a model directory in [kipoi/model-zoo/docs/contributing_models.md](https://github.com/kipoi/model-zoo/blob/master/docs/contributing_models.md)
+    - See how to structure a model directory in [kipoi/kipoi/nbs/contributing_models.ipynb](https://github.com/kipoi/kipoi/blob/master/nbs/contributing_models.ipynb)
 	- put all the non-code files (serialized models, test data) into a `*files` directory, where `*` can be anything.
 	  - Examples: `model_files`, `dataloader_files`
 
