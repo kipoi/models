@@ -32,3 +32,8 @@ schema:
     name: epigen_mod
     shape: (918, )
     descr: Probability of a specific epigentic feature
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
