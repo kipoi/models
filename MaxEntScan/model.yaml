@@ -4,16 +4,21 @@ args:
   object: MaxEntModel
 default_dataloader: . # relative path to the default dataloader
 info:
-    author: Jun Cheng
-    name: MaxEnt
+    authors:
+       - name: Jun Cheng
+         github: s6juncheng
+    doc: MaxEnt Splicing Model
     version: 0.1
-    descr: MaxEnt Splicing Model
+dependencies:
+    conda:
+      - python=3.5
+      - maxentpy
 schema:
     inputs:
         seq:
             shape: (1000,) 
-            descr: K-mer counts
+            doc: K-mer counts
     targets:
         psi:
             shape: (1, )
-            descr: "Predicted psi"
+            doc: "Predicted psi"
