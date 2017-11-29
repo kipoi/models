@@ -1,0 +1,19 @@
+type: custom
+args:
+  file: model.py
+  object: MaxEntModel
+default_dataloader: . # relative path to the default dataloader
+info:
+    author: Jun Cheng
+    name: MaxEnt
+    version: 0.1
+    descr: MaxEnt Splicing Model
+schema:
+    inputs:
+        seq:
+            shape: (1000,) 
+            descr: K-mer counts
+    targets:
+        psi:
+            shape: (1, )
+            descr: "Predicted psi"

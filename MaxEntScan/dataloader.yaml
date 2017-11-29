@@ -1,0 +1,37 @@
+type: Dataset
+defined_as: dataloader.py::SplicingMaxEntDataset
+args:
+    fasta_file:
+        doc: Reference Genome sequence in fasta format
+    AS_gtf:
+        doc: file path; Genome annotation GTF file
+    side:
+        side: 5' splice junction (5prime) or 3' splice junction (3prime)
+    target_file:
+        doc: path to the targets (txt) file
+        optional: True
+    select_fn:
+        doc: select function
+    label_col:
+        doc: response label column name
+
+info:
+    author: Jun Cheng
+    name: MaxEnt
+    version: 0.1
+    doc: MaxEnt Splicing Model 
+output_schema:
+    inputs:
+        seq:
+            shape: (1000,) 
+            doc: list of 5' or 3' splicing junctions per gene
+    targets:
+        name: psi
+        shape: (1, )
+        doc: "Predicted psi"
+    metadata:
+        ranges:
+            type: Ranges
+            doc: Ranges describing inputs.seq
+
+# d: is an alias for description
