@@ -5,7 +5,9 @@ args:
 # default_dataloader: dataloader.yaml # shall we call it just dataloader?
 # dataloader.yaml is used by default
 info:
-    author: Johnny Israeli
+    authors:
+        - name: Johnny Israeli
+          github: jisraeli
     name: extended CODA
     version: 0.1
     doc: Single bp resolution ChIP-seq denoising

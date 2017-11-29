@@ -20,7 +20,7 @@ args:
 info: 
     authors:
         - name: Johnny Israeli
-          github: 
+          github: jisraeli
     name: extended CODA
     version: 0.1
     doc: DataLoader for single bp resolution ChIP-seq denoising
