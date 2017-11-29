@@ -19,9 +19,9 @@ args:
         optional: True
         example: example_files/targets.tsv
 info:
-    author: Ziga Avsec
-    name: rbp_eclip
-    version: 0.1
+    authors:
+        - name: Ziga Avsec
+          github: avsecz
     doc: RBP binding prediction
 dependencies:
     pip:
