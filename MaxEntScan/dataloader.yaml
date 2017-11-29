@@ -3,8 +3,12 @@ defined_as: dataloader.py::SplicingMaxEntDataset
 args:
     fasta_file:
         doc: Reference Genome sequence in fasta format
+        type: str
+        example: example_files/hg19_chr22.fa
     AS_gtf:
         doc: file path; Genome annotation GTF file
+        type: str
+        example: example_files/hg19_chr22_AS.gtf
     side:
         side: 5' splice junction (5prime) or 3' splice junction (3prime)
     target_file:
@@ -16,14 +20,20 @@ args:
         doc: response label column name
 
 info:
-    author: Jun Cheng
+    authors:
+      - name: Jun Cheng
+        github: s6juncheng
     name: MaxEnt
     version: 0.1
-    doc: MaxEnt Splicing Model 
+    doc: MaxEnt Splicing Model
+dependencies:
+    conda:
+      - python=3.5
+      - maxentpy
 output_schema:
     inputs:
         seq:
-            shape: (1000,) 
+            shape: (3,) 
             doc: list of 5' or 3' splicing junctions per gene
     targets:
         name: psi
