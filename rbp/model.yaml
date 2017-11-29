@@ -5,9 +5,9 @@ args:
     custom_objects: model/custom_keras_objects.py
 default_dataloader: . # relative path to the default dataloader
 info:
-    author: Ziga Avsec
-    name: rbp_eclip
-    version: 0.1
+    authors:
+        - name: Ziga Avsec
+          github: avsecz
     doc: RBP binding prediction
 dependencies:
     pip:
