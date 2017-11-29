@@ -2,19 +2,21 @@ type: Dataset
 defined_as: dataloader.py::SeqDataset
 args:
   intervals_file:
-    descr: bed3 file with `chrom start end id score strand`
+    doc: bed3 file with `chrom start end id score strand`
     example: example_files/intervals.bed
   fasta_file:
-    descr: Reference genome sequence
+    doc: Reference genome sequence
     example: example_files/hg38_chr22.fa
   target_file:
-    descr: path to the targets (.tsv) file
+    doc: path to the targets (.tsv) file
     optional: True
 info:
-  author: Lara Urban, Ziga Avsec
-  name: DeepSEA
-  version: 0.1
-  descr: Dataloader for the DeepSEA model.
+  authors:
+      - name: Lara Urban
+        github: LaraUrban
+      - name: Ziga Avsec
+        github: avsecz
+  doc: Dataloader for the DeepSEA model.
 dependencies:
   conda:
     - python=3.5
@@ -28,13 +30,13 @@ output_schema:
     name: seq
     shape: (1000, 4)
     special_type: DNASeq
-    descr: DNA sequence
+    doc: DNA sequence
     associated_metadata: ranges
   targets:
     name: epigen_mod
     shape: (918, )
-    descr: Specific epigentic feature class (multi-task binary classification)
+    doc: Specific epigentic feature class (multi-task binary classification)
   metadata:
     ranges:
       type: GenomicRanges
-      descr: Ranges describing inputs.seq
+      doc: Ranges describing inputs.seq

@@ -1,0 +1,72 @@
+type: Dataset
+defined_as: dataloader.py::SeqDistDataset
+args:
+    intervals_file:
+        doc: bed6 file with `chrom start end id score strand` columns
+        example: example_files/intervals.bed
+    fasta_file:
+        doc: Reference genome sequence
+        example: example_files/hg38_chr22.fa
+    gtf_file:
+        doc: file path; Genome annotation GTF file
+        example: example_files/gencode.v24.annotation_chr22.gtf
+    target_file:
+        doc: path to the targets (txt) file
+        optional: True
+        example: example_files/targets.tsv
+info:
+    authors:
+        - name: Ziga Avsec
+          github: avsecz
+    doc: RBP binding prediction for UPF1 protein
+dependencies:
+    pip:
+        # - git+git://github.com/kundajelab/genomelake.git#egg=genomelake
+        - dill
+        - concise>=0.6.3
+        - pybedtools
+        - pysam
+output_schema:
+    inputs:
+        seq:
+            shape: (101, 4)
+            special_type: DNASeq
+            doc: One-hot encoded RNA sequence
+            associated_metadata: ranges
+        dist_tss:
+            shape: (1, 10)
+            doc: Distance the nearest TSS site transformed with B-splines
+        dist_polya:
+            shape: (1, 10)
+            doc: Distance the nearest Poly-A site transformed with B-splines
+        dist_exon_intron:
+            shape: (1, 10)
+            doc: Distance the nearest exon_intron (splice donor) site transformed with B-splines
+        dist_intron_exon:
+            shape: (1, 10)
+            doc: Distance the nearest intron_exon (splice acceptor) site transformed with B-splines
+        dist_start_codon:
+            shape: (1, 10)
+            doc: Distance the nearest start codon transformed with B-splines
+        dist_stop_codon:
+            shape: (1, 10)
+            doc: Distance the nearest stop codon transformed with B-splines
+        dist_gene_start:
+            shape: (1, 10)
+            doc: Distance the nearest gene start transformed with B-splines
+        dist_gene_end:
+            shape: (1, 10)
+            doc: Distance the nearest gene end transformed with B-splines
+    targets:
+        shape: (1, )
+        doc: Measured binding strength
+    metadata:
+        ranges:
+            type: GenomicRanges
+            doc: Ranges describing inputs.seq
+
+postprocessing:
+    - type: variant_effects
+      args:
+          bed_input:
+            - intervals_file

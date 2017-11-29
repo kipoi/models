@@ -8,7 +8,7 @@ info:
     author: Ziga Avsec
     name: rbp_eclip
     version: 0.1
-    descr: RBP binding prediction
+    doc: RBP binding prediction
 dependencies:
     pip:
         - concise>=0.6.3
@@ -19,12 +19,12 @@ schema:
         seq:
             shape: (101, 4)
             special_type: DNASeq
-            descr: One-hot encoded RNA sequence
+            doc: One-hot encoded RNA sequence
             # associated_metadata: ranges # --> has to be defined in dataloader.yaml.
             #                                   This field is ignored in model.yaml.
         dist_polya_st:
             shape: (1, 10)
-            descr: Distance to poly-a site transformed with B-splines
+            doc: Distance to poly-a site transformed with B-splines
     targets:
         shape: (1, )
-        descr: Predicted binding strength
+        doc: Predicted binding strength

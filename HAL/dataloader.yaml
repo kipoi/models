@@ -2,32 +2,34 @@ type: Dataset
 defined_as: dataloader.py::SplicingKmerDataset
 args:
     fasta_file:
-        descr: Reference Genome sequence in fasta format
+        doc: Reference Genome sequence in fasta format
         example: example_files/hg38_chr22.fa
     gtf_file:
-        descr: file path; Genome annotation GTF file
+        doc: file path; Genome annotation GTF file
         example: example_files/gencode_v25_chr22.gtf.pkl.gz
     target_file:
-        descr: path to the targets (txt) file
+        doc: path to the targets (txt) file
         optional: True
         example: example_files/targets.tsv
 info:
-    author: Jun Cheng, Ziga Avsec
-    name: HAL
-    version: 0.1
-    descr: Model from Rosenberg ... TODO 
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+        - name: Ziga Avsec
+          github: avsecz
+    doc: Model from Rosenberg ... TODO 
 output_schema:
     inputs:
         seq:
             shape: (1000,) # TODO  number of k-mers
-            descr: K-mer counts
+            doc: K-mer counts
     targets:
         psi:
             shape: (1, )
-            descr: "Predicted 3' psi"
+            doc: "Predicted 3' psi"
     metadata:
         ranges:
             type: GenomicRanges
-            descr: Ranges describing inputs.seq
+            doc: Ranges describing inputs.seq
 
 # d: is an alias for description

@@ -4,16 +4,18 @@ args:
   object: HALModel
 default_dataloader: . # relative path to the default dataloader
 info:
-    author: Jun Cheng, Ziga Avsec
-    name: HAL
-    version: 0.1
-    descr: Model from Rosenberg ... TODO 
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+        - name: Ziga Avsec
+          github: avsecz
+    doc: Model from Rosenberg ... TODO
 schema:
     inputs:
         seq:
             shape: (1000,) # TODO  number of k-mers
-            descr: K-mer counts
+            doc: K-mer counts
     targets:
         psi:
             shape: (1, )
-            descr: "Predicted 3' psi"
+            doc: "Predicted 3' psi"
