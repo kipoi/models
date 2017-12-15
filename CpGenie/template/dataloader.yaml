@@ -24,9 +24,11 @@ dependencies:
     - python=3.5
     - numpy
     - pandas
+    - cython # required by genomelake
   pip:
-    # - genomelake
     - pybedtools
+    - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
+    - data/packages/genomelake-0.1.tar.gz # TODO - edit back
 output_schema:
   inputs:
     name: seq

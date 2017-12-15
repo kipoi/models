@@ -20,12 +20,17 @@ info:
           github: avsecz
     doc: RBP binding prediction for UPF1 protein
 dependencies:
+    conda:
+        - cython
+        - scikit-learn
     pip:
-        # - git+git://github.com/kundajelab/genomelake.git#egg=genomelake
-        - dill
-        - concise>=0.6.3
+        - gtfparse
         - pybedtools
         - pysam
+        - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
+        - data/packages/genomelake-0.1.tar.gz # TODO - edit back
+        - dill
+        - concise>=0.6.3
 output_schema:
     inputs:
         seq:

@@ -5,22 +5,32 @@ import os
 import inspect
 from builtins import str, open, range, dict
 
-import dill as pickle
+import pickle
 import numpy as np
 import pandas as pd
 import pybedtools
 from pybedtools import BedTool
 
+from sklearn.preprocessing import FunctionTransformer
 from genomelake.extractors import BaseExtractor, FastaExtractor, one_hot_encode_sequence, NUM_SEQ_CHARS
 from pysam import FastaFile
 from concise.preprocessing.splines import encodeSplines
-from concise.utils.position import extract_landmarks, read_gtf, ALL_LANDMARKS
+from concise.utils.position import extract_landmarks, ALL_LANDMARKS
+from gtfparse import read_gtf_as_dataframe
 from kipoi.metadata import GenomicRanges
 
 from kipoi.data import Dataset
 
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 DATALOADER_DIR = os.path.dirname(os.path.abspath(filename))
+
+
+def sign_log_func(x):
+    return np.sign(x) * np.log10(np.abs(x) + 1)
+
+
+def sign_log_func_inverse(x):
+    return np.sign(x) * (np.power(10, np.abs(x)) - 1)
 
 
 class DistanceTransformer:
@@ -40,16 +50,18 @@ class DistanceTransformer:
         with open(self.pipeline_obj_path, "rb") as f:
             pipeline_obj = pickle.load(f)
         self.POS_FEATURES = pipeline_obj[0]
-        self.preproc_pipeline = pipeline_obj[1]
+        self.minmax_scaler = pipeline_obj[1]
         self.imp = pipeline_obj[2]
 
+        self.funct_transform = FunctionTransformer(func=sign_log_func,
+                                                   inverse_func=sign_log_func_inverse)
         # for simplicity, assume all current pos_features are the
         # same as from before
         assert self.POS_FEATURES == self.pos_features
 
     def transform(self, x):
         # impute missing values and rescale the distances
-        xnew = self.preproc_pipeline.transform(self.imp.transform(x))
+        xnew = self.minmax_scaler.transform(self.funct_transform.transform(self.imp.transform(x)))
 
         # convert distances to spline bases
         dist = {"dist_" + k: encodeSplines(xnew[:, i, np.newaxis], start=0, end=1, warn=False)
@@ -75,7 +87,7 @@ class DistToClosestLandmarkExtractor(BaseExtractor):
         self.use_strand = use_strand
 
         # set index to chromosome and strand - faster access
-        self.landmarks = {k: v.set_index(["seqnames", "strand"])
+        self.landmarks = {k: v.set_index(["seqname", "strand"])
                           for k, v in six.iteritems(self.landmarks)}
 
     def _extract(self, intervals, out, **kwargs):
@@ -134,8 +146,9 @@ class SeqDistDataset(Dataset):
     """
 
     def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None):
-        gtf = read_gtf(gtf_file)
-        self.gtf = gtf[gtf["info"].str.contains('gene_type "protein_coding"')]
+        gtf = read_gtf_as_dataframe(gtf_file)
+        
+        self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
 
         # intervals
         self.bt = pybedtools.BedTool(intervals_file)
@@ -187,7 +200,7 @@ def test_dataset():
     """Runs tests on the function
     """
     # File paths
-    intervals_file = "example_files/intervals.tsv"
+    intervals_file = "example_files/intervals.bed"
     target_file = "example_files/targets.tsv"
     gtf_file = "example_files/gencode.v24.annotation_chr22.gtf"
     fasta_file = "example_files/hg38_chr22.fa"
