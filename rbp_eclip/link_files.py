@@ -1,8 +1,12 @@
 """link files
 """
 import os
-from dump_dataloader_files import RBP_ALL
+
 import errno
+
+with open('rbps.txt', 'r') as f:
+    lines = f.readlines()
+RBP_ALL = [x.strip() for x in lines]
 
 
 def symlink_force(target, link_name):
@@ -18,9 +22,9 @@ def symlink_force(target, link_name):
 
 def softlink_files(rbp):
     print("Softlinking: {0}".format(rbp))
-    symlink_force("../template/dataloader_template.yaml",
+    symlink_force("../template/dataloader.yaml",
                   "{0}/dataloader.yaml".format(rbp))
-    symlink_force("../template/model_template.yaml",
+    symlink_force("../template/model.yaml",
                   "{0}/model.yaml".format(rbp))
     symlink_force("../template/dataloader.py",
                   "{0}/dataloader.py".format(rbp))
