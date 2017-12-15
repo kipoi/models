@@ -148,7 +148,16 @@ class SeqDistDataset(Dataset):
     def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None):
         gtf = read_gtf_as_dataframe(gtf_file)
         
-        self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
+        if "gene_type" in gtf:
+            self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
+        elif "gene_biotype" in gtf:
+            self.gtf = gtf[gtf["gene_biotype"] == "protein_coding"]
+        else:
+            raise ValueError("Gtf doesn't have the field 'gene_type' or 'gene_biotype'")
+
+        if not np.any(self.gtf.seqname.str.contains("chr")):
+            self.gtf["seqname"] = "chr" + self.gtf["seqname"]
+                        
 
         # intervals
         self.bt = pybedtools.BedTool(intervals_file)
