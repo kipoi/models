@@ -2,7 +2,7 @@
 """
 import os
 import numpy as np
-import dill as pickle
+import pickle
 from kipoi.utils import load_module
 from concise.preprocessing.splines import encodeSplines
 from concise.utils.position import ALL_LANDMARKS
@@ -23,7 +23,7 @@ def dump_position_transformer(rbp):
     out_path = "{0}/dataloader_files/position_transformer.pkl".format(rbp)
     print("Dumping for rbp: {rbp} to path: {out_path}".format(rbp=rbp, out_path=out_path))
     train, valid, test = data.data_extended(rbp)
-    pipeline_obj = train[3:]
+    pipeline_obj = (train[3], train[4].steps[1][1], train[5])
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
     # save to pkl
