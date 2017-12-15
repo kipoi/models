@@ -47,3 +47,9 @@ schema:
     targets:
         shape: (1, )
         doc: Predicted binding strength
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
+
