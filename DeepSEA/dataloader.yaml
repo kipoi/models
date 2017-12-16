@@ -34,7 +34,7 @@ output_schema:
     associated_metadata: ranges
   targets:
     name: epigen_mod
-    shape: (918, )
+    shape: (919, )
     doc: Specific epigentic feature class (multi-task binary classification)
   metadata:
     ranges:
