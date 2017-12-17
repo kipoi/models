@@ -1,0 +1,52 @@
+args:
+  arch: model_files/model.json
+  weights: model_files/model_weights.h5
+default_dataloader: .
+dependencies:
+  conda:
+  - python=3.5
+  - h5py
+  pip:
+  - keras==1.2.2
+  - deepcpg==1.0.4
+info:
+  authors:
+  - github: cangermueller
+    name: Christof Angermueller
+  doc: 'This is the extraction of the DNA-part of the a pretrained model by Christof
+    Angermueller
+
+    '
+  name: DeepCpG
+  version: 1.0.4
+postprocessing:
+- args:
+    seq_input:
+    - seq
+  type: variant_effects
+schema:
+  inputs:
+    dna:
+      doc: DNA sequence
+      shape: (1001, 4)
+      special_type: DNASeq
+  targets:
+  - doc: Methylation probability for cpg/HepG21
+    name: cpg/HepG21
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/HepG22
+    name: cpg/HepG22
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/HepG23
+    name: cpg/HepG23
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/HepG24
+    name: cpg/HepG24
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/HepG25
+    name: cpg/HepG25
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/HepG26
+    name: cpg/HepG26
+    shape: (None, 1)
+type: keras

@@ -1,0 +1,116 @@
+args:
+  cpg_profiles:
+    doc: list of CpG-Files
+    example:
+    - example_files/BS27_1_SER.tsv
+    - example_files/BS27_3_SER.tsv
+    - example_files/BS27_5_SER.tsv
+    - example_files/BS27_6_SER.tsv
+    - example_files/BS27_8_SER.tsv
+  reference_fpath:
+    doc: Reference genome sequence
+    example: example_files/mm10
+defined_as: dataloader_m.py::Dataloader
+dependencies:
+  conda:
+  - python=3.5
+  - numpy
+  - pandas
+  pip:
+  - pybedtools
+  - deepcpg==1.0.4
+info:
+  authors:
+  - github: cangermueller
+    name: Christof Angermueller
+  - github: krrome
+    name: Roman Kreuzhuber
+  doc: Dataloader + target output for the DeepCpG model.
+output_schema:
+  inputs:
+    dna:
+      associated_metadata: dna_ranges
+      doc: DNA sequence
+      shape: (1001, 4)
+      special_type: DNASeq
+  metadata:
+    dna_ranges:
+      doc: Ranges describing inputs.seq
+      type: GenomicRanges
+  targets:
+  - doc: Methylation probability for cpg/Ca01
+    name: cpg/Ca01
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca02
+    name: cpg/Ca02
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca03
+    name: cpg/Ca03
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca04
+    name: cpg/Ca04
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca05
+    name: cpg/Ca05
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca06
+    name: cpg/Ca06
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca07
+    name: cpg/Ca07
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca08
+    name: cpg/Ca08
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca09
+    name: cpg/Ca09
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca10
+    name: cpg/Ca10
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca11
+    name: cpg/Ca11
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca12
+    name: cpg/Ca12
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca13
+    name: cpg/Ca13
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca14
+    name: cpg/Ca14
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca15
+    name: cpg/Ca15
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca16
+    name: cpg/Ca16
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca17
+    name: cpg/Ca17
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca18
+    name: cpg/Ca18
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca19
+    name: cpg/Ca19
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca20
+    name: cpg/Ca20
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca21
+    name: cpg/Ca21
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca22
+    name: cpg/Ca22
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca23
+    name: cpg/Ca23
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca24
+    name: cpg/Ca24
+    shape: (None, 1)
+  - doc: Methylation probability for cpg/Ca25
+    name: cpg/Ca25
+    shape: (None, 1)
+type: Dataset

@@ -1,0 +1,33 @@
+type: keras
+args:
+  arch: model_files/model.json
+  weights: model_files/model_weights.h5
+info:
+  authors:
+      - name: Christof Angermueller
+        github: cangermueller
+  name: DeepCpG
+  version: 1.0.4
+  doc: >
+    This is the extraction of the DNA-part of the a pretrained model by Christof Angermueller
+default_dataloader: .
+dependencies:
+  conda:
+    - python=3.5
+    - h5py
+  pip:
+    - keras==1.2.2
+    - deepcpg==1.0.4
+schema:
+  inputs:
+    dna:
+      doc: DNA sequence
+      shape: (1001, 4)
+      special_type: DNASeq
+  targets:
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
+
