@@ -1,0 +1,51 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+  intervals_file:
+    doc: bed3 file with `chrom start end id score strand`
+    example: example_files/intervals.bed
+  fasta_file:
+    doc: Reference genome sequence
+    example: example_files/hg38_chr22.fa
+  target_file:
+    doc: path to the targets (.tsv) file
+    optional: True
+info:
+  authors:
+      - name: Haoyang Zeng
+        github: haoyangz
+      - name: Ziga Avsec
+        github: avsecz
+      - name: Roman Kreuzhuber
+        github: krrome
+  doc: Dataloader for the CpGenie model.
+dependencies:
+  conda:
+    - python=3.5
+    - numpy
+    - pandas
+    - cython # required by genomelake
+  pip:
+    - pybedtools
+    - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
+    - data/packages/genomelake-0.1.tar.gz # TODO - edit back
+output_schema:
+  inputs:
+    name: seq
+    shape: (4, 1, 1001)
+    special_type: DNASeq
+    doc: DNA sequence
+    associated_metadata: ranges
+  # targets:
+  #   name: methylation_prob
+  #   shape: (50, )
+  #   doc: Methylated probability for 50 different models
+  metadata:
+    ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
+postprocessing:
+    - type: variant_effects
+      args:
+          bed_input:
+            - intervals_file
