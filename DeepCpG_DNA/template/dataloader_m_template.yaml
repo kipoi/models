@@ -1,0 +1,42 @@
+type: Dataset
+defined_as: dataloader_m.py::Dataloader
+args:
+  cpg_profiles:
+    doc: list of CpG-Files
+    example:
+      - example_files/BS27_1_SER.tsv
+      - example_files/BS27_3_SER.tsv
+      - example_files/BS27_5_SER.tsv
+      - example_files/BS27_6_SER.tsv
+      - example_files/BS27_8_SER.tsv
+  reference_fpath:
+    doc: Reference genome sequence
+    example: example_files/mm10
+info:
+  authors:
+      - name: Christof Angermueller
+        github: cangermueller
+      - name: Roman Kreuzhuber
+        github: krrome
+  doc: Dataloader + target output for the DeepCpG model.
+dependencies:
+  conda:
+    - python=3.5
+    - numpy
+    - pandas
+  pip:
+    # - genomelake
+    - pybedtools
+    - deepcpg==1.0.4
+output_schema:
+  inputs:
+    dna:
+      shape: (1001, 4)
+      special_type: DNASeq
+      doc: DNA sequence
+      associated_metadata: dna_ranges
+  targets:
+  metadata:
+    dna_ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
