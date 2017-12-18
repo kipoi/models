@@ -25,12 +25,16 @@ class MaxEntModel(BaseModel):
 
     def score_seqs(self, seqs):
         seq_scores = [self._score_seq(seq) for seq in seqs]
-        return seq_scores
+        if self.side == '5prime':
+            delta_score = seq_scores[1] - seq_scores[0]
+        else:
+            delta_score = seq_scores[0] - seq_scores[1]
+        return delta_score
 
     def _get_x(self, inputs):
         """ Get x for prediction"""
-        #seq = inputs["seq"]
-        seq = inputs['inputs']["seq"]
+        seq = inputs["seq"]
+        #seq = np.array(inputs['inputs']["seq"]).T
         return seq
 
     def predict_on_batch(self, inputs):
