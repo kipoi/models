@@ -22,7 +22,7 @@ info:
 postprocessing:
 - args:
     seq_input:
-    - seq
+    - dna
   type: variant_effects
 schema:
   inputs:
