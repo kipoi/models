@@ -1,35 +1,46 @@
 type: Dataset
 defined_as: dataloader.py::SplicingKmerDataset
 args:
+    AS_gtf:
+        doc: file path; Genome annotation GTF file
+        example: example_files/hg19_chr22_AS.gtf
     fasta_file:
         doc: Reference Genome sequence in fasta format
-        example: example_files/hg38_chr22.fa
-    gtf_file:
-        doc: file path; Genome annotation GTF file
-        example: example_files/gencode_v25_chr22.gtf.pkl.gz
-    target_file:
-        doc: path to the targets (txt) file
+        example: example_files/hg19.chr22.fa
+    overhang:
+        doc: Length of sequence overhang to take around splice junction
         optional: True
-        example: example_files/targets.tsv
 info:
     authors:
         - name: Jun Cheng
           github: s6juncheng
         - name: Ziga Avsec
           github: avsecz
-    doc: Model from Rosenberg ... TODO 
+    doc: Model from Rosenberg
 output_schema:
     inputs:
         seq:
-            shape: (1000,) # TODO  number of k-mers
+            shape: () # TODO  number of k-mers
             doc: K-mer counts
     targets:
         psi:
             shape: (1, )
             doc: "Predicted 3' psi"
     metadata:
-        ranges:
-            type: GenomicRanges
-            doc: Ranges describing inputs.seq
+        geneName:
+            type: str
+            doc: gene name
+        chrom:
+            type: str
+            doc: chromosome
+        strand:
+            type: str
+            doc: strand of the gene
+        start:
+            type: str
+            doc: start of alternative splicing event
+        stop:
+            type: str
+            doc: stop of alternative splicing event
 
 # d: is an alias for description

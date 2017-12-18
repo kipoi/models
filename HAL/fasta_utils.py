@@ -1,1 +1,0 @@
-../../recods/Scripts/fasta_utils.py
