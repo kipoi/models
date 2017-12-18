@@ -16,8 +16,8 @@ dependencies:
 schema:
     inputs:
         seq:
-            shape: (1000,) 
-            doc: K-mer counts
+            shape: () 
+            doc: Actual junction sequence
     targets:
         psi:
             shape: (1, )

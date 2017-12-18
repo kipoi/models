@@ -4,13 +4,14 @@ args:
     fasta_file:
         doc: Reference Genome sequence in fasta format
         type: str
-        example: example_files/hg19_chr22.fa
+        example: example_files/hg19.chr22.fa
     AS_gtf:
         doc: file path; Genome annotation GTF file
         type: str
         example: example_files/hg19_chr22_AS.gtf
     side:
-        side: 5' splice junction (5prime) or 3' splice junction (3prime)
+        type: str
+        doc: 5' splice junction (5prime) or 3' splice junction (3prime)
     target_file:
         doc: path to the targets (txt) file
         optional: True
@@ -33,15 +34,27 @@ dependencies:
 output_schema:
     inputs:
         seq:
-            shape: (3,) 
+            shape: () 
             doc: list of 5' or 3' splicing junctions per gene
     targets:
         name: psi
         shape: (1, )
         doc: "Predicted psi"
     metadata:
-        ranges:
-            type: Ranges
-            doc: Ranges describing inputs.seq
+        geneName:
+            type: str
+            doc: gene name
+        chrom:
+            type: str
+            doc: chromosome
+        strand:
+            type: str
+            doc: strand of the gene
+        start:
+            type: str
+            doc: start of alternative splicing event
+        stop:
+            type: str
+            doc: stop of alternative splicing event
 
 # d: is an alias for description
