@@ -13,7 +13,7 @@ info:
 schema:
     inputs:
         seq:
-            shape: (1000,) # TODO  number of k-mers
+            shape: () # TODO  number of k-mers
             doc: K-mer counts
     targets:
         psi:
