@@ -1,5 +1,5 @@
-# HAL model from Rosenberg et al. Cell 2015
+# MaxEntScan model
 
-http://splicing.cs.washington.edu/
-
-https://github.com/Alex-Rosenberg/cell-2015
+http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html
+http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html
+https://github.com/kepbod/maxentpy
