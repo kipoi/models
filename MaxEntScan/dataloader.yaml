@@ -37,9 +37,9 @@ output_schema:
             shape: () 
             doc: list of 5' or 3' splicing junctions per gene
     targets:
-        name: psi
-        shape: (1, )
-        doc: "Predicted psi"
+        psi:
+            shape: (1, )
+            doc: "Predicted psi"
     metadata:
         geneName:
             type: str
