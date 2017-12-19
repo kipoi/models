@@ -25,10 +25,11 @@ class SplicingMaxEntDataset(Dataset):
         sep_intron_exon: will return exon, intron by separately in a list. Otherwise a whole piece of sequence with intron + overhang in both sides.
         overhang: length of overhang.
     """
+
     def __init__(self,
                  AS_gtf,
                  fasta_file,
-                 side='5prime', # 5prime/3prime
+                 side='5prime',  # 5prime/3prime
                  target_file=None,
                  select_fn=None,
                  label_col='event_name'
@@ -44,7 +45,7 @@ class SplicingMaxEntDataset(Dataset):
             self.overhang_r = 6
         else:
             self.overhang_l = 3
-            self.overhang_r = 20           
+            self.overhang_r = 20
         if target_file is not None:
             self.Y = Target(target_file, label_col)
         else:
@@ -62,11 +63,9 @@ class SplicingMaxEntDataset(Dataset):
         out = {}
         out['inputs'] = self.get_seq(gene)
         if self.Y is not None:
-            out['target'] = self.Y.get_target(gene.geneName)
+            out['targets'] = self.Y.get_target(gene.geneName)
         else:
-            out['target'] = np.nan
-        # out['metadata'] = gene.__dict__  # gene is a Gene class instance, but torch Dataloader don't like it.
-        # out['metadata']['trans'] = [i.__dict__ for i in gene.trans]
+            out['targets'] = np.nan
         out['metadata'] = {}
         out['metadata']['geneName'] = gene.geneName
         out['metadata']['chrom'] = gene.chrom
@@ -83,25 +82,25 @@ class SplicingMaxEntDataset(Dataset):
         exons = gene.get_all_exons()
         N_exon = exons.shape[0]
         introns = gene.get_all_introns()
-        
+
         # Take intron coordinate
         # Try both normal gtf and AS_gtf
-        
+
         # seq_range = introns + np.array([-self.overhang, self.overhang])
         if self.side == "5prime":
             if gene.strand == "+":
-                seq_ranges = exons[0:N_exon-1,1].reshape(-1,1) + np.array([-self.overhang_l+1, self.overhang_r])
+                seq_ranges = exons[0:N_exon - 1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
             else:
-                seq_ranges = exons[1:,0].reshape(-1,1) + np.array([-self.overhang_r, self.overhang_l-1])
+                seq_ranges = exons[1:, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
         else:
             if gene.strand == "+":
-                seq_ranges = exons[1:,0].reshape(-1,1) + np.array([-self.overhang_r, self.overhang_l-1])
+                seq_ranges = exons[1:, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
             else:
-                seq_ranges = exons[0:N_exon-1,1].reshape(-1,1) + np.array([-self.overhang_l+1, self.overhang_r])
+                seq_ranges = exons[0:N_exon - 1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
         seq = [self.fasta.get_seq(gene.chrom,
-                                 seq_range,
-                                 gene.strand)
-              for seq_range in seq_ranges]
+                                  seq_range,
+                                  gene.strand)
+               for seq_range in seq_ranges]
         if genomic_reorder:
             if gene.strand == "-":
                 seq = seq[::-1]
