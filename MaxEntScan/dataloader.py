@@ -104,7 +104,7 @@ class SplicingMaxEntDataset(Dataset):
         if genomic_reorder:
             if gene.strand == "-":
                 seq = seq[::-1]
-        return {"seq": seq}
+        return {"seq": np.array(seq)}
 
     @property
     def genes(self):
