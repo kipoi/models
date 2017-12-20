@@ -34,7 +34,7 @@ dependencies:
 output_schema:
     inputs:
         seq:
-            shape: () 
+            shape: (2,)
             doc: list of 5' or 3' splicing junctions per gene
     targets:
         psi:
