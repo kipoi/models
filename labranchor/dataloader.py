@@ -78,14 +78,14 @@ class BranchPointDataset(Dataset):
     def __getitem__(self, idx):
         """
         Return a list of Branch objects. They contain coordinates that can be
-        written to bef files
+        written to bed files
         """
         out = {}
         out['inputs'] = {}
         branch = self.branches[idx]
 
         # input sequence
-        out['inputs']['seq'] = branch.seq
+        out['inputs']['bidirectional_1_input'] = branch.seq
 
         # metadata
         out['metadata'] = {}
