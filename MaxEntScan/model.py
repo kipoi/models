@@ -40,8 +40,8 @@ class MaxEntModel(BaseModel):
 
     def _get_x(self, inputs):
         """ Get x for prediction"""
-        seq = np.array(inputs["seq"]).T
-        # seq = np.array(inputs['inputs']["seq"]).T
+        seq = inputs["seq"]
+        # seq = inputs['inputs']["seq"]
         return seq
 
     def predict_on_batch(self, inputs):
