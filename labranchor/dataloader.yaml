@@ -47,3 +47,6 @@ output_schema:
         stop:
             type: str
             doc: stop of candidate branch point region
+        biotype:
+            type: str
+            doc: gene biotype, can be used to filter protein coding genes for instance
