@@ -1,0 +1,49 @@
+type: Dataset
+defined_as: dataloader.py::BranchPointDataset
+args:
+    fasta_file:
+        doc: Reference genome sequence
+        example: example_files/hg19.chr22.fa
+    gtf_file:
+        doc: file path; Genome annotation GTF file
+        example: example_files/hg19.chr22.gtf
+    length:
+        doc: length of considered candidate branchpoint region, upstream of 3'ss
+        example: 70
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+    doc: LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network
+dependencies:
+    pip:
+        - pysam
+        - numpy
+output_schema:
+    inputs:
+        bidirectional_1_input:
+            shape: (70, 4)
+            special_type: DNASeq
+            doc: One-hot encoded RNA sequence
+    targets:
+        shape: (70, )
+        doc: Predicted probability of being branchpoint along the sequence
+    metadata:
+        geneID:
+            type: str
+            doc: gene ID
+        transcriptID:
+            type: str
+            doc: transcript id
+        chrom:
+            type: str
+            doc: chromosome
+        strand:
+            type: str
+            doc: strand of the gene
+        start:
+            type: str
+            doc: start of candidate branch point region
+        stop:
+            type: str
+            doc: stop of candidate branch point region

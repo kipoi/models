@@ -1,0 +1,27 @@
+type: keras
+args:
+    weights: model_files/labranchor.h5
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+    doc: LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network
+dependencies:
+    pip:
+        - tensorflow>=1.0.0
+        - keras>=2.0.4
+schema:
+    inputs:
+        bidirectional_1_input:
+            shape: (70, 4)
+            special_type: DNASeq
+            doc: One-hot encoded RNA sequence
+    targets:
+        shape: (70, )
+        doc: Predicted probability of being branchpoint along the sequence
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
