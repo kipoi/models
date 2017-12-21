@@ -34,8 +34,8 @@ schema:
     name: TFBS_DHS_probs
     shape: (919, )
     doc: Probability of a specific epigentic feature
-    column_labels:
-      - output_labels.txt
+#    column_labels:
+#      - output_labels.txt
 postprocessing:
     - type: variant_effects
       args:
