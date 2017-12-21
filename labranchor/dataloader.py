@@ -7,7 +7,6 @@ import inspect
 import os
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 this_path = os.path.dirname(os.path.abspath(filename))
-# TODO - attach this_path to the pythonpathGXS
 import sys
 sys.path.append(this_path)
 from gtf_utils import loadgene
@@ -22,6 +21,7 @@ def onehot(seq):
         X[i, bases.index(char)] = 1
     return X
 
+
 class Branch(object):
     """ Region that consider to contains branchpoint branch
     """
@@ -34,9 +34,7 @@ class Branch(object):
                  transcript_id,
                  gene_id,
                  biotype):
-        """ 
 
-        """
         self.chrom = chrom
         self.grange = (start, stop)
         self.strand = strand
@@ -95,6 +93,7 @@ class BranchPointDataset(Dataset):
         out['metadata']['strand'] = branch.strand
         out['metadata']['start'] = branch.grange[0]
         out['metadata']['stop'] = branch.grange[1]
+        out['metadata']['biotype'] = branch.biotype
 
         return out
 
@@ -126,7 +125,7 @@ class BranchPointDataset(Dataset):
 
     def get_branches(self):
         """ Get brachpoint regions of all acceptor exons into Branch object.
-        First exon of the transcript will not be an acceptor exon
+        First exon of the transcript is not an acceptor exon
         """
         branches = list(map(self._get_branches, self.genes))
         branches = list(itertools.chain.from_iterable(branches))
