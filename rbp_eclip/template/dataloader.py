@@ -18,7 +18,7 @@ from concise.preprocessing.splines import encodeSplines
 from concise.utils.position import extract_landmarks, ALL_LANDMARKS
 from gtfparse import read_gtf_as_dataframe
 from kipoi.metadata import GenomicRanges
-
+import linecache
 from kipoi.data import Dataset
 
 filename = inspect.getframeinfo(inspect.currentframe()).filename
@@ -31,6 +31,18 @@ def sign_log_func(x):
 
 def sign_log_func_inverse(x):
     return np.sign(x) * (np.power(10, np.abs(x)) - 1)
+
+
+class BedToolLinecache(BedTool):
+    """Fast BedTool accessor by Ziga Avsec
+
+    Normal BedTools loops through the whole file to get the
+    line of interest. Hence the access it o(n)
+    """
+
+    def __getitem__(self, idx):
+        l = linecache.getline(self.fn, idx + 1)
+        return BedTool(l, from_string=True)[0]
 
 
 class DistanceTransformer:
@@ -145,9 +157,9 @@ class SeqDistDataset(Dataset):
         batch_size: int
     """
 
-    def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None):
+    def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None, use_linecache=False):
         gtf = read_gtf_as_dataframe(gtf_file)
-        
+
         if "gene_type" in gtf:
             self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
         elif "gene_biotype" in gtf:
@@ -157,10 +169,12 @@ class SeqDistDataset(Dataset):
 
         if not np.any(self.gtf.seqname.str.contains("chr")):
             self.gtf["seqname"] = "chr" + self.gtf["seqname"]
-                        
 
         # intervals
-        self.bt = pybedtools.BedTool(intervals_file)
+        if use_linecache:
+            self.bt = BedToolLinecache(intervals_file)
+        else:
+            self.bt = BedTool(intervals_file)
 
         # extractors
         self.seq_extractor = FastaExtractor(fasta_file)

@@ -9,8 +9,20 @@ from pybedtools import BedTool
 from genomelake.extractors import FastaExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
-
+import linecache
 # --------------------------------------------
+
+
+class BedToolLinecache(BedTool):
+    """Fast BedTool accessor by Ziga Avsec
+
+    Normal BedTools loops through the whole file to get the
+    line of interest. Hence the access it o(n)
+    """
+
+    def __getitem__(self, idx):
+        l = linecache.getline(self.fn, idx + 1)
+        return BedTool(l, from_string=True)[0]
 
 
 class SeqDataset(Dataset):
@@ -21,10 +33,13 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
-    def __init__(self, intervals_file, fasta_file, target_file=None):
+    def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=False):
 
         # intervals
-        self.bt = BedTool(intervals_file)
+        if use_linecache:
+            self.bt = BedToolLinecache(intervals_file)
+        else:
+            self.bt = BedTool(intervals_file)
         self.fasta_extractor = FastaExtractor(fasta_file)
 
         # Targets
