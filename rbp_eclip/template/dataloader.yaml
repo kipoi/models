@@ -14,6 +14,9 @@ args:
         doc: path to the targets (txt) file
         optional: True
         example: example_files/targets.tsv
+    use_linecache:
+        doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+        optional: True
 info:
     authors:
         - name: Ziga Avsec
