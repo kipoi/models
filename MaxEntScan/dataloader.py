@@ -61,7 +61,8 @@ class SplicingMaxEntDataset(Dataset):
     def __getitem__(self, idx):
         gene = self.AS[idx]
         out = {}
-        out['inputs'] = self.get_seq(gene)
+        inputs, ranges = self.get_seq(gene)
+        out['inputs'] = inputs
         if self.Y is not None:
             out['targets'] = self.Y.get_target(gene.geneName)
         else:
@@ -72,12 +73,13 @@ class SplicingMaxEntDataset(Dataset):
         out['metadata']['strand'] = gene.strand
         out['metadata']['start'] = gene.start
         out['metadata']['stop'] = gene.stop
+        out['metadata']['extracted_regions'] = ranges
         if self.select_fn is not None:
             # do it here for training. Because tensors are still numpy
             out = self.select_fn(out)
         return out
 
-    def get_seq(self, gene, genomic_reorder=True):
+    def get_seq(self, gene, genomic_reorder=False):
         """ Get exon and intron sequences """
         exons = gene.get_all_exons()
         N_exon = exons.shape[0]
@@ -97,14 +99,16 @@ class SplicingMaxEntDataset(Dataset):
                 seq_ranges = exons[1:, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
             else:
                 seq_ranges = exons[0:N_exon - 1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
+
         seq = [self.fasta.get_seq(gene.chrom,
                                   seq_range,
                                   gene.strand)
                for seq_range in seq_ranges]
         if genomic_reorder:
             if gene.strand == "-":
+                # TODO - this is just reversed, but not reverse complemented!
                 seq = seq[::-1]
-        return {"seq": np.array(seq)}
+        return ({"seq": np.array(seq)}, seq_ranges)
 
     @property
     def genes(self):

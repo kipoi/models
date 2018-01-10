@@ -49,7 +49,7 @@ class SplicingKmerDataset(Dataset):
         out['metadata']['stop'] = gene.stop
         return out
 
-    def get_seq(self, gene, genomic_reorder=True):
+    def get_seq(self, gene, genomic_reorder=False):
         """ Get exon and intron sequences """
         exons = gene.get_all_exons()
         if gene.strand == "+":
