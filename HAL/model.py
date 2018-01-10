@@ -1,6 +1,7 @@
 from kipoi.model import BaseModel
 import numpy as np
 
+
 class HALModel(BaseModel):
 
     def __init__(self, pkl_file="model_files/HAL_mer_scores.npz", mer_len=6):
