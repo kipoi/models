@@ -1,15 +1,17 @@
 type: Dataset
 defined_as: dataloader.py::SplicingKmerDataset
 args:
-    AS_gtf:
+    gtf_file:
         doc: file path; Genome annotation GTF file
-        example: example_files/hg19_chr22_AS.gtf
+        example: example_files/hg19.chr22.gtf
     fasta_file:
         doc: Reference Genome sequence in fasta format
         example: example_files/hg19.chr22.fa
     overhang:
         doc: Length of sequence overhang to take around splice junction
         optional: True
+    MISO_AS:
+        doc: Whether the given annotation file is MISO alternative splicing annotation. Default False.
 info:
     authors:
         - name: Jun Cheng
@@ -19,17 +21,20 @@ info:
     doc: Model from Rosenberg
 output_schema:
     inputs:
-        seq:
-            shape: () # TODO  number of k-mers
-            doc: K-mer counts
+        name: seq
+        shape: () # TODO  number of k-mers
+        doc: K-mer counts
     targets:
-        psi:
-            shape: (1, )
-            doc: "Predicted 3' psi"
+        name: psi
+        shape: (1, )
+        doc: "Predicted 3' psi"
     metadata:
-        geneName:
+        geneID:
             type: str
-            doc: gene name
+            doc: gene ID
+        transcriptID:
+            type: str
+            doc: transcript id
         chrom:
             type: str
             doc: chromosome
@@ -42,5 +47,11 @@ output_schema:
         stop:
             type: str
             doc: stop of alternative splicing event
+        biotype:
+            type: str
+            doc: gene biotype, can be used to filter protein coding genes for instance
+        order:
+            type: int
+            doc: "order of the donor site in the transcript, counted from 5' to 3'."
 
 # d: is an alias for description

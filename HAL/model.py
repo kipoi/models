@@ -62,8 +62,8 @@ class HALModel(BaseModel):
 
     def _get_x(self, inputs):
         """ Get x for prediction"""
-        seq = inputs["inputs"]
-        # seq = inputs["seq"]
+        seq = inputs
+        # seq = inputs["inputs"]
         return seq
 
     def predict_on_batch(self, inputs):
