@@ -20,12 +20,18 @@ class MaxEntModel(BaseModel):
             self.matrix = load_matrix3()
             self.model = score3
 
-    def _score_seq(self, seqs):
+    def score_seq(self, seq):
+        ''' Score a single sequence
+        '''
+        score = self.model(seq, matrix=self.matrix)
+        return score
+    
+    def _score_seqs(self, seqs):
         """
         Score one sequence pair.
         Calculate the delta maxent score between alternative donors/acceptors
         """
-        seq_scores = [self.model(seq, matrix=self.matrix) for seq in seqs]
+        seq_scores = [self.score_seq(seq) for seq in seqs]
         if self.side == '5prime':
             seq_score = seq_scores[1] - seq_scores[0]
         else:
@@ -35,16 +41,19 @@ class MaxEntModel(BaseModel):
     def score_seqs(self, seqs):
         """ score multiple sequence pairs
         """
-        seq_scores = [self._score_seq(seq) for seq in seqs]
+        seq_scores = [self._score_seqs(seq) for seq in seqs]
         return np.array(seq_scores)
 
     def _get_x(self, inputs):
         """ Get x for prediction"""
-        seq = inputs["seq"]
-        # seq = inputs['inputs']["seq"]
+        seq = inputs
+        # seq = inputs['inputs']
         return seq
 
     def predict_on_batch(self, inputs):
         x = self._get_x(inputs)
-        pred = self.score_seqs(x)
+        if isinstance(x[0], np.ndarray):
+            pred = self.score_seqs(x)
+        else:
+            pred = list(map(self.score_seq, x))
         return np.array(pred)
