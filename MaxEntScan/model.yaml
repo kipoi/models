@@ -14,10 +14,10 @@ dependencies:
       - maxentpy
 schema:
     inputs:
-        seq:
-            shape: (2,)
-            doc: Actual junction sequence
+        name: seq
+        shape: (1,)
+        doc: Actual junction sequence
     targets:
-        psi:
-            shape: (1, )
-            doc: "Predicted psi"
+        name: psi
+        shape: (1, )
+        doc: "Predicted psi"

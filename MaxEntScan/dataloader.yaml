@@ -1,22 +1,21 @@
 type: Dataset
 defined_as: dataloader.py::SplicingMaxEntDataset
 args:
+    gtf_file:
+        doc: file path; Genome annotation GTF file
+        example: example_files/hg19.chr22.gtf
     fasta_file:
         doc: Reference Genome sequence in fasta format
         type: str
         example: example_files/hg19.chr22.fa
-    AS_gtf:
-        doc: file path; Genome annotation GTF file
-        type: str
-        example: example_files/hg19_chr22_AS.gtf
     side:
         type: str
         doc: 5' splice junction (5prime) or 3' splice junction (3prime)
     target_file:
         doc: path to the targets (txt) file
         optional: True
-    select_fn:
-        doc: select function
+    MISO_AS:
+        doc: Whether the given annotation file is MISO alternative splicing annotation. Default False.
     label_col:
         doc: response label column name
 
@@ -33,28 +32,28 @@ dependencies:
       - maxentpy
 output_schema:
     inputs:
-        seq:
-            shape: (2,)
-            doc: list of 5' or 3' splicing junctions per gene
+        name: seq
+        shape: (1,)
+        doc: a junction (donor or acceptor) sequence
     targets:
-        psi:
-            shape: (1, )
-            doc: "Predicted psi"
+        name: psi
+        shape: (1,)
+        doc: "Predicted psi"
     metadata:
-        geneName:
+        geneID:
             type: str
-            doc: gene name
-        chrom:
+            doc: gene ID
+        transcriptID:
             type: str
-            doc: chromosome
-        strand:
+            doc: transcript id
+        ranges:
+            type: GenomicRanges
+            doc: ranges that the sequences were extracted
+        biotype:
             type: str
-            doc: strand of the gene
-        start:
-            type: str
-            doc: start of alternative splicing event
-        stop:
-            type: str
-            doc: stop of alternative splicing event
+            doc: gene biotype, can be used to filter protein coding genes for instance
+        order:
+            type: int
+            doc: "order of the donor site in the transcript, counted from 5' to 3'."
 
 # d: is an alias for description
