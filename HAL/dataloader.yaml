@@ -35,18 +35,9 @@ output_schema:
         transcriptID:
             type: str
             doc: transcript id
-        chrom:
-            type: str
-            doc: chromosome
-        strand:
-            type: str
-            doc: strand of the gene
-        start:
-            type: str
-            doc: start of alternative splicing event
-        stop:
-            type: str
-            doc: stop of alternative splicing event
+        ranges:
+            type: GenomicRanges
+            doc: ranges that the sequences were extracted
         biotype:
             type: str
             doc: gene biotype, can be used to filter protein coding genes for instance

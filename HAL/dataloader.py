@@ -1,4 +1,6 @@
 from kipoi.data import Dataset
+from kipoi.metadata import GenomicRanges
+
 import numpy as np
 import pandas as pd
 import itertools
@@ -53,12 +55,11 @@ class SpliceSite(object):
 class SplicingKmerDataset(Dataset):
     """
     Args:
-        gtf_file: alternative splicing gtf file. Can be dowloaded from MISO.
+        gtf_file: gtf file. Can be dowloaded from MISO or ensembl.
         fasta_file: file path; Genome sequence
         target_file: file path; path to the targets in MISO summary format.
-        iscounts: given targets are miso reads count.
-        sep_intron_exon: will return exon, intron by separately in a list. Otherwise a whole piece of sequence with intron + overhang in both sides.
         overhang: length of overhang.
+        MISO_AS: whether the used annotation file is from MISO alternative splicing annotation.
     """
 
     def __init__(self,
@@ -72,7 +73,6 @@ class SplicingKmerDataset(Dataset):
         self.MISO_AS = MISO_AS
         if not MISO_AS:
             self.spliceSites = self.get_spliceSites()
-        self._genes = None
         self._name = None
         self._species = None
 
@@ -101,12 +101,13 @@ class SplicingKmerDataset(Dataset):
             out['metadata'] = {}
             out['metadata']['geneID'] = spliceSite.geneID
             out['metadata']['transcriptID'] = spliceSite.transcriptID
-            out['metadata']['chrom'] = spliceSite.chrom
-            out['metadata']['strand'] = spliceSite.strand
-            out['metadata']['start'] = spliceSite.grange[0]
-            out['metadata']['stop'] = spliceSite.grange[1]
             out['metadata']['biotype'] = spliceSite.biotype
             out['metadata']['order'] = spliceSite.order
+            out['metadata']['ranges'] = GenomicRanges(spliceSite.chrom,
+                                                      spliceSite.grange[0],
+                                                      spliceSite.grange[1],
+                                                      spliceSite.geneID,
+                                                      spliceSite.strand)
 
         return out
 
