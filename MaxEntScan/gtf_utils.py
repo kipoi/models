@@ -103,8 +103,9 @@ class Gene:
     def get_all_exons(self):
         exons = np.vstack([i.exons for i in self.trans])
         exons = np.unique(exons, axis=0)
-        # exons = np.sort(exons, axis=0) # TODO: use lexsort by 0 and 1 column 
         ind = np.lexsort((exons[:,1],exons[:,0]))
+        if self.strand == '-':
+            ind = ind[::-1]
         exons = exons[ind]
         return exons
     
@@ -113,8 +114,9 @@ class Gene:
             self.trans[j].add_introns()
         introns = np.vstack([i.introns for i in self.trans])
         introns = np.unique(introns, axis=0)
-        # introns = np.sort(introns, axis=0) # TODO: use lexsort by 0 and 1 column
         ind = np.lexsort((introns[:,1],introns[:,0]))
+        if self.strand == '-':
+            ind = ind[::-1]
         introns = introns[ind]
         return introns
     

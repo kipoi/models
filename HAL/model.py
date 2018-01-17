@@ -56,18 +56,21 @@ class HALModel(BaseModel):
             seq_scores[b:b + 6] += self.w_mat[self.mer6_dict[seq[b:b + 6]], 7] / 6.
         return seq_scores
 
-    def predict_prob(self, seq):
-        sd1_score = sum(self._score_seq_pos(seq[:160]))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
-        sd2_score = sum(self._score_seq_pos(seq[-160:]))
-        return sd2_score - sd1_score
+    def predict_seq(self, seq):
+        sd_score = sum(self._score_seq_pos(seq))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
+        return sd_score
 
     def _get_x(self, inputs):
         """ Get x for prediction"""
-        # seq = inputs["inputs"]["seq"]
-        seq = inputs["seq"]
+        seq = inputs
+        # seq = inputs["inputs"]
         return seq
 
     def predict_on_batch(self, inputs):
         x = self._get_x(inputs)
-        prob = list(map(self.predict_prob, x))
-        return np.array(list(map(self.expit, prob)))
+        if isinstance(x[0], np.ndarray):
+            scores = np.array(list(map(self.predict_seq, x[:,1]))) - np.array(list(map(self.predict_seq, x[:,0])))
+            return np.array(list(map(self.expit, scores)))
+        else:
+            scores = list(map(self.predict_seq, x))
+            return np.array(scores)
