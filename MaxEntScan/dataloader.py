@@ -108,6 +108,7 @@ class SplicingMaxEntDataset(Dataset):
             if gene.strand == "-":
                 # TODO - this is just reversed, but not reverse complemented!
                 seq = seq[::-1]
+
         return ({"seq": np.array(seq)}, seq_ranges)
 
     @property

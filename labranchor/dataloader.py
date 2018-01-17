@@ -2,7 +2,7 @@ import numpy as np
 from kipoi.data import Dataset
 import numpy as np
 import itertools
-
+from tqdm import tqdm
 import inspect
 import os
 filename = inspect.getframeinfo(inspect.currentframe()).filename
@@ -15,10 +15,11 @@ from fasta_utils import FastaFile
 
 bases = ['A', 'C', 'G', 'T']
 
+
 def onehot(seq):
     X = np.zeros((len(seq), len(bases)))
     for i, char in enumerate(seq):
-        X[i, bases.index(char)] = 1
+        X[i, bases.index(char.upper())] = 1
     return X
 
 
@@ -112,21 +113,27 @@ class BranchPointDataset(Dataset):
                     ss3 = exons[:-1, 1]
                     ss3 = np.stack((ss3 + 1, ss3 + self.length), -1)
                 for e in ss3:
-                    branch = Branch(gene.chrom,
-                                    e[0],
-                                    e[1],
-                                    gene.strand,
-                                    transcript.tranID,
-                                    gene.geneID,
-                                    gene.biotype)
-                    branch.get_branch_seq(self.fasta)
-                    branchList.append(branch)
+                    try:
+
+                        branch = Branch(gene.chrom,
+                                        e[0],
+                                        e[1],
+                                        gene.strand,
+                                        transcript.tranID,
+                                        gene.geneID,
+                                        gene.biotype)
+                        branch.get_branch_seq(self.fasta)
+                        branchList.append(branch)
+                    except:
+                        print("failed to append the brachpoint: {0}".format(branch))
+                        print("{0}:{1}-{2} {3} {4}".format(gene.chrom, e[0], e[1], gene.strand, transcript.tranID))
         return branchList
 
     def get_branches(self):
         """ Get brachpoint regions of all acceptor exons into Branch object.
         First exon of the transcript is not an acceptor exon
         """
+        # branches = [self.get_branches(g) for g in self.genes]
         branches = list(map(self._get_branches, self.genes))
         branches = list(itertools.chain.from_iterable(branches))
         return branches
