@@ -12,10 +12,10 @@ info:
     doc: Model from Rosenberg ... TODO
 schema:
     inputs:
-        seq:
-            shape: () # TODO  number of k-mers
-            doc: K-mer counts
+        name: seq
+        shape: () # TODO  number of k-mers
+        doc: K-mer counts
     targets:
-        psi:
-            shape: (1, )
-            doc: "Predicted 3' psi"
+        name: psi
+        shape: (1, )
+        doc: "Predicted 3' psi"
