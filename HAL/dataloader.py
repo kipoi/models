@@ -40,13 +40,15 @@ class SplicingKmerDataset(Dataset):
     def __getitem__(self, idx):
         gene = self.AS[idx]
         out = {}
-        out['inputs'] = self.get_seq(gene)
+        seq, seq_range = self.get_seq(gene)
+        out['inputs'] = seq
         out['metadata'] = {}
         out['metadata']['geneName'] = gene.geneName
         out['metadata']['chrom'] = gene.chrom
         out['metadata']['strand'] = gene.strand
         out['metadata']['start'] = gene.start
         out['metadata']['stop'] = gene.stop
+        out['metadata']['seq_range'] = seq_range
         return out
 
     def get_seq(self, gene, genomic_reorder=False):
@@ -62,7 +64,7 @@ class SplicingKmerDataset(Dataset):
         if genomic_reorder:
             if gene.strand == "-":
                 seq = seq[::-1]
-        return {"seq": seq}
+        return {"seq": seq}, seq_range
 
     @property
     def genes(self):
