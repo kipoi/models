@@ -23,6 +23,7 @@ class SpliceSite(object):
     Args:
         order: order of splice site (donor or acceptor) in a transcript counted from 5' to 3'. 
     '''
+
     def __init__(self,
                  chrom,
                  start,
@@ -40,7 +41,7 @@ class SpliceSite(object):
         self.biotype = biotype
         self.order = order
         self._seq = None
-    
+
     @property
     def seq(self):
         return self._seq
@@ -48,14 +49,14 @@ class SpliceSite(object):
     @seq.setter
     def seq(self, value):
         self._seq = value
-        
+
     def get_seq(self, fasta):
         seq = fasta.get_seq(self.chrom,
                             self.grange,
                             self.strand)
         return seq
-    
-    
+
+
 class SplicingMaxEntDataset(Dataset):
     """
     Args:
@@ -72,12 +73,12 @@ class SplicingMaxEntDataset(Dataset):
                  fasta_file,
                  side='5prime',  # 5prime/3prime
                  target_file=None,
-                 MISO_AS = False,
+                 MISO_AS=False,
                  label_col='event_name'
                  ):
         self.genes = loadgene(gtf_file)
         self.fasta = FastaFile(fasta_file)
-        
+
         if side in ["5prime", "3prime"]:
             self.side = side
         else:
@@ -92,11 +93,11 @@ class SplicingMaxEntDataset(Dataset):
             self.Y = Target(target_file, label_col)
         else:
             self.Y = None
-            
+
         self.MISO_AS = MISO_AS
         if not MISO_AS:
             self.spliceSites = self.get_spliceSites()
-            
+
         self._name = None
         self._species = None
 
@@ -123,7 +124,7 @@ class SplicingMaxEntDataset(Dataset):
             out['metadata']['start'] = gene.start
             out['metadata']['stop'] = gene.stop
             out['metadata']['extracted_regions'] = ranges
-        
+
         else:
             spliceSite = self.spliceSites[idx]
             out['inputs'] = spliceSite.get_seq(self.fasta)
@@ -137,7 +138,7 @@ class SplicingMaxEntDataset(Dataset):
                                                       spliceSite.grange[1],
                                                       spliceSite.geneID,
                                                       spliceSite.strand)
-            
+
         return out
 
     def get_seq(self, gene):
@@ -173,7 +174,7 @@ class SplicingMaxEntDataset(Dataset):
         spliceSites = []
         for transcript in gene.trans:
             exons = transcript.exons
-            ind = np.lexsort((exons[:,1],exons[:,0]))
+            ind = np.lexsort((exons[:, 1], exons[:, 0]))
             if len(exons) > 1:
                 if self.side == "5prime":
                     if gene.strand == "+":
@@ -184,33 +185,33 @@ class SplicingMaxEntDataset(Dataset):
                         seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
                 else:
                     if gene.strand == "+":
-                        seq_ranges = exons[0:N_exon-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
+                        seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
                     else:
                         ind = ind[::-1]
                         exons = exons[ind]
-                        seq_ranges = exons[0:N_exon-1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])                    
-                    
+                        seq_ranges = exons[:-1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
+
                 for i in range(seq_ranges.shape[0]):
                     spliceSite = SpliceSite(gene.chrom,
-                                          seq_ranges[i,0],
-                                          seq_ranges[i,1],
-                                          gene.strand,
-                                          transcript.tranID,
-                                          gene.geneID,
-                                          gene.biotype,
-                                          i)
+                                            seq_ranges[i, 0],
+                                            seq_ranges[i, 1],
+                                            gene.strand,
+                                            transcript.tranID,
+                                            gene.geneID,
+                                            gene.biotype,
+                                            i)
                     # can call get_seq later in iterator to save memory
                     # spliceSite.seq = spliceSite.get_seq(self.fasta)
                     spliceSites.append(spliceSite)
         return spliceSites
-                    
+
     def get_spliceSites(self):
         ''' Get splice sites for all donors
         '''
         spliceSites = list(map(self._get_spliceSites, self.genes))
         spliceSites = list(itertools.chain.from_iterable(spliceSites))
-        return spliceSites    
-    
+        return spliceSites
+
     @property
     def name(self):
         return self._name
