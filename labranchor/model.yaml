@@ -4,9 +4,17 @@ args:
 default_dataloader: . # path to the directory
 info:
     authors:
+        - name: Paggi J.M., Bejerano
+          github: jpaggi
         - name: Jun Cheng
           github: s6juncheng
-    doc: LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network
+    doc: >
+      LaBranchoR (LSTM Branchpoint Retriever) uses a LSTM network built with keras to predict
+      the position of RNA splicing branchpoints relative to a three prime splice site.
+      Precisely evaluating LaBranchoR was challenging due to pervasive noise in the experimental data,
+      but as we show in our paper, we estimate that LaBranchoR correcty predicts a branchpoint for over
+      90% of 3\'ss. Github link https://github.com/jpaggi/labranchor.
+    cite_as: https://doi.org/10.1101/185868
 dependencies:
     pip:
         - tensorflow>=1.0.0

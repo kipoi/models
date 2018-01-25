@@ -10,7 +10,10 @@ info:
           github: jisraeli
     name: extended CODA
     version: 0.1
-    doc: Single bp resolution ChIP-seq denoising
+    doc: Single bp resolution ChIP-seq denoising - https://github.com/kundajelab/coda
+    cite_as: https://doi.org/10.1093/bioinformatics/btx243
+    trained_on: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
+    training_procedure: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
 dependencies:
     pip:
       - tensorflow==1.0.0

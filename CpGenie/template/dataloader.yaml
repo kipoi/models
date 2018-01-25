@@ -22,6 +22,7 @@ info:
       - name: Roman Kreuzhuber
         github: krrome
   doc: Dataloader for the CpGenie model.
+  license: "MIT"
 dependencies:
   conda:
     - python=3.5

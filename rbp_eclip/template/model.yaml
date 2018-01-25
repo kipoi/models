@@ -8,7 +8,13 @@ info:
         - name: Ziga Avsec
           github: avsecz
     version: 0.1
-    doc: RBP binding prediction
+    doc: >
+      'RBP binding model from Avsec et al: "Modeling positional effects of regulatory sequences with spline transformations increases prediction accuracy of deep neural networks". '
+    cite_as: https://doi.org/10.1093/bioinformatics/btx727
+    trained_on: >
+      RBP occupancy peaks measured by eCLIP-seq (Van Nostrand et al., 2016 - https://doi.org/10.1038/nmeth.3810), https://github.com/gagneurlab/Manuscript_Avsec_Bioinformatics_2017
+    training_procedure: Single task training with ADAM
+    license: MIT
 dependencies:
     pip:
         - concise>=0.6.3
@@ -52,4 +58,3 @@ postprocessing:
       args:
           seq_input:
             - seq
-

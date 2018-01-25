@@ -5,11 +5,16 @@ args:
 default_dataloader: . # relative path to the default dataloader
 info:
     authors:
+        - name: Alexander Rosenberg
+          github: Alex-Rosenberg
         - name: Jun Cheng
           github: s6juncheng
         - name: Ziga Avsec
           github: avsecz
-    doc: Model from Rosenberg ... TODO
+    doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative Splicing from Millions of Random Sequences'
+    cite_as: http://dx.doi.org/10.1016/j.cell.2015.09.054
+    trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes
+    training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
 schema:
     inputs:
         name: seq
