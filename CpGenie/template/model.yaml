@@ -24,6 +24,10 @@ info:
     functional non-coding variants, including expression quantitative trait
     loci (eQTL) and disease-associated mutations. CpGenie is publicly available to
     assist in identifying and interpreting regulatory non-coding variants.
+  cite_as: https://doi.org/10.1093/nar/gkx177
+  license: Apache License v2
+  trained_on: RRBS (restricted representation bisulfite sequencing) data from ENCODE (https://www.encodeproject.org/)
+  training_procedure: RMSprop
 default_dataloader: .
 dependencies:
   conda:

@@ -5,9 +5,19 @@ args:
 default_dataloader: . # relative path to the default dataloader
 info:
     authors:
+       - name: Gene Yeo
+       - name: Christopher B. Burge
+       - name: Matthias De Smet
+         github: matthdsm
        - name: Jun Cheng
          github: s6juncheng
-    doc: MaxEnt Splicing Model
+    doc: >
+      MaxEnt Splicing Model (http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) implemented in the
+      maxentpy conda package https://github.com/kepbod/maxentpy.
+    cite_as: https://doi.org/10.1089/1066527041410418
+    trained_on: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
+    training_procedure: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
+    license: MIT
     version: 0.1
 dependencies:
     conda:
