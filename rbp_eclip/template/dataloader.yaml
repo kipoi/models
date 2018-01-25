@@ -32,7 +32,7 @@ dependencies:
         - pysam
         - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
         - data/packages/genomelake-0.1.tar.gz # TODO - edit back
-        - concise>=0.6.3
+        - concise>=0.6.5
 output_schema:
     inputs:
         seq:

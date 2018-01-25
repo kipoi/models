@@ -17,7 +17,7 @@ info:
     license: MIT
 dependencies:
     pip:
-        - concise>=0.6.3
+        - concise>=0.6.5
         - tensorflow>=1.0.0
         - keras>=2.0.4
 schema:
