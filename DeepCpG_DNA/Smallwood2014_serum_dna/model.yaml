@@ -26,6 +26,8 @@ postprocessing:
 - args:
     seq_input:
     - dna
+    supports_simple_rc: # Optional, Indicate whether the model supports reverse-complements of the sequences defined in 'seq_input'
+      - true
   type: variant_effects
 schema:
   inputs:
