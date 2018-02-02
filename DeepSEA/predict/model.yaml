@@ -1,0 +1,47 @@
+type: pytorch
+args:
+  file: model_files/deepsea_cpu.py
+  build_fn: get_seqpred_model
+info:
+  authors:
+      - name: Roman Kreuzhuber
+        github: krrome
+      - name: Jian Zhou
+      - name: Olga Troyanskaya
+  name: DeepSEA
+  version: 0.94
+  doc: >
+    This CNN is based on the DeepSEA model from Zhou and Troyanskaya (2015).
+    The model has been converted to a pytorch model on a modified version of
+    https://github.com/clcarwin/convert_torch_to_pytorch
+    Use this model only for predictions of sequences, not for variant effect
+    prediction. The model automatically generates reverse-complement and
+    averages over forward and reverse-complement to results from the website.
+    To predict variant effects use the DeepSEA/variantEffects model.
+    It categorically predicts 919 cell type-specific epigenetic features
+    from DNA sequence. The model is trained on publicly available ENCODE
+    and Roadmap Epigenomics data and on DNA sequences of size 1000bp. The
+    input of the tensor has to be (N, 4, 1, 1000) for N samples, 1000bp window
+    size and 4 nucleotides. Per sample, 919 probabilities of a
+    specific epigentic feature will be predicted. 
+
+default_dataloader: .
+dependencies:
+  conda:
+    - h5py
+    - pytorch::pytorch>=0.2.0
+    - pytorch::torchvision
+schema:
+  inputs:
+    name: seq
+    special_type: DNASeq
+    shape: (4,1,1000)
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: TFBS_DHS_probs
+    shape: (919, )
+    doc: Probability of a specific epigentic feature
+    column_labels:
+      - predictor_names.txt
+
