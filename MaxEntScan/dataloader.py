@@ -157,9 +157,9 @@ class SplicingMaxEntDataset(Dataset):
                 seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
         else:
             if gene.strand == "+":
-                seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
+                seq_ranges = exons[1:, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
             else:
-                seq_ranges = exons[:-1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
+                seq_ranges = exons[1:, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
 
         seq = [self.fasta.get_seq(gene.chrom,
                                   seq_range,
@@ -185,11 +185,11 @@ class SplicingMaxEntDataset(Dataset):
                         seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
                 else:
                     if gene.strand == "+":
-                        seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
+                        seq_ranges = exons[1:, 0].reshape(-1, 1) + np.array([-self.overhang_r, self.overhang_l - 1])
                     else:
                         ind = ind[::-1]
                         exons = exons[ind]
-                        seq_ranges = exons[:-1, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
+                        seq_ranges = exons[1:, 1].reshape(-1, 1) + np.array([-self.overhang_l + 1, self.overhang_r])
 
                 for i in range(seq_ranges.shape[0]):
                     spliceSite = SpliceSite(gene.chrom,
