@@ -1,0 +1,43 @@
+type: PreloadedDataset
+defined_as: dataloader.py::dataset
+args:
+  mirna_fasta_file:
+    doc: mirna fasta file
+    example: example_files/miRNA.fasta
+  mrna_fasta_file:
+    doc: mrna fasta file of interest
+    example: example_files/3UTR.fasta
+  query_pair_file:
+    doc: ??mapping between mrna and mirna fasta
+    example: example_files/miRNA-mRNA_query.txt
+info:
+  authors:
+    - name: Byunghan Lee
+    - name: Junghwan Baek
+    - name: Seunghyun Park
+    - name: Sungroh Yoon
+  doc: deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
+  license: GPL-v3
+dependencies:
+  conda:
+    - anaconda::biopython==1.66
+    - scikit-learn==0.17.1
+    - theano==0.8.2
+    - numpy==1.10.4
+  pip:
+    - keras==0.3.3
+output_schema:
+  inputs:
+    mirna_int_seq:
+      shape: (40,)
+      doc: 'miRNA query sequences in the integer form: A:1, C:2, G:3, T:4, U:4.'
+    mrna_int_seq:
+      shape: (40,)
+      doc: 'mRNA target sequence in the integer form: A:1, C:2, G:3, T:4, U:4.'
+  metadata:
+    mirna_id:
+      type: str
+      doc: Id of the miRNA query sequence
+    mrna_id:
+      type: str
+      doc: Id of the mRNA query sequence
