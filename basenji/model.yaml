@@ -2,8 +2,7 @@ type: tensorflow
 args:
   input_nodes: "inputs"
   target_nodes: "preds"
-  meta_graph: "model_files/model.tf.meta"
-  checkpoint: "model_files/model.tf"
+  checkpoint_path: "model_files/model.tf"
   const_feed_dict_pkl: "model_files/const_feed_dict.pkl"
 # pass  
 info:
