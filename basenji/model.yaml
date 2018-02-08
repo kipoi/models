@@ -1,0 +1,51 @@
+type: tensorflow
+args:
+  input_nodes: "inputs"
+  target_nodes: "preds"
+  checkpoint_path: "model_files/model.tf"
+  const_feed_dict_pkl: "model_files/const_feed_dict.pkl"
+# pass  
+info:
+  authors:
+      - name: David Kelley
+        github: davek44
+  doc: >
+    Sequential regulatory activity predictions with deep convolutional neural networks.
+
+    Github link - https://github.com/calico/basenji
+
+    Abstract
+    Models for predicting phenotypic outcomes from genotypes have important applications to
+    understanding genomic function and improving human health. Here, we develop a machine learning
+    system to predict cell type-specific epigenetic and transcriptional profiles in large
+    mammalian genomes from DNA sequence alone. Using convolutional neural networks, this system
+    identifies promoters and distal regulatory elements and synthesizes their content to make effective
+    gene expression predictions. We show that model predictions for the influence of genomic variants
+    on gene expression align well to causal variants underlying eQTLs in human populations and can
+    be useful for generating mechanistic hypotheses to enable fine mapping of disease loci.
+  version: 0.1
+  cite_as: https://doi.org/10.1101/161851
+default_dataloader: .
+dependencies:
+  conda:
+    - python=3.5
+  pip:
+    - tensorflow>=1.4.1
+schema:
+  inputs:
+    name: seq
+    special_type: DNASeq
+    shape: (131072, 4)
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: genomic_features
+    shape: (960, 4229)
+    doc: Specific Basenji output features.
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
+          supports_simple_rc: # Optional, Indicate whether the model supports reverse-complements of the sequences defined in 'seq_input'
+            - true
