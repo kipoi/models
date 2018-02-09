@@ -1,0 +1,33 @@
+type: custom
+args:
+  file: model.py
+  object: Model
+info:
+  authors:
+    - name: Byunghan Lee
+      # TODO - get the github usernames
+    - name: Junghwan Baek
+    - name: Seunghyun Park
+    - name: Sungroh Yoon
+  doc: > 
+    '''deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
+    '''
+  cite_as: 'https://arxiv.org/pdf/1603.09123.pdf'
+  license: GPL-v3
+dependencies:
+  conda:
+    - theano==0.8.2
+    - numpy==1.10.4
+  pip:
+    - keras==0.3.3
+schema:
+  inputs:
+    mirna_int_seq:
+      shape: (40,)
+      doc: 'miRNA query sequences in the integer form: A:1, C:2, G:3, T:4, U:4.'
+    mrna_int_seq:
+      shape: (40,)
+      doc: 'mRNA target sequence in the integer form: A:1, C:2, G:3, T:4, U:4.'
+  targets:
+    shape: (1,)
+    doc: Prediction probability
