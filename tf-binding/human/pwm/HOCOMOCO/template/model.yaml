@@ -1,0 +1,42 @@
+type: keras
+args:
+  weights: model_files/model.h5
+info:
+  authors:
+      - name: Ziga Avsec
+        github: avsecz
+  name: CpGenie
+  version: 0.1
+  doc: >
+    '''Simple PWM-scanning model
+
+    PWM database: HOCOMOCO
+    URL:  http://hocomoco.autosome.ru/
+    Paper:  Kulakovskiy et al 2015, HOCOMOCO: expansion and enhancement of the collection of transcription factor binding sites models: doi:10.1093/nar/gkv1249
+    '''
+default_dataloader: .
+dependencies:
+  conda:
+    - python=3.5
+    - h5py
+  pip:
+    - tensorflow
+    - keras==2.0.4
+schema:
+  inputs:
+    name: seq
+    special_type: DNASeq
+    shape: (None, 4)
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: pwm_match
+    shape: (1, )
+    doc: Best PWM match log-odds score
+postprocessing:
+    - type: variant_effects
+      args:
+          seq_input:
+            - seq
+          supports_simple_rc:
+            - true
