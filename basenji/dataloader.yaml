@@ -1,0 +1,45 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+  intervals_file:
+    doc: bed3 file with `chrom start end id score strand`
+    example: example_files/intervals.bed
+  fasta_file:
+    doc: Reference genome sequence
+    example: example_files/hg38_chr22.fa
+  use_linecache:
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+    optional: True
+info:
+  authors:
+      - name: Ziga Avsec
+        github: avsecz
+  doc: Dataloader for the Basenji model. Note - batch-size needs to be always 2!
+dependencies:
+  conda:
+    - python=3.5
+    - numpy
+  pip:
+    # - genomelake
+    - pybedtools
+output_schema:
+  inputs:
+    name: seq
+    shape: (131072, 4)
+    special_type: DNASeq
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: genomic_features
+    shape: (960, 4229)
+    doc: Specific Basenji output features.
+  metadata:
+    ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
+# TODO - check if var-effect prediction works
+postprocessing:
+    - type: variant_effects
+      args:
+          bed_input:
+            - intervals_file
