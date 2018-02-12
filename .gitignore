@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+# OS X rubbish
+**/.DS_Store
+**/._.DS_Store
+
 # Distribution / packaging
 .Python
 env/
