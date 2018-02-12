@@ -1,1 +1,1 @@
-/data/ouga/home/ag_gagneur/avsec/.kipoi/models/tf-binding/human/pwm/HOCOMOCO/template/dataloader.py
+../template/dataloader.py
