@@ -1,1 +1,1 @@
-../MaxEntScan/gtf_utils.py
+../MaxEntScan/template/gtf_utils.py

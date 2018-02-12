@@ -1,5 +1,5 @@
 type: Dataset
-defined_as: dataloader.py::SplicingMaxEntDataset
+defined_as: dataloader.py::SplicingMaxEntDatasetSpec
 args:
     gtf_file:
         doc: file path; Genome annotation GTF file
@@ -8,9 +8,6 @@ args:
         doc: Reference Genome sequence in fasta format
         type: str
         example: example_files/hg19.chr22.fa
-    side:
-        type: str
-        doc: 5' splice junction (5prime) or 3' splice junction (3prime)
     target_file:
         doc: path to the targets (txt) file
         optional: True
@@ -33,7 +30,7 @@ dependencies:
 output_schema:
     inputs:
         name: seq
-        shape: (1,)
+        shape: ()
         doc: a junction (donor or acceptor) sequence
     targets:
         name: psi

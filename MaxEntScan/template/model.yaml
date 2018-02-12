@@ -1,7 +1,7 @@
 type: custom
 args:
   file: model.py
-  object: MaxEntModel
+  object: MaxEntModelSpec
 default_dataloader: . # relative path to the default dataloader
 info:
     authors:
@@ -25,7 +25,7 @@ dependencies:
 schema:
     inputs:
         name: seq
-        shape: (1,)
+        shape: ()
         doc: Actual junction sequence
     targets:
         name: psi

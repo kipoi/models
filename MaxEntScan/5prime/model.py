@@ -1,0 +1,19 @@
+import numpy as np
+import os
+import inspect
+
+filename = inspect.getframeinfo(inspect.currentframe()).filename
+this_path = os.path.dirname(os.path.abspath(filename))
+
+
+# attach template to pythonpath
+import sys
+sys.path.append(os.path.join(this_path, "../template"))
+
+from model import MaxEntModel
+
+
+class MaxEntModelSpec(MaxEntModel):
+
+    def __init__(self):
+        super(MaxEntModelSpec, self).__init__(side='5prime')

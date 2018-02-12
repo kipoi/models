@@ -92,7 +92,7 @@ class BranchPointDataset(Dataset):
         out['metadata']['transcriptID'] = branch.transcriptID
         out['metadata']['chrom'] = branch.chrom
         out['metadata']['strand'] = branch.strand
-        out['metadata']['start'] = branch.grange[0]
+        out['metadata']['start'] = branch.grange[0] - 1  # use 0-base indexing
         out['metadata']['stop'] = branch.grange[1]
         out['metadata']['biotype'] = branch.biotype
 

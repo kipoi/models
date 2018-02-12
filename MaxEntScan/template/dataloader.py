@@ -10,7 +10,7 @@ import itertools
 
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 this_path = os.path.dirname(os.path.abspath(filename))
-# TODO - attach this_path to the pythonpathGXS
+# TODO - attach this_path to the pythonpath
 import sys
 sys.path.append(this_path)
 
@@ -134,7 +134,7 @@ class SplicingMaxEntDataset(Dataset):
             out['metadata']['biotype'] = spliceSite.biotype
             out['metadata']['order'] = spliceSite.order
             out['metadata']['ranges'] = GenomicRanges(spliceSite.chrom,
-                                                      spliceSite.grange[0],
+                                                      spliceSite.grange[0] - 1,  # use 0-base indexing
                                                       spliceSite.grange[1],
                                                       spliceSite.geneID,
                                                       spliceSite.strand)
