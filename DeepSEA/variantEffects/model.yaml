@@ -28,7 +28,6 @@ dependencies:
   conda:
     - h5py
     - pytorch::pytorch>=0.2.0
-    - pytorch::torchvision
 schema:
   inputs:
     name: seq
