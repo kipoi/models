@@ -38,5 +38,4 @@ postprocessing:
       args:
           seq_input:
             - seq
-          supports_simple_rc:
-            - true
+          supports_simple_rc: true
