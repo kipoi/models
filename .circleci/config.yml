@@ -1,98 +1,89 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
 version: 2
-jobs:
-  test_all_models:
+
+variables:
+  defaults: &defaults
     docker:
       - image: continuumio/miniconda3:4.3.14
-
     working_directory: ~/repo
+  install_sys_deps: &install_sys_deps
+    name: install build-essential
+    command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
+  install_gitlfs: &install_gitlfs
+    name: Install git-lfs
+    command: conda install --yes -c conda-forge git-lfs
+  restore_cache: &restore_cache
+    restore_cache:
+      keys:
+        - source-v1-{{ .Branch }}-{{ .Revision }}
+        - source-v1-{{ .Branch }}-
+        - source-v1-master-
+        - source-v1-
+  save_cache: &save_cache
+    save_cache:
+      key: source-v1-{{ .Branch }}-{{ .Revision }}
+      paths:
+        - ".git"
+  setup: &setup
+    run: 
+      name: Setup Kipoi
+      command: .circleci/setup.sh
+  store_artifacts: &store_artifacts
+    path: test-reports
+    destination: test-reports
 
+jobs:
+
+  # test only the newly added model
+  test_new_models:
+    <<: *defaults
     steps:
-
-      - run:
-          name: install build-essential
-          command: |
-            apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
-
-      - run:
-          name: install git-lfs
-          command: conda install --yes -c conda-forge git-lfs
-
-      - restore_cache:
-          keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
-            - source-v1-{{ .Branch }}-
-            - source-v1-
-            
+      - *install_sys_deps
+      - *install_gitlfs
+      - *restore_cache
       - checkout
-      
-      - run:
-          name: configure pip
-          command: |
-            mkdir -p ~/.pip
-            echo "
-            [global]
-            extra-index-url = https://pypi.python.org/simple
-            index-url = http://${USR}:${PASS}@${HOST}:8080/simple/
-
-            [install]
-            trusted-host=${HOST}
-            " > ~/.pip/pip.conf
-
-      - run:
-          name: configure kipoi
-          command: |
-            mkdir -p ~/.kipoi
-            echo "
-            model_sources:
-              kipoi:
-                type: git-lfs
-                remote_url: git@github.com:kipoi/models.git
-                local_path: /root/repo/
-            " > ~/.kipoi/config.yaml
-
-      - run:
-          name: Install the kipoi package from pypi
-          command: pip install py.test kipoi
-
-      - run:
-          name: list all packages
-          command: kipoi ls
-
+      - *setup
       - run:
           name: run tests
-          command: |
-            py.test tests/ -v 
+          command: kipoi test-source kipoi --git-range master HEAD
+      - *save_cache
+      - *store_artifacts
 
-      - save_cache:
-          key: source-v1-{{ .Branch }}-{{ .Revision }}
-          paths:
-            - ".git"
-            
-
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
+  # test all models in the repo
+  test_all_models:
+    <<: *environment
+    steps:
+      - *install_sys_deps
+      - *install_gitlfs
+      - *restore_cache
+      - checkout
+      - *setup
+      - run:
+          name: run tests
+          command: kipoi test-source kipoi --all
+      - *save_cache
+      - *store_artifacts
 
 workflows:
   version: 2
 
-  # commit:
-  #   jobs:
-  #     - test-py36
+  # workflow for testing pushes and PRs
+  test-models:
+    jobs:
+      - test_new_models
+      filters:
+        branches:
+          ignore:
+            - master
 
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only:
-                - master
-                - beta
+  # workflow for testing all the models
+  # on the master branch overnight
+  kipoi-nightly-test:
+     triggers:
+       - schedule:
+           cron: "0 0 * * *"
+           filters:
+             branches:
+               only:
+                 - master
     jobs:
       - test_all_models
