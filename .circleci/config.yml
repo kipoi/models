@@ -1,0 +1,98 @@
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
+version: 2
+jobs:
+  test_all_models:
+    docker:
+      - image: continuumio/miniconda3:4.3.14
+
+    working_directory: ~/repo
+
+    steps:
+
+      - run:
+          name: install build-essential
+          command: |
+            apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
+
+      - run:
+          name: install git-lfs
+          command: conda install --yes -c conda-forge git-lfs
+
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
+            
+      - checkout
+      
+      - run:
+          name: configure pip
+          command: |
+            mkdir -p ~/.pip
+            echo "
+            [global]
+            extra-index-url = https://pypi.python.org/simple
+            index-url = http://${USR}:${PASS}@${HOST}:8080/simple/
+
+            [install]
+            trusted-host=${HOST}
+            " > ~/.pip/pip.conf
+
+      - run:
+          name: configure kipoi
+          command: |
+            mkdir -p ~/.kipoi
+            echo "
+            model_sources:
+              kipoi:
+                type: git-lfs
+                remote_url: git@github.com:kipoi/models.git
+                local_path: /root/repo/
+            " > ~/.kipoi/config.yaml
+
+      - run:
+          name: Install the kipoi package from pypi
+          command: pip install py.test kipoi
+
+      - run:
+          name: list all packages
+          command: kipoi ls
+
+      - run:
+          name: run tests
+          command: |
+            py.test tests/ -v 
+
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+            
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+
+workflows:
+  version: 2
+
+  # commit:
+  #   jobs:
+  #     - test-py36
+
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+                - beta
+    jobs:
+      - test_all_models

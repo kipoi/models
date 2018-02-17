@@ -19,8 +19,8 @@ dependencies:
   conda:
     - python=3.5
     - numpy
-  pip:
     - cython
+  pip:
     - genomelake
     - pybedtools
 output_schema:

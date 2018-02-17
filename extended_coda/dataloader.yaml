@@ -26,8 +26,9 @@ info:
     doc: DataLoader for single bp resolution ChIP-seq denoising
 # TODO - enable later
 dependencies:
-    pip:
+    conda:
         - cython
+    pip:
         - genomelake
 output_schema:
     inputs:

@@ -26,7 +26,7 @@ info:
 dependencies:
     conda:
       - python=3.5
-      - maxentpy
+      - bioconda::pysam
 output_schema:
     inputs:
         name: seq
