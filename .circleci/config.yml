@@ -50,7 +50,7 @@ jobs:
 
   # test all models in the repo
   test_all_models:
-    <<: *environment
+    <<: *defaults
     steps:
       - *install_sys_deps
       - *install_gitlfs
