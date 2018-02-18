@@ -10,6 +10,9 @@ args:
   target_file:
     doc: path to the targets (.tsv) file
     optional: True
+  use_linecache:
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+    optional: True
 info:
   authors:
       - name: Haoyang Zeng
@@ -27,8 +30,7 @@ dependencies:
     - cython # required by genomelake
   pip:
     - pybedtools
-    - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
-    - data/packages/genomelake-0.1.tar.gz # TODO - edit back
+    - genomelake
 output_schema:
   inputs:
     name: seq

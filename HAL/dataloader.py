@@ -20,6 +20,7 @@ class SpliceSite(object):
     Args:
         order: order of splice site (donor or acceptor) in a transcript counted from 5' to 3'. 
     '''
+
     def __init__(self,
                  chrom,
                  start,
@@ -37,7 +38,7 @@ class SpliceSite(object):
         self.biotype = biotype
         self.order = order
         self._seq = None
-    
+
     @property
     def seq(self):
         return self._seq
@@ -45,13 +46,13 @@ class SpliceSite(object):
     @seq.setter
     def seq(self, value):
         self._seq = value
-        
+
     def get_seq(self, fasta):
         seq = fasta.get_seq(self.chrom,
                             self.grange,
                             self.strand)
         return seq
-    
+
 class SplicingKmerDataset(Dataset):
     """
     Args:
@@ -83,8 +84,8 @@ class SplicingKmerDataset(Dataset):
             return len(self.spliceSites)
 
     def __getitem__(self, idx):
-        out = {}       
-        
+        out = {}
+
         if self.MISO_AS:
             gene = self.genes[idx]
             out['inputs'] = self.get_seq(gene)
@@ -94,7 +95,7 @@ class SplicingKmerDataset(Dataset):
             out['metadata']['strand'] = gene.strand
             out['metadata']['start'] = gene.start
             out['metadata']['stop'] = gene.stop
-            
+
         else:
             spliceSite = self.spliceSites[idx]
             out['inputs'] = spliceSite.get_seq(self.fasta)
@@ -104,7 +105,7 @@ class SplicingKmerDataset(Dataset):
             out['metadata']['biotype'] = spliceSite.biotype
             out['metadata']['order'] = spliceSite.order
             out['metadata']['ranges'] = GenomicRanges(spliceSite.chrom,
-                                                      spliceSite.grange[0],
+                                                      spliceSite.grange[0] - 1,  # use 0-base indexing
                                                       spliceSite.grange[1],
                                                       spliceSite.geneID,
                                                       spliceSite.strand)
@@ -133,7 +134,7 @@ class SplicingKmerDataset(Dataset):
         spliceSites = []
         for transcript in gene.trans:
             exons = transcript.exons
-            ind = np.lexsort((exons[:,1],exons[:,0]))
+            ind = np.lexsort((exons[:, 1], exons[:, 0]))
             if len(exons) > 1:
                 if gene.strand == "+":
                     seq_ranges = exons[:-1, 1].reshape(-1, 1) + np.array([-self.overhang + 1, self.overhang])
@@ -143,25 +144,25 @@ class SplicingKmerDataset(Dataset):
                     seq_ranges = exons[:-1, 0].reshape(-1, 1) + np.array([-self.overhang, self.overhang - 1])
                 for i in range(seq_ranges.shape[0]):
                     spliceSite = SpliceSite(gene.chrom,
-                                          seq_ranges[i,0],
-                                          seq_ranges[i,1],
-                                          gene.strand,
-                                          transcript.tranID,
-                                          gene.geneID,
-                                          gene.biotype,
-                                          i)
+                                            seq_ranges[i, 0],
+                                            seq_ranges[i, 1],
+                                            gene.strand,
+                                            transcript.tranID,
+                                            gene.geneID,
+                                            gene.biotype,
+                                            i)
                     # can call get_seq later in iterator to save memory
                     # spliceSite.seq = spliceSite.get_seq(self.fasta)
                     spliceSites.append(spliceSite)
         return spliceSites
-                    
+
     def get_spliceSites(self):
         ''' Get splice sites for all donors
         '''
         spliceSites = list(map(self._get_spliceSites, self.genes))
         spliceSites = list(itertools.chain.from_iterable(spliceSites))
         return spliceSites
-        
+
     @property
     def name(self):
         return self._namem

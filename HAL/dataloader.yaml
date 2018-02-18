@@ -19,6 +19,10 @@ info:
         - name: Ziga Avsec
           github: avsecz
     doc: Model from Rosenberg
+dependencies:
+    conda:
+      - python=3.5
+      - bioconda::pysam
 output_schema:
     inputs:
         name: seq

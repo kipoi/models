@@ -27,7 +27,7 @@ dependencies:
     - cython # required by genomelake
   pip:
     - pybedtools
-    # - genomelake
+    - genomelake
 output_schema:
   inputs:
     name: seq

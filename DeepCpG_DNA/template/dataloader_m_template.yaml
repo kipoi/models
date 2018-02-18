@@ -25,7 +25,8 @@ dependencies:
     - numpy
     - pandas
   pip:
-    # - genomelake
+    - cython
+    - genomelake
     - pybedtools
     - deepcpg==1.0.4
 output_schema:

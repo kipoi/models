@@ -1,0 +1,94 @@
+version: 2
+
+variables:
+  defaults: &defaults
+    docker:
+      - image: continuumio/miniconda3:4.3.14
+    working_directory: ~/repo
+  install_sys_deps: &install_sys_deps
+    run:
+      name: install build-essential
+      command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
+  install_gitlfs: &install_gitlfs
+    run:
+      name: Install git-lfs
+      command: conda install --yes -c conda-forge git-lfs
+  restore_cache: &restore_cache
+    restore_cache:
+      keys:
+        - source-v1-{{ .Branch }}-{{ .Revision }}
+        - source-v1-{{ .Branch }}-
+        - source-v1-master-
+        - source-v1-
+  save_cache: &save_cache
+    save_cache:
+      key: source-v1-{{ .Branch }}-{{ .Revision }}
+      paths:
+        - ".git"
+  setup: &setup
+    run: 
+      name: Setup Kipoi
+      command: .circleci/setup.sh
+  store_artifacts: &store_artifacts
+    store_artifacts:
+      path: test-reports
+      destination: test-reports
+
+jobs:
+
+  # test only the newly added model
+  test_new_models:
+    <<: *defaults
+    steps:
+      - *install_sys_deps
+      - *install_gitlfs
+      - *restore_cache
+      - checkout
+      - *setup
+      - run:
+          name: run tests
+          command: kipoi test-source kipoi --git-range master HEAD
+      - *save_cache
+      - *store_artifacts
+
+  # test all models in the repo
+  test_all_models:
+    <<: *defaults
+    steps:
+      - *install_sys_deps
+      - *install_gitlfs
+      - *restore_cache
+      - checkout
+      - *setup
+      - run:
+          name: run tests
+          command: kipoi test-source kipoi --all
+      - *save_cache
+      - *store_artifacts
+
+workflows:
+  version: 2
+
+  # workflow for testing pushes and PRs
+  test-models:
+     jobs:
+       - test_new_models:
+           context: pypi
+           filters:
+             branches:
+               ignore:
+                 - master
+
+  # workflow for testing all the models
+  # on the master branch overnight
+  kipoi-nightly-test:
+     triggers:
+       - schedule:
+           cron: "0 0 * * *"
+           filters:
+             branches:
+               only:
+                 - master
+     jobs:
+       - test_all_models:
+           context: pypi
