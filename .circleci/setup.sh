@@ -59,7 +59,7 @@ trusted-host=${PYPI_HOST}
 # ---
 
 echo "Installing Kipoi."
-pip install py.test kipoi
+pip install kipoi
 
 # fi
 
