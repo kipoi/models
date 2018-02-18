@@ -25,10 +25,10 @@ info:
 dependencies:
     conda:
         - cython
+    pip:
         - scikit-learn==0.18.1
         - numpy
         - pandas
-    pip:
         - concise>=0.6.5
         - gtfparse
         - pybedtools
