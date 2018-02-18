@@ -47,7 +47,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --git-range master HEAD
+          command: kipoi test-source kipoi --git-range master HEAD -k rbp_eclip
       - *save_cache
       - *store_artifacts
 

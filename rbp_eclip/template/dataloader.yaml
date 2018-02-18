@@ -26,12 +26,14 @@ dependencies:
     conda:
         - cython
         - scikit-learn==0.18.1
+        - numpy
+        - pandas
     pip:
+        - concise>=0.6.5
         - gtfparse
         - pybedtools
         - pysam
         - genomelake
-        - concise>=0.6.5
 output_schema:
     inputs:
         seq:
