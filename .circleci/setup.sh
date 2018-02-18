@@ -39,10 +39,10 @@ echo "Configure Kipoi"
 mkdir -p ~/.kipoi
 echo "
 model_sources:
-kipoi:
-type: git-lfs
-remote_url: git@github.com:kipoi/models.git
-local_path: /root/repo/
+  kipoi:
+    type: git-lfs
+    remote_url: git@github.com:kipoi/models.git
+    local_path: /root/repo/
 " > ~/.kipoi/config.yaml
 
 # ---
