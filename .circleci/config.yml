@@ -69,7 +69,8 @@ workflows:
   # workflow for testing pushes and PRs
   test-models:
     jobs:
-      - test_new_models
+      - test_new_models:
+          context: pypi
       filters:
         branches:
           ignore:
@@ -86,4 +87,5 @@ workflows:
                only:
                  - master
     jobs:
-      - test_all_models
+      - test_all_models:
+          context: pypi
