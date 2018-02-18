@@ -1,17 +1,8 @@
-# models
+# Kipoi models
 
-Repository hosting Kipoi models
+**Note:** See [kipoi/README.md](https://github.com/kipoi/kipoi) for more information on how to install `kipoi` and access the models from this repository using CLI, python or R.
 
-## Setup - Install git lfs
-
-```bash
-# on Ubuntu
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install -y git-lfs
-git-lfs install
-```
-
-## Contributing to the model zoo
+## Contributing to the Kipoi model zoo
 
 1. Fork this repository
 2. Clone your repository fork, ignore all the git lfs files
@@ -20,8 +11,6 @@ git-lfs install
     - See how to structure a model directory in [kipoi/kipoi/nbs/contributing_models.ipynb](https://github.com/kipoi/kipoi/blob/master/nbs/contributing_models.ipynb)
 	- put all the non-code files (serialized models, test data) into a `*files` directory, where `*` can be anything.
 	  - Examples: `model_files`, `dataloader_files`
-
-	  -
 4. Test your repository locally:
-    - `modelzoo test <mynewmodel>`
+    - `kipoi test <mynewmodel>`
 5. Commit, push to your forked remote, submit a pull request

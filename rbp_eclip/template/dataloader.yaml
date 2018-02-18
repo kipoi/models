@@ -25,14 +25,15 @@ info:
 dependencies:
     conda:
         - cython
-        - scikit-learn==0.18.1
     pip:
+        - scikit-learn==0.18.1
+        - numpy
+        - pandas
+        - concise>=0.6.5
         - gtfparse
         - pybedtools
         - pysam
-        - data/packages/kipoi-0.0.1.tar.gz  # TODO - remove
-        - data/packages/genomelake-0.1.tar.gz # TODO - edit back
-        - concise>=0.6.5
+        - genomelake
 output_schema:
     inputs:
         seq:

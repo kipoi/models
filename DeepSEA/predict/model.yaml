@@ -29,8 +29,7 @@ default_dataloader: .
 dependencies:
   conda:
     - h5py
-    - pytorch::pytorch>=0.2.0
-    - pytorch::torchvision
+    - pytorch::pytorch-cpu>=0.2.0
 schema:
   inputs:
     name: seq

@@ -27,8 +27,9 @@ dependencies:
     - python=3.5
     - numpy
     - pandas
+    - cython
   pip:
-    # - genomelake
+    - genomelake
     - pybedtools
 output_schema:
   inputs:
