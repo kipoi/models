@@ -5,6 +5,7 @@ variables:
     docker:
       - image: continuumio/miniconda3:4.3.14
     working_directory: ~/repo
+    context: pypi
   install_sys_deps: &install_sys_deps
     name: install build-essential
     command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
@@ -69,8 +70,7 @@ workflows:
   # workflow for testing pushes and PRs
   test-models:
     jobs:
-      - test_new_models:
-          context: pypi
+      - test_new_models
       filters:
         branches:
           ignore:
@@ -87,5 +87,4 @@ workflows:
                only:
                  - master
     jobs:
-      - test_all_models:
-          context: pypi
+      - test_all_models
