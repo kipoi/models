@@ -1,5 +1,7 @@
 # Kipoi models
 
+[![CircleCI](https://circleci.com/gh/kipoi/models.svg?style=svg&circle-token=ee92a92acb288e17399660e66603f700737e7382)](https://circleci.com/gh/kipoi/models)
+
 **Note:** See [kipoi/README.md](https://github.com/kipoi/kipoi) for more information on how to install `kipoi` and access the models from this repository using CLI, python or R.
 
 ## Contributing to the Kipoi model zoo
