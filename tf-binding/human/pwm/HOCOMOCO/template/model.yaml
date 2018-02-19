@@ -34,8 +34,7 @@ schema:
     shape: (1, )
     doc: Best PWM match log-odds score
 postprocessing:
-    - type: variant_effects
-      args:
-          seq_input:
-            - seq
-          supports_simple_rc: true
+    variant_effects:
+      seq_input:
+        - seq
+      use_rc: True

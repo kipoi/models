@@ -24,11 +24,11 @@ info:
   name: DeepCpG
   version: 1.0.4
 postprocessing:
-- args:
+  variant_effects:
     seq_input:
     - seq
-    supports_simple_rc: true
-  type: variant_effects
+    use_rc: True
+
 schema:
   inputs:
     dna:

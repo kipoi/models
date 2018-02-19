@@ -29,7 +29,6 @@ schema:
         shape: (70, )
         doc: Predicted probability of being branchpoint along the sequence
 postprocessing:
-    - type: variant_effects
-      args:
-          seq_input:
-            - seq
+    variant_effects:
+      seq_input:
+        - seq

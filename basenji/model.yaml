@@ -43,8 +43,7 @@ schema:
     shape: (960, 4229)
     doc: Specific Basenji output features.
 postprocessing:
-    - type: variant_effects
-      args:
-          seq_input:
-            - seq
-          supports_simple_rc: true
+    variant_effects:
+      seq_input:
+        - seq
+      use_rc: True
