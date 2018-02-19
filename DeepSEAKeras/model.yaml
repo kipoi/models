@@ -41,7 +41,7 @@ schema:
 #    column_labels:
 #      - output_labels.txt
 postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: True
+  variant_effects:
+    seq_input:
+      - seq
+    use_rc: True
