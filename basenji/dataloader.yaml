@@ -40,7 +40,6 @@ output_schema:
       doc: Ranges describing inputs.seq
 # TODO - check if var-effect prediction works
 postprocessing:
-    - type: variant_effects
-      args:
-          bed_input:
-            - intervals_file
+    variant_effects:
+      bed_input:
+        - intervals_file
