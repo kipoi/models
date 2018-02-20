@@ -19,6 +19,7 @@ info:
     The input of the tensor has to be (N, 4, 600, 1) for N samples, 600bp window
     size and 4 nucleotides. Per sample, 164 probabilities of accessible chromatin
     will be predicted. 
+  cite_as: https://doi.org/10.1101/gr.200535.115
 default_dataloader: .
 dependencies:
   conda:
