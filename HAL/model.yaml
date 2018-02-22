@@ -32,5 +32,5 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
-    scoring_functions:
-        - type: diff
+      scoring_functions:
+          - type: diff
