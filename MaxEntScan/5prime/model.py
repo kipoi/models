@@ -10,7 +10,7 @@ this_path = os.path.dirname(os.path.abspath(filename))
 import sys
 sys.path.append(os.path.join(this_path, "../template"))
 
-from model import MaxEntModel
+from model_template import MaxEntModel
 
 
 class MaxEntModelSpec(MaxEntModel):
