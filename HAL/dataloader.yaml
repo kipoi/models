@@ -27,6 +27,7 @@ output_schema:
     inputs:
         name: seq
         shape: () # TODO  number of k-mers
+        special_type: DNAStringSeq
         doc: K-mer counts
     targets:
         name: psi
