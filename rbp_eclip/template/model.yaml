@@ -57,3 +57,7 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
+      scoring_functions:
+        - type: diff
+        - type: logit
+        - type: deepsea_scr
