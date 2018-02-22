@@ -57,7 +57,7 @@ class HALModel(BaseModel):
         return seq_scores
 
     def predict_seq(self, seq):
-        sd_score = sum(self._score_seq_pos(seq))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
+            sd_score = sum(self._score_seq_pos(seq.upper()))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
         return sd_score
 
     def _get_x(self, inputs):
@@ -70,7 +70,7 @@ class HALModel(BaseModel):
         x = self._get_x(inputs)
         if isinstance(x[0], np.ndarray):
             scores = np.array(list(map(self.predict_seq, x[:,1]))) - np.array(list(map(self.predict_seq, x[:,0])))
-            return np.array(list(map(self.expit, scores)))
+            return np.array(list(map(self.expit, scores)))[:,None] # Not sure if [:,None] is necessary here too
         else:
             scores = list(map(self.predict_seq, x))
-            return np.array(scores)
+            return np.array(scores)[:,None] # the output shape is defined as (1,) hence the 0th dimension is the batch.
