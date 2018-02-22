@@ -57,7 +57,7 @@ class HALModel(BaseModel):
         return seq_scores
 
     def predict_seq(self, seq):
-            sd_score = sum(self._score_seq_pos(seq.upper()))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
+        sd_score = sum(self._score_seq_pos(seq.upper()))  # 80*2 is hard coded as Rosenberg dose, but can be flexible
         return sd_score
 
     def _get_x(self, inputs):
