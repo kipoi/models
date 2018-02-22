@@ -31,6 +31,7 @@ output_schema:
     inputs:
         name: seq
         shape: ()
+        associated_metadata: ranges
         doc: a junction (donor or acceptor) sequence
     targets:
         name: psi

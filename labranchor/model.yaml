@@ -31,7 +31,7 @@ schema:
 postprocessing:
     variant_effects:
       seq_input:
-        - seq
+        - bidirectional_1_input
       scoring_functions:
         - type: diff
         - type: logit

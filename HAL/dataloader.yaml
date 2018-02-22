@@ -29,6 +29,7 @@ output_schema:
         shape: () # TODO  number of k-mers
         special_type: DNAStringSeq
         doc: K-mer counts
+        associated_metadata: ranges
     targets:
         name: psi
         shape: (1, )
