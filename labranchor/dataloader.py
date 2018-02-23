@@ -11,6 +11,9 @@ import sys
 sys.path.append(this_path)
 from gtf_utils import loadgene
 from fasta_utils import FastaFile
+import warnings
+
+from kipoi.metadata import GenomicRanges
 
 
 bases = ['A', 'C', 'G', 'T']
@@ -19,7 +22,8 @@ bases = ['A', 'C', 'G', 'T']
 def onehot(seq):
     X = np.zeros((len(seq), len(bases)))
     for i, char in enumerate(seq):
-        X[i, bases.index(char.upper())] = 1
+        if char != "N":
+            X[i, bases.index(char.upper())] = 1
     return X
 
 
@@ -45,7 +49,7 @@ class Branch(object):
 
     def get_branch_seq(self, fasta):
         """ Get branch sequence
-        branch_seq: sequence of acceptor intron that potentially 
+        branch_seq: sequence of acceptor intron that potentially
         has branchpoint
         """
         seq = fasta.get_seq(self.chrom,
@@ -95,6 +99,11 @@ class BranchPointDataset(Dataset):
         out['metadata']['start'] = branch.grange[0] - 1  # use 0-base indexing
         out['metadata']['stop'] = branch.grange[1]
         out['metadata']['biotype'] = branch.biotype
+        out['metadata']['ranges'] = GenomicRanges(branch.chrom,
+                                                  branch.grange[0] - 1,  # use 0-base indexing
+                                                  branch.grange[1],
+                                                  branch.geneID + "_" + branch.transcriptID,
+                                                  branch.strand)
 
         return out
 
@@ -102,6 +111,7 @@ class BranchPointDataset(Dataset):
         """ get_branches for a single gene
         """
         branchList = []
+        not_parsed = []
         for transcript in gene.trans:
             exons = transcript.exons
             if len(exons) > 1:
@@ -113,19 +123,29 @@ class BranchPointDataset(Dataset):
                     ss3 = exons[:-1, 1]
                     ss3 = np.stack((ss3 + 1, ss3 + self.length), -1)
                 for e in ss3:
+                    branch = Branch(gene.chrom,
+                                    e[0],
+                                    e[1],
+                                    gene.strand,
+                                    transcript.tranID,
+                                    gene.geneID,
+                                    gene.biotype)
                     try:
-                        branch = Branch(gene.chrom,
-                                        e[0],
-                                        e[1],
-                                        gene.strand,
-                                        transcript.tranID,
-                                        gene.geneID,
-                                        gene.biotype)
                         branch.get_branch_seq(self.fasta)
                         branchList.append(branch)
                     except:
-                        print("failed to append the brachpoint: {0}".format(branch))
-                        print("{0}:{1}-{2} {3} {4}".format(gene.chrom, e[0], e[1], gene.strand, transcript.tranID))
+                        not_parsed.append(branch)
+
+        # print("Parsed %s branch sites" % len(branchList))
+        # if len(not_parsed) > 0:
+        #     b = not_parsed[0]  # a example
+        #     warnings.warn("failed to parse %s sites. "
+        #                   "Possibly there are chromosome names "
+        #                   "in gtf file that are not present "
+        #                   "in the fasta file" % len(not_parsed))
+        #     warnings.warn("One example is "
+        #                   "{0}:{1}-{2} {3} {4}".format(b.chrom, b.grange[0], b.grange[1], b.strand, b.transcriptID))
+
         return branchList
 
     def get_branches(self):

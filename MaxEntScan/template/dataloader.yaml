@@ -31,6 +31,8 @@ output_schema:
     inputs:
         name: seq
         shape: ()
+        associated_metadata: ranges
+        special_type: DNAStringSeq
         doc: a junction (donor or acceptor) sequence
     targets:
         name: psi
