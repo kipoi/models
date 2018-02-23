@@ -114,7 +114,6 @@ class BranchPointDataset(Dataset):
                     ss3 = np.stack((ss3 + 1, ss3 + self.length), -1)
                 for e in ss3:
                     try:
-
                         branch = Branch(gene.chrom,
                                         e[0],
                                         e[1],

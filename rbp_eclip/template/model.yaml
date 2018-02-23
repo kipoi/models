@@ -7,6 +7,9 @@ info:
     authors:
         - name: Ziga Avsec
           github: avsecz
+    contributors:
+        - name: Ziga Avsec
+          github: avsecz
     version: 0.1
     doc: >
       'RBP binding model from Avsec et al: "Modeling positional effects of regulatory sequences with spline transformations increases prediction accuracy of deep neural networks". '

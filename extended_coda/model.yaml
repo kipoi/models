@@ -6,6 +6,12 @@ args:
 # dataloader.yaml is used by default
 info:
     authors:
+        - name: Pang Wei Koh
+          github: kohpangwei
+        - name: Emma Pierson
+        - name: Anshul Kundaje
+          github: akundaje
+    contributors:
         - name: Johnny Israeli
           github: jisraeli
     name: extended CODA

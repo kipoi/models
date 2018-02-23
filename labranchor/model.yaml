@@ -6,6 +6,7 @@ info:
     authors:
         - name: Paggi J.M., Bejerano
           github: jpaggi
+    contributors:
         - name: Jun Cheng
           github: s6juncheng
     doc: >
