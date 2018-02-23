@@ -25,6 +25,7 @@ output_schema:
             shape: (70, 4)
             special_type: DNASeq
             doc: One-hot encoded RNA sequence
+            associated_metadata: ranges
     targets:
         shape: (70, )
         doc: Predicted probability of being branchpoint along the sequence

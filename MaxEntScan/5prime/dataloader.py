@@ -9,7 +9,7 @@ this_path = os.path.dirname(os.path.abspath(filename))
 import sys
 sys.path.append(os.path.join(this_path, "../template"))
 
-from dataloader import SplicingMaxEntDataset
+from dataloader_template import SplicingMaxEntDataset
 
 
 class SplicingMaxEntDatasetSpec(SplicingMaxEntDataset):

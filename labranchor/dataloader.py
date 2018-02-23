@@ -13,6 +13,8 @@ from gtf_utils import loadgene
 from fasta_utils import FastaFile
 import warnings
 
+from kipoi.metadata import GenomicRanges
+
 
 bases = ['A', 'C', 'G', 'T']
 
@@ -97,6 +99,11 @@ class BranchPointDataset(Dataset):
         out['metadata']['start'] = branch.grange[0] - 1  # use 0-base indexing
         out['metadata']['stop'] = branch.grange[1]
         out['metadata']['biotype'] = branch.biotype
+        out['metadata']['ranges'] = GenomicRanges(branch.chrom,
+                                                  branch.grange[0] - 1,  # use 0-base indexing
+                                                  branch.grange[1],
+                                                  branch.geneID + "_" + branch.transcriptID,
+                                                  branch.strand)
 
         return out
 

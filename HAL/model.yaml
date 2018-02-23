@@ -22,8 +22,15 @@ schema:
     inputs:
         name: seq
         shape: () # TODO  number of k-mers
+        special_type: DNAStringSeq
         doc: K-mer counts
     targets:
         name: psi
         shape: (1, )
         doc: "Predicted 3' psi"
+postprocessing:
+    variant_effects:
+      seq_input:
+        - seq
+      scoring_functions:
+          - type: diff
