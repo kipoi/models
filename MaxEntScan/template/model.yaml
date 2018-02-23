@@ -26,6 +26,7 @@ dependencies:
 schema:
     inputs:
         name: seq
+        special_type: DNAStringSeq
         shape: ()
         doc: Actual junction sequence
     targets:
