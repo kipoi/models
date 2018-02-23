@@ -4,10 +4,11 @@ args:
   build_fn: get_model
 info:
   authors:
-      - name: Roman Kreuzhuber
-        github: krrome
       - name: Jian Zhou
       - name: Olga Troyanskaya
+  contributors:
+      - name: Roman Kreuzhuber
+        github: krrome
   name: DeepSEA
   version: 0.94
   doc: >

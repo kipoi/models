@@ -3,9 +3,11 @@ args:
   weights: model_files/model.h5
 info:
   authors:
+      - name: Ivan V. Kulakovskiy
+  contributors:
       - name: Ziga Avsec
         github: avsecz
-  name: CpGenie
+  cite_as: https://doi:10.1093/nar/gkv1249
   version: 0.1
   doc: >
     '''Simple PWM-scanning model

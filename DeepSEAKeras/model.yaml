@@ -4,6 +4,9 @@ args:
   weights: model_files/weights.h5
 info:
   authors:
+      - name: Jian Zhou
+      - name: Olga Troyanskaya
+  contributors:
       - name: Lara Urban
         github: LaraUrban
   name: DeepSEA

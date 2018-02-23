@@ -6,6 +6,9 @@ info:
   authors:
       - name: Christof Angermueller
         github: cangermueller
+  contributors:
+      - name: Roman Kreuzhuber
+        github: krrome
   name: DeepCpG
   version: 1.0.4
   doc: >

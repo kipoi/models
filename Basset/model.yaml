@@ -4,10 +4,11 @@ args:
   build_fn: get_model
 info:
   authors:
-      - name: Roman Kreuzhuber
-        github: krrome
       - name: David Kelley
         github: davek44
+  contributors:
+      - name: Roman Kreuzhuber
+        github: krrome
   name: Basset
   version: 0.1.0
   doc: >

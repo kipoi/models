@@ -9,6 +9,9 @@ info:
   authors:
       - name: David Kelley
         github: davek44
+  contributors:
+      - name: Ziga Avsec
+        github: avsecz
   doc: >
     Sequential regulatory activity predictions with deep convolutional neural networks.
 

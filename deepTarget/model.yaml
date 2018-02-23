@@ -9,6 +9,9 @@ info:
     - name: Junghwan Baek
     - name: Seunghyun Park
     - name: Sungroh Yoon
+  contributors:
+    - name: Ziga Avsec
+      github: avsecz
   doc: > 
     '''deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
     '''

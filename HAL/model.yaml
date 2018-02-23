@@ -7,6 +7,7 @@ info:
     authors:
         - name: Alexander Rosenberg
           github: Alex-Rosenberg
+    contributors:
         - name: Jun Cheng
           github: s6juncheng
         - name: Ziga Avsec

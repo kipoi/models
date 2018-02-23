@@ -6,6 +6,9 @@ info:
   authors:
       - name: Haoyang Zeng
         github: haoyangz
+  contributors:
+      - name: Roman Kreuzhuber
+        github: krrome
   name: CpGenie
   version: 0.1
   doc: >

@@ -12,8 +12,11 @@ dependencies:
   - deepcpg==1.0.4
 info:
   authors:
-  - github: cangermueller
-    name: Christof Angermueller
+     - github: cangermueller
+       name: Christof Angermueller
+  contributors:
+      - name: Roman Kreuzhuber
+        github: krrome
   doc: 'This is the extraction of the DNA-part of the a pretrained model by Christof
     Angermueller
 
