@@ -25,9 +25,14 @@ dependencies:
 schema:
     inputs:
         name: seq
+        special_type: DNAStringSeq
         shape: ()
         doc: Actual junction sequence
     targets:
         name: psi
         shape: (1, )
         doc: "Predicted psi"
+postprocessing:
+    variant_effects:
+      seq_input:
+        - seq
