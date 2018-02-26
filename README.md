@@ -57,7 +57,7 @@ See [docs/contributing getting started](http://ec2-54-87-147-83.compute-1.amazon
 
 ### Using models (to predict, score variants, build new models)
 
-To explore available models, visit http://kipoi.org/models. See [kipoi/README.md](https://github.com/kipoi/kipoi) and [docs/using getting started](http://ec2-54-87-147-83.compute-1.amazonaws.com/docs/using/01_Getting_started/) for more information on how to programatically access the models from this repository using CLI, python or R.
+To explore available models, visit [http://kipoi.org/models](http://ec2-54-87-147-83.compute-1.amazonaws.com/groups/). See [kipoi/README.md](https://github.com/kipoi/kipoi) and [docs/using getting started](http://ec2-54-87-147-83.compute-1.amazonaws.com/docs/using/01_Getting_started/) for more information on how to programatically access the models from this repository using CLI, python or R.
 
 #### Configuring local storage location
 
