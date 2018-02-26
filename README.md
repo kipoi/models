@@ -9,14 +9,14 @@ This repository hosts predictive models for genomics and serves as a model sourc
 ├── dataloader.yaml   # describes the dataloader
 ├── dataloader_files/      #/ files required by the dataloader
 │   ├── ...
-│   └── y_transfomer.pkl
+│   └── y_transfomer.pkl # example
 ├── model.yaml        # describes the model
 ├── model_files/           #/ files required by the model
-│   ├── model.json
-│   └── weights.h5
+│   ├── model.json # example
+│   └── weights.h5 # example
 └── example_files/         #/ small example files used to test the model
-    ├── features.csv
-    └── targets.csv
+    ├── features.csv # example
+    └── targets.csv # example
 ```
 
 Folders named `*_files` are tracked by Git Large File Storage (LFS). New models are added by simply submitting a pull-request to <https://github.com/kipoi/models>.
