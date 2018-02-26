@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/kipoi/models.svg?style=svg&circle-token=ee92a92acb288e17399660e66603f700737e7382)](https://circleci.com/gh/kipoi/models)
 
-This repository hosts models for Kipoi. Each folder containing the following files is considered to be a single model:
+This repository hosts predictive models for genomics and serves as a model source for [Kipoi](https://github.com/kipoi/kipoi). Each folder containing the following files is considered to be a single model:
 
 ```
 ├── dataloader.py     # implements the dataloader
