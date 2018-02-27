@@ -79,6 +79,16 @@ workflows:
              branches:
                ignore:
                  - master
+                 - test_all*
+
+  test-all-branch:
+     jobs:
+       - test_all_models:
+           context: pypi
+           filters:
+             branches:
+               only:
+                 - test_all*
 
   # workflow for testing all the models
   # on the master branch overnight
