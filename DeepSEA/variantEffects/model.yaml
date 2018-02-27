@@ -50,3 +50,12 @@ postprocessing:
        seq_input:
          - seq
        use_rc: true
+       scoring_functions:
+         - type: diff
+           default: true
+         - type: logit
+           default: true
+         - type: deepsea_scr
+           default: true
+         - type: logit_ref
+         - type: logit_alt

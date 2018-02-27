@@ -58,3 +58,11 @@ postprocessing:
       seq_input:
         - seq
       use_rc: True
+      scoring_functions:
+        - type: diff
+          default: true
+        - type: logit
+          default: true
+        - type: deepsea_scr
+        - type: logit_ref
+        - type: logit_alt
