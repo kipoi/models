@@ -51,3 +51,6 @@ output_schema:
         biotype:
             type: str
             doc: gene biotype, can be used to filter protein coding genes for instance
+        ranges:
+            type: GenomicRanges
+            doc: Ranges describing inputs.bidirectional_1_input
