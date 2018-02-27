@@ -16,7 +16,7 @@ from genomelake.extractors import BaseExtractor, FastaExtractor, one_hot_encode_
 from pysam import FastaFile
 from concise.preprocessing.splines import encodeSplines
 from concise.utils.position import extract_landmarks, ALL_LANDMARKS
-from gtfparse import read_gtf_as_dataframe
+from gtfparse import read_gtf
 from kipoi.metadata import GenomicRanges
 import linecache
 from kipoi.data import Dataset
@@ -160,7 +160,7 @@ class SeqDistDataset(Dataset):
     """
 
     def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None, use_linecache=False):
-        gtf = read_gtf_as_dataframe(gtf_file)
+        gtf = read_gtf(gtf_file)
 
         if "gene_type" in gtf:
             self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
