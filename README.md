@@ -50,11 +50,11 @@ Folders named `*_files` are tracked by Git Large File Storage (LFS). New models 
     - `git push fork master`
 4. Submit a pull-request (click the [New pull request](https://help.github.com/articles/creating-a-pull-request/) button on your github fork - `https://github.com/<username>/models>`)
 
-See [docs/contributing getting started](http://ec2-54-87-147-83.compute-1.amazonaws.com/docs/contributing/01_Getting_started/) and [docs/tutorials/contributing/models](http://ec2-54-87-147-83.compute-1.amazonaws.com/docs/tutorials/contributing_models/) for more information.
+See [docs/contributing getting started](http://kipoi.org/docs/contributing/01_Getting_started/) and [docs/tutorials/contributing/models](http://kipoi.org/docs/tutorials/contributing_models/) for more information.
 
 ### Using models (to predict, score variants, build new models)
 
-To explore available models, visit [http://kipoi.org/models](http://ec2-54-87-147-83.compute-1.amazonaws.com/groups/). See [kipoi/README.md](https://github.com/kipoi/kipoi) and [docs/using getting started](http://ec2-54-87-147-83.compute-1.amazonaws.com/docs/using/01_Getting_started/) for more information on how to programatically access the models from this repository using CLI, python or R.
+To explore available models, visit [http://kipoi.org/models](http://kipoi.org/groups/). See [kipoi/README.md](https://github.com/kipoi/kipoi) and [docs/using getting started](http://kipoi.org/docs/using/01_Getting_started/) for more information on how to programatically access the models from this repository using CLI, python or R.
 
 #### Configuring local storage location
 
