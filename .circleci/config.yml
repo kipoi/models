@@ -79,7 +79,7 @@ workflows:
              branches:
                ignore:
                  - master
-                 - test_all*
+                 - test_all
 
   test-all-branch:
      jobs:
@@ -88,7 +88,7 @@ workflows:
            filters:
              branches:
                only:
-                 - test_all*
+                 - test_all
 
   # workflow for testing all the models
   # on the master branch overnight

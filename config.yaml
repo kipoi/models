@@ -1,4 +1,4 @@
 test:
   constraints:
-    basenji:
+    Basenji:
       batch_size: 2
