@@ -29,8 +29,8 @@ dependencies:
         - scikit-learn==0.18.1
         - numpy
         - pandas
-        - concise>=0.6.5
-        - gtfparse
+        - concise>=0.6.6
+        - gtfparse>=1.0.7
         - pybedtools
         - pysam
         - genomelake
