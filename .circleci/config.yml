@@ -2,6 +2,7 @@ version: 2
 
 variables:
   defaults: &defaults
+    context: pypi
     docker:
       - image: continuumio/miniconda3:4.3.14
     working_directory: ~/repo
