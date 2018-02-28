@@ -60,6 +60,7 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
+      use_rc: true
       scoring_functions:
         - type: diff
         - type: logit
