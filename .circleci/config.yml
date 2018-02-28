@@ -2,7 +2,6 @@ version: 2
 
 variables:
   defaults: &defaults
-    context: pypi
     docker:
       - image: continuumio/miniconda3:4.3.14
     working_directory: ~/repo
@@ -74,7 +73,6 @@ workflows:
   test-models:
      jobs:
        - test_new_models:
-           context: pypi
            filters:
              branches:
                ignore:
@@ -84,7 +82,6 @@ workflows:
   test-all-branch:
      jobs:
        - test_all_models:
-           context: pypi
            filters:
              branches:
                only:
@@ -101,5 +98,4 @@ workflows:
                only:
                  - master
      jobs:
-       - test_all_models:
-           context: pypi
+       - test_all_models
