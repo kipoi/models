@@ -1,0 +1,39 @@
+type: Dataset
+defined_as: dataloader.py::FastaDataset
+args:
+    intervals_file:
+        doc: >
+          tab-delimited `chrom start end label`
+        type: str
+        example: example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv
+    fasta_file:
+        doc: >
+          genome fasta file
+        type: str
+        example: example_files/chr21.fa
+info:
+    authors:
+        - name: Nancy Xu & Johnny Israeli
+          github: xnancy
+          email: xnancy@stanford.edu
+    doc: Basset model trained on large-scale GM12878 data for transfer learning demo 
+dependencies:
+    conda: # directly install via conda
+        - python=2.7
+    pip:
+        - cython
+        - genomelake
+        - six
+        - pybedtools
+output_schema:
+    inputs:
+        name: data/genome_data_dir
+        shape: (1000, 4)
+        doc: "One hot encoded DNA sequence."
+    targets:
+        shape: (1,)
+        doc: "DNase peak presence in GM12878."
+    metadata:
+        ranges:
+            type: GenomicRanges
+            doc: Ranges describing inputs.seq
