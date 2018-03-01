@@ -55,9 +55,6 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        # Intervals need to be 1001bp wide
-        assert interval.stop - interval.start == 1001
-
         if self.targets is not None:
             y = self.targets.iloc[idx].values
         else:
