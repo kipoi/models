@@ -55,7 +55,3 @@ postprocessing:
            default: true
          - type: logit
            default: true
-         - type: deepsea_scr
-           default: true
-         - type: logit_ref
-         - type: logit_alt
