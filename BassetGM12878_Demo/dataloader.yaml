@@ -1,39 +1,37 @@
 type: Dataset
-defined_as: dataloader.py::FastaDataset
+defined_as: dataloader.py::SeqDataset
 args:
+    # TODO - describe the input features of your model
     intervals_file:
-        doc: >
-          tab-delimited `chrom start end label`
+        doc: tsv file containing dna interval indices and binary 0/1 label for accessibility of single cell type. 
         type: str
         example: example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv
     fasta_file:
-        doc: >
-          genome fasta file
+        doc: chr21 fasta file for dna intervals  
         type: str
         example: example_files/chr21.fa
+        optional: True
 info:
     authors:
-        - name: Nancy Xu & Johnny Israeli
+        - name: Nancy Xu
           github: xnancy
           email: xnancy@stanford.edu
-    doc: Basset model trained on large-scale GM12878 data for transfer learning demo 
+    doc: test 
 dependencies:
-    conda: # directly install via conda
-        - python=2.7
+    conda: # directly install via cond
+        - cython 
     pip:
-        - cython
-        - genomelake
-        - six
         - pybedtools
+        - genomelake   # pip packages
 output_schema:
     inputs:
-        name: data/genome_data_dir
-        shape: (1000, 4)
-        doc: "One hot encoded DNA sequence."
+        data/genome_data_dir: 
+            shape: (1000,4)
+            doc: "1000 base pair sequence of one-hot encoding ACGT"
     targets:
         shape: (1,)
-        doc: "DNase peak presence in GM12878."
-    metadata:
+        doc: "Binary 0/1 output for chromatin accessbility in the designated range. 0 = inaccessible, 1 = accessible."
+    metadata: 
         ranges:
-            type: GenomicRanges
-            doc: Ranges describing inputs.seq
+            type: GenomicRanges  
+            doc: ranges for input
