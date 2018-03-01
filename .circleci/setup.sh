@@ -10,10 +10,6 @@ WORKSPACE=`pwd`
 # TODO - test with specific Kipoi version
 # - have a config in the models file storing the current Kipoi version to use
 
-# Required env variables:
-# - PYPI_USR
-# - PYPI_PASS
-# - PYPI_HOST
 
 # -----------  Not needed now
 # Common definitions from latest bioconda-utils master have to be downloaded before setup.sh is executed.
@@ -45,17 +41,6 @@ model_sources:
     local_path: /root/repo/
 " > ~/.kipoi/config.yaml
 
-# ---
-echo "Configure Pip"
-mkdir -p ~/.pip
-echo "
-[global]
-extra-index-url = https://pypi.python.org/simple
-index-url = http://${PYPI_USR}:${PYPI_PASS}@${PYPI_HOST}:8080/simple/
-
-[install]
-trusted-host=${PYPI_HOST}
-" > ~/.pip/pip.conf
 # ---
 
 echo "Installing Kipoi."
