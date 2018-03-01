@@ -36,4 +36,3 @@ postprocessing:
       scoring_functions:
         - type: diff
         - type: logit
-        - type: deepsea_scr
