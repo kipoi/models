@@ -31,6 +31,8 @@ info:
   license: Apache License v2
   trained_on: RRBS (restricted representation bisulfite sequencing) data from ENCODE (https://www.encodeproject.org/)
   training_procedure: RMSprop
+  tags:
+    - DNA methylation
 default_dataloader: .
 dependencies:
   conda:

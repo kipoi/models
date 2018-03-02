@@ -28,6 +28,10 @@ info:
   cite_as: https://doi.org/10.1038/nmeth.3547
   trained_on: ENCODE and Roadmap Epigenomics chromatin profiles https://www.nature.com/articles/nmeth.3547#methods
   training_procedure: https://www.nature.com/articles/nmeth.3547#methods
+  tags:
+    - Histone modification
+    - DNA binding
+    - DNA accessibility
 default_dataloader: .
 dependencies:
   conda:

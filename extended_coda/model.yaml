@@ -20,6 +20,8 @@ info:
     cite_as: https://doi.org/10.1093/bioinformatics/btx243
     trained_on: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
     training_procedure: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
+    tags:
+        - Histone modification
 dependencies:
     pip:
       - tensorflow==1.0.0

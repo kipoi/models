@@ -16,6 +16,8 @@ info:
     URL:  http://hocomoco.autosome.ru/
     Paper:  Kulakovskiy et al 2015, HOCOMOCO: expansion and enhancement of the collection of transcription factor binding sites models: doi:10.1093/nar/gkv1249
     '''
+  tags:
+      - DNA binding
 default_dataloader: .
 dependencies:
   conda:

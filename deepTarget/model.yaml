@@ -17,6 +17,8 @@ info:
     '''
   cite_as: 'https://arxiv.org/pdf/1603.09123.pdf'
   license: GPL-v3
+  tags:
+    - RNA binding
 dependencies:
   conda:
     - theano==0.8.2
