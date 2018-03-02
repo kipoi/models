@@ -31,11 +31,13 @@ class SeqDataset(Dataset):
         fasta_file: file path; Genome sequence
     """
 
+    SEQ_WIDTH = 1000
+
     def __init__(self, intervals_file, fasta_file):
         # intervals
-        #if use_linecache:
+        # if use_linecache:
          #   self.bt = BedToolLinecache(intervals_file)
-        #else:
+        # else:
         self.bt = BedTool(intervals_file)
         self.fasta_extractor = FastaExtractor(fasta_file)
 
@@ -45,8 +47,9 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        # Intervals need to be 600bp wide
-        assert interval.stop - interval.start == 1000
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
 
         if interval.name is not None:
             y = np.array([float(interval.name)])

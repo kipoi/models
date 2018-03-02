@@ -10,7 +10,7 @@ args:
 default_dataloader: . # path to the directory
 info:
     authors:
-        - name: Nancy Xu, Johnny Israeli 
+        - name: Nancy Xu
           github: xnancy
           email: xnancy@stanford.edu
         - name: Johnny Israeli 
