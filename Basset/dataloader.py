@@ -36,6 +36,8 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
+    SEQ_WIDTH = 600
+
     def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=False):
 
         # intervals
@@ -57,8 +59,9 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        # Intervals need to be 1000bp wide
-        assert interval.stop - interval.start == 600
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
 
         if self.targets is not None:
             y = self.targets.iloc[idx].values
@@ -68,7 +71,7 @@ class SeqDataset(Dataset):
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
         # Reformat so that it matches the Basset shape
-        seq = np.swapaxes(seq, 1, 0)[:,:,None]
+        seq = np.swapaxes(seq, 1, 0)[:, :, None]
         return {
             "inputs": seq,
             "targets": y,
