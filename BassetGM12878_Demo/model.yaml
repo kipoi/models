@@ -17,6 +17,8 @@ info:
           github: jisraeli 
           email: johnnyisraeli@gmail.com 
     doc: test 
+    tags:
+        - DNA accessibility
 dependencies:
     conda:
         - h5py 

@@ -16,6 +16,8 @@ info:
   cite_as: https://doi.org/10.1186/s13059-017-1189-z, https://doi.org/10.5281/zenodo.1094823
   trained_on: scBS-seq and scRRBS-seq datasets, https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   training_procedure: Described in https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
+  tags:
+    - DNA methylation
 default_dataloader: .
 dependencies:
   conda:

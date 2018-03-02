@@ -28,6 +28,10 @@ info:
     be useful for generating mechanistic hypotheses to enable fine mapping of disease loci.
   version: 0.1
   cite_as: https://doi.org/10.1101/161851
+  tags:
+    - RNA expression
+    - Histone modification
+    - DNA accessibility
 default_dataloader: .
 dependencies:
   conda:
