@@ -24,7 +24,6 @@ class BedToolLinecache(BedTool):
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
 
-
 class SeqDataset(Dataset):
     """
     Args:
@@ -32,6 +31,8 @@ class SeqDataset(Dataset):
         fasta_file: file path; Genome sequence
         target_file: file path; path to the targets in the csv format
     """
+
+    SEQ_WIDTH = 1000
 
     def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=False):
 
@@ -54,8 +55,9 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        # Intervals need to be 1000bp wide
-        assert interval.stop - interval.start == 1000
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
 
         if self.targets is not None:
             y = self.targets.iloc[idx].values

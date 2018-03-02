@@ -45,8 +45,6 @@ class BedToolLinecache(BedTool):
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
 
-
-
 class DistanceTransformer:
     """Transforms the raw distances to the appropriate modeling form
     """
@@ -159,6 +157,8 @@ class SeqDistDataset(Dataset):
         batch_size: int
     """
 
+    SEQ_WIDTH = 101
+
     def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None, use_linecache=False):
         gtf = read_gtf(gtf_file)
 
@@ -200,6 +200,9 @@ class SeqDistDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
         out = {}
         out['inputs'] = {}
         # input - sequence
