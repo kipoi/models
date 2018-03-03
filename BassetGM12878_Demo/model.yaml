@@ -16,6 +16,10 @@ info:
         - name: Johnny Israeli 
           github: jisraeli 
           email: johnnyisraeli@gmail.com 
+    contributors:
+        - name: Nancy Xu
+          github: xnancy
+          email: xnancy@stanford.edu    
     doc: test 
     tags:
         - DNA accessibility
