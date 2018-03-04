@@ -2,6 +2,7 @@
 from __future__ import absolute_import, division, print_function
 import six
 import os
+import sys
 import inspect
 from builtins import str, open, range, dict
 
@@ -164,6 +165,8 @@ class SeqDistDataset(Dataset):
     def __init__(self, intervals_file, fasta_file, gtf_file,
                  filter_protein_coding=True,
                  target_file=None, use_linecache=False):
+        if sys.version_info[0] != 3:
+            warnings.warn("Only Python 3 is supported. You are using Python {0}".format(sys.version_info[0]))
         self.gtf = read_gtf(gtf_file)
 
         self.filter_protein_coding = filter_protein_coding
