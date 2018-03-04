@@ -30,6 +30,7 @@ info:
       tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end
 dependencies:
     conda:
+        - python>=3.5
         - cython
     pip:
         - scikit-learn==0.18.1
