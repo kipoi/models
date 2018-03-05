@@ -28,7 +28,7 @@ variables:
   setup: &setup
     run: 
       name: Setup Kipoi
-      command: .circleci/setup.sh
+      command: bash .circleci/setup.sh
   store_artifacts: &store_artifacts
     store_artifacts:
       path: test-reports
