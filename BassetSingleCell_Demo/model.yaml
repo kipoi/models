@@ -1,0 +1,33 @@
+# TODO - optionally create a model.py file - if model type is custom...
+
+# TODO - model files
+# ifelse - different model types - specify the arguments
+type: keras
+args:
+    weights: model_files/model.weights.h5
+    arch: model_files/model.arch.json
+    # Note: if you saved the model with model.save(), you can omit `arch: ...`
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Nancy Xu, Johnny Israeli 
+          github: xnancy
+          email: xnancy@stanford.edu
+        - name: Johnny Israeli 
+          github: jisraeli 
+          email: johnnyisraeli@gmail.com 
+    doc: test 
+dependencies:
+    conda:
+        - h5py 
+    pip:
+        - tensorflow
+        - keras==1.2.2
+schema:
+    inputs:
+        data/genome_data_dir:
+            shape: (1000,4)
+            doc: "1000 base pair sequence of one-hot encoding ACGT"
+    targets:
+        shape: (1,)
+        doc: "Binary 0/1 output for chromatin accessbility in the designated range. 0 = inaccessible, 1 = accessible." 

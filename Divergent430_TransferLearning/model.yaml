@@ -1,0 +1,30 @@
+# TODO - optionally create a model.py file - if model type is custom...
+
+# TODO - model files
+# ifelse - different model types - specify the arguments
+type: keras
+args:
+    weights: model_files/model.weights.h5
+    arch: model_files/model.arch.json
+    # Note: if you saved the model with model.save(), you can omit `arch: ...`
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Nancy Xu 
+          github: xnancy
+          email: xnancy@stanford.edu
+    doc: Large-scale multi-task convolutional model trained on 430 cell types and fine-tuned for single cell prediction. Weights from the Divergent430 network are ported to a new single cell model by removing the final classification layer. 
+dependencies:
+    conda:
+        - h5py 
+    pip:
+        - tensorflow
+        - keras==1.2.2
+schema:
+    inputs:
+        data/genome_data_dir:
+            shape: (1000,4)
+            doc: "1000 base pair sequence of one-hot encoding ACGT"
+    targets:
+        shape: (1,)
+        doc: "Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible." 
