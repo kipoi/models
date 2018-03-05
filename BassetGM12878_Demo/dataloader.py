@@ -1,6 +1,3 @@
-"""DeepSEA dataloader
-"""
-# python2, 3 compatibility
 from __future__ import absolute_import, division, print_function
 
 import numpy as np
@@ -11,7 +8,6 @@ from genomelake.extractors import FastaExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 import linecache
-# --------------------------------------------
 
 
 class BedToolLinecache(BedTool):
@@ -31,27 +27,19 @@ class BedToolLinecache(BedTool):
 class SeqDataset(Dataset):
     """
     Args:
-        intervals_file: bed3 file containing intervals
+        intervals_file: bed3+1 file containing intervals+labels
         fasta_file: file path; Genome sequence
-        target_file: file path; path to the targets in the csv format
     """
 
-    SEQ_WIDTH = 600
+    SEQ_WIDTH = 1000
 
-    def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=False):
-
+    def __init__(self, intervals_file, fasta_file):
         # intervals
-        if use_linecache:
-            self.bt = BedToolLinecache(intervals_file)
-        else:
-            self.bt = BedTool(intervals_file)
+        # if use_linecache:
+         #   self.bt = BedToolLinecache(intervals_file)
+        # else:
+        self.bt = BedTool(intervals_file)
         self.fasta_extractor = FastaExtractor(fasta_file)
-
-        # Targets
-        if target_file is not None:
-            self.targets = pd.read_csv(target_file)
-        else:
-            self.targets = None
 
     def __len__(self):
         return len(self.bt)
@@ -63,17 +51,18 @@ class SeqDataset(Dataset):
             raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
                              format(self.SEQ_WIDTH, interval.stop - interval.start))
 
-        if self.targets is not None:
-            y = self.targets.iloc[idx].values
+        if interval.name is not None:
+            y = np.array([float(interval.name)])
         else:
             y = {}
 
         # Run the fasta extractor
-        seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
+        seq = np.squeeze(self.fasta_extractor([interval]))
+
         # Reformat so that it matches the Basset shape
-        seq = np.swapaxes(seq, 1, 0)[:, :, None]
+        # seq = np.swapaxes(seq, 1, 0)[:,:,None]
         return {
-            "inputs": seq,
+            "inputs": {"data/genome_data_dir": seq},
             "targets": y,
             "metadata": {
                 "ranges": GenomicRanges.from_interval(interval)
