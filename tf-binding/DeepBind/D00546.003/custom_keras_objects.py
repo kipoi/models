@@ -1,1 +1,1 @@
-/users/jisraeli/.kipoi/models/tf-binding/DeepBind/template/custom_keras_objects.py
+../template/custom_keras_objects.py

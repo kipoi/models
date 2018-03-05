@@ -1,1 +1,1 @@
-/users/jisraeli/.kipoi/models/tf-binding/DeepBind/template/dataloader.py
+../template/dataloader.py
