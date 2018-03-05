@@ -1,0 +1,41 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+  intervals_file:
+    doc: bed3 file with `chrom start end id score strand`
+    example: example_files/intervals.bed
+  fasta_file:
+    doc: Reference genome sequence
+    example: example_files/hg38_chr22.fa
+  target_file:
+    doc: path to the targets (.tsv) file
+    optional: True
+info:
+  authors:
+      - name: Johnny Israeli
+        github: jisraeli
+  doc: Dataloader for the DeepBind model.
+  license: "MIT"
+dependencies:
+  conda:
+    - python=3.5
+    - numpy
+    - pandas
+  pip:
+    - pybedtools
+    - genomelake
+output_schema:
+  inputs:
+    name: seq
+    shape: (101, 4)
+    special_type: DNASeq
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: binding_prob
+    shape: (1, )
+    doc: Binding probability
+  metadata:
+    ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
