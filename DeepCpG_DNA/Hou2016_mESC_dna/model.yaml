@@ -26,6 +26,8 @@ info:
   training_procedure: Described in https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   name: DeepCpG
   version: 1.0.4
+  tags:
+    - DNA methylation
 postprocessing:
   variant_effects:
     seq_input:

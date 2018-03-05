@@ -20,6 +20,8 @@ info:
     training_procedure: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
     license: MIT
     version: 0.1
+    tags:
+        - RNA splicing
 dependencies:
     conda:
       - bioconda::maxentpy

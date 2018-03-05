@@ -10,6 +10,10 @@ args:
     gtf_file:
         doc: file path; Genome annotation GTF file
         example: example_files/gencode.v24.annotation_chr22.gtf
+    filter_protein_coding:
+        doc: Considering genomic landmarks only for protein coding genes when computing the distances to the nearest genomic landmark.
+        optional: True
+        example: True
     target_file:
         doc: path to the targets (txt) file
         optional: True
@@ -21,9 +25,12 @@ info:
     authors:
         - name: Ziga Avsec
           github: avsecz
-    doc: RBP binding prediction for UPF1 protein
+    doc: >
+      RBP binding model taking as input 101nt long sequence as well as 8 distances to nearest genomic landmarks - 
+      tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end
 dependencies:
     conda:
+        - python>=3.5
         - cython
     pip:
         - scikit-learn==0.18.1

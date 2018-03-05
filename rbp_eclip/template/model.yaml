@@ -18,6 +18,8 @@ info:
       RBP occupancy peaks measured by eCLIP-seq (Van Nostrand et al., 2016 - https://doi.org/10.1038/nmeth.3810), https://github.com/gagneurlab/Manuscript_Avsec_Bioinformatics_2017
     training_procedure: Single task training with ADAM
     license: MIT
+    tags:
+        - RNA binding
 dependencies:
     pip:
         - concise>=0.6.5
@@ -60,7 +62,7 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
+      use_rc: true
       scoring_functions:
         - type: diff
         - type: logit
-        - type: deepsea_scr

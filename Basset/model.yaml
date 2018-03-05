@@ -21,6 +21,8 @@ info:
     size and 4 nucleotides. Per sample, 164 probabilities of accessible chromatin
     will be predicted. 
   cite_as: https://doi.org/10.1101/gr.200535.115
+  tags:
+    - DNA accessibility
 default_dataloader: .
 dependencies:
   conda:
@@ -50,6 +52,3 @@ postprocessing:
           default: true
         - type: logit
           default: true
-        - type: deepsea_scr
-        - type: logit_ref
-        - type: logit_alt

@@ -2,7 +2,9 @@ type: Dataset
 defined_as: dataloader.py::SeqDataset
 args:
   intervals_file:
-    doc: bed3 file with `chrom start end id score strand`
+    doc: >
+      bed3 file with `chrom start end id score strand`. **NOTE** width should be the same for all intervals.
+      Only if batch_size=1, variable interval widths can be used.
     example: example_files/intervals.bed
   fasta_file:
     doc: Reference genome sequence

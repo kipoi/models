@@ -16,6 +16,8 @@ info:
       but as we show in our paper, we estimate that LaBranchoR correcty predicts a branchpoint for over
       90% of 3\'ss. Github link https://github.com/jpaggi/labranchor.
     cite_as: https://doi.org/10.1101/185868
+    tags:
+        - RNA splicing
 dependencies:
     pip:
         - tensorflow>=1.0.0
@@ -36,4 +38,3 @@ postprocessing:
       scoring_functions:
         - type: diff
         - type: logit
-        - type: deepsea_scr

@@ -36,6 +36,8 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
+    SEQ_WIDTH = 131072
+
     def __init__(self, intervals_file, fasta_file,
                  use_linecache=False):
 
@@ -56,8 +58,9 @@ class SeqDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        # Intervals need to be 131072bp wide
-        assert interval.stop - interval.start == 131072
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
 
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)

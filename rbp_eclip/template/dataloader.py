@@ -20,6 +20,7 @@ from gtfparse import read_gtf
 from kipoi.metadata import GenomicRanges
 import linecache
 from kipoi.data import Dataset
+import warnings
 
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 DATALOADER_DIR = os.path.dirname(os.path.abspath(filename))
@@ -43,8 +44,6 @@ class BedToolLinecache(BedTool):
     def __getitem__(self, idx):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
-
-
 
 
 class DistanceTransformer:
@@ -154,20 +153,29 @@ class SeqDistDataset(Dataset):
             Assumes bed-like `chrom start end id score strand` format.
         fasta_file: file path; Genome sequence
         gtf_file: file path; Genome annotation GTF file.
+        filter_protein_coding: Considering genomic landmarks only for protein coding genes
         preproc_transformer: file path; tranformer used for pre-processing.
         target_file: file path; path to the targets
         batch_size: int
     """
 
-    def __init__(self, intervals_file, fasta_file, gtf_file, target_file=None, use_linecache=False):
-        gtf = read_gtf(gtf_file)
+    SEQ_WIDTH = 101
 
-        if "gene_type" in gtf:
-            self.gtf = gtf[gtf["gene_type"] == "protein_coding"]
-        elif "gene_biotype" in gtf:
-            self.gtf = gtf[gtf["gene_biotype"] == "protein_coding"]
-        else:
-            raise ValueError("Gtf doesn't have the field 'gene_type' or 'gene_biotype'")
+    def __init__(self, intervals_file, fasta_file, gtf_file,
+                 filter_protein_coding=True,
+                 target_file=None, use_linecache=False):
+        self.gtf = read_gtf(gtf_file)
+
+        self.filter_protein_coding = filter_protein_coding
+
+        if self.filter_protein_coding:
+            if "gene_type" in self.gtf:
+                self.gtf = self.gtf[self.gtf["gene_type"] == "protein_coding"]
+            elif "gene_biotype" in self.gtf:
+                self.gtf = self.gtf[self.gtf["gene_biotype"] == "protein_coding"]
+            else:
+                warnings.warn("Gtf doesn't have the field 'gene_type' or 'gene_biotype'. Considering genomic landmarks" +
+                              "of all genes not just protein_coding.")
 
         if not np.any(self.gtf.seqname.str.contains("chr")):
             self.gtf["seqname"] = "chr" + self.gtf["seqname"]
@@ -200,6 +208,9 @@ class SeqDistDataset(Dataset):
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
+        if interval.stop - interval.start != self.SEQ_WIDTH:
+            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
+                             format(self.SEQ_WIDTH, interval.stop - interval.start))
         out = {}
         out['inputs'] = {}
         # input - sequence
