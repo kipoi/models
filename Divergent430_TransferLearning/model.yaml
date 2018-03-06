@@ -10,19 +10,10 @@ args:
 default_dataloader: . # path to the directory
 info:
     authors:
-        - name: Nancy Xu
+        - name: Nancy Xu 
           github: xnancy
           email: xnancy@stanford.edu
-        - name: Johnny Israeli 
-          github: jisraeli 
-          email: johnnyisraeli@gmail.com 
-    contributors:
-        - name: Nancy Xu
-          github: xnancy
-          email: xnancy@stanford.edu    
-    doc: test 
-    tags:
-        - DNA accessibility
+    doc: Large-scale multi-task convolutional model trained on 430 cell types and fine-tuned for single cell prediction. Weights from the Divergent430 network are ported to a new single cell model by removing the final classification layer. 
 dependencies:
     conda:
         - h5py 
@@ -36,4 +27,4 @@ schema:
             doc: "1000 base pair sequence of one-hot encoding ACGT"
     targets:
         shape: (1,)
-        doc: "Binary 0/1 output for chromatin accessbility in the designated range. 0 = inaccessible, 1 = accessible." 
+        doc: "Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible." 

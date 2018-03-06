@@ -3,11 +3,11 @@ defined_as: dataloader.py::SeqDataset
 args:
     # TODO - describe the input features of your model
     intervals_file:
-        doc: tsv file containing dna interval indices and binary 0/1 label for accessibility of single cell type. 
+        doc: tsv file containing dna interval indices and binary 0/1 label for accessibility of 430 cell  types. 
         type: str
-        example: example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv
+        example: example_files/intervals_files_complete_holdout_ENCSR000EMT_chr21_1000.tsv
     fasta_file:
-        doc: fasta file for dna intervals  
+        doc: chr21 fasta file for dna intervals  
         type: str
         example: example_files/chr21.fa
         optional: True
@@ -29,7 +29,7 @@ output_schema:
             shape: (1000,4)
             doc: "1000 base pair sequence of one-hot encoding ACGT"
     targets:
-        shape: (1,)
+        shape: (430,)
         doc: "Binary 0/1 output for chromatin accessbility in the designated range. 0 = inaccessible, 1 = accessible."
     metadata: 
         ranges:

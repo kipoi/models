@@ -11,14 +11,6 @@ import linecache
 
 
 class BedToolLinecache(BedTool):
-    """Faster BedTool accessor by Ziga Avsec
-
-    Normal BedTools loops through the whole file to get the
-    line of interest. Hence the access it o(n)
-
-    Note: this might load the whole bedfile into memory
-    """
-
     def __getitem__(self, idx):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
@@ -31,25 +23,18 @@ class SeqDataset(Dataset):
         fasta_file: file path; Genome sequence
     """
 
-    SEQ_WIDTH = 1000
-
     def __init__(self, intervals_file, fasta_file):
-        # intervals
-        # if use_linecache:
-         #   self.bt = BedToolLinecache(intervals_file)
-        # else:
         self.bt = BedTool(intervals_file)
         self.fasta_extractor = FastaExtractor(fasta_file)
 
     def __len__(self):
-        return len(self.bt)
+        return 1000
 
     def __getitem__(self, idx):
         interval = self.bt[idx]
 
-        if interval.stop - interval.start != self.SEQ_WIDTH:
-            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
-                             format(self.SEQ_WIDTH, interval.stop - interval.start))
+        # Intervals need to be 1000bp wide
+        assert interval.stop - interval.start == 1000
 
         if interval.name is not None:
             y = np.array([float(interval.name)])
