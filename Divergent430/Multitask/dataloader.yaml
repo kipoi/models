@@ -5,7 +5,7 @@ args:
     intervals_file:
         doc: tsv file containing dna interval indices and binary 0/1 label for accessibility of 430 cell  types. 
         type: str
-        example: example_files/intervals_files_complete_holdout_ENCSR000EMT_chr21_1000.tsv
+        example: example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv
     fasta_file:
         doc: chr21 fasta file for dna intervals  
         type: str
@@ -29,7 +29,7 @@ output_schema:
             shape: (1000,4)
             doc: "1000 base pair sequence of one-hot encoding ACGT"
     targets:
-        shape: (430,)
+        shape: (1,)
         doc: "Binary 0/1 output for chromatin accessbility in the designated range. 0 = inaccessible, 1 = accessible."
     metadata: 
         ranges:
