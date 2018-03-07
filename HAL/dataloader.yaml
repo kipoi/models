@@ -12,6 +12,7 @@ args:
         optional: True
     MISO_AS:
         doc: Whether the given annotation file is MISO alternative splicing annotation. Default False.
+        optional: True
 info:
     authors:
         - name: Jun Cheng
