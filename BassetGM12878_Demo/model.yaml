@@ -20,7 +20,18 @@ info:
         - name: Nancy Xu
           github: xnancy
           email: xnancy@stanford.edu    
-    doc: test 
+    doc: >
+    This is a convolutional architecture based on the Basset model from 
+    Kelley, Snoek, Rinn (2016). We learn the regulatory code of the accessible
+    genome with CNNs. The model is an example of training Basset on a single
+    cell type (GM12878), which acts as the target. It categorically predicts 
+    binary chromatin accessbility features from a 1000 base pair DNA sequence, and
+    is trained on publicly available ENCODE and Roadmap Epigenomics
+    data. The input of the tensor must be of type (N, 1000, 4) for N samples, 1000bp 
+    window size and 4 nucleotides. Per sample, a single binary label of 
+    of chromatin accessbility is predicted. 
+    cite_as: https://doi.org/10.1101/gr.200535.115
+    trained_on: ENCODE chromatin profiles (processed by Kundaje Lab) 
     tags:
         - DNA accessibility
 dependencies:
