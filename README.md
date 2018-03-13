@@ -23,7 +23,8 @@ Folders named `*_files` are tracked by Git Large File Storage (LFS). New models 
 #### 1. Install Kipoi
 
 1. Install git-lfs
-    - `conda install -c conda-forge git-lfs` (alternatively see <https://git-lfs.github.com/>)
+    - `conda install -c conda-forge git-lfs && git lfs install` 
+      - alternatively see <https://git-lfs.github.com/>
 2. Install kipoi
     - `pip install kipoi`
 3. Run `kipoi ls` (this will checkout the `kipoi/models` repo to `~/.kipoi/models`)
