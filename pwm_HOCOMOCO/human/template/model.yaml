@@ -7,7 +7,7 @@ info:
   contributors:
       - name: Ziga Avsec
         github: avsecz
-  cite_as: https://doi:10.1093/nar/gkv1249
+  cite_as: https://doi.org/10.1093/nar/gkv1249
   version: 0.1
   doc: >
     '''Simple PWM-scanning model
