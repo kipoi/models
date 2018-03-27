@@ -12,7 +12,7 @@ variables:
   install_gitlfs: &install_gitlfs
     run:
       name: Install git-lfs
-      command: conda install --yes -c conda-forge git-lfs
+      command: conda install --yes -c conda-forge git-lfs && git lfs install
   restore_cache: &restore_cache
     restore_cache:
       keys:
