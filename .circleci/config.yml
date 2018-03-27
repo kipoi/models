@@ -5,6 +5,8 @@ variables:
     docker:
       - image: continuumio/miniconda3:4.3.14
     working_directory: ~/repo
+    environment:
+      GIT_LFS_SKIP_SMUDGE: "1"
   install_sys_deps: &install_sys_deps
     run:
       name: install build-essential
