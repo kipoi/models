@@ -7,11 +7,15 @@ import numpy as np
 import pandas as pd
 import pybedtools
 from pybedtools import BedTool
-from genomelake.extractors import FastaExtractor
+from genomelake.extractors import BaseExtractor
+from genomelake.util import one_hot_encode_sequence
+from pysam import FastaFile
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 import linecache
 # --------------------------------------------
+
+NUM_SEQ_CHARS = 4
 
 
 class BedToolLinecache(BedTool):
@@ -25,6 +29,34 @@ class BedToolLinecache(BedTool):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
+class FasterFastaExtractor(BaseExtractor):
+    '''Same as the FastaExtractor from genomelake.extractors with
+       the only difference that the file object (instance of pysam.FastaFile)
+       is being kept open, to reduce opening the same file repetitively.
+
+    '''
+
+    def __init__(self, datafile, use_strand=False, **kwargs):
+        super(FasterFastaExtractor, self).__init__(datafile, **kwargs)
+        self.use_strand = use_strand
+        self.fasta = FastaFile(self._datafile)
+
+    def _extract(self, intervals, out, **kwargs):
+        fasta = self.fasta
+        for index, interval in enumerate(intervals):
+            seq = fasta.fetch(str(interval.chrom), interval.start,
+                              interval.stop)
+            one_hot_encode_sequence(seq, out[index, :, :])
+
+            # reverse-complement seq the negative strand
+            if self.use_strand and interval.strand == "-":
+                out[index, :, :] = out[index, ::-1, ::-1]
+
+        return out
+
+    @staticmethod
+    def _get_output_shape(num_intervals, width):
+        return (num_intervals, width, NUM_SEQ_CHARS)
 
 class SeqDataset(Dataset):
     """
@@ -44,7 +76,7 @@ class SeqDataset(Dataset):
             self.bt = BedToolLinecache(intervals_file)
         else:
             self.bt = BedTool(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.fasta_extractor = FasterFastaExtractor(fasta_file)
 
         # Targets
         if target_file is not None:
