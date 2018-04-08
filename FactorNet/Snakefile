@@ -1,0 +1,225 @@
+"""
+Convert the FactorNet repository to Kipoi models
+
+author: Ziga Avsec
+"""
+# Script to go from: https://github.com/uci-cbcl/FactorNet/ to kipoi models
+# Use snakemake
+
+# rule git_clone - 0. git clone the permalink to the repo
+
+# 1. copy over the files
+# 2. bigwig.txt - check the bigwigs
+# - DGF (DNase) - allways present
+# - Unique35 (mappability track)
+# 3. chip.txt (tasks)
+# - [x] save to column names
+# 4. feature.txt (input features)
+# - softlink differnet dataloaders for it
+# 5. [x] meta.txt assert it's allways the same
+
+# [x] Assert DGF is always one of the bigwigs
+
+# All models
+MODELS = ['CTCF/metaGENCODE_RNAseq_Unique35_DGF',
+          'CTCF/meta_RNAseq_Unique35_DGF',
+          'E2F1/GENCODE_Unique35_DGF',
+          'E2F1/onePeak_Unique35_DGF',
+          'EGR1/meta_RNAseq_Unique35_DGF',
+          'EGR1/onePeak_DGF',
+          'FOXA1/multiTask_DGF',
+          'FOXA1/onePeak_DGF',
+          'FOXA2/multiTask_DGF',
+          'FOXA2/onePeak_Unique35_DGF',
+          'GABPA/metaGENCODE_RNAseq_Unique35_DGF',
+          'GABPA/meta_RNAseq_Unique35_DGF',
+          'HNF4A/multiTask_DGF',
+          'HNF4A/onePeak_Unique35_DGF',
+          'JUND/meta_Unique35_DGF_2',
+          'JUND/meta_Unique35_DGF',
+          'MAX/onePeak_Unique35_DGF_2',
+          'MAX/onePeak_Unique35_DGF',
+          'NANOG/GENCODE_Unique35_DGF',
+          'NANOG/onePeak_Unique35_DGF',
+          'REST/GENCODE_Unique35_DGF_2',
+          'REST/GENCODE_Unique35_DGF',
+          'TAF1/GENCODE_Unique35_DGF',
+          'TAF1/onePeak_Unique35_DGF']
+
+# All cell-lines
+CELL_LINES = ['A549',
+              'GM12878',
+              'H1-hESC',
+              'HCT116',
+              'HeLa-S3',
+              'HepG2',
+              'IMR-90',
+              'induced_pluripotent_stem_cell',
+              'K562',
+              'liver',
+              'MCF-7',
+              'Panc1',
+              'PC-3',
+              ]
+
+
+GENCODE_FEATURES = [
+    'cpgisland.bed.gz',
+    'wgEncodeGencodeBasicV19.cds.merged.bed.gz',
+    'wgEncodeGencodeBasicV19.intron.merged.bed.gz',
+    'wgEncodeGencodeBasicV19.promoter.merged.bed.gz',
+    'wgEncodeGencodeBasicV19.txStart.bed.gz',
+    'wgEncodeGencodeBasicV19.utr3.merged.bed.gz',
+    'wgEncodeGencodeBasicV19.utr5.merged.bed.gz'
+]
+
+EXAMPLE_FILES = ["hg38_chr22.fa", "intervals.bed", "dnase_synth.chr22.bw"]
+
+import template
+from template import GENERATE_FILES
+
+rule all:
+    input:
+        # model_files
+        expand("{model}/model_files/model.json", model=MODELS),
+        expand("{model}/model_files/best_model.hdf5", model=MODELS),
+        # dataloader_files
+        expand("{model}/dataloader_files/RNAseq_features", model=MODELS),
+        expand("template/dataloader_files/gencode_features/{gcfeat}",
+               gcfeat=GENCODE_FEATURES),
+        expand("{model}/dataloader_files/gencode_features",
+               model=MODELS),
+        expand("{model}/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig",
+               model=MODELS),
+        # example files
+        expand("{model}/example_files/{xf}",
+               model=MODELS, xf=EXAMPLE_FILES),
+        # model/dataloader files
+        expand("{model}/{gen_file}",
+               model=MODELS, gen_file=GENERATE_FILES),
+        expand("{model}/tasks.txt", model=MODELS)
+
+rule git_clone:
+    """Clone the FactorNet repo
+    """
+    # TODO - setup the git clone with a permalink
+    output:
+        "FactorNet"
+    shell:
+        'git clone --depth==1 https://github.com/uci-cbcl/FactorNet.git'
+
+rule model_files:
+    """Copy over the model files etc for each directory
+    """
+    input:
+        arch = "FactorNet/models/{model}/model.json",
+        w = "FactorNet/models/{model}/best_model.hdf5",
+    output:
+        arch = "{model}/model_files/model.json",
+        w = "{model}/model_files/best_model.hdf5",
+    shell:
+        """
+        mkdir -p {wildcards.model}/model_files
+        cp {input.arch} {input.w} {wildcards.model}/model_files
+        """
+
+rule RNAseq_features:
+    """Setup an RNAseq_features directory
+    """
+    input:
+        m = "FactorNet/data/{cell_line}/meta.txt"
+    output:
+        m = "template/dataloader_files/RNAseq_features/{cell_line}/meta.txt",
+    shell:
+        "cp {input.m} {output.m}"
+
+rule softlink_RNAseq_features:
+    """Setup an RNAseq_features directory
+    """
+    input:
+        expand("template/dataloader_files/RNAseq_features/{cell_line}/meta.txt",
+               cell_line=CELL_LINES)
+    output:
+        sl = "{model}/dataloader_files/RNAseq_features"
+    shell:
+        "ln -sr template/dataloader_files/RNAseq_features {wildcards.model}/dataloader_files/RNAseq_features"
+
+
+rule gencode_features:
+    """Setup gencode_features
+    """
+    input:
+        f = "FactorNet/resources/{gencode_feature}"
+    output:
+        f = "template/dataloader_files/gencode_features/{gencode_feature}"
+    shell:
+        "cp {input.f} {output.f}"
+
+rule softlinke_gencode_featurs:
+    input:
+        expand("template/dataloader_files/gencode_features/{gcf}",
+               gcf=GENCODE_FEATURES)
+    output:
+        sl = "{model}/dataloader_files/gencode_features"
+    shell:
+        "ln -sr template/dataloader_files/gencode_features {wildcards.model}/dataloader_files/gencode_features"
+
+rule download_mappability:
+    """Downloads the encode mappability track
+    """
+    output:
+        track = "template/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig"
+    shell:
+        """wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig
+        mv wgEncodeDukeMapabilityUniqueness35bp.bigWig template/dataloader_files
+        """
+
+rule softlink_mappability:
+    input:
+        track = "template/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig"
+    output:
+        track = "{model}/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig"
+    shell:
+        "ln -sr {input.track} {output.track}"
+
+rule softlink_example_files:
+    """Softlinks all the example files
+    """
+    # TODO - create a small bigwig file
+    input:
+        fa = "template/example_files/hg38_chr22.fa",
+        intervals = "template/example_files/intervals.bed",
+	bw = "template/example_files/dnase_synth.chr22.bw"
+    output:
+        fa = "{model}/example_files/hg38_chr22.fa",
+        intervals = "{model}/example_files/intervals.bed",
+	bw = "{model}/example_files/dnase_synth.chr22.bw"
+    shell:
+        """
+        ln -sr {input.fa} {output.fa}
+        ln -sr {input.intervals} {output.intervals}
+        ln -sr {input.bw} {output.bw}
+        """
+
+rule copy_tasks:
+    input:
+        tasks = "FactorNet/models/{model}/chip.txt"
+    output:
+        tasks = "{model}/tasks.txt"
+    shell:
+        "cp {input.tasks} {output.tasks}"
+
+rule render_templates:
+    """
+    """
+    input:
+        expand("template/template_{gen_file}",
+               gen_file=GENERATE_FILES),
+        feat = "FactorNet/models/{tf}/{subtype}/feature.txt",
+        bw = "FactorNet/models/{tf}/{subtype}/bigwig.txt"
+    output:
+        ["{tf}/{subtype}/" + gen_file for gen_file in GENERATE_FILES]
+    run:
+        from template import write_templates
+        write_templates(tf=wildcards.tf,
+                        model_subtype=wildcards.subtype)

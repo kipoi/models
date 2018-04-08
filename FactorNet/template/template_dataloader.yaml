@@ -1,0 +1,75 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+  intervals_file:
+    doc: bed3 file with `chrom start end id score strand`
+    example: example_files/intervals.bed
+  fasta_file:
+    doc: Reference genome sequence
+    example: example_files/hg38_chr22.fa
+  dnase_file:
+    example: example_files/dnase_synth.chr22.bw
+    doc: DNase bigwig file
+  {%- if needs_cell_line %}
+  cell_line:
+    doc: Cell type as a string.
+    example: PC-3
+    optional: True
+  {%- endif %}
+  {%- if needs_rnaseq %}
+  RNAseq_PC_file:
+    doc: file path to a RNAseq PC file computed by https://github.com/davidaknowles/tf_net/blob/master/gene_expression_pca.R. See https://github.com/uci-cbcl/FactorNet/blob/master/data/README.md.
+    optional: True
+  {%- endif %}
+  {%- if needs_mappability %}
+  mappability_file:
+    doc: USCS mappability track - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig. by deafult, provide this file with the dataloader, download in background
+    optional: True
+  {%- endif %}
+  {%- if needs_gencode %}
+  GENCODE_dir:
+    doc: Path to the already pre-processed gencode files directory to compute the gencode features
+    optional: True
+  {%- endif %}
+  use_linecache:
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+    optional: True
+info:
+  authors:
+      - name: Ziga Avsec
+        github: avsecz
+  doc: Dataloader for the FactorNet model.
+dependencies:
+  conda:
+    - numpy
+    - cython
+  pip:
+    - genomelake
+    - pybedtools
+output_schema:
+  inputs:
+    - name: seq
+      shape: (1002, {{seq_n_channels}})
+      doc: DNA sequence and other big-wig channels (mappability and DNAseq)
+      associated_metadata: ranges
+    - name: seq_rc
+      shape: (1002, {{seq_n_channels}})
+      doc: Reverse-complemented DNA sequence and reversed other bigwig channels
+      associated_metadata: ranges_rc
+    {%- if needs_meta_features %}
+    - name: meta_features
+      shape: ({{n_meta_features}},)
+      doc: {%- if needs_rnaseq %} First 8 RNAseq principle-components for the tissue. {% endif %}{%- if needs_gencode %} 6 gencode feature counts - cpg, cds, intron, promoter, utr5, utr4 {% endif %}
+    {%- endif %}
+  targets:
+    name: is_binding_site
+    shape: ({{tasks | length}},)
+    doc: TF binding class
+    column_labels: tasks.txt
+  metadata:
+    ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
+    ranges_rc:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq_rc
