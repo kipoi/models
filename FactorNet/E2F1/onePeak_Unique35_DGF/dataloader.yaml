@@ -25,6 +25,7 @@ dependencies:
   conda:
     - numpy
     - cython
+    - bioconda::bedtools
   pip:
     - genomelake
     - pybedtools

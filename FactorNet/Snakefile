@@ -89,8 +89,8 @@ rule all:
                gcfeat=GENCODE_FEATURES),
         expand("{model}/dataloader_files/gencode_features",
                model=MODELS),
-        expand("{model}/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig",
-               model=MODELS),
+        # expand("{model}/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig",
+        #        model=MODELS),
         # example files
         expand("{model}/example_files/{xf}",
                model=MODELS, xf=EXAMPLE_FILES),
@@ -142,7 +142,7 @@ rule softlink_RNAseq_features:
     output:
         sl = "{model}/dataloader_files/RNAseq_features"
     shell:
-        "ln -sr template/dataloader_files/RNAseq_features {wildcards.model}/dataloader_files/RNAseq_features"
+        "ln -srf template/dataloader_files/RNAseq_features {wildcards.model}/dataloader_files/RNAseq_features"
 
 
 rule gencode_features:
@@ -162,7 +162,7 @@ rule softlinke_gencode_featurs:
     output:
         sl = "{model}/dataloader_files/gencode_features"
     shell:
-        "ln -sr template/dataloader_files/gencode_features {wildcards.model}/dataloader_files/gencode_features"
+        "ln -srf template/dataloader_files/gencode_features {wildcards.model}/dataloader_files/gencode_features"
 
 rule download_mappability:
     """Downloads the encode mappability track
@@ -180,7 +180,7 @@ rule softlink_mappability:
     output:
         track = "{model}/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.bigWig"
     shell:
-        "ln -sr {input.track} {output.track}"
+        "ln -srf {input.track} {output.track}"
 
 rule softlink_example_files:
     """Softlinks all the example files
@@ -196,9 +196,9 @@ rule softlink_example_files:
 	bw = "{model}/example_files/dnase_synth.chr22.bw"
     shell:
         """
-        ln -sr {input.fa} {output.fa}
-        ln -sr {input.intervals} {output.intervals}
-        ln -sr {input.bw} {output.bw}
+        ln -srf {input.fa} {output.fa}
+        ln -srf {input.intervals} {output.intervals}
+        ln -srf {input.bw} {output.bw}
         """
 
 rule copy_tasks:
