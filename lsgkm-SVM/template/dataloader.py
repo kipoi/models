@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import pybedtools
 from pybedtools import BedTool
-from pysam import FastaFile
+from pysam import Fastafile
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 import linecache
@@ -51,7 +51,7 @@ class SeqDataset(Dataset):
             self.bt = BedToolLinecache(intervals_file)
         else:
             self.bt = BedTool(intervals_file)
-        self.fasta = FastaFile(fasta_file)
+        self.fasta = Fastafile(fasta_file)
 
     def __len__(self):
         return len(self.bt)

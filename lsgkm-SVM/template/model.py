@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from kipoi.model import BaseModel
 import numpy as np
 import subprocess
