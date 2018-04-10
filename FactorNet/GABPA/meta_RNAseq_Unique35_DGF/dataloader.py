@@ -100,8 +100,9 @@ class SeqDataset(Dataset):
         # Get the interval
         interval = self.bt[idx]
         if interval.stop - interval.start != self.SEQ_WIDTH:
-            raise ValueError("Expected the interval to be {0} wide. Recieved stop - start = {1}".
-                             format(self.SEQ_WIDTH, interval.stop - interval.start))
+            center = (interval.start + interval.stop) // 2
+            interval.start = center - self.SEQ_WIDTH // 2
+            interval.end = center + self.SEQ_WIDTH // 2 + self.SEQ_WIDTH % 2
 
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
