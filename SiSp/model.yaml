@@ -1,0 +1,29 @@
+# model files
+type: keras
+args:
+    weights: model_files/weights.h5
+    arch: model_files/model.json
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Lara Urban
+          github: LaraUrban
+          email: lara.h.urban@gmail.com
+    doc: The SiSp model predicts splicing patterns based on a genomic sequence (800bp) at the center of the alternative exon of a cassette exon. It takes methylation into account by handling methylated cytosine as 5th base, and operates on a single-cell level.
+dependencies:
+    conda:
+        - python=3.6
+        - numpy
+        - pandas
+    pip:
+        - keras>=2.0.4
+        - tensorflow
+schema:
+    inputs:
+       name: seq
+       shape: (800, 5)
+       doc: DNA sequence
+    targets:
+       name: targets
+       shape: (1, )
+       doc: Probability of exluded exon in a cassette exon setting
