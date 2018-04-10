@@ -28,6 +28,7 @@ dependencies:
         - numpy
         - pandas
         - bioconda::pysam
+        - bioconda::tabix
 output_schema:
     inputs:
         name: seq
