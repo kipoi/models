@@ -1,0 +1,43 @@
+args:
+  file: model.py
+  object: LsgkmSvm
+default_dataloader: .
+dependencies:
+  conda:
+  - numpy
+  - bioconda::ls-gkm=0.0.1
+info:
+  authors:
+  - github: Dongwon-Lee
+    name: Dongwon Lee
+  cite_as: http://dx.doi.org/10.1016/j.cell.2015.09.054
+  contributors:
+  - github: krrome
+    name: Roman Kreuzhuber
+  doc: 'lsgkm-SVM model trained on the ENCODE datasets - no sample number limitation
+    as opposed to gkm-SVM publication. AUC on chr8 and chr9 of 0.985363 on ENCODE
+    track: wgEncodeSydhTfbsK562CjunIfng30StdAlnRep0. Track had 6289 non-''N''-containing
+    peaks genomewide.'
+  trained_on: 'ENCODE track: wgEncodeSydhTfbsK562CjunIfng30StdAlnRep0'
+  training_procedure: Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/.
+    All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19")
+    from the gkmSVM package version 0.79.0. For training all chroomosomes except chr8
+    and chr9 were used!
+postprocessing:
+  variant_effects:
+    scoring_functions:
+    - type: diff
+    seq_input:
+    - seq
+    use_rc: true
+schema:
+  inputs:
+    doc: DNA input sequence
+    name: seq
+    shape: ()
+    special_type: DNAStringSeq
+  targets:
+    doc: lsgkm-SVM score
+    name: lsgkmsvm_scr
+    shape: (1, )
+type: custom

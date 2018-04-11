@@ -1,0 +1,38 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+    intervals_file:
+        doc: bed3 file with `chrom start end id score strand`
+        example: example_files/intervals.bed
+    fasta_file:
+        doc: Reference Genome sequence in fasta format
+        example: example_files/hg38_chr22.fa
+    use_linecache:
+        doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+        optional: True
+info:
+    authors:
+        - name: Roman Kreuzhuber
+          github: krrome
+        - name: Ziga Avsec
+          github: avsecz
+    doc: lsgkm-SVM model
+dependencies:
+    conda:
+      - bioconda::pysam
+      - pandas
+      - numpy
+      - bioconda::pybedtools
+output_schema:
+    inputs:
+        name: seq
+        shape: () # TODO  number of k-mers
+        special_type: DNAStringSeq
+        doc: DNA input sequence
+        associated_metadata: ranges
+    metadata:
+        ranges:
+            type: GenomicRanges
+            doc: ranges that the sequences were extracted
+
+# d: is an alias for description
