@@ -85,8 +85,10 @@ class SeqDataset(Dataset):
         dnase[np.isnan(dnase)] = 0  # NA fill
         dnase_rc = dnase[::-1]
 
-        bigwig_list = [seq, dnase]
-        bigwig_rc_list = [seq_rc, dnase_rc]
+        bigwig_list = [seq]
+        bigwig_rc_list = [seq_rc]
+        bigwig_list.append(dnase)
+        bigwig_rc_list.append(dnase_rc)
 
         ranges = GenomicRanges.from_interval(interval)
         ranges_rc = GenomicRanges.from_interval(interval)

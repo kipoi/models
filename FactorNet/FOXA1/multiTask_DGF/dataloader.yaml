@@ -30,11 +30,11 @@ output_schema:
   inputs:
     - name: seq
       shape: (1002, 5)
-      doc: DNA sequence and other big-wig channels (mappability and DNAseq)
+      doc: DNA sequence and other big-wig channels (mappability and DNase-seq)
       associated_metadata: ranges
     - name: seq_rc
       shape: (1002, 5)
-      doc: Reverse-complemented DNA sequence and reversed other bigwig channels
+      doc: Reverse-complemented DNA sequence and reversed other bigwig channels (mappability and DNase-seq)
       associated_metadata: ranges_rc
   targets:
     name: is_binding_site

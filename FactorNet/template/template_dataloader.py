@@ -111,10 +111,10 @@ class SeqDataset(Dataset):
         # Overlap beds - could be done incrementally
         print("Overlapping all the bed-files")
         # The BT() and .fn are there in order to leverage BedToolLinecache
-        overlap_beds = [(b, BT(self.bt.intersect(v, wa=True, c=True).fn))
-                        for b, v in self.gencode_beds]
+        self.overlap_beds = [(b, BT(self.bt.intersect(v, wa=True, c=True).fn))
+                             for b, v in self.gencode_beds]
         print("Assesing the file")
-        assert len(overlap_beds[1][1]) == len(self.bt)
+        assert len(self.overlap_beds[1][1]) == len(self.bt)
         {%- endif %}
 
         {%- if needs_rnaseq %}
@@ -144,7 +144,7 @@ class SeqDataset(Dataset):
 
         {%- if needs_gencode %}
         # Get the gencode features
-        gencode_counts = np.array([v[idx].count for k, v in self.gencode_beds],
+        gencode_counts = np.array([v[idx].count for k, v in self.overlap_beds],
                                   dtype=bool)
         {%- endif %}
 
@@ -157,8 +157,8 @@ class SeqDataset(Dataset):
         dnase[np.isnan(dnase)] = 0  # NA fill
         dnase_rc = dnase[::-1]
 
-        bigwig_list = [seq, dnase]
-        bigwig_rc_list = [seq_rc, dnase_rc]
+        bigwig_list = [seq]
+        bigwig_rc_list = [seq_rc]
 
         {%- if needs_mappability %}
         mappability = np.squeeze(self.mappability_extractor([interval], axis=0))[:, np.newaxis]
@@ -167,6 +167,8 @@ class SeqDataset(Dataset):
         bigwig_list.append(mappability)
         bigwig_rc_list.append(mappability_rc)
         {%- endif %}
+        bigwig_list.append(dnase)
+        bigwig_rc_list.append(dnase_rc)
 
         ranges = GenomicRanges.from_interval(interval)
         ranges_rc = GenomicRanges.from_interval(interval)

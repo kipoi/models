@@ -100,13 +100,15 @@ class SeqDataset(Dataset):
         dnase[np.isnan(dnase)] = 0  # NA fill
         dnase_rc = dnase[::-1]
 
-        bigwig_list = [seq, dnase]
-        bigwig_rc_list = [seq_rc, dnase_rc]
+        bigwig_list = [seq]
+        bigwig_rc_list = [seq_rc]
         mappability = np.squeeze(self.mappability_extractor([interval], axis=0))[:, np.newaxis]
         mappability[np.isnan(mappability)] = 0  # NA fill
         mappability_rc = mappability[::-1]
         bigwig_list.append(mappability)
         bigwig_rc_list.append(mappability_rc)
+        bigwig_list.append(dnase)
+        bigwig_rc_list.append(dnase_rc)
 
         ranges = GenomicRanges.from_interval(interval)
         ranges_rc = GenomicRanges.from_interval(interval)

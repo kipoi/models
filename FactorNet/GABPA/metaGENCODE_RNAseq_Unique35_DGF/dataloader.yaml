@@ -43,11 +43,11 @@ output_schema:
   inputs:
     - name: seq
       shape: (1002, 6)
-      doc: DNA sequence and other big-wig channels (mappability and DNAseq)
+      doc: DNA sequence and other big-wig channels (mappability and DNase-seq)
       associated_metadata: ranges
     - name: seq_rc
       shape: (1002, 6)
-      doc: Reverse-complemented DNA sequence and reversed other bigwig channels
+      doc: Reverse-complemented DNA sequence and reversed other bigwig channels (mappability and DNase-seq)
       associated_metadata: ranges_rc
     - name: meta_features
       shape: (14,)
