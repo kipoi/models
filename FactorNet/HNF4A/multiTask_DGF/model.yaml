@@ -2,6 +2,7 @@ type: keras
 args:
   arch: model_files/model.json
   weights: model_files/best_model.hdf5
+  image_dim_ordering: th
 info:
   authors:
       - name: Daniel Quang
