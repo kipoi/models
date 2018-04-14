@@ -2,7 +2,7 @@ type: keras
 args:
   arch: model_files/model.json
   weights: model_files/best_model.hdf5
-  image_dim_ordering: th
+  image_dim_ordering: tf
 info:
   authors:
       - name: Daniel Quang
@@ -56,7 +56,7 @@ dependencies:
     - python=3.5
   pip:
     - tensorflow>=1.4.1
-    - keras==1.2.2
+    - keras>=2.0.4
 schema:
   inputs:
     - name: seq

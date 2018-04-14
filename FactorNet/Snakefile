@@ -123,11 +123,19 @@ rule model_files:
     output:
         arch = "{model}/model_files/model.json",
         w = "{model}/model_files/best_model.hdf5",
-    shell:
-        """
-        mkdir -p {wildcards.model}/model_files
-        cp {input.arch} {input.w} {wildcards.model}/model_files
-        """
+    run:
+        from keras.models import model_from_json
+        from keras.utils.layer_utils import convert_all_kernels_in_model
+        import keras
+        # keras.backend.set_image_dim_ordering("tf")
+        model = model_from_json(open(input.arch, "r").read())
+        model.load_weights(input.w)
+        convert_all_kernels_in_model(model)
+        model.save_weights(output.w)
+        from shutil import copyfile
+        # copyfile(input.arch, output.arch)
+        with open(output.arch, "w") as f:
+            f.write(model.to_json())
 
 rule RNAseq_features:
     """Setup an RNAseq_features directory
