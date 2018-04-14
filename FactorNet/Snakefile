@@ -21,7 +21,10 @@ author: Ziga Avsec
 # [x] Assert DGF is always one of the bigwigs
 
 # All models
-MODELS = ['CTCF/metaGENCODE_RNAseq_Unique35_DGF',
+MODELS = ['CEBPB/meta_Unique35_DGF',
+          'CEBPB/onePeak_1_DGF',
+          'CEBPB/onePeak_2_Unique35_DGF',
+          'CTCF/metaGENCODE_RNAseq_Unique35_DGF',
           'CTCF/meta_RNAseq_Unique35_DGF',
           'E2F1/GENCODE_Unique35_DGF',
           'E2F1/onePeak_Unique35_DGF',
@@ -37,6 +40,9 @@ MODELS = ['CTCF/metaGENCODE_RNAseq_Unique35_DGF',
           'HNF4A/onePeak_Unique35_DGF',
           'JUND/meta_Unique35_DGF_2',
           'JUND/meta_Unique35_DGF',
+          'MAFK/meta_1_Unique35_DGF',
+          'MAFK/onePeak_1_DGF',
+          'MAFK/onePeak_2_Unique35_DGF',
           'MAX/onePeak_Unique35_DGF_2',
           'MAX/onePeak_Unique35_DGF',
           'NANOG/GENCODE_Unique35_DGF',
