@@ -34,5 +34,8 @@ output_schema:
         ranges:
             type: GenomicRanges
             doc: ranges that the sequences were extracted
-
+postprocessing:
+    variant_effects:
+      bed_input:
+        - intervals_file
 # d: is an alias for description
