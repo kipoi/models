@@ -65,7 +65,7 @@ class SeqDataset(Dataset):
 
         # Fetch the fasta line
         seq = self.fasta.fetch(str(interval.chrom), interval.start,
-                                       interval.stop)
+                                       interval.stop).upper()
 
         # Reverse complement input string is requested
         if interval.strand == "-":
