@@ -23,7 +23,7 @@ info:
 dependencies:
     pip:
         - concise>=0.6.5
-        - tensorflow==1.4.1
+        - tensorflow>=1.4.1
         - keras>=2.0.4
 schema:
     inputs:
