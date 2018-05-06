@@ -1,4 +1,4 @@
-"""DeepSEA dataloader
+"""DeepBind dataloader
 """
 # python2, 3 compatibility
 from __future__ import absolute_import, division, print_function
@@ -11,7 +11,20 @@ from genomelake.extractors import FastaExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 import numpy as np
+import linecache
 # --------------------------------------------
+class BedToolLinecache(BedTool):
+    """Faster BedTool accessor by Ziga Avsec
+    Normal BedTools loops through the whole file to get the
+    line of interest. Hence the access it o(n)
+    Note: this might load the whole bedfile into memory
+    """
+
+    def __getitem__(self, idx):
+        line = linecache.getline(self.fn, idx + 1)
+        return pybedtools.create_interval_from_list(line.strip().split("\t"))
+
+    
 class SeqDataset(Dataset):
     """
     Args:
@@ -20,9 +33,14 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
-    def __init__(self, intervals_file, fasta_file, target_file=None):
+    def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=True):
 
-        self.bt = BedTool(intervals_file)
+        if use_linecache:
+            linecache.clearcache()
+            BT = BedToolLinecache
+        else:
+            BT = BedTool
+        self.bt = BT(intervals_file)
         self.fasta_extractor = FastaExtractor(fasta_file)
 
         # Targets
