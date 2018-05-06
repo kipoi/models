@@ -53,6 +53,7 @@ class SpliceSite(object):
                             self.strand)
         return seq
 
+
 class SplicingKmerDataset(Dataset):
     """
     Args:
@@ -69,7 +70,8 @@ class SplicingKmerDataset(Dataset):
                  overhang=80,
                  MISO_AS=False):  # intron + ~ bp exon from both side
         self.genes = loadgene(gtf_file)
-        self.fasta = FastaFile(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta = None
         self.overhang = overhang
         self.MISO_AS = MISO_AS
         if not MISO_AS:
@@ -84,6 +86,8 @@ class SplicingKmerDataset(Dataset):
             return len(self.spliceSites)
 
     def __getitem__(self, idx):
+        if self.fasta is None:
+            self.fasta = FastaFile(self.fasta_file)
         out = {}
 
         if self.MISO_AS:
