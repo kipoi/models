@@ -77,7 +77,8 @@ class SplicingMaxEntDataset(Dataset):
                  label_col='event_name'
                  ):
         self.genes = loadgene(gtf_file)
-        self.fasta = FastaFile(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta = None  # open the file later
 
         if side in ["5prime", "3prime"]:
             self.side = side
@@ -108,6 +109,9 @@ class SplicingMaxEntDataset(Dataset):
             return len(self.spliceSites)
 
     def __getitem__(self, idx):
+        if self.fasta is None:
+            self.fasta = FastaFile(self.fasta_file)
+
         out = {}
         if self.MISO_AS:
             gene = self.genes[idx]

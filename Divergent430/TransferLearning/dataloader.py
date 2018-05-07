@@ -11,6 +11,7 @@ import linecache
 
 
 class BedToolLinecache(BedTool):
+
     def __getitem__(self, idx):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
@@ -24,13 +25,16 @@ class SeqDataset(Dataset):
     """
 
     def __init__(self, intervals_file, fasta_file):
-        self.bt = BedTool(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.bt = BedToolLinecache(intervals_file)
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None
 
     def __len__(self):
-        return len(self.bt) 
+        return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
         interval = self.bt[idx]
 
         # Intervals need to be 1000bp wide

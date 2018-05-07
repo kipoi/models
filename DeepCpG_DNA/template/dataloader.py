@@ -27,12 +27,15 @@ class SeqDataset(Dataset):
 
         # intervals
         self.bt = BedTool(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None
 
     def __len__(self):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
         interval = self.bt[idx]
 
         if interval.stop - interval.start != self.SEQ_WIDTH:
