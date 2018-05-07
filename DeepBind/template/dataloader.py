@@ -24,7 +24,7 @@ class BedToolLinecache(BedTool):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
-    
+
 class SeqDataset(Dataset):
     """
     Args:
@@ -41,7 +41,8 @@ class SeqDataset(Dataset):
         else:
             BT = BedTool
         self.bt = BT(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None
 
         # Targets
         if target_file is not None:
@@ -53,6 +54,8 @@ class SeqDataset(Dataset):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
         interval = self.bt[idx]
 
         # Intervals need to be 101bp wide
@@ -64,7 +67,7 @@ class SeqDataset(Dataset):
             y = {}
 
         # Run the fasta extractor
-        seq  = self.fasta_extractor([interval]).squeeze() 
+        seq = self.fasta_extractor([interval]).squeeze()
         return {
             "inputs": seq,
             "targets": y,

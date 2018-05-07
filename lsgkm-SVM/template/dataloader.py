@@ -35,7 +35,6 @@ class BedToolLinecache(BedTool):
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
 
-
 class SeqDataset(Dataset):
     """
     Args:
@@ -51,12 +50,16 @@ class SeqDataset(Dataset):
             self.bt = BedToolLinecache(intervals_file)
         else:
             self.bt = BedTool(intervals_file)
-        self.fasta = Fastafile(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta = None
 
     def __len__(self):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta is None:
+            self.fasta = Fastafile(self.fasta_file)
+
         interval = self.bt[idx]
 
         # Intervals can't be bigger than 1000bp
@@ -65,7 +68,7 @@ class SeqDataset(Dataset):
 
         # Fetch the fasta line
         seq = self.fasta.fetch(str(interval.chrom), interval.start,
-                                       interval.stop).upper()
+                               interval.stop).upper()
 
         # Reverse complement input string is requested
         if interval.strand == "-":

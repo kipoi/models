@@ -190,9 +190,9 @@ class SeqDistDataset(Dataset):
             self.bt = BedTool(intervals_file)
 
         # extractors
-        self.seq_extractor = FastaExtractor(fasta_file)
-        self.dist_extractor = DistToClosestLandmarkExtractor(gtf_file=self.gtf,
-                                                             landmarks=ALL_LANDMARKS)
+        self.fasta_file = fasta_file
+        self.seq_extractor = None
+        self.dist_extractor = None
 
         # here the DATALOADER_DIR contains the path to the current directory
         self.dist_transformer = DistanceTransformer(ALL_LANDMARKS,
@@ -209,6 +209,11 @@ class SeqDistDataset(Dataset):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.seq_extractor is None:
+            self.seq_extractor = FastaExtractor(self.fasta_file)
+            self.dist_extractor = DistToClosestLandmarkExtractor(gtf_file=self.gtf,
+                                                                 landmarks=ALL_LANDMARKS)
+
         interval = self.bt[idx]
 
         if interval.stop - interval.start != self.SEQ_WIDTH:
