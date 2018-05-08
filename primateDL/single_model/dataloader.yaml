@@ -4,6 +4,14 @@ args:
   vcf_file:
     doc: vcf file with `chrom start ref alt id`
     example: example_files/example.vcf
+  req_data_path:
+    doc: feather file containing all the variant annotation. If not specified, the file will be downloaded.
+    optional: True
+    example: example_files/full_data_coverage_species.chr22.feather
+  cons_seq_path:
+    doc: numpy file containing the reference sequences. If not specified, the file will be downloaded.
+    optional: True
+    example: example_files/conservation_without_msa_full.chr22.npy
 info:
   authors:
       - name: Laksshman Sundaram  

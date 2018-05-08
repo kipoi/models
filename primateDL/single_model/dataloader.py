@@ -1,6 +1,4 @@
-# python2, 3 compatibility
 from __future__ import absolute_import, division, print_function
-
 import numpy as np
 import pandas as pd
 import inspect
@@ -70,11 +68,44 @@ def data_preprocessing(dataframe,conservation_data,process_name):
 
 
 
-def loaddata(vcf_file):
-    required_data=pd.read_csv(os.path.join(DATALOADER_DIR, 'dataloader_files/full_data_coverage_species.csv'))
+def mkdir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+      
+
+def loaddata(vcf_file, req_data_path=None, cons_seq_path=None):
+    if req_data_path is None:
+        # Need to download the file
+        # download location
+        req_data_path=os.path.join(DATALOADER_DIR, 'dataloader_files/full_data_coverage_species.feather')
+        if not os.path.exists(req_data_path):
+            # download it
+            mkdir(os.path.dirname(req_data_path))
+            print("Downloading full_data_coverage_species.csv to {}".format(os.path.dirname(req_data_path))
+            import urllib
+            # TODO - best to put the file to 
+            # /srv/www/kundaje/lakss/primateDL/full_data_coverage_species.feather
+            urllib.urlretrieve("http://mitra.stanford.edu/kundaje/lakss/primateDL/full_data_coverage_species.feather", 
+                               req_data_path)
+
+    # load the data
+    required_data=pd.read_feather(req_data_path)
     required_data=required_data[required_data['mean_coverage_bins']!=0.0]
-    #
-    conservation_sequence_data=pd.DataFrame(np.load(os.path.join(DATALOADER_DIR, 'dataloader_files/conservation_without_msa_full.npy')))
+    if cons_seq_path is None:
+        # Need to download the file
+        # download location
+        cons_seq_path=os.path.join(DATALOADER_DIR, 'dataloader_files/conservation_without_msa_full.npy'))
+        if not os.path.exists(cons_seq_path):
+            # download it
+            mkdir(os.path.dirname(cons_seq_path))
+            import urllib
+            print("Downloading conservation_without_msa_full.npy to {}".format(os.path.dirname(cons_seq_path))
+            # TODO - put the file to 
+            # /srv/www/kundaje/lakss/primateDL/conservation_without_msa_full.npy
+            urllib.urlretrieve("http://mitra.stanford.edu/kundaje/lakss/primateDL/conservation_without_msa_full.npy", 
+                             cons_seq_path)
+    # Load the data
+    conservation_sequence_data=pd.DataFrame(np.load(cons_seq_path))
     conservation_sequence_data.columns=['gene_name','sequence','primate','mammal','vertebrate']
     #filter variants 
     filtered_set=pd.read_csv(open(vcf_file,'r'),sep='\t')
