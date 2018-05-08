@@ -1,0 +1,65 @@
+type: Dataset
+defined_as: dataloader.py::SplicingKmerDataset
+args:
+  vcf_file:
+    doc: Path to the input vcf file
+    example: example_files/example.vcf
+  fasta_file:
+    doc: reference genome fasta file
+    example: example_files/hg19.chr22.fa
+  gtf_file:
+    doc: path to the GTF file required by the models (Ensemble)
+    example: example_files/hg19.chr22.gtf
+  add_conservation:
+    doc: >
+      include the conservation scores in the inputs
+      NOTE: This requires the `vcf_file` to be annotated using VEP
+    optional: True
+  batch_size:
+    doc: batch size to use with all the models
+    optional: True
+  num_workers:
+    doc: number of workers to use for each model
+    example: 1
+    optional: True
+  tmpdir:
+    doc: path to the temporary directory where to store the predictions
+    optional: True
+info:
+  authors:
+    - name: Ziga Avsec
+      github: avsecz
+dependencies:
+  conda:
+    - python=3.5
+    - pandas
+    - numpy
+    - bioconda::pysam
+    - bioconda::maxentpy
+  pip:
+    - joblib
+    - scikit-learn
+    - sklearn-pandas
+    - kipoi[vep]
+    - tqdm
+    - tensorflow>=1.0.0
+    - keras>=2.0.4
+output_schema:
+    inputs:
+      shape: (16, )
+      doc: 
+      column_labels: features.txt
+    metadata:
+      variant:
+        id:
+          type: str
+          doc: variant ID
+        pos:
+          type: int
+          doc: variant position
+        ref:
+          type: str
+          doc: variant reference
+        alt:
+          type: str
+          doc: variant alternative string

@@ -1,0 +1,49 @@
+type: sklearn
+args:
+  pkl_file: model_files/model.pkl
+default_dataloader: .
+info:
+  authors:
+    - name: Ziga Avsec
+      github: avsecz
+  doc: >
+    Kipoi ensemble model without conservation.
+    The used models are - MaxEntScan/3prime, MaxEntScan/5primet, labranchor, HAL
+dependencies:
+  pip:
+    - scikit-learn
+schema:
+  inputs:
+    shape: (16, )
+    doc: 
+      column_names:
+        - MaxEntScan/3prime_ref
+        - MaxEntScan/3prime_alt
+        - MaxEntScan/3prime_diff
+        - MaxEntScan/3prime_isna
+        - MaxEntScan/5prime_ref
+        - MaxEntScan/5prime_alt
+        - MaxEntScan/5prime_diff
+        - MaxEntScan/5prime_isna
+        - HAL_ref
+        - HAL_alt
+        - HAL_diff
+        - HAL_isna
+        - labranchor_ref
+        - labranchor_alt
+        - labranchor_diff
+        - labranchor_isna
+  metadata:
+    variant:
+      id:
+        type: str
+        doc: variant ID
+      pos:
+        type: int
+        doc: variant position
+      ref:
+        type: str
+        doc: variant reference
+      alt:
+        type: str
+        doc: variant alternative string
