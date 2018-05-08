@@ -1,0 +1,1 @@
+{"HAL": ["HAL_ref", "HAL_diff", "HAL_alt"], "MaxEntScan/3prime": ["MaxEntScan/3prime_alt", "MaxEntScan/3prime_ref", "MaxEntScan/3prime_diff"], "labranchor": ["labranchor_alt", "labranchor_diff", "labranchor_logit", "labranchor_logit_alt", "labranchor_logit_ref", "labranchor_ref"], "MaxEntScan/5prime": ["MaxEntScan/5prime_diff", "MaxEntScan/5prime_alt", "MaxEntScan/5prime_ref"]}

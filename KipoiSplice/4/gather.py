@@ -72,18 +72,32 @@ def get_df(vcf_file, model_name):
     return df
 
 
-def gather_vcfs(models, base_path, ncores=16):
+def gather_vcfs(models, base_path, ncores=16, model_df_colnames = None):
     """
     Args:
         models: list of model names
         base_path: base path of the directory for storing vcfs: {base_path}/{model}.vcf
         ncores: number of cores used to read the data in paralell
+        model_df_colnames: Model column names present after loading annotated VCF.
+            Required if for a model all variants were NA and no VCF had been generated.
     """
     vcf_fnames = [(m, os.path.join(base_path, "{}.vcf".format(m))) for m in models]
 
-    # all filenames exist
-    for m, fname in vcf_fnames:
-        assert os.path.exists(fname)
+    # Check which VCFs are missing because no overlaps between GTF and VCF existed.
+    all_na_models = []
+    if model_df_colnames is None:
+        for m, fname in vcf_fnames:
+            if not os.path.exists(fname):
+                raise Exception("If model_df_colnames is not set then all VCFs have to exist.")
+    else:
+        vcf_fnames_exists = []
+        for m, fname in vcf_fnames:
+            if os.path.exists(fname):
+                vcf_fnames_exists.append((m, fname))
+            else:
+                all_na_models.append(m)
+        vcf_fnames = vcf_fnames_exists
+
 
     dfs = {}
     from joblib import Parallel, delayed
@@ -91,6 +105,9 @@ def gather_vcfs(models, base_path, ncores=16):
     threading.current_thread().name = 'MainThread'
 
     dfs = Parallel(n_jobs=ncores)(delayed(get_df)(vcf_file, model_name) for model_name, vcf_file in vcf_fnames)
+
+    for model in all_na_models:
+        dfs.append(pd.DataFrame(columns = model_df_colnames[model]))
 
     merged_dfs = pd.concat(dfs, axis=1)
     for m in models:

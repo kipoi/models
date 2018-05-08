@@ -24,6 +24,7 @@ import json
 from sklearn.base import BaseEstimator, TransformerMixin
 import inspect
 import pandas as pd
+import numpy as np
 from sklearn_pandas import DataFrameMapper
 import os
 import sys
@@ -92,6 +93,16 @@ def test():
     this_path = "."
 
 
+def ensure_dirs(fname):
+    """Ensure that the basepath of the given file path exists.
+
+    Args:
+      fname: (full) file path
+    """
+    required_path = "/".join(fname.split("/")[:-1])
+    if not os.path.exists(required_path):
+        os.makedirs(required_path)
+
 def load_data(vcf_file, gtf_file, fasta_file,
               add_conservation=False,
               batch_size=32,
@@ -109,8 +120,12 @@ def load_data(vcf_file, gtf_file, fasta_file,
       tmpdir (optional): path to the temporary directory where to store the predictions
     """
 
-    MODELS = ["MaxEntScan/3prime", "MaxEntScan/3prime", "HAL", "labranchor"]
+    MODELS = ["MaxEntScan/3prime", "MaxEntScan/5prime", "HAL", "labranchor"]
     features = read_txt(os.path.join(this_path, "features.txt"))
+
+    # Could also be generated on the fly from "MODELS"
+    with open("model_table_cols.json", "r") as ifh:
+        model_output_col_names = json.load(ifh)
 
     os.makedirs(tmpdir, exist_ok=True)
     tmpdir = tempfile.mkdtemp(dir=tmpdir)
@@ -118,29 +133,36 @@ def load_data(vcf_file, gtf_file, fasta_file,
     # Generate a vcf file for each model
     for model in MODELS:
         # One could even parallelize here using joblib for example
-        predict_model(model,
+        out_vcf_fpath = os.path.join(tmpdir, model + ".vcf")
+        ensure_dirs(out_vcf_fpath)
+        preds = predict_model(model,
                       gtf_file=os.path.abspath(gtf_file),
                       fasta_file=os.path.abspath(fasta_file),
                       input_vcf=os.path.abspath(vcf_file),
-                      out_vcf_fpath=os.path.join(tmpdir, model + ".vcf"))
+                      out_vcf_fpath=out_vcf_fpath) ### This won't work, either use replace("/", "_") or generate the folders.
 
-    import pdb
-    pdb.set_trace()
     # Gather the predictions from all the vcf files
-    df = gather_vcfs(MODELS, tmpdir, num_workers)
+    df = gather_vcfs(MODELS, tmpdir, num_workers, model_output_col_names)
 
-    # TODO - conver the array
+    # impute zeros, convert the pandas dataframe to the array
     X = preproc(df, features)
 
     # Format the predictions nicely -> use the columnames stored in the files
     #   - store the predictions separately
-
-    # TODO - impute zeros, convert the pandas dataframe to the array
-
+    
+    #Sample variant format: "chr22:26864522:C:['A']"
+    extract_var_info = np.vectorize(lambda x, pos: x.split(":")[pos])
+    
+    var_ids = df["variant_id"].values
+    
     return {
         "inputs": X,
         "metadata": {
-            "variant": None,  # have the variant ID
+            "id": var_ids,  # have the variant ID
+            "chr": extract_var_info(var_ids, 0),  # get the chromosome
+            "pos": extract_var_info(var_ids, 1).astype(np.int),  # get the position
+            "ref": extract_var_info(var_ids, 2),  # get the reference allele
+            "alt": extract_var_info(var_ids, 3),  # get the alternative allele
         }
     }
 
