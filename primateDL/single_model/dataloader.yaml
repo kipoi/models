@@ -1,0 +1,33 @@
+type: PreloadedDataset
+defined_as: dataloader.py::loaddata
+args:
+  vcf_file:
+    doc: vcf file with `chrom start ref alt id`
+    example: example_files/example.vcf
+info:
+  authors:
+      - name: Laksshman Sundaram  
+        github: lsundaram
+  doc: Dataloader for the primateDL model.
+dependencies:
+  conda:
+    - python=2.7
+    - numpy
+    - pandas
+output_schema:
+  inputs:
+    orig_seq:
+      shape: (51, 20)
+      doc: Original reference AA sequence
+    snp_seq:
+      shape: (51, 20)
+      doc: Alternate AA sequence with the variant injected in the center
+    conservation_full:
+      shape: (51, 20)
+      doc: AA PWM from 38 vertebrates species
+    conservation_primates:
+      shape: (51, 20)
+      doc: AA PWM from 11 primate species
+    conservation_otherspecies:
+      shape: (51, 20)
+      doc: AA PWM from 50 mammal species
