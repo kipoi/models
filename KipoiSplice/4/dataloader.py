@@ -154,6 +154,11 @@ def load_data(vcf_file, gtf_file, fasta_file,
     extract_var_info = np.vectorize(lambda x, pos: x.split(":")[pos])
     
     var_ids = df["variant_id"].values
+
+    try:
+        os.unlink(tmpdir)
+    except:
+        pass
     
     return {
         "inputs": X,

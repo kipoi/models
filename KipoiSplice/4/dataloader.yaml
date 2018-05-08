@@ -29,6 +29,8 @@ info:
   authors:
     - name: Ziga Avsec
       github: avsecz
+    - name: Roman Kreuzhuber
+      github: krrome
 dependencies:
   conda:
     - python=3.5

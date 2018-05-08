@@ -6,6 +6,8 @@ info:
   authors:
     - name: Ziga Avsec
       github: avsecz
+    - name: Roman Kreuzhuber
+      github: krrome
   doc: >
     Kipoi ensemble model without conservation.
     The used models are - MaxEntScan/3prime, MaxEntScan/5primet, labranchor, HAL
