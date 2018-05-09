@@ -1,5 +1,5 @@
-type: Dataset
-defined_as: dataloader.py::SplicingKmerDataset
+type: PreloadedDataset
+defined_as: dataloader.py::load_data
 args:
   vcf_file:
     doc: Path to the input vcf file
@@ -48,8 +48,8 @@ dependencies:
     - keras>=2.0.4
 output_schema:
     inputs:
-      shape: (16, )
-      doc: 
+      shape: (12, )
+      doc: Model predictions of MaxEntscan, HAL and labranchor
       column_labels: features.txt
     metadata:
       variant:

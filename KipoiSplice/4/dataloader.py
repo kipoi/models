@@ -55,27 +55,63 @@ def preproc(X, features):
     return mapper.fit_transform(X)
 
 
-def predict_model(model_name, gtf_file, fasta_file, input_vcf,
-                  out_vcf_fpath, batch_size=32, num_workers=0):
-    """Given the model, make the predictions
+def score_variants(model,
+                   dl_args,
+                   input_vcf,
+                   output_vcf,
+                   scores=["logit_ref", "logit_alt", "ref", "alt", "logit", "diff"],
+                   num_workers=0,
+                   batch_size=32,
+                   dataloader=None,
+                   source='kipoi'):
+    """Score variants: annotate the vcf file using
+    model predictions for the refernece and alternative alleles
+
+    Args:
+      model: model string or a model class instance
+      dl_args: dataloader arguments as a dictionary
+      input_vcf: input vcf file path
+      output_vcf: output vcf file path
+      scores: list of score names to compute. See kipoi.postprocessing.variant_effects.utils.scoring_fns
+      num_workers: number of paralell workers to use for dataloadeing
+      batch_size: batch_size for dataloading
+      source: model source name
     """
-    dataloader_arguments = {"gtf_file": gtf_file, "fasta_file": fasta_file}
-    if "rbp_eclip" in model_name:
-        dataloader_arguments["use_linecache"] = True
-    model = kipoi.get_model(model_name)
-    vcf_path_tbx = ensure_tabixed_vcf(input_vcf)
-    writer = VcfWriter(model, input_vcf, out_vcf_fpath)
-    Dataloader = kipoi.get_dataloader_factory(model_name)
+    # TODO - add the remaining arguments to the API
+    #        - seq_length
+    # TODO - allow scores to be a mixture of strings and objects as a list or as a dictionary (ala keras api)
+    # TODO - add string->class mapping to
+    # https://github.com/kipoi/kipoi/blob/master/kipoi/postprocessing/variant_effects/utils/scoring_fns.py#L12
+    #        as present in https://github.com/kipoi/kipoi/blob/master/kipoi/cli/postproc.py#L23
+    #
+    # The global API of Kipoi should be by default as of the `score_variants` - predict_snvs is too complicated
+    # TODO - make this function accessible at: kipoi.postproc.score_variants
+    #        - this will follow the command-line API
+    #           - call this function in kipoi.cli.postproc.cli_score_variants
+    if isinstance(model, str):
+        if dataloader is None:
+            model = kipoi.get_model(model, source=source, with_dataloader=True)
+            Dataloader = model.default_dataloader
+        else:
+            model = kipoi.get_model(model, source=source, with_dataloader=False)
+            if isinstance(dataloader, str):
+                Dataloader = kipoi.get_dataloader_factory(dataloader, source=source)
+            else:
+                Dataloader = dataloader
+    vcf_path_tbx = ensure_tabixed_vcf(input_vcf)  # TODO - run this within the function
+    writer = VcfWriter(model, input_vcf, output_vcf)
     vcf_to_region = None
+    # TODO - simplify this API -> use classess instead of json dumping. The user shouldn't
+    # need to use functions starting with _
     default_params = {"rc_merging": "absmax"}
-    scr_labels = ["logit_ref", "logit_alt", "ref", "alt", "logit", "diff"]
-    scr_config = [default_params] * len(scr_labels)
-    difftypes = _get_scoring_fns(model, scr_labels, [json.dumps(el) for el in scr_config])
+    scr_config = [default_params] * len(scores)
+    difftypes = _get_scoring_fns(model, scores, [json.dumps(el) for el in scr_config])
+    # ----
     sp.predict_snvs(model,
                     Dataloader,
                     vcf_path_tbx,
                     batch_size=batch_size,
-                    dataloader_args=dataloader_arguments,
+                    dataloader_args=dl_args,
                     num_workers=num_workers,
                     vcf_to_region=vcf_to_region,
                     evaluation_function_kwargs={'diff_types': difftypes},
@@ -102,6 +138,7 @@ def ensure_dirs(fname):
     required_path = "/".join(fname.split("/")[:-1])
     if not os.path.exists(required_path):
         os.makedirs(required_path)
+
 
 def load_data(vcf_file, gtf_file, fasta_file,
               add_conservation=False,
@@ -135,11 +172,18 @@ def load_data(vcf_file, gtf_file, fasta_file,
         # One could even parallelize here using joblib for example
         out_vcf_fpath = os.path.join(tmpdir, model + ".vcf")
         ensure_dirs(out_vcf_fpath)
-        preds = predict_model(model,
-                      gtf_file=os.path.abspath(gtf_file),
-                      fasta_file=os.path.abspath(fasta_file),
-                      input_vcf=os.path.abspath(vcf_file),
-                      out_vcf_fpath=out_vcf_fpath) ### This won't work, either use replace("/", "_") or generate the folders.
+        dataloader_arguments = {"gtf_file": os.path.abspath(gtf_file),
+                                "fasta_file": os.path.abspath(fasta_file)}
+        if "rbp_eclip" in model:
+            dataloader_arguments["use_linecache"] = True
+        score_variants(model,
+                       dl_args=dataloader_arguments,
+                       input_vcf=os.path.abspath(vcf_file),
+                       scores=[
+                           # "logit_ref", "logit_alt","logit"
+                           "ref", "alt", "diff"
+                       ],
+                       output_vcf=out_vcf_fpath)  # This won't work, either use replace("/", "_") or generate the folders.
 
     # Gather the predictions from all the vcf files
     df = gather_vcfs(MODELS, tmpdir, num_workers, model_output_col_names)
@@ -149,17 +193,17 @@ def load_data(vcf_file, gtf_file, fasta_file,
 
     # Format the predictions nicely -> use the columnames stored in the files
     #   - store the predictions separately
-    
-    #Sample variant format: "chr22:26864522:C:['A']"
+
+    # Sample variant format: "chr22:26864522:C:['A']"
     extract_var_info = np.vectorize(lambda x, pos: x.split(":")[pos])
-    
+
     var_ids = df["variant_id"].values
 
     try:
         os.unlink(tmpdir)
     except:
         pass
-    
+
     return {
         "inputs": X,
         "metadata": {
@@ -170,4 +214,3 @@ def load_data(vcf_file, gtf_file, fasta_file,
             "alt": extract_var_info(var_ids, 3),  # get the alternative allele
         }
     }
-

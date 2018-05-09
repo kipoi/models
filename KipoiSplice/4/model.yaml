@@ -15,23 +15,10 @@ dependencies:
   pip:
     - scikit-learn
 schema:
-  inputs:
-    shape: (16, )
-    doc: 
-      column_names:
-        - MaxEntScan/3prime_ref
-        - MaxEntScan/3prime_alt
-        - MaxEntScan/3prime_diff
-        - MaxEntScan/3prime_isna
-        - MaxEntScan/5prime_ref
-        - MaxEntScan/5prime_alt
-        - MaxEntScan/5prime_diff
-        - MaxEntScan/5prime_isna
-        - HAL_ref
-        - HAL_alt
-        - HAL_diff
-        - HAL_isna
-        - labranchor_ref
-        - labranchor_alt
-        - labranchor_diff
-        - labranchor_isna
+    inputs:
+      shape: (12, )
+      doc: Model predictions of MaxEntscan, HAL and labranchor
+      column_labels: features.txt
+    targets:
+      shape: (1, )
+      doc: Pathogenicity score (1=pathogenic, 0=benign)
