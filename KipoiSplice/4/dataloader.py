@@ -207,10 +207,12 @@ def load_data(vcf_file, gtf_file, fasta_file,
     return {
         "inputs": X,
         "metadata": {
-            "id": var_ids,  # have the variant ID
-            "chr": extract_var_info(var_ids, 0),  # get the chromosome
-            "pos": extract_var_info(var_ids, 1).astype(np.int),  # get the position
-            "ref": extract_var_info(var_ids, 2),  # get the reference allele
-            "alt": extract_var_info(var_ids, 3),  # get the alternative allele
+            "variant": {
+                "id": var_ids,  # have the variant ID
+                "chr": extract_var_info(var_ids, 0),  # get the chromosome
+                "pos": extract_var_info(var_ids, 1).astype(np.int),  # get the position
+                "ref": extract_var_info(var_ids, 2),  # get the reference allele
+                "alt": extract_var_info(var_ids, 3),  # get the alternative allele
+            }
         }
     }
