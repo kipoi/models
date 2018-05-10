@@ -23,7 +23,7 @@ def refmt_col(col, model_name, col_types):
 def average_labranchor(df, model_name, col_types):
     import numpy as np
     # choose the maximum diff
-    diff_cols = df.columns.values[df.columns.str.contains("DIFF")]
+    diff_cols = df.columns.values[df.columns.astype(str).str.contains("DIFF")]
     model_outputs = [int(el.split("_")[-1]) for el in diff_cols]
     model_outputs_order = np.argsort(model_outputs)
     # select the model output tha gives the maximum absolute difference
@@ -38,7 +38,7 @@ def average_labranchor(df, model_name, col_types):
         col_sel = [col for col in usable_columns if ct in col]
         usable_columns = [col for col in usable_columns if col not in col_sel]
         if len(col_sel) == 0:
-            break
+            continue
         # average
         model_outputs = [int(el.split("_")[-1]) for el in col_sel]
         model_outputs_order = np.argsort(model_outputs)
@@ -50,7 +50,7 @@ def average_labranchor(df, model_name, col_types):
 
 
 def deduplicate_vars(df):
-    diff_cols = df.columns.values[df.columns.str.contains("diff")]
+    diff_cols = df.columns.values[df.columns.astype(str).str.contains("diff")]
     assert len(diff_cols) == 1
     return df.groupby(df.index).apply(lambda x: x.iloc[np.argmax(x[diff_cols[0]].values), :])
 
@@ -105,7 +105,6 @@ def gather_vcfs(models, base_path, ncores=16, model_df_colnames = None):
     threading.current_thread().name = 'MainThread'
 
     dfs = Parallel(n_jobs=ncores)(delayed(get_df)(vcf_file, model_name) for model_name, vcf_file in vcf_fnames)
-
     for model in all_na_models:
         dfs.append(pd.DataFrame(columns = model_df_colnames[model]))
 

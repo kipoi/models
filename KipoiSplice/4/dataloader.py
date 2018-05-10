@@ -17,6 +17,7 @@ inputs:
 import tempfile
 import kipoi
 import kipoi.postprocessing.variant_effects.snv_predict as sp
+import shutil
 from kipoi.postprocessing.variant_effects import Diff, Logit, VcfWriter, ensure_tabixed_vcf
 from kipoi.cli.postproc import _get_scoring_fns
 import json
@@ -186,10 +187,10 @@ def load_data(vcf_file, gtf_file, fasta_file,
                        output_vcf=out_vcf_fpath)  # This won't work, either use replace("/", "_") or generate the folders.
 
     # Gather the predictions from all the vcf files
-    df = gather_vcfs(MODELS, tmpdir, num_workers, model_output_col_names)
+    df = gather_vcfs(MODELS, tmpdir, max(num_workers, 1), model_output_col_names)
 
     # impute zeros, convert the pandas dataframe to the array
-    X = preproc(df, features)
+    X = preproc(df, features).astype(float)
 
     # Format the predictions nicely -> use the columnames stored in the files
     #   - store the predictions separately
@@ -200,7 +201,7 @@ def load_data(vcf_file, gtf_file, fasta_file,
     var_ids = df["variant_id"].values
 
     try:
-        os.unlink(tmpdir)
+        shutil.rmtree(tmpdir)
     except:
         pass
 
