@@ -26,6 +26,7 @@ args:
     doc: path to the temporary directory where to store the predictions
     optional: True
 info:
+  doc: Predictions of 4 splicing models for all splice-sites in the GTF.
   authors:
     - name: Ziga Avsec
       github: avsecz
