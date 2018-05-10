@@ -38,3 +38,7 @@ output_schema:
         name: targets
         shape: (1, )
         doc: Probabilities of exluded exon in a cassette exon setting
+    metadata:
+        gene_id:
+            type: str
+            doc: Ensemble gene ID

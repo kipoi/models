@@ -550,7 +550,12 @@ def data(anno_file, fasta_file, meth_file, target_file=None):
         targets = None
     # Run the fasta extractor
     seq = get_hot_seq_meth(meth_file, bt, fasta_file)
+    # import pdb
+    # pdb.set_trace()
     return {
             "inputs": seq,
-            "targets": targets
+            "targets": targets,
+            "metadata": {
+                "gene_id": np.array(genes),
+             }
            }
