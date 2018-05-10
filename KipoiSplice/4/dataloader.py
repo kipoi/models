@@ -161,7 +161,7 @@ def load_data(vcf_file, gtf_file, fasta_file,
     features = read_txt(os.path.join(this_path, "features.txt"))
 
     # Could also be generated on the fly from "MODELS"
-    with open("model_table_cols.json", "r") as ifh:
+    with open(os.path.join(this_path, "model_table_cols.json"), "r") as ifh:
         model_output_col_names = json.load(ifh)
 
     os.makedirs(tmpdir, exist_ok=True)
