@@ -10,6 +10,8 @@ info:
           github: LaraUrban
           email: lara.h.urban@gmail.com
     doc: The SiSp model predicts splicing patterns based on a genomic sequence (800bp) at the center of the alternative exon of a cassette exon. It takes methylation into account by handling methylated cytosine as 5th base, and operates on a single-cell level.
+    tags:
+        - RNA splicing
 dependencies:
     conda:
         - python=3.6
