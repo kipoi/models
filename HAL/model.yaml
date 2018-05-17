@@ -13,7 +13,7 @@ info:
         - name: Ziga Avsec
           github: avsecz
     doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative Splicing from Millions of Random Sequences'
-    cite_as: http://dx.doi.org/10.1016/j.cell.2015.09.054
+    cite_as: https://doi.org/10.1016/j.cell.2015.09.054
     trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes
     training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
     tags:
