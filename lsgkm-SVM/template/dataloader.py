@@ -43,7 +43,7 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
-    def __init__(self, intervals_file, fasta_file, use_linecache=False):
+    def __init__(self, intervals_file, fasta_file, use_linecache=True):
 
         # intervals
         if use_linecache:
