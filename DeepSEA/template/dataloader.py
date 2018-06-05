@@ -7,10 +7,11 @@ import numpy as np
 import pandas as pd
 import pybedtools
 from pybedtools import BedTool
-from genomelake.extractors import FastaExtractor
+#from genomelake.extractors import FastaExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 import linecache
+import pyfaidx
 # --------------------------------------------
 
 
@@ -25,6 +26,32 @@ class BedToolLinecache(BedTool):
         line = linecache.getline(self.fn, idx + 1)
         return pybedtools.create_interval_from_list(line.strip().split("\t"))
 
+def to_onehot(seq):
+    x = np.zeros((seq.shape[0], 4), dtype=np.float32)
+    alphabet = ["A", "C", "G", "T"]
+    for i in range(len(alphabet)):
+        sel = np.where(seq == alphabet[i])
+        x[sel[0], i] = 1
+    return x
+
+class FastaExtractor(object):
+    """
+    Class by Roman Kreuzhuber
+    Fasta extractor using pyfaidx. Complies with genomelake.extractors.FastaExtractor I/O as used here.
+    """
+
+    def __init__(self, fasta_file_path):
+        self.faidx_obj = pyfaidx.Fasta(fasta_file_path)
+
+    def __call__(self, intervals):
+        assert isinstance(intervals, list)
+        one_hots = []
+        for interval in intervals:
+            # pyfaidx uses 1-based cooridnates!
+            seq = np.array(list(self.faidx_obj.get_seq(interval.chrom ,interval.start+1,interval.end).seq.upper()))
+            one_hots.append(to_onehot(seq))
+        return np.array(one_hots)
+
 
 class SeqDataset(Dataset):
     """
@@ -37,7 +64,7 @@ class SeqDataset(Dataset):
     SEQ_WIDTH = 1000
 
     def __init__(self, intervals_file, fasta_file,
-                 target_file=None, use_linecache=True):
+                 target_file=None, use_linecache=False):
 
         # intervals
         if use_linecache:
