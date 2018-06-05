@@ -28,9 +28,9 @@ dependencies:
     - numpy
     - pandas
     - cython
+    - bioconda::pybedtools
   pip:
-    - genomelake
-    - pybedtools
+    - pyfaidx
 output_schema:
   inputs:
     name: seq
