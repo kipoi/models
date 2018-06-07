@@ -44,17 +44,17 @@ schema:
     special_type: DNASeq
     shape: (131072, 4)
     doc: >
-      - one-hot encoded DNA sequence 
-      - 4096bp starting flank sequence
-      - 122880bp core sequence (960 * 128), predicted by the model in 128bp bins
-      - 4096bp end flank sequence
+      * one-hot encoded DNA sequence 
+      * 4096bp starting flank sequence
+      * 122880bp core sequence (960 * 128), predicted by the model in 128bp bins
+      * 4096bp end flank sequence
     associated_metadata: ranges
   targets:
     name: genomic_features
     shape: (960, 4229)
     doc: >
-    - 960 bins corresponding to 128bp regions on input sequence 
-    - 4229 different output tracks ordered according to https://storage.googleapis.com/131k/sample_wigs.txt
+      * 960 bins corresponding to 128bp regions on input sequence 
+      * 4229 different output tracks ordered according to https://storage.googleapis.com/131k/sample_wigs.txt
 postprocessing:
     variant_effects:
       seq_input:
