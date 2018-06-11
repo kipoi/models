@@ -74,10 +74,10 @@ class SeqDataset(Dataset):
 
 
         # Fasta
-	self.fasta_file = fasta_file
+        self.fasta_file = fasta_file
         self.fasta_extractor = None  # initialize later
         # DNase
-	self.dnase_file = dnase_file
+        self.dnase_file = dnase_file
         self.dnase_extractor = None
 
 
@@ -95,7 +95,7 @@ class SeqDataset(Dataset):
             {# mappability_file = os.path.join(this_dir, #}
             {#                                 "dataloader_files", #}
             {#                                 "wgEncodeDukeMapabilityUniqueness35bp.bigWig") #}
-	self.mappability_file = mappability_file
+        self.mappability_file = mappability_file
         self.mappability_extractor = None
         {%- endif %}
 
@@ -140,8 +140,8 @@ class SeqDataset(Dataset):
         return len(self.bt)
 
     def __getitem__(self, idx):
-	if self.fasta_extractor is None:
-	    # Fasta
+        if self.fasta_extractor is None:
+            # Fasta
             self.fasta_extractor = FastaExtractor(self.fasta_file)
             # DNase
             self.dnase_extractor = BigwigExtractor(self.dnase_file)
