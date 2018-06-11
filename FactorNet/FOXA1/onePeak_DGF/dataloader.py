@@ -59,16 +59,25 @@ class SeqDataset(Dataset):
 
         self.bt = BT(intervals_file)
 
-        # Fasta
-        self.fasta_extractor = FastaExtractor(fasta_file)
 
+
+        # Fasta
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None  # initialize later
         # DNase
-        self.dnase_extractor = BigwigExtractor(dnase_file)
+        self.dnase_file = dnase_file
+        self.dnase_extractor = None
 
     def __len__(self):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            # Fasta
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
+            # DNase
+            self.dnase_extractor = BigwigExtractor(self.dnase_file)
+
         # Get the interval
         interval = self.bt[idx]
         if interval.stop - interval.start != self.SEQ_WIDTH:

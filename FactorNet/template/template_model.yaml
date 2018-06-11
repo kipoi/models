@@ -56,7 +56,7 @@ dependencies:
     - python=3.5
   pip:
     - tensorflow>=1.4.1
-    - keras>=2.0.4
+    - keras>=2.0.4,<2.2.0
 schema:
   inputs:
     - name: seq
