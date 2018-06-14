@@ -25,8 +25,8 @@ info:
     doc: MaxEnt Splicing Model
 dependencies:
     conda:
-      - python=3.5
       - bioconda::pysam
+      - python=3.5
 output_schema:
     inputs:
         name: seq

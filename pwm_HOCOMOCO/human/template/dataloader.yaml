@@ -23,13 +23,12 @@ info:
   license: "MIT"
 dependencies:
   conda:
+    - bioconda::pybedtools
+    - bioconda::genomelake
     - python=3.5
     - numpy
     - pandas
     - cython # required by genomelake
-  pip:
-    - pybedtools
-    - genomelake
 output_schema:
   inputs:
     name: seq
