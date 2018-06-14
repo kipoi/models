@@ -21,12 +21,11 @@ info:
   license: "MIT"
 dependencies:
   conda:
+    - bioconda::pybedtools
+    - bioconda::genomelake
     - python=2.7
     - numpy
     - pandas
-  pip:
-    - pybedtools
-    - genomelake
 output_schema:
   inputs:
     name: seq

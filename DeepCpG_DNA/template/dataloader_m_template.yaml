@@ -21,13 +21,13 @@ info:
   doc: Dataloader + target output for the DeepCpG model.
 dependencies:
   conda:
+    - bioconda::genomelake
+    - bioconda::pybedtools
     - python=3.5
     - numpy
     - pandas
   pip:
     - cython
-    - genomelake
-    - pybedtools
     - deepcpg==1.0.4
 output_schema:
   inputs:

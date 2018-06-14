@@ -24,11 +24,11 @@ info:
     license: "MIT"
 dependencies:
     conda: 
+        - bioconda::pysam
+        - bioconda::tabix
         - python=3.6
         - numpy
         - pandas
-        - bioconda::pysam
-        - bioconda::tabix
 output_schema:
     inputs:
         name: seq

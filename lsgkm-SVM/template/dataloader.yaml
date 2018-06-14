@@ -20,9 +20,9 @@ info:
 dependencies:
     conda:
       - bioconda::pysam
+      - bioconda::pybedtools
       - pandas
       - numpy
-      - bioconda::pybedtools
 output_schema:
     inputs:
         name: seq
