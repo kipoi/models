@@ -24,11 +24,11 @@ info:
   doc: Dataloader for the DeepSEA model.
 dependencies:
   conda:
+    - bioconda::pybedtools
     - python=3.5
     - numpy
     - pandas
     - cython
-    - bioconda::pybedtools
   pip:
     - pyfaidx
 output_schema:

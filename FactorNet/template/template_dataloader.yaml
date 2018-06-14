@@ -41,12 +41,11 @@ info:
   doc: Dataloader for the FactorNet model.
 dependencies:
   conda:
+    - bioconda::bedtools
+    - bioconda::pybedtools
+    - bioconda::genomelake
     - numpy
     - cython
-    - bioconda::bedtools
-  pip:
-    - genomelake
-    - pybedtools
 output_schema:
   inputs:
     - name: seq

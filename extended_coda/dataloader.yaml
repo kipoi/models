@@ -27,9 +27,8 @@ info:
 # TODO - enable later
 dependencies:
     conda:
+        - bioconda::genomelake
         - cython
-    pip:
-        - genomelake
 output_schema:
     inputs:
         H3K27AC_subsampled:
