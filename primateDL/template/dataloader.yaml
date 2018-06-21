@@ -1,26 +1,20 @@
-type: keras
+type: PreloadedDataset
+defined_as: dataloader.py::loaddata
 args:
-  arch: model_files/model.json
-  weights: model_files/0weights0.hdf5
+  vcf_file:
+    doc: vcf file with `chrom start ref alt id`
+    example: example_files/example.vcf
 info:
   authors:
       - name: Laksshman Sundaram  
         github: lsundaram
-  doc: >
-      # TODO abstract
-  version: 0.1
-  cite_as: to appear soon
-  license: MIT
-  tags:
-    - coding variant pathogenicity
-default_dataloader: .
+  doc: Dataloader for the primateDL model.
 dependencies:
   conda:
-    - h5py
-  pip:
-    - tensorflow>=1.1
-    - keras>=2.0
-schema:
+    - python=2.7
+    - numpy
+    - pandas
+output_schema:
   inputs:
     orig_seq:
       shape: (51, 20)

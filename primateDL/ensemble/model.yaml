@@ -1,7 +1,6 @@
-type: keras
+type: custom
 args:
-  arch: model_files/model.json
-  weights: model_files/0weights0.hdf5
+  object: PrimateDL
 info:
   authors:
       - name: Laksshman Sundaram  
