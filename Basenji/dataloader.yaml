@@ -17,12 +17,11 @@ info:
   doc: Dataloader for the Basenji model. Note - batch-size needs to be always 2!
 dependencies:
   conda:
+    - bioconda::genomelake
+    - bioconda::pybedtools
     - python=3.5
     - numpy
     - cython
-  pip:
-    - genomelake
-    - pybedtools
 output_schema:
   inputs:
     name: seq

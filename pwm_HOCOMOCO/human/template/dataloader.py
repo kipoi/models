@@ -36,14 +36,15 @@ class SeqDataset(Dataset):
         target_file: file path; path to the targets in the csv format
     """
 
-    def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=False):
+    def __init__(self, intervals_file, fasta_file, target_file=None, use_linecache=True):
 
         # intervals
         if use_linecache:
             self.bt = BedToolLinecache(intervals_file)
         else:
             self.bt = BedTool(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None  # to be initialized later
 
         # Targets
         if target_file is not None:
@@ -55,6 +56,9 @@ class SeqDataset(Dataset):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
+
         interval = self.bt[idx]
 
         if self.targets is not None:

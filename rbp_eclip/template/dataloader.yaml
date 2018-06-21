@@ -30,17 +30,17 @@ info:
       tss, poly-A, exon-intron boundary, intron-exon boundary, start codon, stop codon, gene start, gene end
 dependencies:
     conda:
+        - bioconda::pybedtools
+        - bioconda::pysam
+        - bioconda::genomelake
+        - bioconda::gtfparse>=1.0.7
         - python>=3.5
         - cython
-    pip:
         - scikit-learn==0.18.1
         - numpy
         - pandas
+    pip:
         - concise>=0.6.6
-        - gtfparse>=1.0.7
-        - pybedtools
-        - pysam
-        - genomelake
 output_schema:
     inputs:
         seq:

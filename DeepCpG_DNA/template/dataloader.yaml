@@ -16,13 +16,12 @@ info:
   doc: Dataloader for the DeepCpG.
 dependencies:
   conda:
+    - bioconda::genomelake
+    - bioconda::pybedtools
     - python=3.5
     - numpy
     - pandas
     - cython
-  pip:
-    - genomelake
-    - pybedtools
 output_schema:
   inputs:
     dna:

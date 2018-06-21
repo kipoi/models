@@ -39,14 +39,15 @@ class SeqDataset(Dataset):
     SEQ_WIDTH = 131072
 
     def __init__(self, intervals_file, fasta_file,
-                 use_linecache=False):
+                 use_linecache=True):
 
         # intervals
         if use_linecache:
             self.bt = BedToolLinecache(intervals_file)
         else:
             self.bt = BedTool(intervals_file)
-        self.fasta_extractor = FastaExtractor(fasta_file)
+        self.fasta_file = fasta_file
+        self.fasta_extractor = None
 
         if len(self.bt) % 2 == 1:
             raise ValueError("Basenji strictly requires batch_size=2," +
@@ -56,6 +57,8 @@ class SeqDataset(Dataset):
         return len(self.bt)
 
     def __getitem__(self, idx):
+        if self.fasta_extractor is None:
+            self.fasta_extractor = FastaExtractor(self.fasta_file)
         interval = self.bt[idx]
 
         if interval.stop - interval.start != self.SEQ_WIDTH:

@@ -10,6 +10,9 @@ args:
   target_file:
     doc: path to the targets (.tsv) file
     optional: True
+  use_linecache:
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+    optional: True
 info:
   authors:
       - name: Johnny Israeli
@@ -18,12 +21,11 @@ info:
   license: "MIT"
 dependencies:
   conda:
+    - bioconda::pybedtools
+    - bioconda::genomelake
     - python=2.7
     - numpy
     - pandas
-  pip:
-    - pybedtools
-    - genomelake
 output_schema:
   inputs:
     name: seq

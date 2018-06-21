@@ -22,8 +22,8 @@ info:
     doc: Model from Rosenberg
 dependencies:
     conda:
-      - python=3.5
       - bioconda::pysam
+      - python=3.5
 output_schema:
     inputs:
         name: seq
@@ -51,5 +51,3 @@ output_schema:
         order:
             type: int
             doc: "order of the donor site in the transcript, counted from 5' to 3'."
-
-# d: is an alias for description
