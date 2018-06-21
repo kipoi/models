@@ -95,7 +95,7 @@ def loaddata(vcf_file, req_data_path=None, cons_seq_path=None):
         # Need to download the file
         # download location
         cons_seq_path=os.path.join(DATALOADER_DIR, 'dataloader_files/conservation_without_msa_full.npy'))
-        if not os.path.exists(cons_seq_path):
+full_data_coverage_s        if not os.path.exists(cons_seq_path):
             # download it
             mkdir(os.path.dirname(cons_seq_path))
             import urllib

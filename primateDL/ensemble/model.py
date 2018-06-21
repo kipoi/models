@@ -12,6 +12,3 @@ class PrimateDL(BaseModel):
     def predict_on_batch(self, x):
         return np.stack([m.predict_on_batch(x) 
                          for m in self.models]).mean(axis=0)
-
-
-

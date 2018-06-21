@@ -1,5 +1,6 @@
 type: custom
 args:
+  file: model.py
   object: PrimateDL
 info:
   authors:
