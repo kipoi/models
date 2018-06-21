@@ -1,5 +1,5 @@
 from kipoi.model import KerasModel, BaseModel
-
+import numpy as np
 
 class PrimateDL(BaseModel):
     def __init__(self):

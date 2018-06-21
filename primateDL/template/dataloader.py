@@ -79,6 +79,7 @@ def loaddata(vcf_file):
     #filter variants 
     filtered_set=pd.read_csv(open(vcf_file,'r'),sep='\t')
     filtered_set=filtered_set[[0,1,3,4]]
+    filtered_set.columns = ['chr', 'pos', 'ref', 'alt']
     filted_set=filted_set.merge(required_data,left_on=['chr','pos','ref','alt'],right_on=['chr','pos','non_flipped_ref','non_flipped_alt'])
     #
     data=data_preprocessing(filtered_set,conservation_sequence_data.copy(),process_name)
