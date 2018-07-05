@@ -19,10 +19,9 @@ info:
     doc: test 
 dependencies:
     conda: # directly install via cond
+        - bioconda::pybedtools
+        - bioconda::genomelake   # pip packages
         - cython 
-    pip:
-        - pybedtools
-        - genomelake   # pip packages
 output_schema:
     inputs:
         data/genome_data_dir: 

@@ -39,7 +39,7 @@ class SeqDataset(Dataset):
     SEQ_WIDTH = 131072
 
     def __init__(self, intervals_file, fasta_file,
-                 use_linecache=False):
+                 use_linecache=True):
 
         # intervals
         if use_linecache:
