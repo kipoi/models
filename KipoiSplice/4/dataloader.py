@@ -119,7 +119,7 @@ def load_data(vcf_file, gtf_file, fasta_file,
                        output_vcf=out_vcf_fpath,
                        scores=[
                            "logit_ref", "logit_alt",
-                           "ref", "alt"
+                           "ref", "alt", "diff"
                        ])
 
     # Gather the predictions from all the vcf files
