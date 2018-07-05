@@ -18,8 +18,7 @@ import tempfile
 import kipoi
 import kipoi.postprocessing.variant_effects.snv_predict as sp
 import shutil
-from kipoi.postprocessing.variant_effects import Diff, Logit, VcfWriter, ensure_tabixed_vcf
-from kipoi.cli.postproc import _get_scoring_fns
+from kipoi.postprocessing.variant_effects import score_variants, Diff, Logit
 import json
 # Allow different python modules to be used here
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -54,69 +53,6 @@ def preproc(X, features):
         (features, [ZeroImputer()]),
     ])
     return mapper.fit_transform(X)
-
-
-def score_variants(model,
-                   dl_args,
-                   input_vcf,
-                   output_vcf,
-                   scores=["logit_ref", "logit_alt", "ref", "alt", "logit", "diff"],
-                   num_workers=0,
-                   batch_size=32,
-                   dataloader=None,
-                   source='kipoi'):
-    """Score variants: annotate the vcf file using
-    model predictions for the refernece and alternative alleles
-
-    Args:
-      model: model string or a model class instance
-      dl_args: dataloader arguments as a dictionary
-      input_vcf: input vcf file path
-      output_vcf: output vcf file path
-      scores: list of score names to compute. See kipoi.postprocessing.variant_effects.utils.scoring_fns
-      num_workers: number of paralell workers to use for dataloadeing
-      batch_size: batch_size for dataloading
-      source: model source name
-    """
-    # TODO - add the remaining arguments to the API
-    #        - seq_length
-    # TODO - allow scores to be a mixture of strings and objects as a list or as a dictionary (ala keras api)
-    # TODO - add string->class mapping to
-    # https://github.com/kipoi/kipoi/blob/master/kipoi/postprocessing/variant_effects/utils/scoring_fns.py#L12
-    #        as present in https://github.com/kipoi/kipoi/blob/master/kipoi/cli/postproc.py#L23
-    #
-    # The global API of Kipoi should be by default as of the `score_variants` - predict_snvs is too complicated
-    # TODO - make this function accessible at: kipoi.postproc.score_variants
-    #        - this will follow the command-line API
-    #           - call this function in kipoi.cli.postproc.cli_score_variants
-    if isinstance(model, str):
-        if dataloader is None:
-            model = kipoi.get_model(model, source=source, with_dataloader=True)
-            Dataloader = model.default_dataloader
-        else:
-            model = kipoi.get_model(model, source=source, with_dataloader=False)
-            if isinstance(dataloader, str):
-                Dataloader = kipoi.get_dataloader_factory(dataloader, source=source)
-            else:
-                Dataloader = dataloader
-    vcf_path_tbx = ensure_tabixed_vcf(input_vcf)  # TODO - run this within the function
-    writer = VcfWriter(model, input_vcf, output_vcf)
-    vcf_to_region = None
-    # TODO - simplify this API -> use classess instead of json dumping. The user shouldn't
-    # need to use functions starting with _
-    default_params = {"rc_merging": "absmax"}
-    scr_config = [default_params] * len(scores)
-    difftypes = _get_scoring_fns(model, scores, [json.dumps(el) for el in scr_config])
-    # ----
-    sp.predict_snvs(model,
-                    Dataloader,
-                    vcf_path_tbx,
-                    batch_size=batch_size,
-                    dataloader_args=dl_args,
-                    num_workers=num_workers,
-                    vcf_to_region=vcf_to_region,
-                    evaluation_function_kwargs={'diff_types': difftypes},
-                    sync_pred_writer=writer)
 
 
 def test():
@@ -180,14 +116,15 @@ def load_data(vcf_file, gtf_file, fasta_file,
         score_variants(model,
                        dl_args=dataloader_arguments,
                        input_vcf=os.path.abspath(vcf_file),
+                       output_vcf=out_vcf_fpath,
                        scores=[
-                           # "logit_ref", "logit_alt","logit"
-                           "ref", "alt", "diff"
-                       ],
-                       output_vcf=out_vcf_fpath)  # This won't work, either use replace("/", "_") or generate the folders.
+                           "logit_ref", "logit_alt",
+                           "ref", "alt"
+                       ])
 
     # Gather the predictions from all the vcf files
-    df = gather_vcfs(MODELS, tmpdir, max(num_workers, 1), model_output_col_names)
+    df = gather_vcfs(MODELS, tmpdir, max(num_workers, 1),
+                     model_output_col_names)
 
     # impute zeros, convert the pandas dataframe to the array
     X = preproc(df, features).astype(float)
