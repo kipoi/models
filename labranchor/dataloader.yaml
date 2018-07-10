@@ -17,7 +17,7 @@ info:
     doc: LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network
 dependencies:
     conda:
-        - python>=3.5
+        - python>=3.5,<3.7
     pip:
         - pysam
         - numpy
