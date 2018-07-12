@@ -10,6 +10,11 @@ args:
   gtf_file:
     doc: path to the GTF file required by the models (Ensemble)
     example: example_files/hg19.chr22.gtf
+  conservation_vcf:
+    doc: path to `vcf_file` after VeP annotation
+    example: example_files/vep.vcf
+  conservation_vcf_info_tag:
+    doc: name of the INFO tag in the `conservation_vcf` that contains the conservation score
   add_conservation:
     doc: >
       include the conservation scores in the inputs

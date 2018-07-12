@@ -8,6 +8,7 @@ from glob import glob
 import pandas as pd
 import numpy as np
 from kipoi.postprocessing.variant_effects import KipoiVCFParser
+import cyvcf2
 
 import pandas as pd
 
@@ -18,6 +19,31 @@ def refmt_col(col, model_name, col_types):
             col = model_name + ct.lower()
             break
     return col
+
+def get_vcf_info(vcf_name, info_tag=None):
+    vcf_fh = cyvcf2.VCF(vcf_name)
+    info_tags = []
+    entries = []
+    # Iterate over all entries and extract the `info_tag` if set, otherwise return all INFO tags
+    for rec in vcf_fh:
+        info_dict = dict(rec.INFO)
+        info_tags = list(info_dict.keys())
+        if info_tag is not None and info_tag in info_tags:
+            info_tags = [info_tag]
+        entry = {k: info_dict[k] for k in info_tags}
+        entry['variant_uid'] = ":".join([rec.CHROM, str(rec.POS), rec.REF, rec.ALT[0]])
+        entries.append(entry)
+    # Turn into a data frame
+    df = pd.DataFrame(entries)
+    # index like in gef_df - only matches up with what `get_df` returns of the contig names (rec.CHROM) among all VCFs match up.
+    df.index = df['variant_uid']
+    # dedup
+    df = df.loc[~df['variant_uid'].duplicated(),:]
+    # remove unnecessary column
+    df = df[[col for col in df if col != "variant_uid"]]
+    return df
+
+
 
 
 def average_labranchor(df, model_name, col_types):
@@ -58,7 +84,10 @@ def deduplicate_vars(df):
 # Modify here: add the _isna column and average labranchor if needed also clump the variants together.
 def get_df(vcf_file, model_name):
     df = pd.DataFrame(list(KipoiVCFParser(vcf_file)))
-    df.index = df["variant_id"]
+    meta_info  = df[["variant_chr", "variant_pos", "variant_ref", "variant_alt", "variant_id"]]
+    meta_info["variant_uid"] = df["variant_chr"].astype(str) + ':' + df["variant_pos"].astype(str) + ':' + df["variant_ref"] + ':' + df["variant_alt"]
+    df.index = meta_info["variant_uid"]
+    meta_info.index = meta_info["variant_uid"]
     obsolete_variant_columns = ["variant_chr", "variant_pos", "variant_ref", "variant_alt", "variant_id"]
     df = df[[col for col in df.columns if col not in obsolete_variant_columns]]
     df = df[[col for col in df.columns if "rID" not in col]]
@@ -69,10 +98,12 @@ def get_df(vcf_file, model_name):
         df.columns = [refmt_col(col, model_name, col_types) for col in df.columns]
     # clump variants together
     df = deduplicate_vars(df)
-    return df
+    # subset meta_info like df and add variant_uid as common ID
+    meta_info=meta_info.loc[df.index,:]
+    return df, meta_info
 
 
-def gather_vcfs(models, base_path, ncores=16, model_df_colnames = None):
+def gather_vcfs(models, base_path, ncores=16, model_df_colnames = None, conservation_vcf = None, conservation_vcf_info_tag = None):
     """
     Args:
         models: list of model names
@@ -104,14 +135,33 @@ def gather_vcfs(models, base_path, ncores=16, model_df_colnames = None):
     import threading
     threading.current_thread().name = 'MainThread'
 
-    dfs = Parallel(n_jobs=ncores)(delayed(get_df)(vcf_file, model_name) for model_name, vcf_file in vcf_fnames)
+    dfs_metas = Parallel(n_jobs=ncores)(delayed(get_df)(vcf_file, model_name) for model_name, vcf_file in vcf_fnames)
+    dfs = [el[0] for el in dfs_metas]
+    metas = [el[1] for el in dfs_metas]
+    
+    # add empty dataframes for the missing models - the models with 0 predictions
     for model in all_na_models:
         dfs.append(pd.DataFrame(columns = model_df_colnames[model]))
 
+    # Add the conservation score
+    if conservation_vcf is not None:
+        dfs.append(get_vcf_info(conservation_vcf, info_tag=conservation_vcf_info_tag))
+
+    # merge the variant prediction dataframes
     merged_dfs = pd.concat(dfs, axis=1)
     for m in models:
         merged_dfs[m + "_isna"] = merged_dfs[m + "_diff"].isnull()
 
+    # merge the metadata and deduplicate entries
+    metas_merged = pd.concat(metas, axis=0)
+    metas_merged = metas_merged.loc[~metas_merged['variant_uid'].duplicated()]
+
     # now remove variants for which there are no splicing model predictions:
     merged_dfs_filtered = merged_dfs.loc[merged_dfs[[m + "_isna" for m in models]].sum(axis=1) != len(models), :]
-    return merged_dfs_filtered.reset_index().rename(columns={"index": "variant_id"})
+    
+    for col in ["variant_chr", "variant_pos", "variant_ref", "variant_alt", "variant_id"]:
+        merged_dfs_filtered[col] = metas_merged.loc[merged_dfs_filtered.index,:][col]
+
+    merged_dfs_filtered = merged_dfs_filtered.reset_index().rename(columns={"index": "variant_uid"})
+
+    return merged_dfs_filtered

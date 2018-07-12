@@ -81,7 +81,9 @@ def load_data(vcf_file, gtf_file, fasta_file,
               add_conservation=False,
               batch_size=32,
               num_workers=0,
-              tmpdir='/tmp/KipoiSplice/'):
+              tmpdir='/tmp/KipoiSplice/',
+              conservation_vcf = 'example_files/vep.vcf',
+              conservation_vcf_info_tag = None):
     """
     Args:
       vcf_file: Path to the input vcf file
@@ -124,18 +126,11 @@ def load_data(vcf_file, gtf_file, fasta_file,
 
     # Gather the predictions from all the vcf files
     df = gather_vcfs(MODELS, tmpdir, max(num_workers, 1),
-                     model_output_col_names)
+                     model_output_col_names,
+                     conservation_vcf = conservation_vcf, conservation_vcf_info_tag = conservation_vcf_info_tag)
 
     # impute zeros, convert the pandas dataframe to the array
     X = preproc(df, features).astype(float)
-
-    # Format the predictions nicely -> use the columnames stored in the files
-    #   - store the predictions separately
-
-    # Sample variant format: "chr22:26864522:C:['A']"
-    extract_var_info = np.vectorize(lambda x, pos: x.split(":")[pos])
-
-    var_ids = df["variant_id"].values
 
     try:
         shutil.rmtree(tmpdir)
@@ -146,11 +141,11 @@ def load_data(vcf_file, gtf_file, fasta_file,
         "inputs": X,
         "metadata": {
             "variant": {
-                "id": var_ids,  # have the variant ID
-                "chr": extract_var_info(var_ids, 0),  # get the chromosome
-                "pos": extract_var_info(var_ids, 1).astype(np.int),  # get the position
-                "ref": extract_var_info(var_ids, 2),  # get the reference allele
-                "alt": extract_var_info(var_ids, 3),  # get the alternative allele
+                "id": df["variant_id"].values,  # have the variant ID
+                "chr": df["variant_chr"].values.astype(str),  # get the chromosome
+                "pos": df["variant_pos"].values,  # get the position
+                "ref": df["variant_ref"].values,  # get the reference allele
+                "alt": df["variant_alt"].values,  # get the alternative allele
             }
         }
     }
