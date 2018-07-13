@@ -2,7 +2,7 @@ type: PreloadedDataset
 defined_as: dataloader.py::load_data
 args:
   vcf_file:
-    doc: Path to the input vcf file
+    doc: Path to the input vcf file. The file has to be annotated with VeP prior to execution if CADD and phred scores!!
     example: example_files/vep.vcf
   fasta_file:
     doc: reference genome fasta file
@@ -10,12 +10,6 @@ args:
   gtf_file:
     doc: path to the GTF file required by the models (Ensemble)
     example: example_files/hg19.chr22.gtf
-  contains_conservation:
-    example: True
-    doc: >
-      include the conservation scores in the inputs
-      NOTE: This requires the `vcf_file` to be annotated using VEP
-    optional: True
   batch_size:
     doc: batch size to use with all the models
     optional: True
@@ -27,7 +21,7 @@ args:
     doc: path to the temporary directory where to store the predictions
     optional: True
 info:
-  doc: Predictions of 4 splicing models for all splice-sites in the GTF.
+  doc: Predictions of 4 splicing models + conservation for all splice-sites in the GTF.
   authors:
     - name: Ziga Avsec
       github: avsecz
@@ -55,7 +49,7 @@ dependencies:
     - keras>=2.0.4
 output_schema:
     inputs:
-      shape: (12, )
+      shape: (16, )
       doc: Model predictions of MaxEntscan, HAL and labranchor
       column_labels: features.txt
     metadata:
