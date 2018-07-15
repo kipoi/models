@@ -23,7 +23,6 @@ dependencies:
   conda:
     - bioconda::pybedtools
     - bioconda::genomelake
-    - python=2.7
     - numpy
     - pandas
 output_schema:
