@@ -1,0 +1,28 @@
+type: keras
+args:
+    weights: model_files/model.weights.h5
+    arch: model_files/model.arch.json
+default_dataloader: .
+info:
+    authors:
+        - name: Nancy Xu 
+          github: xnancy
+          email: xnancy@stanford.edu
+    doc: >
+      Large-scale multi-task convolutional model for predicting chromatin accessility model.
+
+      Model was trained genome-wide accessibility measures across 421 cell types.
+dependencies:
+    conda:
+        - h5py 
+    pip:
+        - tensorflow
+        - keras==1.2.2
+schema:
+    inputs:
+        data/genome_data_dir:
+            shape: (1000,4)
+            doc: "1000 base pair sequence of one-hot encoding ACGT"
+    targets:
+        shape: (421,)
+        doc: "Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible."
