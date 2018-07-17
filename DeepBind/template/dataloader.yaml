@@ -3,10 +3,10 @@ defined_as: dataloader.py::SeqDataset
 args:
   intervals_file:
     doc: bed3 file with `chrom start end id score strand`
-    example: examples_files/intervals.bed
+    example: example_files/intervals.bed
   fasta_file:
     doc: Reference genome sequence
-    example: examples_files/hg38_chr22.fa
+    example: example_files/hg38_chr22.fa
   target_file:
     doc: path to the targets (.tsv) file
     optional: True
@@ -23,7 +23,6 @@ dependencies:
   conda:
     - bioconda::pybedtools
     - bioconda::genomelake
-    - python=2.7
     - numpy
     - pandas
 output_schema:
