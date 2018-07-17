@@ -1,0 +1,12 @@
+MaxEntScan/3prime_ref
+MaxEntScan/3prime_alt
+MaxEntScan/3prime_isna
+MaxEntScan/5prime_ref
+MaxEntScan/5prime_alt
+MaxEntScan/5prime_isna
+HAL_ref
+HAL_alt
+HAL_isna
+labranchor_ref
+labranchor_alt
+labranchor_isna
