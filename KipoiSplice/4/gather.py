@@ -7,7 +7,7 @@ from collections import OrderedDict
 from glob import glob
 import pandas as pd
 import numpy as np
-from kipoi.postprocessing.variant_effects import KipoiVCFParser
+from kipoi_veff.parsers import KipoiVCFParser
 import cyvcf2
 
 import pandas as pd

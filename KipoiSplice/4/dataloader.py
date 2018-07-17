@@ -16,9 +16,9 @@ inputs:
 """
 import tempfile
 import kipoi
-import kipoi.postprocessing.variant_effects.snv_predict as sp
 import shutil
-from kipoi.postprocessing.variant_effects import score_variants, Diff, Logit
+from kipoi_veff import score_variants
+from kipoi_veff.scores import Diff, Logit
 import json
 # Allow different python modules to be used here
 from sklearn.base import BaseEstimator, TransformerMixin

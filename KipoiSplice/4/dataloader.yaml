@@ -35,13 +35,13 @@ info:
       github: krrome
 dependencies:
   conda:
-    - python=3.5
-    - pandas
-    - numpy
     - bioconda::pysam
     - bioconda::maxentpy
     - bioconda::pybedtools
     - bioconda::cyvcf2
+    - pandas
+    - numpy
+    - python=3.5
   pip:
     - pyvcf
     - intervaltree
@@ -49,7 +49,8 @@ dependencies:
     - joblib
     - scikit-learn
     - sklearn-pandas
-    - kipoi[vep]
+    - kipoi
+    - kipoi_veff
     - tqdm
     - tensorflow>=1.0.0
     - keras>=2.0.4
