@@ -1,0 +1,72 @@
+type: PreloadedDataset
+defined_as: dataloader.py::load_data
+args:
+  vcf_file:
+    doc: Path to the input vcf file. The file has to be annotated with VeP prior to execution if CADD and phred scores!!
+    example: example_files/vep.vcf
+  fasta_file:
+    doc: reference genome fasta file
+    example: example_files/hg19.chr22.fa
+  gtf_file:
+    doc: path to the GTF file required by the models (Ensemble)
+    example: example_files/hg19.chr22.gtf
+  batch_size:
+    doc: batch size to use with all the models
+    optional: True
+  num_workers:
+    doc: number of workers to use for each model
+    example: 1
+    optional: True
+  tmpdir:
+    doc: path to the temporary directory where to store the predictions
+    optional: True
+info:
+  doc: Predictions of 4 splicing models + conservation for all splice-sites in the GTF.
+  authors:
+    - name: Ziga Avsec
+      github: avsecz
+    - name: Roman Kreuzhuber
+      github: krrome
+dependencies:
+  conda:
+    - bioconda::pysam
+    - bioconda::maxentpy
+    - bioconda::pybedtools
+    - bioconda::cyvcf2
+    - pandas
+    - numpy
+    - python=3.5
+  pip:
+    - pyvcf
+    - intervaltree
+    - deepdish
+    - joblib
+    - scikit-learn
+    - sklearn-pandas
+    - kipoi
+    - kipoi_veff
+    - tqdm
+    - tensorflow>=1.0.0
+    - keras>=2.0.4
+output_schema:
+    inputs:
+      shape: (16, )
+      doc: Model predictions of MaxEntscan, HAL and labranchor
+      column_labels: features.txt
+    metadata:
+      variant:
+        id:
+          type: str
+          doc: variant ID
+        chr:
+          type: str
+          doc: variant chromsome
+        pos:
+          type: int
+          doc: variant position
+        ref:
+          type: str
+          doc: variant reference
+        alt:
+          type: str
+          doc: variant alternative string

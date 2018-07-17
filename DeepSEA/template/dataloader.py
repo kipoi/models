@@ -100,6 +100,8 @@ class SeqDataset(Dataset):
 
         # Run the fasta extractor
         seq = np.squeeze(self.fasta_extractor([interval]), axis=0)
+        import pdb
+        #pdb.set_trace()
         # Reformat so that it matches the DeepSEA shape
         seq = np.swapaxes(seq, 1, 0)[:, None, :]
         return {

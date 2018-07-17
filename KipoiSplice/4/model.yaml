@@ -1,0 +1,24 @@
+type: sklearn
+args:
+  pkl_file: model_files/model.pkl
+default_dataloader: .
+info:
+  authors:
+    - name: Ziga Avsec
+      github: avsecz
+    - name: Roman Kreuzhuber
+      github: krrome
+  doc: >
+    Kipoi ensemble model without conservation.
+    The used models are - MaxEntScan/3prime, MaxEntScan/5primet, labranchor, HAL
+dependencies:
+  pip:
+    - scikit-learn
+schema:
+    inputs:
+      shape: (12, )
+      doc: Model predictions of MaxEntscan, HAL and labranchor
+      column_labels: features.txt
+    targets:
+      shape: (1, )
+      doc: Pathogenicity score (1=pathogenic, 0=benign)

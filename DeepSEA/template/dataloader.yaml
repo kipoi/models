@@ -29,6 +29,7 @@ dependencies:
     - numpy
     - pandas
     - cython
+    - bioconda::pybedtools
   pip:
     - pyfaidx
 output_schema:
