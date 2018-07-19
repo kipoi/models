@@ -78,7 +78,7 @@ def ensure_dirs(fname):
 
 
 def load_data(vcf_file, gtf_file, fasta_file,
-              contains_conservation=False,
+              # contains_conservation=False,
               batch_size=32,
               num_workers=0,
               tmpdir='/tmp/KipoiSplice/'):
@@ -87,13 +87,14 @@ def load_data(vcf_file, gtf_file, fasta_file,
       vcf_file: Path to the input vcf file
       fasta_file: reference genome fasta file
       gtf_file: path to the GTF file required by the models (Ensemble)
-      contains_conservation: if True, include the conservation scores in the inputs
-          NOTE: This requires the `vcf_file` to be annotated using VEP
+
       batch_size: batch size to use with all the models
       num_workers: number of workers to use for each model
       tmpdir (optional): path to the temporary directory where to store the predictions
     """
-
+    #  contains_conservation: if True, include the conservation scores in the inputs
+    #     NOTE: This requires the `vcf_file` to be annotated using VEP
+    contains_conservation=False
     MODELS = ["MaxEntScan/3prime", "MaxEntScan/5prime", "HAL", "labranchor"]
     features = read_txt(os.path.join(this_path, "features.txt"))
 
