@@ -10,12 +10,6 @@ args:
   gtf_file:
     doc: path to the GTF file required by the models (Ensemble)
     example: example_files/hg19.chr22.gtf
-  contains_conservation:
-    example: True
-    doc: >
-      include the conservation scores in the inputs
-      NOTE: This requires the `vcf_file` to be annotated using VEP
-    optional: True
   batch_size:
     doc: batch size to use with all the models
     optional: True
@@ -27,7 +21,11 @@ args:
     doc: path to the temporary directory where to store the predictions
     optional: True
 info:
-  doc: Predictions of 4 splicing models for all splice-sites in the GTF.
+  doc: >
+    This model first predicts the effect of variants using 4 splicing models (MaxEntScan/3prime, MaxEntScan/5prime, HAL and labranchor)
+    and then integrates those predictions using logistic regression.
+
+    The model has been trained to distinguish between pathogenic and benign variants in ClinVar.
   authors:
     - name: Ziga Avsec
       github: avsecz
@@ -57,7 +55,7 @@ dependencies:
 output_schema:
     inputs:
       shape: (12, )
-      doc: Model predictions of MaxEntscan, HAL and labranchor
+      doc: Model predictions of MaxEntscan, HAL and labranchor.
       column_labels: features.txt
     metadata:
       variant:

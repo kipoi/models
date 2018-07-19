@@ -2,7 +2,9 @@ type: PreloadedDataset
 defined_as: dataloader.py::load_data
 args:
   vcf_file:
-    doc: Path to the input vcf file. The file has to be annotated with VeP prior to execution if CADD and phred scores!!
+    doc: >
+       Path to the input vcf file. The file has to be annotated with VEP. Specifically,
+       it has to contain the following 4 scores - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
     example: example_files/vep.vcf
   fasta_file:
     doc: reference genome fasta file

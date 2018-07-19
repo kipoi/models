@@ -21,7 +21,12 @@ def refmt_col(col, model_name, col_types):
     return col
 
 
-def get_vep_scores(vcf_name, vep_vcf_key="CSQ", sel_vep_keys=["phyloP46way_placental", "phyloP46way_primate", "CADD_PHRED", "CADD_RAW"]):
+def get_vep_scores(vcf_name,
+                   vep_vcf_key="CSQ",
+                   sel_vep_keys=["phyloP46way_placental",
+                                 "phyloP46way_primate",
+                                 "CADD_phred",
+                                 "CADD_raw"]):
     vcf_fh = cyvcf2.VCF(vcf_name)
     # get the correct elements
     for hdr in vcf_fh.header_iter():
