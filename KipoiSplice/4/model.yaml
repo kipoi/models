@@ -28,5 +28,5 @@ schema:
     targets:
       shape: (2, )
       doc: >
-      Pathogenicity score. 0th index represents the probability of
-      being benign and 1st index represents the probability for being pathogenic.
+        Pathogenicity score. 0th index represents the probability of
+        being benign and 1st index represents the probability for being pathogenic.
