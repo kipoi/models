@@ -7,9 +7,11 @@ info:
       - name: Laksshman Sundaram  
         github: lsundaram
   doc: >
-      # TODO abstract
+      Predicting the clinical impact of human mutation with deep neural networks
+
+      Millions of human genomes and exomes have been sequenced, but their clinical applications remain limited due to the difficulty of distinguishing disease-causing mutations from benign genetic variation. Here we demonstrate that common missense variants in other primate species are largely clinically benign in human, enabling pathogenic mutations to be systematically identified by the process of elimination. Using hundreds of thousands of common variants from population sequencing of six non-human primate species, we train a deep neural network that identifies pathogenic mutations in rare disease patients with 88% accuracy and enables the discovery of 14 new candidate genes in intellectual disability at genome-wide significance. Cataloging common variation from additional primate species would improve interpretation for millions of variants of uncertain significance, further advancing the clinical utility of human genome sequencing.
   version: 0.1
-  cite_as: to appear soon
+  cite_as: https://doi.org/10.1038/s41588-018-0167-z
   license: MIT
   tags:
     - coding variant pathogenicity
@@ -37,3 +39,6 @@ schema:
     conservation_otherspecies:
       shape: (51, 20)
       doc: AA PWM from 50 mammal species
+  targets:
+    shape: (1,)
+    doc: Variant pathogenicity from [0, 1], with 1 being pathogenic.

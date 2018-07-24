@@ -12,7 +12,7 @@ DATALOADER_DIR = os.path.dirname(os.path.abspath(filename))
 
 def data_preprocessing(dataframe,conservation_data,process_name):
   start_time=time.time()
-  print 'start time'+ str(start_time)
+  print('start time'+ str(start_time))
   seq_length=51
   flank=(seq_length-1)/2
   #
@@ -39,7 +39,7 @@ def data_preprocessing(dataframe,conservation_data,process_name):
   replace('G','00000100000000000000').replace('F','00001000000000000000').replace('E','00010000000000000000').\
   replace('D','00100000000000000000').replace('C','01000000000000000000').replace('A','10000000000000000000'))
   X_test_orig_1=dataframe['ref_seq'].as_matrix().astype(str).view('S1').reshape(len(dataframe),-1,20)   #change as needed
-  print X_test_orig_1.shape
+  print(X_test_orig_1.shape)
   X_test_snp_1=dataframe['alt_seq'].as_matrix().astype(str).view('S1').reshape(len(dataframe),-1,20) #change as needed
   dataframe=dataframe.drop(['extractseq','orig_sequence','snp_sequence','ref_seq','alt_seq'], axis=1)
   #
@@ -65,7 +65,7 @@ def data_preprocessing(dataframe,conservation_data,process_name):
   #
   dataframe['label']=dataframe['label'].apply(lambda x : x.replace('Unknown','1').replace('Benign','0').replace('likely benign','1')).astype(int)
   y_train=dataframe['label'].as_matrix()
-  print ' the time for the data preprocessing is ' + str(time.time()-start_time)
+  print(' the time for the data preprocessing is ' + str(time.time()-start_time))
   return (X_test_orig_1,X_test_snp_1,X_train_conservation_mammals,X_train_conservation_onlyprimates,X_train_conservation_vertebrates,y_train)
 
 
