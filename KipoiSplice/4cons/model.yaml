@@ -1,0 +1,32 @@
+type: sklearn
+args:
+  pkl_file: model_files/model.pkl
+  predict_method: predict_proba
+default_dataloader: .
+info:
+  authors:
+    - name: Ziga Avsec
+      github: avsecz
+    - name: Roman Kreuzhuber
+      github: krrome
+  trained_on: >
+    ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign') near
+    the splice sites.
+  doc: >
+    This model is similar to KipoiSplice/4, but is additionally base on
+    4 conservational features  - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
+  tags:
+    - RNA splicing
+dependencies:
+  pip:
+    - scikit-learn
+schema:
+    inputs:
+      shape: (16, )
+      doc: Model predictions of MaxEntscan, HAL and labranchor + conservation
+      column_labels: features.txt
+    targets:
+      shape: (1, )
+      doc: >
+        Pathogenicity score. 0th index represents the probability of
+        being benign and 1st index represents the probability for being pathogenic.

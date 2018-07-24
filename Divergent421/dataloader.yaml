@@ -1,0 +1,44 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
+args:
+    intervals_file:
+        doc: tsv file containing dna interval indices (chr, start, end) and binary 0/1 label for accessibility of 430 cell  types. 
+        type: str
+        example: example_files/intervals_files_ENCSR000EMT_chr21_10000.tsv
+    fasta_file:
+        doc: chr21 fasta file for dna intervals  
+        type: str
+        example: example_files/chr21.fa
+        optional: True
+    num_chr_fasta:
+        doc:  True, the tsv-loader will make sure that the chromosomes don't start with chr.
+        type: bool
+        optional: True
+info:
+    authors:
+        - name: Nancy Xu 
+          github: xnancy
+          email: xnancy@stanford.edu
+        - name: Ziga Avsec
+          github: avsecz
+    doc: test 
+dependencies:
+    conda:
+        - bioconda::genomelake
+        - bioconda::pybedtools
+        - numpy
+        - pandas
+output_schema:
+    inputs:
+        data/genome_data_dir: 
+            shape: (1000,4)
+            doc: "1000 base pair sequence of one-hot encoding ACGT"
+    targets:
+        shape: (None,)
+        doc: >
+          Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible.
+          Depending on the number of columns
+    metadata: 
+        ranges:
+            type: GenomicRanges  
+            doc: ranges for input

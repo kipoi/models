@@ -1,5 +1,6 @@
 type: keras
 args:
+  arch: model_files/model.json
   weights: model_files/model.h5
   custom_objects: custom_keras_objects.py
 info:
@@ -21,11 +22,10 @@ info:
 default_dataloader: .
 dependencies:
   conda:
-    - python=2.7
     - h5py
   pip:
-    - tensorflow==1.4
-    - keras==2.1.4
+    - tensorflow>=1.4
+    - keras>=2.0.6
 schema:
   inputs:
     name: seq

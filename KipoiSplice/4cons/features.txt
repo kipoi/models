@@ -1,0 +1,16 @@
+MaxEntScan/3prime_alt
+MaxEntScan/3prime_ref
+MaxEntScan/3prime_isna
+MaxEntScan/5prime_alt
+MaxEntScan/5prime_ref
+MaxEntScan/5prime_isna
+HAL_ref
+HAL_alt
+HAL_isna
+labranchor_logit_alt
+labranchor_logit_ref
+labranchor_isna
+phyloP46way_placental
+phyloP46way_primate
+CADD_raw
+CADD_phred
