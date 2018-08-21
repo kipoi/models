@@ -33,6 +33,7 @@ dependencies:
         - bioconda::pybedtools
         - bioconda::pysam
         - bioconda::genomelake
+        - bioconda::pybigwig
         - bioconda::gtfparse>=1.0.7
         - python>=3.5
         - cython
