@@ -41,7 +41,7 @@ dependencies:
         - pandas
     pip:
         - concise>=0.6.6
-        - numpy
+        - numpy>=1.13.3
 output_schema:
     inputs:
         seq:
