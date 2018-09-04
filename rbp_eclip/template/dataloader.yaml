@@ -33,14 +33,15 @@ dependencies:
         - bioconda::pybedtools
         - bioconda::pysam
         - bioconda::genomelake
+        - bioconda::pybigwig
         - bioconda::gtfparse>=1.0.7
         - python>=3.5
         - cython
         - scikit-learn==0.18.1
-        - numpy
         - pandas
     pip:
         - concise>=0.6.6
+        - numpy>=1.13.3
 output_schema:
     inputs:
         seq:
