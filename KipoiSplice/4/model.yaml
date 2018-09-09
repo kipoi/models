@@ -5,10 +5,11 @@ args:
 default_dataloader: .
 info:
   authors:
-    - name: Ziga Avsec
+    - name: Žiga Avsec
       github: avsecz
     - name: Roman Kreuzhuber
       github: krrome
+  cite_as: https://doi.org/10.1101/375345
   trained_on: >
     ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign') near
     the splice sites.
