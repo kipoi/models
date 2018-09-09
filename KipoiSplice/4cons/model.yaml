@@ -5,7 +5,7 @@ args:
 default_dataloader: .
 info:
   authors:
-    - name: Žiga Avsec
+    - name: Ziga Avsec
       github: avsecz
     - name: Roman Kreuzhuber
       github: krrome
