@@ -5,10 +5,10 @@ args:
 default_dataloader: . # relative path to the default dataloader
 info:
     authors:
-        - name: Ziga Avsec
+        - name: Žiga Avsec
           github: avsecz
     contributors:
-        - name: Ziga Avsec
+        - name: Žiga Avsec
           github: avsecz
     version: 0.1
     doc: >
