@@ -5,7 +5,7 @@ args:
 default_dataloader: . # relative path to the default dataloader
 info:
     authors:
-        - name: Alexander Rosenberg
+        - name: Alexander B. Rosenberg
           github: Alex-Rosenberg
     contributors:
         - name: Jun Cheng
