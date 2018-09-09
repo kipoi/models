@@ -7,9 +7,9 @@ info:
     authors:
        - name: Gene Yeo
        - name: Christopher B. Burge
+    contributors:
        - name: Matthias De Smet
          github: matthdsm
-    contributors:
        - name: Jun Cheng
          github: s6juncheng
     doc: >
