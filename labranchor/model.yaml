@@ -4,8 +4,9 @@ args:
 default_dataloader: . # path to the directory
 info:
     authors:
-        - name: Paggi J.M., Bejerano
+        - name: Joseph M. Paggi
           github: jpaggi
+        - name: Gill Bejerano
     contributors:
         - name: Jun Cheng
           github: s6juncheng
