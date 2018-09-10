@@ -8,10 +8,11 @@ info:
        - name: Gene Yeo
        - name: Christopher B. Burge
     contributors:
-       - name: Matthias De Smet
-         github: matthdsm
        - name: Jun Cheng
          github: s6juncheng
+       - name: Matthias De Smet
+         github: matthdsm
+
     doc: >
       MaxEnt Splicing Model (http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) implemented in the
       maxentpy conda package https://github.com/kepbod/maxentpy.
