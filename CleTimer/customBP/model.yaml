@@ -1,0 +1,46 @@
+# TODO - optionally create a model.py file - if model type is custom...
+
+# TODO - model files
+# ifelse - different model types - specify the arguments
+type: custom
+args:
+    file: model.py
+    object: CleavageTimeModel
+    pkl_files: model_files/acceptor.pkl, model_files/donor.pkl
+default_dataloader: .
+info:
+    authors:
+        - name: Leohnard Wachutka
+          github: wachutka
+          email: wachutka@in.tum.de
+        - name: Stefan Dvoretskii
+          github: stefanches7
+          email: stefan.dvoretskii@tum.de
+        - name: Julien Gagneur
+          email: gagneur@in.tum.de
+        - name: Patrick Cramer
+          email: patrick.cramer@mpibpc.mpg.de
+    doc: >
+      Linear model predicting intron donor and acceptor cleavage time. 
+    cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
+    tags:
+      - Intron splicing
+      - Cleavage time
+dependencies:
+    pip:
+        - scikit-learn
+schema:
+    inputs:
+        - name: soi
+          shape: (n,)
+          doc: "n intronic sequences of interest - defined as 3 bases before and 21 base after the intron inclusive."
+        - name: bp_indexes
+          shape: (n,)
+          doc: "Indexes of branchpoint for each sequence of interest. Could be negative."
+    targets:
+        - name: don_cleavage_time
+          shape: (n,)
+          doc: "Predicted donor cleavage times."
+        - name: acc_cleavage_time
+          shape: (n,)
+          doc: "Predicted acceptor cleavage times."
