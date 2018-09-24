@@ -8,6 +8,9 @@ import numpy as np
 import os
 import gffutils
 
+import inspect
+this_file_path = os.path.abspath(inspect.getframeinfo(inspect.currentframe()).filename)
+this_dir = os.path.dirname(this_file_path)
 
 class IntronsDataset(Dataset):
     """
@@ -17,8 +20,8 @@ class IntronsDataset(Dataset):
     """
     
     def __init__(self, gtf_file, fasta_file, create_introns = False):
-        self.gtf_file = gtf_file
-        self.fasta_file = fasta_file
+        self.gtf_file = ''.join(["file://", this_dir, os.path.sep, gtf_file])
+        self.fasta_file = ''.join([this_dir, os.path.sep, fasta_file])
         self.create_introns = create_introns
         
         # get intronic features
@@ -35,25 +38,39 @@ class IntronsDataset(Dataset):
         :return: Intron information as a dict: ["soi"] is a SOI (input of the model), ["metadata"] is various other information.
         """
         
-        got_introns = self.introns.__getitem__(idx)
+        intron = self.introns[idx]
+        #if not got_introns is list:
+        #    got_introns = [got_introns]
         out = dict()
-        out["inputs"] = dict()
         # input sequence as string
-        out["inputs"]["soi"] = np.stack([ intron.attributes["SOI"] for intron in got_introns], axis=0)
+        out["inputs"] = np.array(intron.attributes["SOI"])
         
-        out["metadata"] = list()
-        for intron in got_introns:
-            intron_meta = dict()
-            # metadata for the output
-            for term in ["gene_id", "transcript_id", "number"]:
-                intron_meta[term] = intron.attributes[term]
+        #out["metadata"] = list()
+        #for intron in got_introns:
+        #    intron_meta = dict()
+        #    # metadata for the output
+        #    for term in ["gene_id", "transcript_id", "number"]:
+        #        intron_meta[term] = intron.attributes[term]
 
-            intron_meta["start"] = intron.start
-            intron_meta["end"] = intron.end
-            intron_meta["seqid"] = intron.seqid
-            intron_meta["strand"] = intron.strand
-            out["metadata"].append(intron_meta)
-            
+        #    intron_meta["start"] = intron.start
+        #    intron_meta["end"] = intron.end
+        #    intron_meta["seqid"] = intron.seqid
+        #    intron_meta["strand"] = intron.strand
+        #    out["metadata"].append(intron_meta)
+        out["metadata"] = dict()
+        
+        intron_meta = dict()
+        # metadata for the output
+        for term in ["gene_id", "transcript_id", "number"]:
+            intron_meta[term] = intron.attributes[term]
+
+        intron_meta["start"] = intron.start
+        intron_meta["end"] = intron.end
+        intron_meta["seqid"] = intron.seqid
+        intron_meta["strand"] = intron.strand
+        out["metadata"] = intron_meta
+         
+        
         return out
         
     
@@ -64,7 +81,7 @@ class IntronsDataset(Dataset):
         :return: List of all detected introns as gffutils.Feature objects.
         """
         # create a gffutils database
-        self.db = gffutils.create_db(data = self.gtf_file, dbfn = ":memory", \
+        self.db = gffutils.create_db(data = self.gtf_file, dbfn = ":memory:", \
                                 force = True, id_spec= {'gene': 'gene_id', 'transcript': 'transcript_id'}, \
                                 disable_infer_transcripts= True, disable_infer_genes=True, verbose= False, \
                                 merge_strategy="merge" )
@@ -130,7 +147,7 @@ class IntronsDataset(Dataset):
             intron.start -=21
             intron.end +=21
             # slice first 17 bases from donor, because we don't need them in our model
-            intron.attributes["SOI"] = intron.sequence(self.fasta_file, use_strand = True)[20 - 3:]
+            intron.attributes["SOI"] = intron.sequence(self.fasta_file, use_strand = True)[21 - 3:]
             # get true intronic coordinates back in place
             intron.end -=21
             intron.start +=21

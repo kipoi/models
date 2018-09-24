@@ -6,7 +6,6 @@ type: custom
 args:
     file: model.py
     object: CleavageTimeModel
-    pkl_files: model_files/acceptor.pkl, model_files/donor.pkl
 default_dataloader: .
 info:
     authors:
@@ -24,20 +23,19 @@ info:
       Linear model predicting intron donor and acceptor cleavage time. 
     cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
     tags:
-      - Intron splicing
-      - Cleavage time
+      - RNA splicing
 dependencies:
     pip:
         - scikit-learn
 schema:
     inputs:
         name: soi
-        shape: (n,)
-        doc: "n intronic sequences of interest - defined as 3 bases before and 21 base after the intron inclusive."
+        shape: ()
+        doc: "Intronic sequence of interest - defined as 3 bases before and 21 base after the intron inclusive."
     targets:
         - name: don_cleavage_time
-          shape: (n,)
-          doc: "Predicted donor cleavage times."
+          shape: (1,)
+          doc: "Predicted donor cleavage time."
         - name: acc_cleavage_time
-          shape: (n,)
-          doc: "Predicted acceptor cleavage times."
+          shape: (1,)
+          doc: "Predicted acceptor cleavage time."

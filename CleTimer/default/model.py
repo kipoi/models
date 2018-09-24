@@ -1,10 +1,13 @@
 from kipoi.model import BaseModel
 import numpy as np
+import numpy.core.defchararray as npc
 from sklearn.externals import joblib
 import json
 import pandas as pd
 from math import log, exp
 import os
+import sys
+import kipoi
 
 # access the absolute path to this script
 # https://stackoverflow.com/questions/3718657/how-to-properly-determine-current-script-directory-in-python
@@ -38,8 +41,29 @@ def elongate_intron(intron):
     Elongation is with T nucleotide after all donor features up to 94bp.
     """
     insertion = (94 - len(intron))*"T"
-    return ''.join(intron[0:19], insertion, intron[19:])
-    
+    return ''.join([intron[0:19], insertion, intron[19:]])
+
+#def work_seq_on_feature(seqA, seqB, seqD, region, pos, nucl):
+#    """
+#    Calculate the feature on the given sequence.
+#    :return: feature value and sequence index in the soi batch.
+#    """
+#    # indexes of start sites in corresponding regions
+#    B_i = 15
+#    A_i = 4
+#    D_i = 3
+#    
+#    value = 0
+#    
+#    if region == 'seqA' and seqA[ A_i + int(pos) ].upper() == nucl:
+#        value = 1
+#    elif region == 'seqB' and seqB[B_i + int(pos)].upper() == nucl:
+#        value = 1
+#    elif region == 'seqD' and seqD[ D_i + int(pos) ].upper() == nucl:
+#        value = 1
+#        
+#    return (soi_idx, value)
+#    
 class CleavageTimeModel(BaseModel):
     
     def __init__(self):
@@ -50,14 +74,16 @@ class CleavageTimeModel(BaseModel):
         # NB! This indexes are pos=1 of the region, and index-1 is already pos=-1, not 0!
         self.don_i = 3
         self.acc_i = -21
+        self.labranchor = kipoi.get_model("labranchor", with_dataloader=False)
+        # add current dir to python path for multiprocessing
+        sys.path.append(this_dir)
         
     def predict_on_batch(self, x):
         # run feature collection pipeline for the batch
-        soi = x["soi"]
-        self.bp_indexes = x["bp_indexes"]
+        soi = x
         
         for i in range(len(soi)):
-            if len(soi[i]) < 80:
+            if len(soi[i]) < 94:
                 soi[i] = elongate_intron(soi[i])
                 
         parameters_batch = self._construct_features_array(soi)
@@ -89,27 +115,59 @@ class CleavageTimeModel(BaseModel):
         
         # get the list of bp index for each sequence of batch
         self.bp_indexes = self._get_bp_indexes_labranchor(soi)
+        # slice out feature sequences
+        #seqA = [ seq[self.acc_i - 4 : self.acc_i + 6] for seq in soi]
+        seqB = np.array([ soi[j][int(self.bp_indexes[j]) - 15: int(self.bp_indexes[j]) + 6] for j in range(len(soi))])
+        B_i = 15
+        #seqD = [ seq[self.don_i - 3 : self.acc_i + 16] for seq in soi]
         
         # fill out the rest of the features (base-by-region features)
         for i in range(2, len(self.features_metadata)):
             # parse the current feature info
             (region, pos, nucl) = self.features_metadata[i]
-            if (region == 'seqD' or region == 'seqA') and pos > 0: #decrement, since acc_i/don_i is pos = 1
-                pos -= 1
-
-            for j in range( len(soi) ):
-                if region == 'seqB':
-                    i_oi = int(self.bp_indexes[j]) + int(pos)
-                    if soi[j][i_oi].upper() == nucl:
-                        batch_encoded_features[j, i] = 1
+            if (region == 'seqD' or region == 'seqA'): #decrement, since acc_i/don_i is pos = 1
+                if pos > 0:
+                    pos -= 1
+                #apply vectorized numpy operations
+                if region == 'seqD':
+                    idx = self.don_i + int(pos)
                 else:
-                    if region == 'seqA' and soi[j][ (self.acc_i + int(pos)) ].upper() == nucl:
-                        batch_encoded_features[j, i] = 1
-                    elif region == 'seqD' and soi[j][ (self.don_i + int(pos)) ].upper() == nucl:
-                        batch_encoded_features[j, i] = 1
-        return batch_encoded_features
+                    idx = self.acc_i + int(pos)
+                feat_column = npc.find(soi, nucl, idx, idx + 1)    
+            else:
+                idx = B_i + int(pos)
+                feat_column = npc.find(seqB, nucl, idx, idx + 1)
+                
+            feat_column[feat_column>1] = 1
+            feat_column[feat_column == -1] = 0
+            batch_encoded_features[:, i] = feat_column
+            #    for j in range( len(soi) ):
+            #        if region == 'seqB':
+            #            i_oi = int(self.bp_indexes[j]) + int(pos)
+            #            if soi[j][i_oi].upper() == nucl:
+            #                batch_encoded_features[j, i] = 1
+            #        else:
+            #            if region == 'seqA' and soi[j][ (self.acc_i + int(pos)) ].upper() == nucl:
+            #                batch_encoded_features[j, i] = 1
+            #            elif region == 'seqD' and soi[j][ (self.don_i + int(pos)) ].upper() == nucl:
+            #                batch_encoded_features[j, i] = 1
+           #   executor = concurrent.futures.ProcessPoolExecutor(10)
+           #    futures = [executor.submit(work_seq_on_feature, seqA[j], seqB[j], seqD[j], region, pos, nucl, j) for j in range(len(soi))]
+           #    concurrent.futures.wait(futures)
+
+            #pool = ProcessPool(nodes = 10)
+            #feat_column = np.array(pool.map(work_seq_on_feature, seqA, seqB, seqD, [ region for i in range(len(soi))], [ pos for i in range(len(soi))], \
+            #                                [nucl for i in range(len(soi))]))
             
-                        
+            
+            #for future in futures:
+            #    (seq_idx, value) = future.result()
+            #    if value != 0:
+            #        feat_column[seq_idx] = value
+            
+            
+        
+        return batch_encoded_features
         
     def _get_bp_indexes_labranchor(self, soi):
         """
@@ -118,21 +176,23 @@ class CleavageTimeModel(BaseModel):
         :param soi: batch of sequences of interest for introns (intron-3..intron+6)
         :return: array of predicted bp indexes
         """
-        import kipoi
-        # prepare labranchor input
-        labranchor = kipoi.get_model('labranchor', with_dataloader=False)
-        labr_in = np.stack([onehot(seq[self.acc_i - 70:self.acc_i]) for seq in soi], axis=0)
-        out = labranchor.predict_on_batch(labr_in)
+        encoded = [onehot(str(seq)[self.acc_i - 70:self.acc_i]) for seq in np.nditer(soi)]
+        labr_in = np.stack(encoded, axis=0)
+        out = self.labranchor.predict_on_batch(labr_in)
          #for each row, pick the base with max branchpoint probability, and get its index
         max_indexes =  np.apply_along_axis(lambda x: self.acc_i - 70 + np.argmax(x), axis = 1, arr = out)
-            
+        #self.write_bp(max_indexes)
         return max_indexes
-    
+
+# TODO boilerplate
+#    def write_bp(self, max_indexes):
+#        max_indexes = [str(seq) for seq in np.nditer(max_indexes)]
+#        with open(''.join([this_dir, "/../customBP/example_files/bp_idx_chr21_labr.txt"]), "a") as bp_idx_file:
+#            bp_idx_file.write('\n'.join(max_indexes))
+#            bp_idx_file.write('\n')
+#            bp_idx_file.close()
+            
     def _count_gc_content(self, seq):
         import collections 
         count_gc = collections.Counter(seq)
         return (count_gc['g'] + count_gc['G'] + count_gc['c'] + count_gc['C'])/len(seq)
-        
-        
-        
-        
