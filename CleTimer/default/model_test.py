@@ -1,6 +1,7 @@
 import unittest
 import random
 import model
+import numpy as np
 
 class ModelTest(unittest.TestCase):
     
@@ -9,6 +10,7 @@ class ModelTest(unittest.TestCase):
         for i in range(10): #generate test sequences
             length = random.randint(101, 1000)
             self.soi_g80.append( ''.join( random.choices(['A', 'C', 'G', 'T', 'a', 'c', 'g', 't'], k = length) ) )
+        self.soi_g80 = np.array(self.soi_g80, dtype = np.string_)
         self.features_metadata = model.load_features_metadata()
     
     def testRandom_baseFeaturesConstruction(self):
