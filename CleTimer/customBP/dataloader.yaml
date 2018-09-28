@@ -35,6 +35,7 @@ dependencies:
     conda:
         - python=3.5
         - bioconda::gffutils
+        - scipy
 output_schema:
     inputs:
         soi:

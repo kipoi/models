@@ -67,12 +67,11 @@ class IntronsDataset(Dataset):
         for term in ["gene_id", "transcript_id", "number"]:
             intron_meta[term] = intron.attributes[term]
 
-        intron_meta["start"] = intron.start
-        intron_meta["end"] = intron.end
-        intron_meta["seqid"] = intron.seqid
-        intron_meta["strand"] = intron.strand
-        out["metadata"] = intron_meta
-         
+        intron_meta["start"] = np.array(intron.start)
+        intron_meta["end"] = np.array(intron.end)
+        intron_meta["seqid"] = np.array(intron.seqid)
+        intron_meta["strand"] = np.array(intron.strand)
+        out["metadata"] = np.array(intron_meta)
         
         return out
         
