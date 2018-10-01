@@ -1,0 +1,10 @@
+acceptor_alt_intron
+acceptor_alt
+exon_alt
+donor_alt
+donor_alt_intron
+acceptor_ref_intron
+acceptor_ref
+exon_ref
+donor_ref
+donor_ref_intron
