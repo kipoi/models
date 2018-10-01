@@ -14,9 +14,10 @@ dependencies:
         - keras>=2.0.4
 schema:
     inputs:
-        name: input_3
+      input_3:
         shape: (None, 4)
-        doc: One-hot encoded RNA sequence
+        special_type: DNASeq
+        doc: One-hot encoded exon sequence
     targets:
         shape: (1,)
         doc: Predicted score for exon sequence

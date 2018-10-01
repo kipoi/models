@@ -14,9 +14,10 @@ dependencies:
         - keras>=2.0.4
 schema:
     inputs:
-        name: ss
+      ss:
         shape: (53, 4)
-        doc: One-hot encoded RNA sequence
+        special_type: DNASeq
+        doc: One-hot encoded acceptor sequence
     targets:
         shape: (1,)
         doc: Predicted score for acceptor sequence
