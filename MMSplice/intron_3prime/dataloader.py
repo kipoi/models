@@ -106,8 +106,6 @@ class IntronDataLoader(SampleIterator):
         if self.split_seq:
             seq = self.split(seq, ss.overhang)['acceptor_intron'][0]
         out['inputs']['input_5'] = seq
-        out['inputs']['intronl_len'] = ss.overhang[0]
-        out['inputs']['intronr_len'] = ss.overhang[1]
         
         out['metadata'] = {}
         out['metadata']['ranges'] = GenomicRanges(

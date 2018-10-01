@@ -69,7 +69,7 @@ dependencies:
     - mmsplice
 output_schema:
     inputs:
-      input_3:
+      input_4:
         shape: (None, 4)
         special_type: DNASeq
         doc: One-hot encoded exon sequence

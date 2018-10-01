@@ -14,9 +14,10 @@ dependencies:
         - keras>=2.0.4
 schema:
     inputs:
-        name: ss
+      ss:
         shape: (18, 4)
-        doc: One-hot encoded RNA sequence
+        special_type: DNASeq
+        doc: One-hot encoded donor sequence
     targets:
         shape: (1,)
         doc: Predicted score for donor sequence

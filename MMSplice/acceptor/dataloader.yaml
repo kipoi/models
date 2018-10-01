@@ -74,12 +74,6 @@ output_schema:
         special_type: DNASeq
         doc: One-hot encoded acceptor sequence
         associated_metadata: ranges
-      intronl_len:
-        shape: ()
-        doc: intron length taken from the acceptor side
-      intronr_len:
-        shape: ()
-        doc: intron length taken from the donor side
     metadata:
       ranges:
         id:
