@@ -66,12 +66,11 @@ dependencies:
     - numpy
     - python=3.5
   pip:
-    - pickle
     - kipoi
     - mmsplice
 output_schema:
     inputs:
-      shape: (5, )
+      shape: (10, )
       doc: Modular predictions.
       column_labels: features.txt
     metadata:
