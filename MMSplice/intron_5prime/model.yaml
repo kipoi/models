@@ -1,0 +1,22 @@
+type: keras
+args:
+    weights: model_files/Intron5.h5
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+          email: s6juncheng@gmail.com
+    doc: Intron 5' module of MMSplice model
+dependencies:
+    pip:
+        - tensorflow>=1.0.0
+        - keras>=2.0.4
+schema:
+    inputs:
+        name: input_15
+        shape: (94, 4)
+        doc: One-hot encoded RNA sequence
+    targets:
+        shape: (1,)
+        doc: Predicted score for 5' intronic sequence

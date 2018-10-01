@@ -22,7 +22,7 @@ schema:
     inputs:
         shape: (5, )
         doc: modular predictions
+        column_labels: features.txt
     targets:
         shape: (1, )
         doc: "Predicted delta logit(psi)"
-        column_labels: features.txt
