@@ -1,5 +1,5 @@
 type: SampleIterator
-defined_as: dataloader.py::ExonDataLoader
+defined_as: dataloader.py::ExonDataLoader5
 args:
   gtf_file:
     doc: path to the GTF file required by the models (Ensemble)

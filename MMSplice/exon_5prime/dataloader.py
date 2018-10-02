@@ -14,7 +14,7 @@ from mmsplice import MMSplice
 from mmsplice.vcf_dataloader import ExonInterval
 
 
-class ExonDataLoader(SampleIterator):
+class ExonDataLoader5(SampleIterator):
     """
     Load genome annotation (gtf) file along with a vcf file, return wt sequence and mut sequence.
     Args:
