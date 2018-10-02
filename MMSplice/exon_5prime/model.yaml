@@ -1,0 +1,23 @@
+type: keras
+args:
+    weights: model_files/Exon.h5
+default_dataloader: . # path to the directory
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+          email: s6juncheng@gmail.com
+    doc: Exon 3' module of MMSplice model
+dependencies:
+    pip:
+        - tensorflow>=1.0.0
+        - keras>=2.0.4
+schema:
+    inputs:
+      input_3:
+        shape: (None, 4)
+        special_type: DNASeq
+        doc: One-hot encoded exon sequence
+    targets:
+        shape: (1,)
+        doc: Predicted score for exon sequence

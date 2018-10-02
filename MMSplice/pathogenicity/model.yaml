@@ -1,0 +1,30 @@
+type: custom
+args:
+  file: model.py
+  object: MMSpliceModel
+default_dataloader: . # relative path to the default dataloader
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+    trained_on: >
+      MPRA (Rosenberg 2015), GENCODE annotation 24, ClinVar (release 2018-04-29) 
+      variants (labelled 'Pathogenic' or 'Benign') near the splice sites.
+    doc: >
+      Predict splicing variant effect from VCF
+    tags:
+        - RNA splicing
+dependencies:
+    conda:
+      - numpy
+    pip:
+      - scikit-learn
+schema:
+    inputs:
+        shape: (10, )
+        doc: modular predictions
+    targets:
+        shape: (2, )
+        doc: >
+          "Pathogenicity score. 0th index represents the probability of
+          being benign and 1st index represents the probability for being pathogenic."
