@@ -51,7 +51,7 @@ dependencies:
     - kipoi_veff
     - tqdm
     - tensorflow>=1.0.0
-    - keras>=2.0.4
+    - keras>=2.0.4,<=2.2.2
 output_schema:
     inputs:
       shape: (12, )
