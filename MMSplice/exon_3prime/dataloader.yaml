@@ -1,0 +1,93 @@
+type: SampleIterator
+defined_as: dataloader.py::ExonDataLoader
+args:
+  gtf_file:
+    doc: path to the GTF file required by the models (Ensemble)
+    example: example_files/test.gtf
+  fasta_file:
+    doc: reference genome fasta file
+    example: example_files/hg19.nochr.chr17.fa
+  split_seq:
+    doc: Whether split the sequence in dataloader
+    optional: True
+  encode:
+    doc: If split the sequence, whether one hot encoding
+    optional: True
+  exon_cut_l:
+    doc: when extract exon feature, how many base pair to cut out at the begining of an exon
+    optional: True
+    example: 0
+  exon_cut_r:
+    doc: when extract exon feature, how many base pair to cut out at the end of an exon 
+    optional: True
+    example: 0
+  acceptor_intron_cut:
+    doc: how many bp to cut out at the end of acceptor intron that consider as acceptor site
+    optional: True
+    example: 6
+  donor_intron_cut:
+    doc: how many bp to cut out at the end of donor intron that consider as donor site
+    optional: True
+    example: 6
+  acceptor_intron_len:
+    doc: what length in acceptor intron to consider for acceptor site model
+    optional: True
+    example: 50
+  acceptor_exon_len:
+    doc: what length in acceptor exon to consider for acceptor site model
+    optional: True
+    example: 3
+  donor_exon_len:
+    doc: what length in donor exon to consider for donor site model
+    optional: True
+    example: 5
+  donor_intron_len:
+    doc: what length in donor intron to consider for donor site model
+    optional: True
+    example: 13
+  maxExonLength:
+    doc: maximum exon length. Longer exons will be cliped and shorter ones will be padded
+    optional: True
+    example: 300
+  kwargs:
+    doc: other arguments for GenerateExons
+    optional: True
+
+info:
+    authors:
+        - name: Jun Cheng
+          github: s6juncheng
+          email: s6juncheng@gmail.com
+    doc: Exon 5' module of MMSplice model
+dependencies:
+  conda:
+    - bioconda::cyvcf2
+    - numpy
+    - python=3.5
+  pip:
+    - kipoi
+    - mmsplice
+output_schema:
+    inputs:
+      input_4:
+        shape: (None, 4)
+        special_type: DNASeq
+        doc: One-hot encoded exon sequence
+        associated_metadata: ranges
+    metadata:
+      ranges:
+        id:
+          type: str
+          doc: Transcript id of affected exon
+        chr:
+          type: str
+          doc: exon chromsome
+        start: 
+          type: int
+          doc: start position of affected exon
+        end: 
+          type: int
+          doc: end position of affected exon
+        strand: 
+          type: str
+          doc: strand of affected exon
