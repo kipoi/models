@@ -27,6 +27,8 @@ info:
 dependencies:
     pip:
         - scikit-learn
+        - keras>=2.0.4
+        - tensorflow>=1.0.0
 schema:
     inputs:
         name: soi
