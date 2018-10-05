@@ -1,6 +1,3 @@
-## Checklist
+## Exon 3' Module
 
-- [ ] answer all the quesionts
-- [ ] dump the serialized model to ...
-  - TODO - make it easy to export?
-- [ ] dump the serialized model to ...
+Score exon sequence with Exon 3' module.  

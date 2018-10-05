@@ -8,6 +8,10 @@ info:
           github: s6juncheng
           email: s6juncheng@gmail.com
     doc: Acceptor module of MMSplice model
+    trained_on: >
+      GENCODE annotation 24, classify annotated acceptor site and random sequence.
+    tags:
+        - RNA splicing
 dependencies:
     pip:
         - tensorflow>=1.0.0
