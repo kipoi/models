@@ -8,6 +8,10 @@ info:
           github: s6juncheng
           email: s6juncheng@gmail.com
     doc: Exon 3' module of MMSplice model
+    trained_on: >
+      MPRA (Rosenberg 2015) exonic random sequence.
+    tags:
+        - RNA splicing
 dependencies:
     pip:
         - tensorflow>=1.0.0

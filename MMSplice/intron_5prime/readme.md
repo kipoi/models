@@ -1,6 +1,3 @@
-## Checklist
+## Intron 5' Module
 
-- [ ] answer all the quesionts
-- [ ] dump the serialized model to ...
-  - TODO - make it easy to export?
-- [ ] dump the serialized model to ...
+Score intron sequence with Intron 5' module.  
