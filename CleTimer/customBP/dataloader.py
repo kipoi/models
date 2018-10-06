@@ -71,7 +71,7 @@ class IntronsDataset(Dataset):
         intron_meta["end"] = np.array(intron.end)
         intron_meta["seqid"] = np.array(intron.seqid)
         intron_meta["strand"] = np.array(intron.strand)
-        out["metadata"] = np.array(intron_meta)
+        out["metadata"] = intron_meta
         
         return out
         
