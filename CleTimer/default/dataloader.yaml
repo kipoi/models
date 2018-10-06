@@ -1,0 +1,67 @@
+type: Dataset
+defined_as: dataloader.py::IntronsDataset
+args:
+    # TODO - describe the input features of your model
+    gtf_file:
+        doc: >
+          Path to GTF file containing annotation. If there are no introns in file, 
+          they get constructed automatically.
+        type: str
+        example: example_files/hg38.chr21_UCSC_allGenes.gtf
+    fasta_file:
+        doc: >
+          Path to FASTA file containing sequences. Should include all motifs listed in the GTF file.
+        type: str
+        example: example_files/chr21.fa
+    create_introns:
+        doc: Should dataloader infer introns from exons and transcripts? Default False.
+        type: boolean
+        example: True
+        optional: True
+info:
+    authors:
+        - name: Stefan Dvoretskii
+          github: stefanches7
+          email: stefan.dvoretskii@tum.de
+    doc: >
+      Linear model predicting intron donor and acceptor cleavage time. 
+
+dependencies:
+    conda:
+        - python=3.5
+        - bioconda::gffutils
+        - scipy
+output_schema:
+    inputs:
+        name: soi
+        shape: ()
+        doc: "Intronic sequence of interest - defined as 3 bases before and 21 base after the intron inclusive."
+    targets:
+        - name: don_cleavage_time
+          shape: (1,)
+          doc: "Predicted donor cleavage time."
+        - name: acc_cleavage_time
+          shape: (1,)
+          doc: "Predicted acceptor cleavage time."
+    metadata:
+        gene_id:
+            type: str
+            doc: Gene ids of introns fetched from GTF file
+        transcript_id:
+            type: str
+            doc: Transcript ids of introns fetched from GTF file
+        start:
+            type: int
+            doc: Introns start coordinate. NB! SOI starts 3 bases before!
+        end:
+            type: int
+            doc: Introns end coordinate. NB! SOI ends 21 bases after!
+        strand:
+            type: str
+            doc: Strand of introns
+        seqid:
+            type: str
+            doc: Id of intron sequence
+        number:
+            type: int
+            doc: Number of the current intron in its gene
