@@ -65,7 +65,7 @@ class IntronsDataset(Dataset):
         intron_meta = dict()
         # metadata for the output
         for term in ["gene_id", "transcript_id", "number"]:
-            intron_meta[term] = intron.attributes[term]
+            intron_meta[term] = np.array(intron.attributes[term])
 
         intron_meta["start"] = np.array(intron.start)
         intron_meta["end"] = np.array(intron.end)
