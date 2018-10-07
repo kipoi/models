@@ -21,7 +21,7 @@ info:
           email: patrick.cramer@mpibpc.mpg.de
     doc: >
       Linear model predicting intron donor and acceptor cleavage time. 
-    cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
+    # cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
     tags:
       - RNA splicing
 dependencies:
