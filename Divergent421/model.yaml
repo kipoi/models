@@ -1,8 +1,16 @@
 type: keras
 args:
-    weights: model_files/model.weights.h5
-    arch: model_files/model.arch.json
-default_dataloader: .
+    weights: 
+        url: https://github.com/kipoi/models/blob/use_kipoiseq/Divergent421/model_files/model.weights.h5?raw=true
+        md5: cc9310b750adbb90c49f1e3682e876be
+    arch: 
+        url: https://github.com/kipoi/models/blob/use_kipoiseq/Divergent421/model_files/model.arch.json?raw=true
+        md5: 8945dbe620466554aed90a55400754c9
+default_dataloader:
+    defined_as: kipoiseq.datasets.SeqDataset
+    default_args:
+        auto_resize_len: 1000
+
 info:
     authors:
         - name: Nancy Xu 
