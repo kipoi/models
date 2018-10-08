@@ -6,6 +6,7 @@ args:
     arch: 
         url: https://github.com/kipoi/models/raw/2eef9c62ba7301dd6e51fdcc8ce729901fe7231e/Divergent421/model_files/model.arch.json
         md5: 3c2c61637677461c2a88c1c08486761f
+
 default_dataloader:
     defined_as: kipoiseq.datasets.SeqDataset
     default_args:
@@ -20,12 +21,14 @@ info:
       Large-scale multi-task convolutional model for predicting chromatin accessility model.
 
       Model was trained genome-wide accessibility measures across 421 cell types.
+      
 dependencies:
     conda:
         - h5py 
     pip:
         - tensorflow
         - keras==1.2.2
+        
 schema:
     inputs:
         data/genome_data_dir:
