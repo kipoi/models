@@ -28,6 +28,7 @@ dependencies:
     pip:
         - tensorflow
         - keras==1.2.2
+        - kipoiseq
         
 schema:
     inputs:
