@@ -1,11 +1,11 @@
 type: keras
 args:
     weights: 
-        url: https://github.com/kipoi/models/raw/2eef9c62ba7301dd6e51fdcc8ce729901fe7231e/Divergent421/model_files/model.weights.h5
-        md5: 3de67bb791a2bb2a2efd726184c880d7
+        url: https://zenodo.org/record/1452399/files/model.weights.h5?download=1
+        md5: 2a0ae0a29337eb8106d65e1baeda85d1
     arch: 
-        url: https://github.com/kipoi/models/raw/2eef9c62ba7301dd6e51fdcc8ce729901fe7231e/Divergent421/model_files/model.arch.json
-        md5: 3c2c61637677461c2a88c1c08486761f
+        url: https://zenodo.org/record/1452399/files/model.arch?download=1
+        md5: 6903bcab337a6753ad010f43f208df42
 
 default_dataloader:
     defined_as: kipoiseq.datasets.SeqDataset
