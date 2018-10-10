@@ -68,17 +68,26 @@ class SplicingVCFDataloader(SampleIterator):
         self.donor_intron_len = donor_intron_len
 
     @staticmethod
-    def spliceSiteGenerator(vcf_file, exonTree):
+    def spliceSiteGenerator(vcf_file, exonTree, variant_filter=True):
         variants = VCF(vcf_file)
         for var in variants:
+            if variant_filter and var.FILTER:
+                next
             iv = VariantInterval.from_Variant(var)
-            matches = []
-            exonTree.intersect(iv, lambda x: matches.append(x.interval), ignore_strand=True)
-            if len(matches) == 0:
-                continue
+
+            matches = map(lambda x: x.interval,
+                          exonTree.intersect(iv, ignore_strand=True))
+
             for match in matches:
-                side = get_var_side((var.POS, var.REF, var.ALT, match.Exon_Start, match.Exon_End, match.strand))
-                var = iv.to_Variant(match.strand, side) # to my Variant class               
+                side = get_var_side((
+                    var.POS,
+                    var.REF,
+                    var.ALT,
+                    match.Exon_Start,
+                    match.Exon_End,
+                    match.strand
+                ))
+                var = iv.to_Variant(match.strand, side)  # to my Variant class
                 yield match, var
 
     def __iter__(self):
