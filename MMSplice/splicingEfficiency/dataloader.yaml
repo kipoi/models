@@ -1,0 +1,154 @@
+type: SampleIterator
+defined_as: dataloader.py::SplicingVCFDataloader
+args:
+  gtf_file:
+    doc: path to the GTF file required by the models (Ensemble)
+    example: example_files/test.gtf
+  fasta_file:
+    doc: reference genome fasta file
+    example: example_files/hg19.nochr.chr17.fa
+  vcf_file:
+    doc: Path to the input vcf file
+    example: example_files/test.vcf.gz
+  split_seq:
+    doc: Whether split the sequence in dataloader
+    optional: True
+  encode:
+    doc: If split the sequence, whether one hot encoding
+    optional: True
+  exon_cut_l:
+    doc: when extract exon feature, how many base pair to cut out at the begining of an exon
+    optional: True
+    example: 0
+  exon_cut_r:
+    doc: when extract exon feature, how many base pair to cut out at the end of an exon 
+    optional: True
+    example: 0
+  acceptor_intron_cut:
+    doc: how many bp to cut out at the end of acceptor intron that consider as acceptor site
+    optional: True
+    example: 6
+  donor_intron_cut:
+    doc: how many bp to cut out at the end of donor intron that consider as donor site
+    optional: True
+    example: 6
+  acceptor_intron_len:
+    doc: what length in acceptor intron to consider for acceptor site model
+    optional: True
+    example: 50
+  acceptor_exon_len:
+    doc: what length in acceptor exon to consider for acceptor site model
+    optional: True
+    example: 3
+  donor_exon_len:
+    doc: what length in donor exon to consider for donor site model
+    optional: True
+    example: 5
+  donor_intron_len:
+    doc: what length in donor intron to consider for donor site model
+    optional: True
+    example: 13
+  kwargs:
+    doc: other arguments for GenerateExonIntervalTree
+    optional: True
+
+info:
+  doc: >
+    This model first predicts the effect of variants using 5 sub-modules (acceptor intron module, acceptor module, 
+    exon module, donor module, donor intron module), and then integrates those predictions using linear regression.
+    The model has been trained to predict splicing efficiency change subject to variants.
+  authors:
+    - name: Jun Cheng
+      github: s6juncheng
+dependencies:
+  conda:
+    - bioconda::cyvcf2
+    - numpy
+    - python=3.5
+  pip:
+    - kipoi
+    - mmsplice
+output_schema:
+    inputs:
+      shape: (10, )
+      doc: Modular predictions.
+      column_labels: features.txt
+    metadata:
+      ranges:
+        id:
+          type: str
+          doc: Transcript id of affected exon
+        chr:
+          type: str
+          doc: exon chromsome
+        start: 
+          type: int
+          doc: start position of affected exon
+        end: 
+          type: int
+          doc: end position of affected exon
+        strand: 
+          type: str
+          doc: strand of affected exon
+      variant:
+        CHROM:
+          type: str
+          doc: chromsome of variant
+        ID:
+          type: str
+          doc: variant id
+        POS:
+          type: int
+          doc: variant position
+        REF:
+          type: str
+          doc: variant reference
+        ALT:
+          type: str
+          doc: variant alternative string
+        STR:
+          type: str
+          doc: string representation of the variant
+      ExonInterval:
+        isLast:
+          type: str
+          doc: exon is the first exon of a transcript
+        isFirst:
+          type: str
+          doc: exon is the last exon of a transcript
+        order:
+          type: int
+          doc: exon number in a transcript
+        name:
+          type: str
+          doc: exon name
+        gene_id:
+          type: str
+          doc: gene id
+        Exon_Start:
+          type: int
+          doc: exon start position
+        Exon_End:
+          type: int
+          doc: exon end position
+        intronl_len:
+          type: int
+          doc: intron length at the acceptor side of the retrieved sequence
+        intronr_len:
+          type: int
+          doc: intron length at the donor side of the retrieved sequence
+        seqid:
+          type: str
+          doc: chromsome
+        strand:
+          type: str
+          doc: strand
+        start:
+          type: int
+          doc: genomic start position of the retrieved sequence
+        end: 
+          type: int
+          doc: genomic end position of the retrieved sequence
+      annotation:
+        type: str
+        doc: retrieved sequence name
