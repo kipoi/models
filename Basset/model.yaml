@@ -1,7 +1,8 @@
 type: pytorch
 args:
   file: model_files/pretrained_model_reloaded_th.py
-  build_fn: get_model
+  model: model
+  weights: model_files/pretrained_model_reloaded_th.pth
 info:
   authors:
       - name: David R. Kelley

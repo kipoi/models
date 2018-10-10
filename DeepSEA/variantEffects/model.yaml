@@ -1,7 +1,8 @@
 type: pytorch
 args:
-  file: model_files/deepsea_cpu.py
-  build_fn: get_model
+  file: deepsea_variant_effects.py
+  model: model
+  weights: model_files/deepsea_variant_effects.pth
 info:
   authors:
       - name: Jian Zhou
