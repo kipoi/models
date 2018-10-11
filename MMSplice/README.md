@@ -1,6 +1,6 @@
 ## Modular Modeling of Splicing (MMSplice)
 
-MMSplice predicts variant effect with 5 modules scoring exon, donor, acceptor, 3' intron and 5' intron. Modular predictions are combined with a linear model to predict $\Delta logit(\Psi)$ or witha logistic regression model to predict variant pathogenicity.
+MMSplice predicts variant effect with 5 modules scoring exon, donor, acceptor, 3' intron and 5' intron. Modular predictions are combined with a linear model to predict $\Delta logit(\Psi)$ or with a logistic regression model to predict variant pathogenicity.
 
 This repository hosts following models:
 
@@ -8,9 +8,21 @@ This repository hosts following models:
 
 `pathogenicity`: predict variant pathogenicity. Returns one prediction per variant.
 
+`splicingEfficiency`: predict splicing efficiency changes. Returns one prediction per variant-exon pair. 
+
 `modularPredictions`: the raw predictions from the five modules for reference sequence and alternative sequence. Returns a vector of length 10 for each variant-exon pair. 
 
-`deltaLogitPSI` and `pathogenicity` differ by the last modular combination model. The model modularPredictions returns.
+`modules`: contains individual modules for exon, donor, acceptor, 3' intron and 5' intron.
+
+`deltaLogitPSI`, `splicingEfficiency` and `pathogenicity` differ by the last modular combination model. 
+
+
+## Publication
+Paper: Cheng et al. https://doi.org/10.1101/438986
+Package: https://github.com/gagneurlab/MMSplice
+
+![MMSplice](https://raw.githubusercontent.com/kipoi/models/master/MMSplice/Model.png)
+
 
 ## Use example
 ------
