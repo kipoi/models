@@ -22,6 +22,7 @@ info:
     doc: >
       Linear model predicting intron donor and acceptor cleavage time. 
     # cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
+    license: Apache License v2
     tags:
       - RNA splicing
 dependencies:

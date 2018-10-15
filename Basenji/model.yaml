@@ -27,12 +27,16 @@ info:
     on gene expression align well to causal variants underlying eQTLs in human populations and can
     be useful for generating mechanistic hypotheses to enable fine mapping of disease loci.
   version: 0.1
+  license: Apache License v2
   cite_as: https://doi.org/10.1101/gr.227819.117
   tags:
     - RNA expression
     - Histone modification
     - DNA accessibility
-default_dataloader: .
+default_dataloader: 
+  defined_as: kipoiseq.datasets.SeqDataset
+  default_args:
+    auto_resize_len: 131072
 dependencies:
   conda:
     - python=3.5

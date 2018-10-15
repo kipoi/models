@@ -1,7 +1,7 @@
 type: pytorch
 args:
-  file: deepsea_predict.py
-  model: model
+  module_file: deepsea_predict.py
+  module_obj: model
   weights: model_files/deepsea_predict.pth
 info:
   authors:

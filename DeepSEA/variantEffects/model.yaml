@@ -1,7 +1,7 @@
 type: pytorch
 args:
-  file: deepsea_variant_effects.py
-  model: model
+  module_file: deepsea_variant_effects.py
+  module_obj: model
   weights: model_files/deepsea_variant_effects.pth
 info:
   authors:

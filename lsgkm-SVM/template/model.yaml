@@ -2,7 +2,8 @@ type: custom
 args:
   file: model.py
   object: LsgkmSvm
-default_dataloader: . # relative path to the default dataloader
+default_dataloader: # relative path to the default dataloader
+  defined_as: kipoiseq.datasets.SeqStringDataset
 info:
     authors:
         - name: Dongwon Lee

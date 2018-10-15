@@ -27,7 +27,7 @@ class LsgkmSvm(BaseModel):
         # write test fasta file
         temp_input = tempfile.NamedTemporaryFile(suffix = ".txt")
         test_fname = temp_input.name
-        encode_sequence_into_fasta_file(ofname = test_fname, seq = inputs)
+        encode_sequence_into_fasta_file(ofname = test_fname, seq = inputs.tolist())
         # test gkmsvm
         temp_ofp = tempfile.NamedTemporaryFile(suffix = ".txt")
         threads_option = '-T %s' % (str(self.threads))

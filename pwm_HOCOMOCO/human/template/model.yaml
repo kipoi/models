@@ -18,7 +18,8 @@ info:
     '''
   tags:
       - DNA binding
-default_dataloader: .
+default_dataloader:
+  defined_as: kipoiseq.datasets.SeqDataset
 dependencies:
   conda:
     - python=3.5

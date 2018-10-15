@@ -1,7 +1,7 @@
 type: pytorch
 args:
-  file: model_files/pretrained_model_reloaded_th.py
-  model: model
+  module_file: pretrained_model_reloaded_th.py
+  module_obj: model
   weights: model_files/pretrained_model_reloaded_th.pth
 info:
   authors:
@@ -12,6 +12,7 @@ info:
         github: krrome
   name: Basset
   version: 0.1.0
+  license: MIT
   doc: >
     This is the Basset model published by David Kelley converted to pytorch
     by Roman Kreuzhuber.
@@ -24,7 +25,13 @@ info:
   cite_as: https://doi.org/10.1101/gr.200535.115
   tags:
     - DNA accessibility
-default_dataloader: .
+default_dataloader:
+  defined_as: kipoiseq.datasets.SeqDataset
+  default_args:
+    auto_resize_len: 600
+    alphabet_axis: 0
+    dummy_axis: 2
+    dtype: float32
 dependencies:
   conda:
     - python=3.5
