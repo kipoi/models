@@ -1,43 +1,49 @@
-type: PreloadedDataset
-defined_as: dataloader.py::dataset
 args:
   mirna_fasta_file:
     doc: mirna fasta file
-    example: example_files/miRNA.fasta
+    example:
+      md5: f1c01a5f3ce07eacccd5246435f8ae44
+      url: https://zenodo.org/record/1466129/files/example_files-miRNA.fasta?download=1
   mrna_fasta_file:
     doc: mrna fasta file of interest
-    example: example_files/3UTR.fasta
+    example:
+      md5: 4ff839da8385fc1e054370017697e109
+      url: https://zenodo.org/record/1466129/files/example_files-3UTR.fasta?download=1
   query_pair_file:
     doc: ??mapping between mrna and mirna fasta
-    example: example_files/miRNA-mRNA_query.txt
-info:
-  authors:
-    - name: Byunghan Lee
-    - name: Junghwan Baek
-    - name: Seunghyun Park
-    - name: Sungroh Yoon
-  doc: deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
-  license: GPL-v3
+    example:
+      md5: 32bf75cd8336c9c55d1d789ed7c72a93
+      url: https://zenodo.org/record/1466129/files/example_files-miRNA-mRNA_query.txt?download=1
+defined_as: dataloader.py::dataset
 dependencies:
   conda:
-    - anaconda::biopython==1.66
-    - scikit-learn==0.17.1
-    - theano==0.8.2
-    - numpy==1.10.4
+  - anaconda::biopython==1.66
+  - scikit-learn==0.17.1
+  - theano==0.8.2
+  - numpy==1.10.4
   pip:
-    - keras==0.3.3
+  - keras==0.3.3
+info:
+  authors:
+  - name: Byunghan Lee
+  - name: Junghwan Baek
+  - name: Seunghyun Park
+  - name: Sungroh Yoon
+  doc: deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
+  license: GPL-v3
 output_schema:
   inputs:
     mirna_int_seq:
-      shape: (40,)
       doc: 'miRNA query sequences in the integer form: A:1, C:2, G:3, T:4, U:4.'
-    mrna_int_seq:
       shape: (40,)
+    mrna_int_seq:
       doc: 'mRNA target sequence in the integer form: A:1, C:2, G:3, T:4, U:4.'
+      shape: (40,)
   metadata:
     mirna_id:
-      type: str
       doc: Id of the miRNA query sequence
-    mrna_id:
       type: str
+    mrna_id:
       doc: Id of the mRNA query sequence
+      type: str
+type: PreloadedDataset

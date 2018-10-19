@@ -21,8 +21,9 @@ def load_acc_model():
 def load_don_model():
     return joblib.load("model_files/donor.pkl")
     
-def load_features_metadata():
-    fh = open("model_files/features.json")
+def load_features_metadata(features_path):
+    #fh = open("model_files/features.json")
+    fh = open(features_path)
     info = json.load(fh)
     fh.close()
     return info
@@ -66,10 +67,10 @@ def elongate_intron(intron):
 #    
 class CleavageTimeModel(BaseModel):
     
-    def __init__(self):
-        self.don_model = load_don_model()
-        self.acc_model = load_acc_model()
-        self.features_metadata = load_features_metadata()
+    def __init__(self, acc_model, don_model, features_path):
+        self.don_model = joblib.load(acc_model)
+        self.acc_model = joblib.load(don_model)
+        self.features_metadata = load_features_metadata(features_path)
         # acceptor and donor site indexes are unified across SOI
         # NB! This indexes are pos=1 of the region, and index-1 is already pos=-1, not 0!
         self.don_i = 3

@@ -1,74 +1,83 @@
-type: PreloadedDataset
-defined_as: dataloader.py::load_data
 args:
-  vcf_file:
-    doc: >
-       Path to the input vcf file. The file has to be annotated with VEP. Specifically,
-       it has to contain the following 4 scores - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
-    example: example_files/vep.vcf
-  fasta_file:
-    doc: reference genome fasta file
-    example: example_files/hg19.chr22.fa
-  gtf_file:
-    doc: path to the GTF file required by the models (Ensemble)
-    example: example_files/hg19.chr22.gtf
   batch_size:
     doc: batch size to use with all the models
-    optional: True
+    optional: true
+  fasta_file:
+    doc: reference genome fasta file
+    example:
+      md5: 936544855b253835442a0f253dd4b083
+      url: https://zenodo.org/record/1466091/files/4-example_files-hg19.chr22.fa?download=1
+  gtf_file:
+    doc: path to the GTF file required by the models (Ensemble)
+    example:
+      md5: 174fd11303ae2c2369094bfcbe303c07
+      url: https://zenodo.org/record/1466091/files/4-example_files-hg19.chr22.gtf?download=1
   num_workers:
     doc: number of workers to use for each model
     example: 1
-    optional: True
+    optional: true
   tmpdir:
     doc: path to the temporary directory where to store the predictions
-    optional: True
-info:
-  doc: Predictions of 4 splicing models + conservation for all splice-sites in the GTF.
-  authors:
-    - name: Ziga Avsec
-      github: avsecz
-    - name: Roman Kreuzhuber
-      github: krrome
+    optional: true
+  vcf_file:
+    doc: 'Path to the input vcf file. The file has to be annotated with VEP. Specifically,
+      it has to contain the following 4 scores - phyloP46way_placental, phyloP46way_primate,
+      CADD_raw and CADD_phred.
+
+      '
+    example:
+      md5: d8a575efe8342ab56bc7f36eb49d95b9
+      url: https://zenodo.org/record/1466091/files/4-example_files-vep.vcf?download=1
+defined_as: dataloader.py::load_data
 dependencies:
   conda:
-    - bioconda::pysam
-    - bioconda::maxentpy
-    - bioconda::pybedtools
-    - bioconda::cyvcf2
-    - pandas
-    - numpy
-    - python=3.5
+  - bioconda::pysam
+  - bioconda::maxentpy
+  - bioconda::pybedtools
+  - bioconda::cyvcf2
+  - pandas
+  - numpy
+  - python=3.5
   pip:
-    - pyvcf
-    - intervaltree
-    - deepdish
-    - joblib
-    - scikit-learn
-    - sklearn-pandas
-    - kipoi
-    - kipoi_veff
-    - tqdm
-    - tensorflow>=1.0.0
-    - keras>=2.0.4,<=2.2.2
+  - pyvcf
+  - intervaltree
+  - deepdish
+  - joblib
+  - scikit-learn
+  - sklearn-pandas
+  - kipoi
+  - kipoi_veff
+  - tqdm
+  - tensorflow>=1.0.0
+  - keras>=2.0.4,<=2.2.2
+info:
+  authors:
+  - github: avsecz
+    name: Ziga Avsec
+  - github: krrome
+    name: Roman Kreuzhuber
+  doc: Predictions of 4 splicing models + conservation for all splice-sites in the
+    GTF.
 output_schema:
-    inputs:
-      shape: (16, )
-      doc: Model predictions of MaxEntscan, HAL and labranchor
-      column_labels: features.txt
-    metadata:
-      variant:
-        id:
-          type: str
-          doc: variant ID
-        chr:
-          type: str
-          doc: variant chromsome
-        pos:
-          type: int
-          doc: variant position
-        ref:
-          type: str
-          doc: variant reference
-        alt:
-          type: str
-          doc: variant alternative string
+  inputs:
+    column_labels: features.txt
+    doc: Model predictions of MaxEntscan, HAL and labranchor
+    shape: (16, )
+  metadata:
+    variant:
+      alt:
+        doc: variant alternative string
+        type: str
+      chr:
+        doc: variant chromsome
+        type: str
+      id:
+        doc: variant ID
+        type: str
+      pos:
+        doc: variant position
+        type: int
+      ref:
+        doc: variant reference
+        type: str
+type: PreloadedDataset

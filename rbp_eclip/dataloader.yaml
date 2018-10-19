@@ -1,0 +1,99 @@
+args:
+  fasta_file:
+    doc: Reference genome sequence
+    example:
+      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
+      url: https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa?download=1
+  filter_protein_coding:
+    doc: Considering genomic landmarks only for protein coding genes when computing
+      the distances to the nearest genomic landmark.
+    example: true
+    optional: true
+  gtf_file:
+    doc: file path; Genome annotation GTF file
+    example:
+      md5: c0d1bf7738f6a307b425e4890621e7d9
+      url: https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf?download=1
+  intervals_file:
+    doc: bed6 file with `chrom start end id score strand` columns
+    example:
+      md5: 3be79e1757422fdaa337cdcde8a7b8bc
+      url: https://zenodo.org/record/1466102/files/example_files-intervals.bed?download=1
+  target_file:
+    doc: path to the targets (txt) file
+    example:
+      md5: 07fe711971b8339d1e5795dea908e53d
+      url: https://zenodo.org/record/1466102/files/example_files-targets.tsv?download=1
+    optional: true
+  use_linecache:
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to
+      access bed file rows
+    optional: true
+defined_as: dataloader.py::SeqDistDataset
+dependencies:
+  conda:
+  - bioconda::pybedtools
+  - bioconda::pysam
+  - bioconda::genomelake
+  - bioconda::pybigwig
+  - bioconda::gtfparse>=1.0.7
+  - python>=3.5
+  - cython
+  - scikit-learn==0.18.1
+  - pandas
+  pip:
+  - concise>=0.6.6
+  - numpy>=1.13.3
+info:
+  authors:
+  - github: avsecz
+    name: Ziga Avsec
+  doc: 'RBP binding model taking as input 101nt long sequence as well as 8 distances
+    to nearest genomic landmarks -  tss, poly-A, exon-intron boundary, intron-exon
+    boundary, start codon, stop codon, gene start, gene end
+
+    '
+output_schema:
+  inputs:
+    dist_exon_intron:
+      doc: Distance the nearest exon_intron (splice donor) site transformed with B-splines
+      shape: (1, 10)
+    dist_gene_end:
+      doc: Distance the nearest gene end transformed with B-splines
+      shape: (1, 10)
+    dist_gene_start:
+      doc: Distance the nearest gene start transformed with B-splines
+      shape: (1, 10)
+    dist_intron_exon:
+      doc: Distance the nearest intron_exon (splice acceptor) site transformed with
+        B-splines
+      shape: (1, 10)
+    dist_polya:
+      doc: Distance the nearest Poly-A site transformed with B-splines
+      shape: (1, 10)
+    dist_start_codon:
+      doc: Distance the nearest start codon transformed with B-splines
+      shape: (1, 10)
+    dist_stop_codon:
+      doc: Distance the nearest stop codon transformed with B-splines
+      shape: (1, 10)
+    dist_tss:
+      doc: Distance the nearest TSS site transformed with B-splines
+      shape: (1, 10)
+    seq:
+      associated_metadata: ranges
+      doc: One-hot encoded RNA sequence
+      shape: (101, 4)
+      special_type: DNASeq
+  metadata:
+    ranges:
+      doc: Ranges describing inputs.seq
+      type: GenomicRanges
+  targets:
+    doc: Measured binding strength
+    shape: (1, )
+postprocessing:
+  variant_effects:
+    bed_input:
+    - intervals_file
+type: Dataset

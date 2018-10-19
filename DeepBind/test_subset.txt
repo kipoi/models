@@ -1,1 +1,0 @@
-Homo_sapiens/TF/D00817.001_ChIP-seq_TBP

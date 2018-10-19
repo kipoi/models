@@ -2,10 +2,11 @@
 
 # TODO - model files
 # ifelse - different model types - specify the arguments
-type: custom
+defined_as: model.CleavageTimeModel
 args:
-    file: model.py
-    object: CleavageTimeModel
+    acc_model: model_files/acceptor.pkl
+    don_model: model_files/donor.pkl
+    features_path: model_files/features.json
 default_dataloader: .
 info:
     authors:
