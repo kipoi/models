@@ -16,6 +16,8 @@ dependencies:
   - python=3.5
   - h5py
   - pytorch::pytorch-cpu>=0.2.0
+  pip:
+  - kipoiseq
 info:
   authors:
   - github: davek44

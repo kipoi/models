@@ -45,6 +45,8 @@ dependencies:
   conda:
     - h5py
     - pytorch::pytorch-cpu>=0.2.0
+  pip:
+    - kipoiseq
 schema:
   inputs:
     name: seq
