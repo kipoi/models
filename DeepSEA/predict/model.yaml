@@ -2,7 +2,9 @@ type: pytorch
 args:
   module_file: deepsea_predict.py
   module_obj: model
-  weights: model_files/deepsea_predict.pth
+  weights:
+    url: https://zenodo.org/record/1466993/files/deepsea_predict.pth?download=1
+    md5: 89e640bf6bdbe1ff165f484d9796efc7
 info:
   authors:
       - name: Jian Zhou
