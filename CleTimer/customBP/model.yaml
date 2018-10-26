@@ -1,12 +1,12 @@
-# TODO - optionally create a model.py file - if model type is custom...
-
-# TODO - model files
-# ifelse - different model types - specify the arguments
 defined_as: model.CleavageTimeModel
 args:
-    acc_model: model_files/acceptor.pkl
-    don_model: model_files/donor.pkl
-    features_path: model_files/features.json
+    acc_model:
+      url: https://sandbox.zenodo.org/record/248598/files/acceptor.pkl?download=1
+      md5: fca1b8467f109aefcffa415046bf3d2e
+    don_model:
+      url: https://sandbox.zenodo.org/record/248598/files/donor.pkl?download=1
+      md5: 4c1432900fbf4364f0d1549db68ae8fe
+    features_path: ../features.json
 default_dataloader: .
 info:
     authors:
@@ -23,12 +23,15 @@ info:
     doc: >
       Linear model predicting intron donor and acceptor cleavage time. 
     # cite_as: Wachutka L., Caizzi L., Gagneur J. and Cramer P. Global two-step RNA splicing kinetics in human cells.
+
     license: Apache License v2
     tags:
       - RNA splicing
+
 dependencies:
     pip:
         - scikit-learn
+
 schema:
     inputs:
         soi:
