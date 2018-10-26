@@ -44,7 +44,9 @@ model_sources:
 # ---
 
 echo "Installing Kipoi."
-pip install kipoi
+# install kipoi from the master branch for now
+pip install git+https://github.com/kipoi/kipoi
+# pip install kipoi
 
 # fi
 
