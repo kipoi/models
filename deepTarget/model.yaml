@@ -28,10 +28,7 @@ info:
   contributors:
   - github: avsecz
     name: Ziga Avsec
-  doc: '''''''deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
-    ''''''
-
-    '
+  doc: deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
   license: GPL-v3
   tags:
   - RNA binding
