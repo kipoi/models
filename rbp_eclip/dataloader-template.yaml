@@ -1,35 +1,35 @@
 args:
-  fasta_file:
-    doc: Reference genome sequence
-    example:
-      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
-      url: https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa?download=1
-  filter_protein_coding:
-    doc: Considering genomic landmarks only for protein coding genes when computing
-      the distances to the nearest genomic landmark.
-    example: true
-    optional: true
-  gtf_file:
-    doc: file path; Genome annotation GTF file
-    example:
-      md5: c0d1bf7738f6a307b425e4890621e7d9
-      url: https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf?download=1
   intervals_file:
     doc: bed6 file with `chrom start end id score strand` columns
     example:
       md5: 3be79e1757422fdaa337cdcde8a7b8bc
       url: https://zenodo.org/record/1466102/files/example_files-intervals.bed?download=1
+  fasta_file:
+    doc: Reference genome sequence
+    example:
+      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
+      url: https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa?download=1
+  gtf_file:
+    doc: file path; Genome annotation GTF file
+    example:
+      md5: c0d1bf7738f6a307b425e4890621e7d9
+      url: https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf?download=1
   target_file:
     doc: path to the targets (txt) file
     example:
       md5: 07fe711971b8339d1e5795dea908e53d
       url: https://zenodo.org/record/1466102/files/example_files-targets.tsv?download=1
     optional: true
+  filter_protein_coding:
+    doc: Considering genomic landmarks only for protein coding genes when computing
+      the distances to the nearest genomic landmark.
+    example: true
+    optional: true
   use_linecache:
     doc: if True, use linecache https://docs.python.org/3/library/linecache.html to
       access bed file rows
     optional: true
-defined_as: dataloader.py::SeqDistDataset
+defined_as: dataloader.SeqDistDataset
 dependencies:
   conda:
   - bioconda::pybedtools
