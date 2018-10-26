@@ -48,6 +48,7 @@ default_dataloader:
   defined_as: kipoiseq.datasets.SeqDataset
   default_args:
     auto_resize_len: 131072
+    ignore_targets: True  # don't return any output labels using the bed file
 dependencies:
   conda:
     - python=3.5
