@@ -1,9 +1,10 @@
+defined_as: dataloader.SeqDistDataset
 args:
   intervals_file:
     doc: bed6 file with `chrom start end id score strand` columns
     example:
-      md5: 3be79e1757422fdaa337cdcde8a7b8bc
       url: https://zenodo.org/record/1466102/files/example_files-intervals.bed?download=1
+      md5: 3be79e1757422fdaa337cdcde8a7b8bc
   fasta_file:
     doc: Reference genome sequence
     example:
@@ -25,11 +26,16 @@ args:
       the distances to the nearest genomic landmark.
     example: true
     optional: true
+  position_transformer_file:
+    doc: Provided file for each dataloader obtained from {{ dl_url }}
+    default:
+      url: {{ dl_url }}
+      md5: {{ dl_md5 }}
   use_linecache:
     doc: if True, use linecache https://docs.python.org/3/library/linecache.html to
       access bed file rows
     optional: true
-defined_as: dataloader.SeqDistDataset
+
 dependencies:
   conda:
   - bioconda::pybedtools
@@ -44,6 +50,7 @@ dependencies:
   pip:
   - concise>=0.6.6
   - numpy>=1.13.3
+
 info:
   authors:
   - github: avsecz
@@ -51,8 +58,8 @@ info:
   doc: 'RBP binding model taking as input 101nt long sequence as well as 8 distances
     to nearest genomic landmarks -  tss, poly-A, exon-intron boundary, intron-exon
     boundary, start codon, stop codon, gene start, gene end
-
     '
+
 output_schema:
   inputs:
     dist_exon_intron:
@@ -92,8 +99,8 @@ output_schema:
   targets:
     doc: Measured binding strength
     shape: (1, )
+
 postprocessing:
   variant_effects:
     bed_input:
     - intervals_file
-type: Dataset

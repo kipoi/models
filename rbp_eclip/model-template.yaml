@@ -4,7 +4,9 @@ args:
         url: {{ args_weights_url }}
         md5: {{ args_weights_md5 }}
     custom_objects: custom_keras_objects.py
+
 default_dataloader: . # relative path to the default dataloader
+
 info:
     authors:
         - name: Žiga Avsec
@@ -22,11 +24,13 @@ info:
     license: MIT
     tags:
         - RNA binding
+
 dependencies:
     pip:
         - concise>=0.6.5
         - tensorflow>=1.4.1,<1.10.0
         - keras>=2.0.4
+
 schema:
     inputs:
         seq:
@@ -60,6 +64,7 @@ schema:
     targets:
         shape: (1, )
         doc: Predicted binding strength
+
 postprocessing:
     variant_effects:
       seq_input:

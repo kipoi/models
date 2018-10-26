@@ -1,113 +1,113 @@
-model	args_weights	args_weights_md5	args_weights_url
-AARS	model_files/AARS.h5	7324fd25fb6760666d2148c6bec34944	https://zenodo.org/record/1466102/files/AARS.h5?download=1
-AGGF1	model_files/AGGF1.h5	4b22591562755e151e4a2d7bb6ad1e4c	https://zenodo.org/record/1466102/files/AGGF1.h5?download=1
-AKAP8L	model_files/AKAP8L.h5	d8ae67a6a108b7b1661732785aeff834	https://zenodo.org/record/1466102/files/AKAP8L.h5?download=1
-AUH	model_files/AUH.h5	958bd35f5475f02ebbcd1723e213295c	https://zenodo.org/record/1466102/files/AUH.h5?download=1
-BCCIP	model_files/BCCIP.h5	a7d6d822af7d6a0c3b5782e928bdb88d	https://zenodo.org/record/1466102/files/BCCIP.h5?download=1
-BUD13	model_files/BUD13.h5	2e5dde1883a1f69a13439a0eb1a28457	https://zenodo.org/record/1466102/files/BUD13.h5?download=1
-CDC40	model_files/CDC40.h5	ae1c914323c11408e28e3199666f391a	https://zenodo.org/record/1466102/files/CDC40.h5?download=1
-CPSF6	model_files/CPSF6.h5	3a27b0fa0ca32fb442a14e79b4a5ed5a	https://zenodo.org/record/1466102/files/CPSF6.h5?download=1
-CSTF2	model_files/CSTF2.h5	1fe36c28fdf1c2716b34d9d91e1edc1e	https://zenodo.org/record/1466102/files/CSTF2.h5?download=1
-CSTF2T	model_files/CSTF2T.h5	3e67c1001f2f07e64f51e3db5460c9d7	https://zenodo.org/record/1466102/files/CSTF2T.h5?download=1
-DDX24	model_files/DDX24.h5	d353685828ddd0ff8df5b04a8a3f31cd	https://zenodo.org/record/1466102/files/DDX24.h5?download=1
-DDX3X	model_files/DDX3X.h5	e3cb5a7bbde397ff691cd9bdd2cbb8c5	https://zenodo.org/record/1466102/files/DDX3X.h5?download=1
-DDX42	model_files/DDX42.h5	696f883b95b901d66335b9de32dd9791	https://zenodo.org/record/1466102/files/DDX42.h5?download=1
-DDX55	model_files/DDX55.h5	11315bc49e9b4b4dda7fcaae9231db18	https://zenodo.org/record/1466102/files/DDX55.h5?download=1
-DDX59	model_files/DDX59.h5	74d58910bf820c40c86dea4b05965a49	https://zenodo.org/record/1466102/files/DDX59.h5?download=1
-DDX6	model_files/DDX6.h5	bbe5e60fd78cf24ce4754c2c5d864dd6	https://zenodo.org/record/1466102/files/DDX6.h5?download=1
-DGCR8	model_files/DGCR8.h5	0fe89b7bd951c454a9e5d94ada5dbb57	https://zenodo.org/record/1466102/files/DGCR8.h5?download=1
-DHX30	model_files/DHX30.h5	cfb6275b8a07ff8e9548492f7db82e39	https://zenodo.org/record/1466102/files/DHX30.h5?download=1
-DKC1	model_files/DKC1.h5	09892a01e5952ae57013440b440b0355	https://zenodo.org/record/1466102/files/DKC1.h5?download=1
-DROSHA	model_files/DROSHA.h5	c34dbfc369189066f84b1898fe8efcd1	https://zenodo.org/record/1466102/files/DROSHA.h5?download=1
-EFTUD2	model_files/EFTUD2.h5	dc32752225c073f7c9d4e479e73979fe	https://zenodo.org/record/1466102/files/EFTUD2.h5?download=1
-EIF3D	model_files/EIF3D.h5	964a84795ed5f4d53f42efa1a09dc184	https://zenodo.org/record/1466102/files/EIF3D.h5?download=1
-EIF4G2	model_files/EIF4G2.h5	2fdd28177b0d8522c8446145c5459f74	https://zenodo.org/record/1466102/files/EIF4G2.h5?download=1
-EWSR1	model_files/EWSR1.h5	e8cb2e3beeae0985939b148946ec5ce4	https://zenodo.org/record/1466102/files/EWSR1.h5?download=1
-FAM120A	model_files/FAM120A.h5	0c46cdc589b4934e2e896c1d8cf2beaa	https://zenodo.org/record/1466102/files/FAM120A.h5?download=1
-FASTKD2	model_files/FASTKD2.h5	8ff0618589effada0f336978dc3e9026	https://zenodo.org/record/1466102/files/FASTKD2.h5?download=1
-FKBP4	model_files/FKBP4.h5	27ef17745cfa62e4ea6ee81af5558e31	https://zenodo.org/record/1466102/files/FKBP4.h5?download=1
-FMR1	model_files/FMR1.h5	655fee2e72ebbc001f2373f81862cbb8	https://zenodo.org/record/1466102/files/FMR1.h5?download=1
-FTO	model_files/FTO.h5	b31aebfa61aa11d1b7ef5e25a5439db1	https://zenodo.org/record/1466102/files/FTO.h5?download=1
-FUBP3	model_files/FUBP3.h5	6abffc034fdd8848e6bdf01dca1d56b0	https://zenodo.org/record/1466102/files/FUBP3.h5?download=1
-FXR1	model_files/FXR1.h5	c28402400d0a9fa884b6c7a24925fb6f	https://zenodo.org/record/1466102/files/FXR1.h5?download=1
-FXR2	model_files/FXR2.h5	1738b0c54958fb21f84ecf67990fdcc2	https://zenodo.org/record/1466102/files/FXR2.h5?download=1
-GEMIN5	model_files/GEMIN5.h5	816fef8b470a32ac3e6e2a946ba2c21c	https://zenodo.org/record/1466102/files/GEMIN5.h5?download=1
-GNL3	model_files/GNL3.h5	5b9572766c70a633e3f362fabcbec243	https://zenodo.org/record/1466102/files/GNL3.h5?download=1
-GPKOW	model_files/GPKOW.h5	88c25069816aa62f418d42c87dd367de	https://zenodo.org/record/1466102/files/GPKOW.h5?download=1
-GRSF1	model_files/GRSF1.h5	a5bb8b1c05af485bebc7290cdb539e77	https://zenodo.org/record/1466102/files/GRSF1.h5?download=1
-GRWD1	model_files/GRWD1.h5	683fb489626ad270180a028c92ff60f3	https://zenodo.org/record/1466102/files/GRWD1.h5?download=1
-GTF2F1	model_files/GTF2F1.h5	d9100764a27bf1f4561c41d51e279211	https://zenodo.org/record/1466102/files/GTF2F1.h5?download=1
-HLTF	model_files/HLTF.h5	ee5f72ff095cf29a6bb4de6177b2f555	https://zenodo.org/record/1466102/files/HLTF.h5?download=1
-HNRNPA1	model_files/HNRNPA1.h5	1706187adee0e74be0eda6d7cbc277e5	https://zenodo.org/record/1466102/files/HNRNPA1.h5?download=1
-HNRNPC	model_files/HNRNPC.h5	00955e802cda95b2b1090e02e7670f0f	https://zenodo.org/record/1466102/files/HNRNPC.h5?download=1
-HNRNPK	model_files/HNRNPK.h5	271cde34c2a5d7a95d401d83d399b7a5	https://zenodo.org/record/1466102/files/HNRNPK.h5?download=1
-HNRNPM	model_files/HNRNPM.h5	27226beb482bf82e700771e6d47ed209	https://zenodo.org/record/1466102/files/HNRNPM.h5?download=1
-HNRNPU	model_files/HNRNPU.h5	1ebb1df6f61df0664b5f746342d6463b	https://zenodo.org/record/1466102/files/HNRNPU.h5?download=1
-HNRNPUL1	model_files/HNRNPUL1.h5	8a088a58fa8928039d1819a866f2412a	https://zenodo.org/record/1466102/files/HNRNPUL1.h5?download=1
-IGF2BP1	model_files/IGF2BP1.h5	c60a887d2de0d05dae6619b48ffc50d8	https://zenodo.org/record/1466102/files/IGF2BP1.h5?download=1
-IGF2BP2	model_files/IGF2BP2.h5	ea0964f64e1b210129e9071e14c2b9fb	https://zenodo.org/record/1466102/files/IGF2BP2.h5?download=1
-IGF2BP3	model_files/IGF2BP3.h5	522c72d600516cd8bc5cbb5855026cd3	https://zenodo.org/record/1466102/files/IGF2BP3.h5?download=1
-ILF3	model_files/ILF3.h5	df76fb35629bb425e35c216834076902	https://zenodo.org/record/1466102/files/ILF3.h5?download=1
-KHDRBS1	model_files/KHDRBS1.h5	3e952debf2f7c04f6d5b4947ae303f54	https://zenodo.org/record/1466102/files/KHDRBS1.h5?download=1
-KHSRP	model_files/KHSRP.h5	56300624ceff84d544d0154930078756	https://zenodo.org/record/1466102/files/KHSRP.h5?download=1
-LARP4	model_files/LARP4.h5	377d56a9660ad9ec5141aa697d074bc5	https://zenodo.org/record/1466102/files/LARP4.h5?download=1
-LARP7	model_files/LARP7.h5	9b17549024e57976742a5014f1847a46	https://zenodo.org/record/1466102/files/LARP7.h5?download=1
-LIN28B	model_files/LIN28B.h5	39afa78f04cb02fa2deeded05b5f2a0b	https://zenodo.org/record/1466102/files/LIN28B.h5?download=1
-LSM11	model_files/LSM11.h5	d106b950368f900d0ce47a509dcbede3	https://zenodo.org/record/1466102/files/LSM11.h5?download=1
-METAP2	model_files/METAP2.h5	ffeff18f236699230143ada3e6c65bb5	https://zenodo.org/record/1466102/files/METAP2.h5?download=1
-MTPAP	model_files/MTPAP.h5	57e9942ffebeaa7059c38322221aa8cf	https://zenodo.org/record/1466102/files/MTPAP.h5?download=1
-NCBP2	model_files/NCBP2.h5	e74b7c8998abfda884d0361313465610	https://zenodo.org/record/1466102/files/NCBP2.h5?download=1
-NKRF	model_files/NKRF.h5	e81bdc3ace06824798c93e3e74202dd4	https://zenodo.org/record/1466102/files/NKRF.h5?download=1
-NOL12	model_files/NOL12.h5	72d891dc2431b7cddda90ba18bb776c0	https://zenodo.org/record/1466102/files/NOL12.h5?download=1
-NONO	model_files/NONO.h5	7363e010dab35f54c954da8a5efb5157	https://zenodo.org/record/1466102/files/NONO.h5?download=1
-NPM1	model_files/NPM1.h5	5a1f97d7d2c0bdfd7af442c8a3648264	https://zenodo.org/record/1466102/files/NPM1.h5?download=1
-NSUN2	model_files/NSUN2.h5	2306493bfb70f9a80c259a7fb4aefd82	https://zenodo.org/record/1466102/files/NSUN2.h5?download=1
-PCBP2	model_files/PCBP2.h5	d5b868ebd60679de9f01d9b57eb8e0f9	https://zenodo.org/record/1466102/files/PCBP2.h5?download=1
-PPIG	model_files/PPIG.h5	158da89f9a90512c24c3997ebd5c75f0	https://zenodo.org/record/1466102/files/PPIG.h5?download=1
-PPIL4	model_files/PPIL4.h5	b51733f100b4543c625e70f0a07c1136	https://zenodo.org/record/1466102/files/PPIL4.h5?download=1
-PRPF8	model_files/PRPF8.h5	70db304e49b102ca4c1a78e687c980b7	https://zenodo.org/record/1466102/files/PRPF8.h5?download=1
-PTBP1	model_files/PTBP1.h5	d41ae5b540bb821f5b785b5c837a7821	https://zenodo.org/record/1466102/files/PTBP1.h5?download=1
-PUM2	model_files/PUM2.h5	043ba8ffe8d61357746daee674066ce0	https://zenodo.org/record/1466102/files/PUM2.h5?download=1
-PUS1	model_files/PUS1.h5	87667dbb81e50b1db1c4891ab41610f3	https://zenodo.org/record/1466102/files/PUS1.h5?download=1
-QKI	model_files/QKI.h5	35cc2cb4bcd7d289a096cc7a78c7e5f8	https://zenodo.org/record/1466102/files/QKI.h5?download=1
-RBFOX2	model_files/RBFOX2.h5	e89d9e3a4af34dc8cab41014a38bd3d3	https://zenodo.org/record/1466102/files/RBFOX2.h5?download=1
-RBM15	model_files/RBM15.h5	7fa3669f758a574878aeb41f74116293	https://zenodo.org/record/1466102/files/RBM15.h5?download=1
-RBM22	model_files/RBM22.h5	f0cd677d54fdff2bc2bad0a82e56b0ee	https://zenodo.org/record/1466102/files/RBM22.h5?download=1
-RBM27	model_files/RBM27.h5	611082bf1dc0216a32f563a736ae8707	https://zenodo.org/record/1466102/files/RBM27.h5?download=1
-RPS11	model_files/RPS11.h5	7358fdf9239b0407d50e9f083fd02bd5	https://zenodo.org/record/1466102/files/RPS11.h5?download=1
-RPS5	model_files/RPS5.h5	c1bab97dd52805bd9f3605f7c1225c70	https://zenodo.org/record/1466102/files/RPS5.h5?download=1
-SAFB2	model_files/SAFB2.h5	c9ebccb49e90aec9e741b5f620d225d1	https://zenodo.org/record/1466102/files/SAFB2.h5?download=1
-SBDS	model_files/SBDS.h5	f08637e0b04f7bed65f9a23984780e69	https://zenodo.org/record/1466102/files/SBDS.h5?download=1
-SERBP1	model_files/SERBP1.h5	333d5fa1b8c2ecfc8887618350b603df	https://zenodo.org/record/1466102/files/SERBP1.h5?download=1
-SF3A3	model_files/SF3A3.h5	9dbf49c5703bf6d5192543a6cd855d03	https://zenodo.org/record/1466102/files/SF3A3.h5?download=1
-SF3B1	model_files/SF3B1.h5	b59c00a3f14611ef6d6b0c304ce78638	https://zenodo.org/record/1466102/files/SF3B1.h5?download=1
-SF3B4	model_files/SF3B4.h5	9e8bd5ec82e81de94ac56824dc0d7742	https://zenodo.org/record/1466102/files/SF3B4.h5?download=1
-SFPQ	model_files/SFPQ.h5	853f98423f5447a86707365b9f60f72d	https://zenodo.org/record/1466102/files/SFPQ.h5?download=1
-SLBP	model_files/SLBP.h5	ea5a7dc15c1f7f088d07cfded3c1698b	https://zenodo.org/record/1466102/files/SLBP.h5?download=1
-SLTM	model_files/SLTM.h5	c50ac45b41ee980d1c9fcf6ebb761ddb	https://zenodo.org/record/1466102/files/SLTM.h5?download=1
-SMNDC1	model_files/SMNDC1.h5	3213ae5faba9a38bb34538d164e08279	https://zenodo.org/record/1466102/files/SMNDC1.h5?download=1
-SND1	model_files/SND1.h5	1cd9249a0b65271193330983f1bfc9c9	https://zenodo.org/record/1466102/files/SND1.h5?download=1
-SRSF1	model_files/SRSF1.h5	b8e4c322c17fb77e97d4b9d0c05d0dc7	https://zenodo.org/record/1466102/files/SRSF1.h5?download=1
-SRSF7	model_files/SRSF7.h5	1851d2433d359b89768f71235a8fdc12	https://zenodo.org/record/1466102/files/SRSF7.h5?download=1
-SRSF9	model_files/SRSF9.h5	267f016980e721ce6245624b12685cba	https://zenodo.org/record/1466102/files/SRSF9.h5?download=1
-SUB1	model_files/SUB1.h5	7e095d924a8bb61c27317fe49b65dc65	https://zenodo.org/record/1466102/files/SUB1.h5?download=1
-SUGP2	model_files/SUGP2.h5	3f2bcbd51255326ffc3cde61b7914a37	https://zenodo.org/record/1466102/files/SUGP2.h5?download=1
-SUPV3L1	model_files/SUPV3L1.h5	1b263cacb0d88602ce0e7afe4c9449b1	https://zenodo.org/record/1466102/files/SUPV3L1.h5?download=1
-TAF15	model_files/TAF15.h5	562ab945661414d25dcf38ef3c648008	https://zenodo.org/record/1466102/files/TAF15.h5?download=1
-TARDBP	model_files/TARDBP.h5	5876ab1f72a6e43b33fdab8e564bba86	https://zenodo.org/record/1466102/files/TARDBP.h5?download=1
-TBRG4	model_files/TBRG4.h5	1c598fe4a5b183fa761e32cf235bc3c6	https://zenodo.org/record/1466102/files/TBRG4.h5?download=1
-TIA1	model_files/TIA1.h5	f6cccd193698a0cb44866f4db6216587	https://zenodo.org/record/1466102/files/TIA1.h5?download=1
-TNRC6A	model_files/TNRC6A.h5	fa5c27b5590413986ae0fac4ec71cab0	https://zenodo.org/record/1466102/files/TNRC6A.h5?download=1
-TRA2A	model_files/TRA2A.h5	a5afb6f14d2db16e7be3517952ea17c8	https://zenodo.org/record/1466102/files/TRA2A.h5?download=1
-TROVE2	model_files/TROVE2.h5	2a17c5a05b683e78553f8cd31850976b	https://zenodo.org/record/1466102/files/TROVE2.h5?download=1
-U2AF1	model_files/U2AF1.h5	136c2f8184bccd750aa47f0f2fd8f036	https://zenodo.org/record/1466102/files/U2AF1.h5?download=1
-U2AF2	model_files/U2AF2.h5	51cd0c2392b0c51490eff3edbf84251c	https://zenodo.org/record/1466102/files/U2AF2.h5?download=1
-UCHL5	model_files/UCHL5.h5	e92d9478e7c359b4d978e33bcdaac80b	https://zenodo.org/record/1466102/files/UCHL5.h5?download=1
-UPF1	model_files/UPF1.h5	2bebbef5f01acf250cc27c813f0bf5ee	https://zenodo.org/record/1466102/files/UPF1.h5?download=1
-XPO5	model_files/XPO5.h5	aaefa3bf4bf7a2a7d074d50a7b1ced1f	https://zenodo.org/record/1466102/files/XPO5.h5?download=1
-XRCC6	model_files/XRCC6.h5	3d4e0fa9d812a8df9ed41ee4eb789047	https://zenodo.org/record/1466102/files/XRCC6.h5?download=1
-XRN2	model_files/XRN2.h5	9c3d907edf2abda054bc7246e02821bb	https://zenodo.org/record/1466102/files/XRN2.h5?download=1
-YBX3	model_files/YBX3.h5	b9a270d29b4745dd74677d72f459a0b8	https://zenodo.org/record/1466102/files/YBX3.h5?download=1
-YWHAG	model_files/YWHAG.h5	3ebb3cb5da18d874b5d7e9d14000dc0d	https://zenodo.org/record/1466102/files/YWHAG.h5?download=1
-ZNF622	model_files/ZNF622.h5	5e901b508e7d1a670200631253c901be	https://zenodo.org/record/1466102/files/ZNF622.h5?download=1
-ZRANB2	model_files/ZRANB2.h5	b2dc1827e7e70c37840c7e03dcaa7018	https://zenodo.org/record/1466102/files/ZRANB2.h5?download=1
+model	args_weights	args_weights_md5	args_weights_url	dl_md5	dl_url
+AARS	model_files/AARS.h5	7324fd25fb6760666d2148c6bec34944	https://zenodo.org/record/1466102/files/AARS.h5?download=1	f04f130ec0f0635ee5c9f5fea64c628c	https://sandbox.zenodo.org/record/248594/files/AARS.dataloader.pkl?download=1
+AGGF1	model_files/AGGF1.h5	4b22591562755e151e4a2d7bb6ad1e4c	https://zenodo.org/record/1466102/files/AGGF1.h5?download=1	e9f3e2eb24436ed7d652386ffe900406	https://sandbox.zenodo.org/record/248594/files/AGGF1.dataloader.pkl?download=1
+AKAP8L	model_files/AKAP8L.h5	d8ae67a6a108b7b1661732785aeff834	https://zenodo.org/record/1466102/files/AKAP8L.h5?download=1	bcf9e1f9eb0f899867fa93524edbd17f	https://sandbox.zenodo.org/record/248594/files/AKAP8L.dataloader.pkl?download=1
+AUH	model_files/AUH.h5	958bd35f5475f02ebbcd1723e213295c	https://zenodo.org/record/1466102/files/AUH.h5?download=1	8ddbbb5dd889ead895d5cd8339a5f1ee	https://sandbox.zenodo.org/record/248594/files/AUH.dataloader.pkl?download=1
+BCCIP	model_files/BCCIP.h5	a7d6d822af7d6a0c3b5782e928bdb88d	https://zenodo.org/record/1466102/files/BCCIP.h5?download=1	a625e2c2f9a6085af61f5a848f90875d	https://sandbox.zenodo.org/record/248594/files/BCCIP.dataloader.pkl?download=1
+BUD13	model_files/BUD13.h5	2e5dde1883a1f69a13439a0eb1a28457	https://zenodo.org/record/1466102/files/BUD13.h5?download=1	da580ff137b24bc2f33a0012cc9700d6	https://sandbox.zenodo.org/record/248594/files/BUD13.dataloader.pkl?download=1
+CDC40	model_files/CDC40.h5	ae1c914323c11408e28e3199666f391a	https://zenodo.org/record/1466102/files/CDC40.h5?download=1	4656ed3eee817b347f56b9d352c56aa6	https://sandbox.zenodo.org/record/248594/files/CDC40.dataloader.pkl?download=1
+CPSF6	model_files/CPSF6.h5	3a27b0fa0ca32fb442a14e79b4a5ed5a	https://zenodo.org/record/1466102/files/CPSF6.h5?download=1	e6824f2dcaea94135082c514136ed3ec	https://sandbox.zenodo.org/record/248594/files/CPSF6.dataloader.pkl?download=1
+CSTF2	model_files/CSTF2.h5	1fe36c28fdf1c2716b34d9d91e1edc1e	https://zenodo.org/record/1466102/files/CSTF2.h5?download=1	67db213faf14c85cac273dec2b20dedd	https://sandbox.zenodo.org/record/248594/files/CSTF2.dataloader.pkl?download=1
+CSTF2T	model_files/CSTF2T.h5	3e67c1001f2f07e64f51e3db5460c9d7	https://zenodo.org/record/1466102/files/CSTF2T.h5?download=1	9658a0e3c4c63d4c2cc6982b3493f6c1	https://sandbox.zenodo.org/record/248594/files/CSTF2T.dataloader.pkl?download=1
+DDX24	model_files/DDX24.h5	d353685828ddd0ff8df5b04a8a3f31cd	https://zenodo.org/record/1466102/files/DDX24.h5?download=1	29c73c3f1dcbdd04e8c7ff3e7b511dac	https://sandbox.zenodo.org/record/248594/files/DDX24.dataloader.pkl?download=1
+DDX3X	model_files/DDX3X.h5	e3cb5a7bbde397ff691cd9bdd2cbb8c5	https://zenodo.org/record/1466102/files/DDX3X.h5?download=1	a54e46945da46c2e7bf4d76cf1fb0322	https://sandbox.zenodo.org/record/248594/files/DDX3X.dataloader.pkl?download=1
+DDX42	model_files/DDX42.h5	696f883b95b901d66335b9de32dd9791	https://zenodo.org/record/1466102/files/DDX42.h5?download=1	87422d3574d246a33716a36b5953caec	https://sandbox.zenodo.org/record/248594/files/DDX42.dataloader.pkl?download=1
+DDX55	model_files/DDX55.h5	11315bc49e9b4b4dda7fcaae9231db18	https://zenodo.org/record/1466102/files/DDX55.h5?download=1	6575166458f540bb8f1569722e96b6ab	https://sandbox.zenodo.org/record/248594/files/DDX55.dataloader.pkl?download=1
+DDX59	model_files/DDX59.h5	74d58910bf820c40c86dea4b05965a49	https://zenodo.org/record/1466102/files/DDX59.h5?download=1	6a29f2f2fafa985895f6061953ee85fd	https://sandbox.zenodo.org/record/248594/files/DDX59.dataloader.pkl?download=1
+DDX6	model_files/DDX6.h5	bbe5e60fd78cf24ce4754c2c5d864dd6	https://zenodo.org/record/1466102/files/DDX6.h5?download=1	77c6ce3e69ad96bcf98f4e9eaa0b4a46	https://sandbox.zenodo.org/record/248594/files/DDX6.dataloader.pkl?download=1
+DGCR8	model_files/DGCR8.h5	0fe89b7bd951c454a9e5d94ada5dbb57	https://zenodo.org/record/1466102/files/DGCR8.h5?download=1	ef76e95a8818886b41968cae9b52e126	https://sandbox.zenodo.org/record/248594/files/DGCR8.dataloader.pkl?download=1
+DHX30	model_files/DHX30.h5	cfb6275b8a07ff8e9548492f7db82e39	https://zenodo.org/record/1466102/files/DHX30.h5?download=1	1f516232005f2a33e6e24a982032d68c	https://sandbox.zenodo.org/record/248594/files/DHX30.dataloader.pkl?download=1
+DKC1	model_files/DKC1.h5	09892a01e5952ae57013440b440b0355	https://zenodo.org/record/1466102/files/DKC1.h5?download=1	1f42214ecc8e950bf041bce14378837b	https://sandbox.zenodo.org/record/248594/files/DKC1.dataloader.pkl?download=1
+DROSHA	model_files/DROSHA.h5	c34dbfc369189066f84b1898fe8efcd1	https://zenodo.org/record/1466102/files/DROSHA.h5?download=1	c4f4f49e12358657f3b4b4f4c3e49289	https://sandbox.zenodo.org/record/248594/files/DROSHA.dataloader.pkl?download=1
+EFTUD2	model_files/EFTUD2.h5	dc32752225c073f7c9d4e479e73979fe	https://zenodo.org/record/1466102/files/EFTUD2.h5?download=1	a98813c311e54b33888982c54087b5a4	https://sandbox.zenodo.org/record/248594/files/EFTUD2.dataloader.pkl?download=1
+EIF3D	model_files/EIF3D.h5	964a84795ed5f4d53f42efa1a09dc184	https://zenodo.org/record/1466102/files/EIF3D.h5?download=1	4a26be28b51cdcaa71460a718070136d	https://sandbox.zenodo.org/record/248594/files/EIF3D.dataloader.pkl?download=1
+EIF4G2	model_files/EIF4G2.h5	2fdd28177b0d8522c8446145c5459f74	https://zenodo.org/record/1466102/files/EIF4G2.h5?download=1	29c2d038147a362f9e8d5960ba539579	https://sandbox.zenodo.org/record/248594/files/EIF4G2.dataloader.pkl?download=1
+EWSR1	model_files/EWSR1.h5	e8cb2e3beeae0985939b148946ec5ce4	https://zenodo.org/record/1466102/files/EWSR1.h5?download=1	cd90cc4e76e9efc2a39622cd6009356b	https://sandbox.zenodo.org/record/248594/files/EWSR1.dataloader.pkl?download=1
+FAM120A	model_files/FAM120A.h5	0c46cdc589b4934e2e896c1d8cf2beaa	https://zenodo.org/record/1466102/files/FAM120A.h5?download=1	c5a37fd505685bf059b2eca206259b2f	https://sandbox.zenodo.org/record/248594/files/FAM120A.dataloader.pkl?download=1
+FASTKD2	model_files/FASTKD2.h5	8ff0618589effada0f336978dc3e9026	https://zenodo.org/record/1466102/files/FASTKD2.h5?download=1	73ad2fbcab8501c08ba65ac87319bf1d	https://sandbox.zenodo.org/record/248594/files/FASTKD2.dataloader.pkl?download=1
+FKBP4	model_files/FKBP4.h5	27ef17745cfa62e4ea6ee81af5558e31	https://zenodo.org/record/1466102/files/FKBP4.h5?download=1	62f50b1417aa594199b10186150012b8	https://sandbox.zenodo.org/record/248594/files/FKBP4.dataloader.pkl?download=1
+FMR1	model_files/FMR1.h5	655fee2e72ebbc001f2373f81862cbb8	https://zenodo.org/record/1466102/files/FMR1.h5?download=1	cbd24df34ca4f1484231fe895dc73b96	https://sandbox.zenodo.org/record/248594/files/FMR1.dataloader.pkl?download=1
+FTO	model_files/FTO.h5	b31aebfa61aa11d1b7ef5e25a5439db1	https://zenodo.org/record/1466102/files/FTO.h5?download=1	6419c5d3f6a8e6f9903220b6d3cb6830	https://sandbox.zenodo.org/record/248594/files/FTO.dataloader.pkl?download=1
+FUBP3	model_files/FUBP3.h5	6abffc034fdd8848e6bdf01dca1d56b0	https://zenodo.org/record/1466102/files/FUBP3.h5?download=1	41e5e1d01e2b89a14537a04f74692a8a	https://sandbox.zenodo.org/record/248594/files/FUBP3.dataloader.pkl?download=1
+FXR1	model_files/FXR1.h5	c28402400d0a9fa884b6c7a24925fb6f	https://zenodo.org/record/1466102/files/FXR1.h5?download=1	1b755c4fe8031c285accf8ef4c8d8d05	https://sandbox.zenodo.org/record/248594/files/FXR1.dataloader.pkl?download=1
+FXR2	model_files/FXR2.h5	1738b0c54958fb21f84ecf67990fdcc2	https://zenodo.org/record/1466102/files/FXR2.h5?download=1	115b079074c31ef28108d1d474db369b	https://sandbox.zenodo.org/record/248594/files/FXR2.dataloader.pkl?download=1
+GEMIN5	model_files/GEMIN5.h5	816fef8b470a32ac3e6e2a946ba2c21c	https://zenodo.org/record/1466102/files/GEMIN5.h5?download=1	70831900f3398aef85321b6d8d12c574	https://sandbox.zenodo.org/record/248594/files/GEMIN5.dataloader.pkl?download=1
+GNL3	model_files/GNL3.h5	5b9572766c70a633e3f362fabcbec243	https://zenodo.org/record/1466102/files/GNL3.h5?download=1	dcd548895b31a98007148d2d16aef2f6	https://sandbox.zenodo.org/record/248594/files/GNL3.dataloader.pkl?download=1
+GPKOW	model_files/GPKOW.h5	88c25069816aa62f418d42c87dd367de	https://zenodo.org/record/1466102/files/GPKOW.h5?download=1	4e38a415316c62a2b023e2ea7c590878	https://sandbox.zenodo.org/record/248594/files/GPKOW.dataloader.pkl?download=1
+GRSF1	model_files/GRSF1.h5	a5bb8b1c05af485bebc7290cdb539e77	https://zenodo.org/record/1466102/files/GRSF1.h5?download=1	16896cd1514b6b4a368c946658da0f43	https://sandbox.zenodo.org/record/248594/files/GRSF1.dataloader.pkl?download=1
+GRWD1	model_files/GRWD1.h5	683fb489626ad270180a028c92ff60f3	https://zenodo.org/record/1466102/files/GRWD1.h5?download=1	03b06e2b77578f6d1b7755a16d7f8046	https://sandbox.zenodo.org/record/248594/files/GRWD1.dataloader.pkl?download=1
+GTF2F1	model_files/GTF2F1.h5	d9100764a27bf1f4561c41d51e279211	https://zenodo.org/record/1466102/files/GTF2F1.h5?download=1	333d874e07530650b787d87f9ffa430c	https://sandbox.zenodo.org/record/248594/files/GTF2F1.dataloader.pkl?download=1
+HLTF	model_files/HLTF.h5	ee5f72ff095cf29a6bb4de6177b2f555	https://zenodo.org/record/1466102/files/HLTF.h5?download=1	7bda6b8942925c7cdb28e2e8afc9f16a	https://sandbox.zenodo.org/record/248594/files/HLTF.dataloader.pkl?download=1
+HNRNPA1	model_files/HNRNPA1.h5	1706187adee0e74be0eda6d7cbc277e5	https://zenodo.org/record/1466102/files/HNRNPA1.h5?download=1	f55a2d49be249d4a5f2a9dcdbc1da1ab	https://sandbox.zenodo.org/record/248594/files/HNRNPA1.dataloader.pkl?download=1
+HNRNPC	model_files/HNRNPC.h5	00955e802cda95b2b1090e02e7670f0f	https://zenodo.org/record/1466102/files/HNRNPC.h5?download=1	91190cbab3c0ff998519de6d717e761c	https://sandbox.zenodo.org/record/248594/files/HNRNPC.dataloader.pkl?download=1
+HNRNPK	model_files/HNRNPK.h5	271cde34c2a5d7a95d401d83d399b7a5	https://zenodo.org/record/1466102/files/HNRNPK.h5?download=1	5d832b45dd027117536b9282c85028d9	https://sandbox.zenodo.org/record/248594/files/HNRNPK.dataloader.pkl?download=1
+HNRNPM	model_files/HNRNPM.h5	27226beb482bf82e700771e6d47ed209	https://zenodo.org/record/1466102/files/HNRNPM.h5?download=1	d74f127dfd9dd1d14f8987ca5f07a37c	https://sandbox.zenodo.org/record/248594/files/HNRNPM.dataloader.pkl?download=1
+HNRNPU	model_files/HNRNPU.h5	1ebb1df6f61df0664b5f746342d6463b	https://zenodo.org/record/1466102/files/HNRNPU.h5?download=1	aece766658d3e70c4008b5034fea5115	https://sandbox.zenodo.org/record/248594/files/HNRNPU.dataloader.pkl?download=1
+HNRNPUL1	model_files/HNRNPUL1.h5	8a088a58fa8928039d1819a866f2412a	https://zenodo.org/record/1466102/files/HNRNPUL1.h5?download=1	e746eac2694d68aa414067dcc31d4d34	https://sandbox.zenodo.org/record/248594/files/HNRNPUL1.dataloader.pkl?download=1
+IGF2BP1	model_files/IGF2BP1.h5	c60a887d2de0d05dae6619b48ffc50d8	https://zenodo.org/record/1466102/files/IGF2BP1.h5?download=1	04abc72c447716abc543b3e6c1397a22	https://sandbox.zenodo.org/record/248594/files/IGF2BP1.dataloader.pkl?download=1
+IGF2BP2	model_files/IGF2BP2.h5	ea0964f64e1b210129e9071e14c2b9fb	https://zenodo.org/record/1466102/files/IGF2BP2.h5?download=1	b830acaac038045efe3b53fe2e9e20d7	https://sandbox.zenodo.org/record/248594/files/IGF2BP2.dataloader.pkl?download=1
+IGF2BP3	model_files/IGF2BP3.h5	522c72d600516cd8bc5cbb5855026cd3	https://zenodo.org/record/1466102/files/IGF2BP3.h5?download=1	f9ef1ee5ebdbc9b0d5c6660d20aaa83b	https://sandbox.zenodo.org/record/248594/files/IGF2BP3.dataloader.pkl?download=1
+ILF3	model_files/ILF3.h5	df76fb35629bb425e35c216834076902	https://zenodo.org/record/1466102/files/ILF3.h5?download=1	d04eea96704e26bf43ba231649b34071	https://sandbox.zenodo.org/record/248594/files/ILF3.dataloader.pkl?download=1
+KHDRBS1	model_files/KHDRBS1.h5	3e952debf2f7c04f6d5b4947ae303f54	https://zenodo.org/record/1466102/files/KHDRBS1.h5?download=1	51ff2d1c8ed34500a335354f1e2d0397	https://sandbox.zenodo.org/record/248594/files/KHDRBS1.dataloader.pkl?download=1
+KHSRP	model_files/KHSRP.h5	56300624ceff84d544d0154930078756	https://zenodo.org/record/1466102/files/KHSRP.h5?download=1	db0219d1b664ff060747146b060fd00e	https://sandbox.zenodo.org/record/248594/files/KHSRP.dataloader.pkl?download=1
+LARP4	model_files/LARP4.h5	377d56a9660ad9ec5141aa697d074bc5	https://zenodo.org/record/1466102/files/LARP4.h5?download=1	f08f4257dd0be7bc8948b866de536e0c	https://sandbox.zenodo.org/record/248594/files/LARP4.dataloader.pkl?download=1
+LARP7	model_files/LARP7.h5	9b17549024e57976742a5014f1847a46	https://zenodo.org/record/1466102/files/LARP7.h5?download=1	790c31697cc7eccb7d3d4083f15ba569	https://sandbox.zenodo.org/record/248594/files/LARP7.dataloader.pkl?download=1
+LIN28B	model_files/LIN28B.h5	39afa78f04cb02fa2deeded05b5f2a0b	https://zenodo.org/record/1466102/files/LIN28B.h5?download=1	107ca7d011608664b5d77ddfd86926e2	https://sandbox.zenodo.org/record/248594/files/LIN28B.dataloader.pkl?download=1
+LSM11	model_files/LSM11.h5	d106b950368f900d0ce47a509dcbede3	https://zenodo.org/record/1466102/files/LSM11.h5?download=1	ab15a7a7164d95bf6f6bdfd5149bbc3e	https://sandbox.zenodo.org/record/248594/files/LSM11.dataloader.pkl?download=1
+METAP2	model_files/METAP2.h5	ffeff18f236699230143ada3e6c65bb5	https://zenodo.org/record/1466102/files/METAP2.h5?download=1	86fccd60a3748af8249bdc2d641647d4	https://sandbox.zenodo.org/record/248594/files/METAP2.dataloader.pkl?download=1
+MTPAP	model_files/MTPAP.h5	57e9942ffebeaa7059c38322221aa8cf	https://zenodo.org/record/1466102/files/MTPAP.h5?download=1	948dbec9bc8ecbf42625d07d26c49bdc	https://sandbox.zenodo.org/record/248594/files/MTPAP.dataloader.pkl?download=1
+NCBP2	model_files/NCBP2.h5	e74b7c8998abfda884d0361313465610	https://zenodo.org/record/1466102/files/NCBP2.h5?download=1	dd159bb830e89812a7b1959a71bad3f8	https://sandbox.zenodo.org/record/248594/files/NCBP2.dataloader.pkl?download=1
+NKRF	model_files/NKRF.h5	e81bdc3ace06824798c93e3e74202dd4	https://zenodo.org/record/1466102/files/NKRF.h5?download=1	bb6b6b9321a22d5efc2fdae9ffedc3fa	https://sandbox.zenodo.org/record/248594/files/NKRF.dataloader.pkl?download=1
+NOL12	model_files/NOL12.h5	72d891dc2431b7cddda90ba18bb776c0	https://zenodo.org/record/1466102/files/NOL12.h5?download=1	76fcb64b89db58665465cf5da9ebc482	https://sandbox.zenodo.org/record/248594/files/NOL12.dataloader.pkl?download=1
+NONO	model_files/NONO.h5	7363e010dab35f54c954da8a5efb5157	https://zenodo.org/record/1466102/files/NONO.h5?download=1	e9cca1decc3a10dc25fadcbca02b3720	https://sandbox.zenodo.org/record/248594/files/NONO.dataloader.pkl?download=1
+NPM1	model_files/NPM1.h5	5a1f97d7d2c0bdfd7af442c8a3648264	https://zenodo.org/record/1466102/files/NPM1.h5?download=1	59938e1cec27975fbedd27a2543fb039	https://sandbox.zenodo.org/record/248594/files/NPM1.dataloader.pkl?download=1
+NSUN2	model_files/NSUN2.h5	2306493bfb70f9a80c259a7fb4aefd82	https://zenodo.org/record/1466102/files/NSUN2.h5?download=1	e09047ff6de04adb9d02f694f9302752	https://sandbox.zenodo.org/record/248594/files/NSUN2.dataloader.pkl?download=1
+PCBP2	model_files/PCBP2.h5	d5b868ebd60679de9f01d9b57eb8e0f9	https://zenodo.org/record/1466102/files/PCBP2.h5?download=1	1a59becc4ad9787f7d5c15dc3eba8f2f	https://sandbox.zenodo.org/record/248594/files/PCBP2.dataloader.pkl?download=1
+PPIG	model_files/PPIG.h5	158da89f9a90512c24c3997ebd5c75f0	https://zenodo.org/record/1466102/files/PPIG.h5?download=1	f8201029177454e052c422e00b505b76	https://sandbox.zenodo.org/record/248594/files/PPIG.dataloader.pkl?download=1
+PPIL4	model_files/PPIL4.h5	b51733f100b4543c625e70f0a07c1136	https://zenodo.org/record/1466102/files/PPIL4.h5?download=1	a9ee0f10d03348fbe71fb6a25af3238b	https://sandbox.zenodo.org/record/248594/files/PPIL4.dataloader.pkl?download=1
+PRPF8	model_files/PRPF8.h5	70db304e49b102ca4c1a78e687c980b7	https://zenodo.org/record/1466102/files/PRPF8.h5?download=1	8ca38c09dc8ce438aa17b38a04c1b781	https://sandbox.zenodo.org/record/248594/files/PRPF8.dataloader.pkl?download=1
+PTBP1	model_files/PTBP1.h5	d41ae5b540bb821f5b785b5c837a7821	https://zenodo.org/record/1466102/files/PTBP1.h5?download=1	4f1f34ee51adff8a80b24870932fed9b	https://sandbox.zenodo.org/record/248594/files/PTBP1.dataloader.pkl?download=1
+PUM2	model_files/PUM2.h5	043ba8ffe8d61357746daee674066ce0	https://zenodo.org/record/1466102/files/PUM2.h5?download=1	d283ede596f6688839119d6c1f06a7eb	https://sandbox.zenodo.org/record/248594/files/PUM2.dataloader.pkl?download=1
+PUS1	model_files/PUS1.h5	87667dbb81e50b1db1c4891ab41610f3	https://zenodo.org/record/1466102/files/PUS1.h5?download=1	5f7897fc65aaa1755e3c7f62da875e73	https://sandbox.zenodo.org/record/248594/files/PUS1.dataloader.pkl?download=1
+QKI	model_files/QKI.h5	35cc2cb4bcd7d289a096cc7a78c7e5f8	https://zenodo.org/record/1466102/files/QKI.h5?download=1	0578508456987a3dc2d10426f51ea304	https://sandbox.zenodo.org/record/248594/files/QKI.dataloader.pkl?download=1
+RBFOX2	model_files/RBFOX2.h5	e89d9e3a4af34dc8cab41014a38bd3d3	https://zenodo.org/record/1466102/files/RBFOX2.h5?download=1	19c6a08bc40f3cb3a4dfe0ec86dc63b6	https://sandbox.zenodo.org/record/248594/files/RBFOX2.dataloader.pkl?download=1
+RBM15	model_files/RBM15.h5	7fa3669f758a574878aeb41f74116293	https://zenodo.org/record/1466102/files/RBM15.h5?download=1	43e66d04565fd49c90c6f6ffc2c01911	https://sandbox.zenodo.org/record/248594/files/RBM15.dataloader.pkl?download=1
+RBM22	model_files/RBM22.h5	f0cd677d54fdff2bc2bad0a82e56b0ee	https://zenodo.org/record/1466102/files/RBM22.h5?download=1	64450a6475456a68b0f1ff4c780613af	https://sandbox.zenodo.org/record/248594/files/RBM22.dataloader.pkl?download=1
+RBM27	model_files/RBM27.h5	611082bf1dc0216a32f563a736ae8707	https://zenodo.org/record/1466102/files/RBM27.h5?download=1	d2084eeaaf788465ddb323aa0c75902e	https://sandbox.zenodo.org/record/248594/files/RBM27.dataloader.pkl?download=1
+RPS11	model_files/RPS11.h5	7358fdf9239b0407d50e9f083fd02bd5	https://zenodo.org/record/1466102/files/RPS11.h5?download=1	af6a339f5960660133d4cf2b5dbf2693	https://sandbox.zenodo.org/record/248594/files/RPS11.dataloader.pkl?download=1
+RPS5	model_files/RPS5.h5	c1bab97dd52805bd9f3605f7c1225c70	https://zenodo.org/record/1466102/files/RPS5.h5?download=1	06923031e9e6986d435094cf57bef668	https://sandbox.zenodo.org/record/248594/files/RPS5.dataloader.pkl?download=1
+SAFB2	model_files/SAFB2.h5	c9ebccb49e90aec9e741b5f620d225d1	https://zenodo.org/record/1466102/files/SAFB2.h5?download=1	ca4469108c89ac2fad0f82fc11b64915	https://sandbox.zenodo.org/record/248594/files/SAFB2.dataloader.pkl?download=1
+SBDS	model_files/SBDS.h5	f08637e0b04f7bed65f9a23984780e69	https://zenodo.org/record/1466102/files/SBDS.h5?download=1	284ca895c8307b4aed25cdf519459cf7	https://sandbox.zenodo.org/record/248594/files/SBDS.dataloader.pkl?download=1
+SERBP1	model_files/SERBP1.h5	333d5fa1b8c2ecfc8887618350b603df	https://zenodo.org/record/1466102/files/SERBP1.h5?download=1	5c91c0ed8b51b787f70a86f369d39224	https://sandbox.zenodo.org/record/248594/files/SERBP1.dataloader.pkl?download=1
+SF3A3	model_files/SF3A3.h5	9dbf49c5703bf6d5192543a6cd855d03	https://zenodo.org/record/1466102/files/SF3A3.h5?download=1	010a155457cb54e84051c1e303b65e30	https://sandbox.zenodo.org/record/248594/files/SF3A3.dataloader.pkl?download=1
+SF3B1	model_files/SF3B1.h5	b59c00a3f14611ef6d6b0c304ce78638	https://zenodo.org/record/1466102/files/SF3B1.h5?download=1	2eab81202a9b631faaec96878dc6385a	https://sandbox.zenodo.org/record/248594/files/SF3B1.dataloader.pkl?download=1
+SF3B4	model_files/SF3B4.h5	9e8bd5ec82e81de94ac56824dc0d7742	https://zenodo.org/record/1466102/files/SF3B4.h5?download=1	eb0b6ebf3ceb15183a0b54660835f503	https://sandbox.zenodo.org/record/248594/files/SF3B4.dataloader.pkl?download=1
+SFPQ	model_files/SFPQ.h5	853f98423f5447a86707365b9f60f72d	https://zenodo.org/record/1466102/files/SFPQ.h5?download=1	8b7293d63184b80d2c8986ea353e81c0	https://sandbox.zenodo.org/record/248594/files/SFPQ.dataloader.pkl?download=1
+SLBP	model_files/SLBP.h5	ea5a7dc15c1f7f088d07cfded3c1698b	https://zenodo.org/record/1466102/files/SLBP.h5?download=1	df0bac04efe44adf1706d737b5a94d8c	https://sandbox.zenodo.org/record/248594/files/SLBP.dataloader.pkl?download=1
+SLTM	model_files/SLTM.h5	c50ac45b41ee980d1c9fcf6ebb761ddb	https://zenodo.org/record/1466102/files/SLTM.h5?download=1	a6506ad44269400c5b66419cb1e11fb2	https://sandbox.zenodo.org/record/248594/files/SLTM.dataloader.pkl?download=1
+SMNDC1	model_files/SMNDC1.h5	3213ae5faba9a38bb34538d164e08279	https://zenodo.org/record/1466102/files/SMNDC1.h5?download=1	ae5a89ea11349cb4fcccc3830b9cebbf	https://sandbox.zenodo.org/record/248594/files/SMNDC1.dataloader.pkl?download=1
+SND1	model_files/SND1.h5	1cd9249a0b65271193330983f1bfc9c9	https://zenodo.org/record/1466102/files/SND1.h5?download=1	439ae4aafdf2b3360350ce5c5047f350	https://sandbox.zenodo.org/record/248594/files/SND1.dataloader.pkl?download=1
+SRSF1	model_files/SRSF1.h5	b8e4c322c17fb77e97d4b9d0c05d0dc7	https://zenodo.org/record/1466102/files/SRSF1.h5?download=1	594a3f4febf46750aa89b762fcd5854d	https://sandbox.zenodo.org/record/248594/files/SRSF1.dataloader.pkl?download=1
+SRSF7	model_files/SRSF7.h5	1851d2433d359b89768f71235a8fdc12	https://zenodo.org/record/1466102/files/SRSF7.h5?download=1	be49190a427502d534a93da689d50fad	https://sandbox.zenodo.org/record/248594/files/SRSF7.dataloader.pkl?download=1
+SRSF9	model_files/SRSF9.h5	267f016980e721ce6245624b12685cba	https://zenodo.org/record/1466102/files/SRSF9.h5?download=1	cd8a3dd326da1be1d03c84b813ddfad3	https://sandbox.zenodo.org/record/248594/files/SRSF9.dataloader.pkl?download=1
+SUB1	model_files/SUB1.h5	7e095d924a8bb61c27317fe49b65dc65	https://zenodo.org/record/1466102/files/SUB1.h5?download=1	83b8d6cf765817bef7dad794e80675e9	https://sandbox.zenodo.org/record/248594/files/SUB1.dataloader.pkl?download=1
+SUGP2	model_files/SUGP2.h5	3f2bcbd51255326ffc3cde61b7914a37	https://zenodo.org/record/1466102/files/SUGP2.h5?download=1	862cc76cb616787d56325f7dfca7dd64	https://sandbox.zenodo.org/record/248594/files/SUGP2.dataloader.pkl?download=1
+SUPV3L1	model_files/SUPV3L1.h5	1b263cacb0d88602ce0e7afe4c9449b1	https://zenodo.org/record/1466102/files/SUPV3L1.h5?download=1	b2c00985fcf926a777970927c35d5550	https://sandbox.zenodo.org/record/248594/files/SUPV3L1.dataloader.pkl?download=1
+TAF15	model_files/TAF15.h5	562ab945661414d25dcf38ef3c648008	https://zenodo.org/record/1466102/files/TAF15.h5?download=1	39a10ed51f7b18906d50f4a4cff2a489	https://sandbox.zenodo.org/record/248594/files/TAF15.dataloader.pkl?download=1
+TARDBP	model_files/TARDBP.h5	5876ab1f72a6e43b33fdab8e564bba86	https://zenodo.org/record/1466102/files/TARDBP.h5?download=1	80afecd230de275a6ee3f4f1b6901244	https://sandbox.zenodo.org/record/248594/files/TARDBP.dataloader.pkl?download=1
+TBRG4	model_files/TBRG4.h5	1c598fe4a5b183fa761e32cf235bc3c6	https://zenodo.org/record/1466102/files/TBRG4.h5?download=1	8a829814be1a47b96b4c18ce091b5b94	https://sandbox.zenodo.org/record/248594/files/TBRG4.dataloader.pkl?download=1
+TIA1	model_files/TIA1.h5	f6cccd193698a0cb44866f4db6216587	https://zenodo.org/record/1466102/files/TIA1.h5?download=1	684e885c4452c3a6e502d63e8f24b37d	https://sandbox.zenodo.org/record/248594/files/TIA1.dataloader.pkl?download=1
+TNRC6A	model_files/TNRC6A.h5	fa5c27b5590413986ae0fac4ec71cab0	https://zenodo.org/record/1466102/files/TNRC6A.h5?download=1	cb19c349409c9574f14ba07c11c6fc2a	https://sandbox.zenodo.org/record/248594/files/TNRC6A.dataloader.pkl?download=1
+TRA2A	model_files/TRA2A.h5	a5afb6f14d2db16e7be3517952ea17c8	https://zenodo.org/record/1466102/files/TRA2A.h5?download=1	20d891da971edc2b4cbcc973b877a815	https://sandbox.zenodo.org/record/248594/files/TRA2A.dataloader.pkl?download=1
+TROVE2	model_files/TROVE2.h5	2a17c5a05b683e78553f8cd31850976b	https://zenodo.org/record/1466102/files/TROVE2.h5?download=1	119ab0af0d9425dc062eb187070c9ba7	https://sandbox.zenodo.org/record/248594/files/TROVE2.dataloader.pkl?download=1
+U2AF1	model_files/U2AF1.h5	136c2f8184bccd750aa47f0f2fd8f036	https://zenodo.org/record/1466102/files/U2AF1.h5?download=1	ac1ee344033794b8006277cab7cde94b	https://sandbox.zenodo.org/record/248594/files/U2AF1.dataloader.pkl?download=1
+U2AF2	model_files/U2AF2.h5	51cd0c2392b0c51490eff3edbf84251c	https://zenodo.org/record/1466102/files/U2AF2.h5?download=1	6c93297825bcae0addfef868188a1f35	https://sandbox.zenodo.org/record/248594/files/U2AF2.dataloader.pkl?download=1
+UCHL5	model_files/UCHL5.h5	e92d9478e7c359b4d978e33bcdaac80b	https://zenodo.org/record/1466102/files/UCHL5.h5?download=1	0b6d1ed37715923e03a6073b2f21379a	https://sandbox.zenodo.org/record/248594/files/UCHL5.dataloader.pkl?download=1
+UPF1	model_files/UPF1.h5	2bebbef5f01acf250cc27c813f0bf5ee	https://zenodo.org/record/1466102/files/UPF1.h5?download=1	0d302edc6fa91ef8d74dc1c32e0ae9e6	https://sandbox.zenodo.org/record/248594/files/UPF1.dataloader.pkl?download=1
+XPO5	model_files/XPO5.h5	aaefa3bf4bf7a2a7d074d50a7b1ced1f	https://zenodo.org/record/1466102/files/XPO5.h5?download=1	a6d3c8aa3230b95eb90f35cc3e2de51b	https://sandbox.zenodo.org/record/248594/files/XPO5.dataloader.pkl?download=1
+XRCC6	model_files/XRCC6.h5	3d4e0fa9d812a8df9ed41ee4eb789047	https://zenodo.org/record/1466102/files/XRCC6.h5?download=1	4d88871829672e0379d4235d9e7037ea	https://sandbox.zenodo.org/record/248594/files/XRCC6.dataloader.pkl?download=1
+XRN2	model_files/XRN2.h5	9c3d907edf2abda054bc7246e02821bb	https://zenodo.org/record/1466102/files/XRN2.h5?download=1	25e1e82fd6a7a40c18ad3430b1bd9dc4	https://sandbox.zenodo.org/record/248594/files/XRN2.dataloader.pkl?download=1
+YBX3	model_files/YBX3.h5	b9a270d29b4745dd74677d72f459a0b8	https://zenodo.org/record/1466102/files/YBX3.h5?download=1	0d97efc6833c109a388c3bc236fc508d	https://sandbox.zenodo.org/record/248594/files/YBX3.dataloader.pkl?download=1
+YWHAG	model_files/YWHAG.h5	3ebb3cb5da18d874b5d7e9d14000dc0d	https://zenodo.org/record/1466102/files/YWHAG.h5?download=1	4c3f15984b86dcd8a020e5d2a12865ff	https://sandbox.zenodo.org/record/248594/files/YWHAG.dataloader.pkl?download=1
+ZNF622	model_files/ZNF622.h5	5e901b508e7d1a670200631253c901be	https://zenodo.org/record/1466102/files/ZNF622.h5?download=1	d93b4a3b348fa3ac696eaaa28e0a8785	https://sandbox.zenodo.org/record/248594/files/ZNF622.dataloader.pkl?download=1
+ZRANB2	model_files/ZRANB2.h5	b2dc1827e7e70c37840c7e03dcaa7018	https://zenodo.org/record/1466102/files/ZRANB2.h5?download=1	51039a4e8222e9640f2148486122861e	https://sandbox.zenodo.org/record/248594/files/ZRANB2.dataloader.pkl?download=1

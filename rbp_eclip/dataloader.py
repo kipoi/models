@@ -165,6 +165,7 @@ class SeqDistDataset(Dataset):
     def __init__(self, intervals_file, fasta_file, gtf_file,
                  target_file=None,
                  filter_protein_coding=True,
+                 position_transformer_file=None,
                  use_linecache=True):
         if sys.version_info[0] != 3:
             warnings.warn("Only Python 3 is supported. You are using Python {0}".format(sys.version_info[0]))
@@ -196,8 +197,9 @@ class SeqDistDataset(Dataset):
         self.dist_extractor = None
 
         # here the DATALOADER_DIR contains the path to the current directory
-        self.dist_transformer = DistanceTransformer(ALL_LANDMARKS,
-                                                    os.path.join(DATALOADER_DIR, "position_transformer.pkl"))
+        if position_transformer_file is None:
+            raise ValueError("position_transformer_file needs to be specified")
+        self.dist_transformer = DistanceTransformer(ALL_LANDMARKS, position_transformer_file)
 
         # target
         if target_file:
