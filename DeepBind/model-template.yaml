@@ -1,7 +1,11 @@
 type: keras
 args:
-  arch: {{ args_arch }}
-  weights: {{ args_weights }}
+  arch:
+    url: {{ args_arch_url }}
+    md5: {{ args_arch_md5 }}
+  weights:
+    url: {{ args_weights_url }}
+    md5: {{ args_weights_md5 }}
   custom_objects: custom_keras_objects.py
 info:
   authors:
