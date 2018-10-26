@@ -148,4 +148,6 @@ def save_seqpred_model_weights(fname = 'model_files/deepsea_predict.pth'):
     spm = get_seqpred_model()
     torch.save(spm.state_dict(), fname)
 
-model = get_model(load_weights = False)
+# final models to be imported by Kipoi
+veff_model = get_model(load_weights=False)
+predict_model = get_seqpred_model(load_weights=False)

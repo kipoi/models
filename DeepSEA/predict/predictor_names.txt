@@ -1,1 +1,0 @@
-../template/predictor_names.txt

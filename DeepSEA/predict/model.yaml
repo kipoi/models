@@ -1,7 +1,7 @@
 type: pytorch
 args:
-  module_file: deepsea_predict.py
-  module_obj: model
+  module_file: ../model_architecture.py
+  module_obj: predict_model
   weights:
     url: https://zenodo.org/record/1466993/files/deepsea_predict.pth?download=1
     md5: 89e640bf6bdbe1ff165f484d9796efc7
@@ -61,5 +61,5 @@ schema:
     shape: (919, )
     doc: Probability of a specific epigentic feature
     column_labels:
-      - predictor_names.txt
+      - ../predictor_names.txt
 
