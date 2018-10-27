@@ -37,12 +37,12 @@ info:
     - DNA binding
     - DNA accessibility
 default_dataloader:
-  defined_as: kipoiseq.datasets.SeqDataset
+  defined_as: kipoiseq.dataloaders.IntervalSeqDl
   default_args:
     auto_resize_len: 1000
     alphabet_axis: 0
     dummy_axis: 1
-    dtype: float32
+    dtype: np.float32
 dependencies:
   conda:
     - h5py

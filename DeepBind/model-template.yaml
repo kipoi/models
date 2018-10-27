@@ -24,7 +24,7 @@ info:
   cite_as: https://doi.org/10.1038/nbt.3300
   license: BSD 3-Clause
 default_dataloader: 
-  defined_as: kipoiseq.datasets.SeqDataset
+  defined_as: kipoiseq.dataloaders.IntervalSeqDl
   default_args:
     auto_resize_len: 101
 dependencies:
