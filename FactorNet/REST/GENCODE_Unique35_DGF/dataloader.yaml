@@ -1,72 +1,71 @@
+type: Dataset
+defined_as: dataloader.py::SeqDataset
 args:
-  GENCODE_dir:
-    doc: Path to the already pre-processed gencode files directory to compute the
-      gencode features
-    optional: true
-  cell_line:
-    doc: Cell type as a string.
-    example: PC-3
-    optional: true
-  dnase_file:
-    doc: DNase bigwig file
-    example:
-      md5: 9e7d6fbd169867dded34840f7f3be15c
-      url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-example_files-dnase_synth.chr22.bw?download=1
-  fasta_file:
-    doc: Reference genome sequence
-    example:
-      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
-      url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-example_files-hg38_chr22.fa?download=1
   intervals_file:
     doc: bed3 file with `chrom start end id score strand`
     example:
       md5: a060800e9c7ecccc2fc7d212ea6e6a61
       url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-example_files-intervals.bed?download=1
+  fasta_file:
+    doc: Reference genome sequence
+    example:
+      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
+      url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-example_files-hg38_chr22.fa?download=1
+  dnase_file:
+    doc: DNase bigwig file
+    example:
+      md5: 9e7d6fbd169867dded34840f7f3be15c
+      url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-example_files-dnase_synth.chr22.bw?download=1
+  cell_line:
+    doc: Cell type as a string.
+    example: PC-3
+    optional: True
   mappability_file:
-    doc: USCS mappability track - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig.
-      by deafult, provide this file with the dataloader, download in background
-    optional: true
+    doc: USCS mappability track - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig. by deafult, provide this file with the dataloader, download in background
+    example:
+      url: https://github.com/kipoi/models/blob/master/FactorNet/template/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.chr22.bigWig?raw=true
+      md5: 912e1bb77fb67c1a792ac4a05d9416f9
+    optional: True
+  GENCODE_dir:
+    doc: Path to the already pre-processed gencode files directory to compute the gencode features
+    optional: True
   use_linecache:
-    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to
-      access bed file rows
-    optional: true
-defined_as: dataloader.py::SeqDataset
-dependencies:
-  conda:
-  - bioconda::bedtools
-  - bioconda::pybedtools
-  - bioconda::genomelake
-  - numpy
-  - cython
+    doc: if True, use linecache https://docs.python.org/3/library/linecache.html to access bed file rows
+    optional: True
 info:
   authors:
-  - github: avsecz
-    name: Ziga Avsec
+      - name: Ziga Avsec
+        github: avsecz
   doc: Dataloader for the FactorNet model.
+dependencies:
+  conda:
+    - bioconda::bedtools
+    - bioconda::pybedtools
+    - bioconda::genomelake
+    - numpy
+    - cython
 output_schema:
   inputs:
-  - associated_metadata: ranges
-    doc: DNA sequence and other big-wig channels (mappability and DNase-seq)
-    name: seq
-    shape: (1002, 6)
-  - associated_metadata: ranges_rc
-    doc: Reverse-complemented DNA sequence and reversed other bigwig channels (mappability
-      and DNase-seq)
-    name: seq_rc
-    shape: (1002, 6)
-  - doc: 6 gencode feature counts - cpg, cds, intron, promoter, utr5, utr4
-    name: meta_features
-    shape: (6,)
-  metadata:
-    ranges:
-      doc: Ranges describing inputs.seq
-      type: GenomicRanges
-    ranges_rc:
-      doc: Ranges describing inputs.seq_rc
-      type: GenomicRanges
+    - name: seq
+      shape: (1002, 6)
+      doc: DNA sequence and other big-wig channels (mappability and DNase-seq)
+      associated_metadata: ranges
+    - name: seq_rc
+      shape: (1002, 6)
+      doc: Reverse-complemented DNA sequence and reversed other bigwig channels (mappability and DNase-seq)
+      associated_metadata: ranges_rc
+    - name: meta_features
+      shape: (6,)
+      doc: 6 gencode feature counts - cpg, cds, intron, promoter, utr5, utr4 
   targets:
-    column_labels: tasks.txt
-    doc: TF binding class
     name: is_binding_site
     shape: (1,)
-type: Dataset
+    doc: TF binding class
+    column_labels: tasks.txt
+  metadata:
+    ranges:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq
+    ranges_rc:
+      type: GenomicRanges
+      doc: Ranges describing inputs.seq_rc

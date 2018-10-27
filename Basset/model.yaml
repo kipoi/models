@@ -5,7 +5,7 @@ args:
     md5: 4878981d84499eb575abd0f3b45570d3
     url: https://zenodo.org/record/1466068/files/pretrained_model_reloaded_th.pth?download=1
 default_dataloader:
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
     alphabet_axis: 0
     auto_resize_len: 600

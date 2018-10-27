@@ -108,3 +108,4 @@ ENV/
 .snakemake
 
 downloaded/
+/FactorNet/FactorNet/

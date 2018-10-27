@@ -38,7 +38,7 @@ info:
   tags:
     - DNA methylation
 default_dataloader:
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
     auto_resize_len: 1001
     alphabet_axis: 0

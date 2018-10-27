@@ -21,7 +21,7 @@ info:
   tags:
       - DNA binding
 default_dataloader:
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
 
 dependencies:
   conda:

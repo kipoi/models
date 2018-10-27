@@ -45,7 +45,7 @@ info:
     - Histone modification
     - DNA accessibility
 default_dataloader: 
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
     auto_resize_len: 131072
     ignore_targets: True  # don't return any output labels using the bed file

@@ -4,7 +4,7 @@ args:
     url: {{ args_model_url }}
     md5: {{ args_model_md5 }}
 default_dataloader: # relative path to the default dataloader
-  defined_as: kipoiseq.dataloaders.IntervalSeqStringDl
+  defined_as: kipoiseq.dataloaders.StringSeqIntervalDl
 info:
     authors:
         - name: Dongwon Lee

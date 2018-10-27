@@ -8,7 +8,7 @@ args:
         md5: 6903bcab337a6753ad010f43f208df42
 
 default_dataloader:
-    defined_as: kipoiseq.dataloaders.IntervalSeqDl
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
     default_args:
         auto_resize_len: 1000
 

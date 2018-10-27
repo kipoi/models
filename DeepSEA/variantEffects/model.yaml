@@ -36,7 +36,7 @@ info:
     - DNA binding
     - DNA accessibility
 default_dataloader:
-  defined_as: kipoiseq.dataloaders.IntervalSeqDl
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
   default_args:
     auto_resize_len: 1000
     alphabet_axis: 0
