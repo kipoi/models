@@ -48,7 +48,7 @@ class CleavageTimeModel(BaseModel):
         don_cleavage_time = self.don_model.predict(parameters_batch)
         acc_cleavage_time = self.acc_model.predict(parameters_batch)
 
-        cleavage_time = {'acc_cleavage_time': [exp(tm) for tm in acc_cleavage_time], 'don_cleavage_time': [exp(tm) for tm in don_cleavage_time]}
+        cleavage_time = {'acc_cleavage_time': np.exp(acc_cleavage_time), 'don_cleavage_time': np.exp(don_cleavage_time)}
 
         return cleavage_time
 
