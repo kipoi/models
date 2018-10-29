@@ -59,7 +59,7 @@ Human reference fasta file can be downloaded from ensembl/gencode. Make sure the
 ------
 Install `kipoi` as described in: http://kipoi.org/docs/#installation
 
-We show example with `deltaLogitPSI` model, other models follow the same logic.
+We show example with `deltaLogitPSI` model, other models follow the same logic. Kipoi also documented the usage with CLI, python and R [here](http://kipoi.org/models/MMSplice/). Click on the model of interest, for instance, to predict [deltaLogitPsi](http://kipoi.org/models/MMSplice/deltaLogitPSI/).
 
 1. Pull the model with:
 
