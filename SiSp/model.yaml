@@ -1,3 +1,4 @@
+type: keras
 args:
   arch:
     md5: a2092fc2c6b485bf0ef615aeb0dbaa37
@@ -35,4 +36,7 @@ schema:
     doc: Probability of exluded exon in a cassette exon setting
     name: targets
     shape: (1, )
-type: keras
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/SiSp/predictions.h5
+    md5: 247b7ef36ecd05433ea2e2f90e023e6e

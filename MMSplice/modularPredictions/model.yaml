@@ -26,3 +26,7 @@ schema:
         shape: (10, )
         doc: "Modular predictions of variant effects"
         column_labels: features.txt
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/modularPredictions/predictions.h5
+    md5: a96c34cb6b8a743a5ad017a071d6be98

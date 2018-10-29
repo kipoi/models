@@ -46,3 +46,9 @@ postprocessing:
       seq_input:
         - seq
       use_rc: True
+{% if model == 'human/AHR' %}
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/pwm_HOCOMOCO/{{ model }}/predictions.h5
+    md5: c71a72adeae2ece8b60084b5fde3ef9f
+{% endif %}

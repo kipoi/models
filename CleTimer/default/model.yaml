@@ -43,3 +43,7 @@ schema:
         - name: acc_cleavage_time
           shape: (1,)
           doc: "Predicted acceptor cleavage time."
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/CleTimer/default/predictions.h5
+    md5: 5752d7bcbebc7143cb9ab9308f516fd8

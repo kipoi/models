@@ -37,3 +37,9 @@ postprocessing:
       use_rc: true
       scoring_functions:
           - type: diff
+{% if model == 'Tfbs/Nanogsc33759/H1hesc/Haib_V0416102' %}
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/lsgkm-SVM/{{ model }}/predictions.h5
+    md5: d5007e19a7d5650741b18334d7d43df2
+{% endif %}

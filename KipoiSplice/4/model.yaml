@@ -1,3 +1,4 @@
+type: sklearn
 args:
   pkl_file:
     md5: e6b97d3034ee84f557e5798168da6011
@@ -14,25 +15,26 @@ info:
   - github: krrome
     name: Roman Kreuzhuber
   cite_as: https://doi.org/10.1101/375345
-  doc: 'Kipoi ensemble model without conservation. The used models are - MaxEntScan/3prime,
+  doc: >
+    Kipoi ensemble model without conservation. The used models are - MaxEntScan/3prime,
     MaxEntScan/5primet, labranchor, HAL
-
-    '
   tags:
   - RNA splicing
-  trained_on: 'ClinVar (release 2018-04-29) variants (labelled ''Pathogenic'' or ''Benign'')
+  trained_on: >
+    ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign')
     near the splice sites.
-
-    '
 schema:
   inputs:
     column_labels: features.txt
     doc: Model predictions of MaxEntscan, HAL and labranchor
     shape: (12, )
   targets:
-    doc: 'Pathogenicity score. 0th index represents the probability of being benign
+    doc: >
+      Pathogenicity score. 0th index represents the probability of being benign
       and 1st index represents the probability for being pathogenic.
-
-      '
     shape: (2, )
-type: sklearn
+
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/KipoiSplice/4/predictions.h5
+    md5: ce35a540a4e49e386936b7b1d1a9a311

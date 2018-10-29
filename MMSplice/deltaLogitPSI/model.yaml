@@ -26,3 +26,7 @@ schema:
     targets:
         shape: (1, )
         doc: "Predicted delta logit(psi)"
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/deltaLogitPSI/predictions.h5
+    md5: 8be060196fd941cb32971459db5c4aee

@@ -1,3 +1,4 @@
+type: keras
 args:
   arch:
     md5: aef1e97c448a217adef4c460a2000a9c
@@ -119,4 +120,7 @@ schema:
   - doc: Methylation probability for cpg/Ca25
     name: cpg/Ca25
     shape: (None, 1)
-type: keras
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepCpG_DNA/Hou2016_HCC_dna/predictions.h5
+    md5: 484f3f4a2b0c3e25f5edacf4dc57639e

@@ -39,3 +39,7 @@ schema:
     doc: Predicted 3' psi
     name: psi
     shape: (1, )
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/HAL/predictions.h5
+    md5: 0d0d397c25e449b02d3e93bc3bcdffb2

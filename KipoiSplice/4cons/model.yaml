@@ -1,3 +1,4 @@
+type: sklearn
 args:
   pkl_file:
     md5: e18417759ba73a2b5b7f57ac4f9bc362
@@ -14,25 +15,26 @@ info:
   - github: krrome
     name: Roman Kreuzhuber
   cite_as: https://doi.org/10.1101/375345
-  doc: 'This model is similar to KipoiSplice/4, but is additionally base on 4 conservational
+  doc: >
+    This model is similar to KipoiSplice/4, but is additionally base on 4 conservational
     features  - phyloP46way_placental, phyloP46way_primate, CADD_raw and CADD_phred.
-
-    '
   tags:
   - RNA splicing
-  trained_on: 'ClinVar (release 2018-04-29) variants (labelled ''Pathogenic'' or ''Benign'')
+  trained_on: >
+    ClinVar (release 2018-04-29) variants (labelled ''Pathogenic'' or ''Benign'')
     near the splice sites.
-
-    '
 schema:
   inputs:
     column_labels: features.txt
     doc: Model predictions of MaxEntscan, HAL and labranchor + conservation
     shape: (16, )
   targets:
-    doc: 'Pathogenicity score. 0th index represents the probability of being benign
+    doc: >
+      Pathogenicity score. 0th index represents the probability of being benign
       and 1st index represents the probability for being pathogenic.
-
-      '
     shape: (1, )
-type: sklearn
+
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/KipoiSplice/4cons/predictions.h5
+    md5: c2708d5f0b8aad7a44a49851ac625fa8

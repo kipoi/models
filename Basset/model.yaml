@@ -1,3 +1,4 @@
+type: pytorch
 args:
   module_file: pretrained_model_reloaded_th.py
   module_obj: model
@@ -60,4 +61,8 @@ schema:
     doc: Probability of accessible chromatin in 164 cell types
     name: DHS_probs
     shape: (164, )
-type: pytorch
+
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/Basset/predictions.h5
+    md5: 9df59f9899b27e65ab95426cb9557ad3

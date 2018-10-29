@@ -1,8 +1,10 @@
-type: custom
+defined_as: model.MaxEntModel
 args:
-  file: model.py
-  object: MaxEntModelSpec
-default_dataloader: . # relative path to the default dataloader
+  side: {{ model }}
+default_dataloader:
+  defined_as: dataloader.SplicingMaxEntDataset
+  default_args:
+    side: {{ model }}
 info:
     authors:
        - name: Gene Yeo
@@ -14,7 +16,7 @@ info:
          github: matthdsm
 
     doc: >
-      MaxEnt Splicing Model (http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) implemented in the
+      {{ model }} MaxEnt Splicing Model (http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) implemented in the
       maxentpy conda package https://github.com/kepbod/maxentpy.
     cite_as: https://doi.org/10.1089/1066527041410418
     trained_on: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
@@ -40,3 +42,7 @@ postprocessing:
     variant_effects:
       seq_input:
         - seq
+test:
+  expect:
+    url: {{ test_expect_url }}
+    md5: {{ test_expect_md5 }}

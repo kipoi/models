@@ -71,3 +71,7 @@ postprocessing:
            default: true
          - type: logit
            default: true
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepSEA/variantEffects/predictions.h5
+    md5: 365924f5d7f3372ef57721f2742192f9

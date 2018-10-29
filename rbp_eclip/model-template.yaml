@@ -73,3 +73,9 @@ postprocessing:
       scoring_functions:
         - type: diff
         - type: logit
+{% if model == 'AARS' %}
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/rbp_eclip/{{ model }}/predictions.h5
+    md5: 5434fe5615f5a5a80f23ae046d6ff95e
+{% endif %}

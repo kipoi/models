@@ -1,18 +1,13 @@
-from kipoi.data import Dataset
+from kipoi.data import Dataset, kipoi_dataloader
 from kipoi.metadata import GenomicRanges
 
+import sys
 import os
 import numpy as np
 import pandas as pd
 import inspect
 import pdb
 import itertools
-
-filename = inspect.getframeinfo(inspect.currentframe()).filename
-this_path = os.path.dirname(os.path.abspath(filename))
-# TODO - attach this_path to the pythonpath
-import sys
-sys.path.append(this_path)
 
 from gtf_utils import loadgene
 from fasta_utils import FastaFile
@@ -21,7 +16,7 @@ from fasta_utils import FastaFile
 class SpliceSite(object):
     ''' A splice site with flanking intron and exon sequence
     Args:
-        order: order of splice site (donor or acceptor) in a transcript counted from 5' to 3'. 
+        order: order of splice site (donor or acceptor) in a transcript counted from 5' to 3'.
     '''
 
     def __init__(self,
@@ -57,15 +52,69 @@ class SpliceSite(object):
         return seq
 
 
+@kipoi_dataloader()
 class SplicingMaxEntDataset(Dataset):
     """
-    Args:
-        gtf_file: gtf file. Can be dowloaded from MISO or ensembl.
-        fasta_file: file path; Genome sequence
-        side: 5prime or 3prime
-        target_file: file path; path to the targets in MISO summary format.
-        MISO_AS: whether the used annotation file is from MISO alternative splicing annotation.
-        label_col: column name in target file which has PSI.
+    args:
+      MISO_AS:
+        doc: Whether the given annotation file is MISO alternative splicing annotation.
+          Default False.
+      fasta_file:
+        doc: Reference Genome sequence in fasta format
+        example:
+          md5: 936544855b253835442a0f253dd4b083
+          url: https://zenodo.org/record/1466099/files/3prime-example_files-hg19.chr22.fa?download=1
+        type: str
+      gtf_file:
+        doc: file path; Genome annotation GTF file
+        example:
+          md5: 174fd11303ae2c2369094bfcbe303c07
+          url: https://zenodo.org/record/1466099/files/3prime-example_files-hg19.chr22.gtf?download=1
+      label_col:
+        doc: response label column name
+      target_file:
+        doc: path to the targets (txt) file
+        optional: true
+      side:
+        doc: 5 or 3prime splice-site
+    dependencies:
+      conda:
+      - bioconda::pysam
+      - python=3.5
+    info:
+      authors:
+      - github: s6juncheng
+        name: Jun Cheng
+      doc: MaxEnt Splicing Model
+      name: MaxEnt
+      version: 0.1
+    output_schema:
+      inputs:
+        associated_metadata: ranges
+        doc: a junction (donor or acceptor) sequence
+        name: seq
+        shape: ()
+        special_type: DNAStringSeq
+      metadata:
+        biotype:
+          doc: gene biotype, can be used to filter protein coding genes for instance
+          type: str
+        geneID:
+          doc: gene ID
+          type: str
+        order:
+          doc: order of the donor site in the transcript, counted from 5' to 3'.
+          type: int
+        ranges:
+          doc: ranges that the sequences were extracted
+          type: GenomicRanges
+        transcriptID:
+          doc: transcript id
+          type: str
+      targets:
+        doc: Predicted psi
+        name: psi
+        shape: (1,)
     """
 
     def __init__(self,
@@ -259,9 +308,10 @@ class Target(object):
         try:
             inx = self._index.index(name)
             return self.target[inx]
-        except:
+        except Exception:
             dim = self.target.shape
             return nans((dim[1:]))
+
 
 def nans(shape, dtype=float):
     a = np.empty(shape, dtype)

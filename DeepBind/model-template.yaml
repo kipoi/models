@@ -50,3 +50,10 @@ postprocessing:
         - seq
       scoring_functions:
           - type: diff
+
+{% if model == 'Homo_sapiens/TF/D00817.001_ChIP-seq_TBP' %}
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepBind/{{ model }}/predictions.h5
+    md5: 49efa1bb7794001d744b8ff1eb2ebd5c
+{% endif %}
