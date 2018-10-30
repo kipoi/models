@@ -40,4 +40,4 @@ schema:
 test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/Divergent421/predictions.h5
-    md5: 8cf5f35a71b229540cf8fe5beaa216ce
+    md5: 62da0ac731f323ea54ee6e30c38e0722
