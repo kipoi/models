@@ -7,6 +7,12 @@ import numpy as np
 import pandas as pd
 import inspect
 import itertools
+import inspect
+import sys
+
+filename = inspect.getframeinfo(inspect.currentframe()).filename
+this_dir = os.path.dirname(os.path.abspath(filename))
+sys.path.append(this_dir)
 
 
 class SpliceSite(object):
