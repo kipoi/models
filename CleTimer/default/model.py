@@ -22,8 +22,8 @@ this_dir = os.path.dirname(this_file_path)
 class CleavageTimeModel(BaseModel):
 
     def __init__(self, acc_model, don_model, features_path=None):
-        self.don_model = joblib.load(acc_model)
-        self.acc_model = joblib.load(don_model)
+        self.don_model = joblib.load(don_model)
+        self.acc_model = joblib.load(acc_model)
         if features_path is None:
             features_path = os.path.join(this_dir, "../features.json")
         self.features_metadata = read_json(features_path)
@@ -37,7 +37,7 @@ class CleavageTimeModel(BaseModel):
 
     def predict_on_batch(self, x):
         # run feature collection pipeline for the batch
-        soi = x
+        soi = x.astype(str)  # make sure the type is right
 
         for i in range(len(soi)):
             if len(soi[i]) < 94:
