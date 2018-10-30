@@ -6,11 +6,7 @@ import os
 import numpy as np
 import pandas as pd
 import inspect
-import pdb
 import itertools
-
-from gtf_utils import loadgene
-from fasta_utils import FastaFile
 
 
 class SpliceSite(object):
@@ -57,8 +53,7 @@ class SplicingMaxEntDataset(Dataset):
     """
     args:
       MISO_AS:
-        doc: Whether the given annotation file is MISO alternative splicing annotation.
-          Default False.
+        doc: Whether the given annotation file is MISO alternative splicing annotation. default False.
       fasta_file:
         doc: Reference Genome sequence in fasta format
         example:
@@ -79,12 +74,12 @@ class SplicingMaxEntDataset(Dataset):
         doc: 5 or 3prime splice-site
     dependencies:
       conda:
-      - bioconda::pysam
-      - python=3.5
+        - bioconda::pysam
+        - python=3.5
     info:
       authors:
-      - github: s6juncheng
-        name: Jun Cheng
+        - github: s6juncheng
+          name: Jun Cheng
       doc: MaxEnt Splicing Model
       name: MaxEnt
       version: 0.1
@@ -125,6 +120,8 @@ class SplicingMaxEntDataset(Dataset):
                  MISO_AS=False,
                  label_col='event_name'
                  ):
+        from gtf_utils import loadgene
+
         self.genes = loadgene(gtf_file)
         self.fasta_file = fasta_file
         self.fasta = None  # open the file later
@@ -159,6 +156,7 @@ class SplicingMaxEntDataset(Dataset):
 
     def __getitem__(self, idx):
         if self.fasta is None:
+            from fasta_utils import FastaFile
             self.fasta = FastaFile(self.fasta_file)
 
         out = {}

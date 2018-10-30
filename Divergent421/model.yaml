@@ -26,7 +26,7 @@ dependencies:
     conda:
         - h5py 
     pip:
-        - tensorflow
+        - tensorflow<=1.4.1
         - keras==1.2.2
         - kipoiseq
         

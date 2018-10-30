@@ -67,3 +67,4 @@ test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepSEA/predict/predictions.h5
     md5: fc60cfb01a4a4415e7a1095e5f7716e5
+  precision_decimal: 6

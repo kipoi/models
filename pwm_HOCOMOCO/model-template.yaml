@@ -28,7 +28,7 @@ dependencies:
     - python=3.5
     - h5py
   pip:
-    - tensorflow
+    - tensorflow<=1.9.0
     - keras==2.0.4
 schema:
   inputs:
