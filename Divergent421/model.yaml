@@ -37,6 +37,7 @@ schema:
     targets:
         shape: (421,)
         doc: "Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible."
+	column_labels: task_names.txt
 test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/Divergent421/predictions.h5
