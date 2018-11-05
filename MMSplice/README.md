@@ -22,7 +22,6 @@ kipoi env install MMSplice/deltaLogitPSI
 
 ```bash
 cd ~/.kipoi/models/MMSplice/deltaLogitPSI
-cd ~/.kipoi/models/MMSplice/deltaLogitPSI
 kipoi predict MMSplice/deltaLogitPSI \
   --dataloader_args='{'gtf_file': 'example_files/test.gtf', 'fasta_file': 'example_files/hg19.nochr.chr17.fa', 'vcf_file': 'example_files/test.vcf.gz'}' \  -o test.tsv
 # check the results
@@ -69,7 +68,7 @@ This repository hosts following models:
 
 `pathogenicity`: predict variant pathogenicity. Returns one prediction per variant.
 
-`splicingEfficiency`: predict splicing efficiency changes. Returns one prediction per variant-exon pair. 
+`splicingEfficiency`: predict splicing efficiency changes. Returns one prediction per variant-exon pair. Splicing efficiency model were trained from MMSplice modules and exonic variants from MaPSy, thus only the predictions for exonic variants are calibrated. 
 
 `modularPredictions`: the raw predictions from the five modules for reference sequence and alternative sequence. Returns a vector of length 10 for each variant-exon pair. 
 
