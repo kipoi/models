@@ -1,44 +1,53 @@
-type: PreloadedDataset
-defined_as: dataloader.py::data
 args:
-    anno_file:
-        doc: gtf file with chr, start, end and orientation of an exon/a gene
-        example: example_files/SE_chr22.gtf
-    fasta_file:
-        doc: reference genome sequence
-        example: example_files/hg19_chr22.fa
-    meth_file:
-        doc: bedGraph file with single-base methylation information
-        example: example_files/meth_chr22.bedGraph.sorted.gz
-    target_file:
-        example: example_files/y_chr22.csv
-        doc: path to the targets (.csv) file
-        optional: True
-    
-info:
-    authors:
-        - name: Lara Urban
-          github: LaraUrban
-          email: lara.h.urban@gmail.com
-    doc: The SiSp model predicts splicing patterns based on a genomic sequence of 800bp centered on the alternative exon. It takes methylation into account and operates on a single-cell level.
-    license: "MIT"
+  anno_file:
+    doc: gtf file with chr, start, end and orientation of an exon/a gene
+    example:
+      md5: dadf5a02c8928015118a1c697d539981
+      url: https://zenodo.org/record/1466120/files/example_files-SE_chr22.gtf?download=1
+  fasta_file:
+    doc: reference genome sequence
+    example:
+      md5: d90bc4f01813690544e9d746c925f03d
+      url: https://zenodo.org/record/1466120/files/example_files-hg19_chr22.fa?download=1
+  meth_file:
+    doc: bedGraph file with single-base methylation information
+    example:
+      md5: 9a7f33e19f608e6c836d2d0e221e93a0
+      url: https://zenodo.org/record/1466120/files/example_files-meth_chr22.bedGraph.sorted.gz?download=1
+  target_file:
+    doc: path to the targets (.csv) file
+    example:
+      md5: bce4305280dbf08e24666f6b4a3d5b4d
+      url: https://zenodo.org/record/1466120/files/example_files-y_chr22.csv?download=1
+    optional: true
+defined_as: dataloader.py::data
 dependencies:
-    conda: 
-        - bioconda::pysam
-        - bioconda::tabix
-        - python=3.6
-        - numpy
-        - pandas
+  conda:
+  - bioconda::pysam
+  - bioconda::tabix
+  - python=3.6
+  - numpy
+  - pandas
+info:
+  authors:
+  - email: lara.h.urban@gmail.com
+    github: LaraUrban
+    name: Lara Urban
+  doc: The SiSp model predicts splicing patterns based on a genomic sequence of 800bp
+    centered on the alternative exon. It takes methylation into account and operates
+    on a single-cell level.
+  license: MIT
 output_schema:
-    inputs:
-        name: seq
-        shape: (800, 5)
-        doc: DNA sequence
-    targets:
-        name: targets
-        shape: (1, )
-        doc: Probabilities of exluded exon in a cassette exon setting
-    metadata:
-        gene_id:
-            type: str
-            doc: Ensemble gene ID
+  inputs:
+    doc: DNA sequence
+    name: seq
+    shape: (800, 5)
+  metadata:
+    gene_id:
+      doc: Ensemble gene ID
+      type: str
+  targets:
+    doc: Probabilities of exluded exon in a cassette exon setting
+    name: targets
+    shape: (1, )
+type: PreloadedDataset

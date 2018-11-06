@@ -1,0 +1,60 @@
+args:
+  MISO_AS:
+    doc: Whether the given annotation file is MISO alternative splicing annotation.
+      Default False.
+  fasta_file:
+    doc: Reference Genome sequence in fasta format
+    example:
+      md5: 936544855b253835442a0f253dd4b083
+      url: https://zenodo.org/record/1466099/files/3prime-example_files-hg19.chr22.fa?download=1
+    type: str
+  gtf_file:
+    doc: file path; Genome annotation GTF file
+    example:
+      md5: 174fd11303ae2c2369094bfcbe303c07
+      url: https://zenodo.org/record/1466099/files/3prime-example_files-hg19.chr22.gtf?download=1
+  label_col:
+    doc: response label column name
+  target_file:
+    doc: path to the targets (txt) file
+    optional: true
+defined_as: dataloader.py::SplicingMaxEntDatasetSpec
+dependencies:
+  conda:
+  - bioconda::pysam
+  - python=3.5
+info:
+  authors:
+  - github: s6juncheng
+    name: Jun Cheng
+  doc: MaxEnt Splicing Model
+  name: MaxEnt
+  version: 0.1
+output_schema:
+  inputs:
+    associated_metadata: ranges
+    doc: a junction (donor or acceptor) sequence
+    name: seq
+    shape: ()
+    special_type: DNAStringSeq
+  metadata:
+    biotype:
+      doc: gene biotype, can be used to filter protein coding genes for instance
+      type: str
+    geneID:
+      doc: gene ID
+      type: str
+    order:
+      doc: order of the donor site in the transcript, counted from 5' to 3'.
+      type: int
+    ranges:
+      doc: ranges that the sequences were extracted
+      type: GenomicRanges
+    transcriptID:
+      doc: transcript id
+      type: str
+  targets:
+    doc: Predicted psi
+    name: psi
+    shape: (1,)
+type: Dataset

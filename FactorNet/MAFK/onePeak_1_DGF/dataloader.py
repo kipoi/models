@@ -11,6 +11,9 @@ from pybedtools import BedTool
 from genomelake.extractors import FastaExtractor, BigwigExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
+from kipoi.specs import RemoteFile
+from kipoi.external.torchvision.dataset_utils import download_url
+from kipoi.utils import makedir_exist_ok
 import linecache
 from six.moves.urllib.request import urlretrieve
 
@@ -20,6 +23,28 @@ import inspect
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 this_dir = os.path.dirname(os.path.abspath(filename))
 # --------------------------------------------
+
+# TODO - include this files also on Zenodo
+def download_gencode_dir(output_dir):
+    """Download all the required gencode files
+    """
+    makedir_exist_ok(output_dir)
+    url_template = ("https://github.com/kipoi/models/blob/"
+                    "7648d3fd57def50934835b52acadd26bcaaa275c/FactorNet/"
+                    "template/dataloader_files/gencode_features/{}?raw=true")
+
+    # url_template = "https://github.com/uci-cbcl/FactorNet/blob/master/resources/{}?raw=true"
+    fnames = [('cpgisland.bed.gz', 'ac7dc007d7019c05adb7a331d1d6721d'),
+              ('wgEncodeGencodeBasicV19.cds.merged.bed.gz', '4ec9883932932efe87e4adc6c84ced1c'),
+              ('wgEncodeGencodeBasicV19.intron.merged.bed.gz', 'd2db7e3255323d2b5b04e1c0c59ecd2d'),
+              ('wgEncodeGencodeBasicV19.promoter.merged.bed.gz', '48fe1ab3aa0e9f5d11f3e5dfedbd47b6'),
+              ('wgEncodeGencodeBasicV19.utr5.merged.bed.gz', 'de87c14d4ff055226afeb01446aba6e6'),
+              ('wgEncodeGencodeBasicV19.utr3.merged.bed.gz', '8bbe08f5fba86306dfbef56d756856f1')]
+    for fname, md5 in fnames:
+        output_file = os.path.join(output_dir, fname)
+        rf = RemoteFile(url=url_template.format(fname), md5=md5)
+        if not os.path.exists(output_file) or not rf.validate(output_file):
+            rf.get_file(output_file)
 
 
 class BedToolLinecache(BedTool):

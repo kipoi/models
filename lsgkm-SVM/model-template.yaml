@@ -1,0 +1,45 @@
+defined_as: model.LsgkmSvm
+args:
+  model_file:
+    url: {{ args_model_url }}
+    md5: {{ args_model_md5 }}
+default_dataloader: # relative path to the default dataloader
+  defined_as: kipoiseq.dataloaders.StringSeqIntervalDl
+info:
+    authors:
+        - name: Dongwon Lee
+          github: Dongwon-Lee
+    contributors:
+        - name: Roman Kreuzhuber
+          github: krrome
+    doc: 'lsgkm-SVM model trained on the ENCODE datasets - no sample number limitation as opposed to gkm-SVM publication.'
+    cite_as: https://doi.org/10.1093/bioinformatics/btw142
+    trained_on: 'ENCODE ChIP-seq peaks.'
+    training_procedure: 'Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/. All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19") from the gkmSVM package version 0.79.0. For training all chroomosomes except chr8 and chr9 were used!'
+dependencies:
+    conda:
+      - bioconda::ls-gkm=0.0.1
+      - numpy
+schema:
+    inputs:
+        name: seq
+        shape: () # TODO  number of k-mers
+        special_type: DNAStringSeq
+        doc: DNA input sequence
+    targets:
+        name: lsgkmsvm_scr
+        shape: (1, )
+        doc: "lsgkm-SVM score"
+postprocessing:
+    variant_effects:
+      seq_input:
+        - seq
+      use_rc: true
+      scoring_functions:
+          - type: diff
+{% if model == 'Tfbs/Nanogsc33759/H1hesc/Haib_V0416102' %}
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/lsgkm-SVM/{{ model }}/predictions.h5
+    md5: d5007e19a7d5650741b18334d7d43df2
+{% endif %}

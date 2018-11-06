@@ -1,41 +1,50 @@
 type: keras
 args:
-    weights: model_files/labranchor.h5
-default_dataloader: . # path to the directory
-info:
-    authors:
-        - name: Joseph M. Paggi
-          github: jpaggi
-        - name: Gill Bejerano
-    contributors:
-        - name: Jun Cheng
-          github: s6juncheng
-    doc: >
-      LaBranchoR (LSTM Branchpoint Retriever) uses a LSTM network built with keras to predict
-      the position of RNA splicing branchpoints relative to a three prime splice site.
-      Precisely evaluating LaBranchoR was challenging due to pervasive noise in the experimental data,
-      but as we show in our paper, we estimate that LaBranchoR correcty predicts a branchpoint for over
-      90% of 3\'ss. Github link https://github.com/jpaggi/labranchor.
-    cite_as: https://doi.org/10.1101/185868
-    tags:
-        - RNA splicing
+  weights:
+    md5: 1a93565c200740419fdd2c828eb467f7
+    url: https://zenodo.org/record/1466095/files/labranchor.h5?download=1
+default_dataloader: .
 dependencies:
-    pip:
-        - tensorflow>=1.0.0
-        - keras>=2.0.4
-schema:
-    inputs:
-        bidirectional_1_input:
-            shape: (70, 4)
-            special_type: DNASeq
-            doc: One-hot encoded RNA sequence
-    targets:
-        shape: (70, )
-        doc: Predicted probability of being branchpoint along the sequence
+  pip:
+  - tensorflow>=1.0.0
+  - keras>=2.0.4
+info:
+  authors:
+  - github: jpaggi
+    name: Joseph M. Paggi
+  - name: Gill Bejerano
+  cite_as: https://doi.org/10.1101/185868
+  contributors:
+  - github: s6juncheng
+    name: Jun Cheng
+  doc: >
+    LaBranchoR (LSTM Branchpoint Retriever) uses a LSTM network built with keras
+    to predict the position of RNA splicing branchpoints relative to a three prime
+    splice site. Precisely evaluating LaBranchoR was challenging due to pervasive
+    noise in the experimental data, but as we show in our paper, we estimate that
+    LaBranchoR correcty predicts a branchpoint for over 90% of 3\''ss. Github link
+    https://github.com/jpaggi/labranchor.
+  license: CC BY-NC 4.0
+  tags:
+  - RNA splicing
 postprocessing:
-    variant_effects:
-      seq_input:
-        - bidirectional_1_input
-      scoring_functions:
-        - type: diff
-        - type: logit
+  variant_effects:
+    scoring_functions:
+    - type: diff
+    - type: logit
+    seq_input:
+    - bidirectional_1_input
+schema:
+  inputs:
+    bidirectional_1_input:
+      doc: One-hot encoded RNA sequence
+      shape: (70, 4)
+      special_type: DNASeq
+  targets:
+    doc: Predicted probability of being branchpoint along the sequence
+    shape: (70, )
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/labranchor/predictions.h5
+    md5: 5830bf1f9d70a624268278b0e0929b57
+  precision_decimal: 6

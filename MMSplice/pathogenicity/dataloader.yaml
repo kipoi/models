@@ -3,13 +3,19 @@ defined_as: dataloader.py::SplicingVCFDataloader
 args:
   gtf_file:
     doc: path to the GTF file required by the models (Ensemble)
-    example: example_files/test.gtf
+    example:
+        url: https://sandbox.zenodo.org/record/248604/files/test.gtf?download=1
+        md5: b20607afe91ec20d6ee79ed95ab0e85b
   fasta_file:
     doc: reference genome fasta file
-    example: example_files/hg19.nochr.chr17.fa
+    example:
+        url: https://sandbox.zenodo.org/record/248604/files/hg19.nochr.chr17.fa?download=1
+        md5: e3f6630a8323c4306469fdfe8d8b9448
   vcf_file:
     doc: Path to the input vcf file
-    example: example_files/test.vcf.gz
+    example:
+        url: https://sandbox.zenodo.org/record/248604/files/test.vcf.gz?download=1
+        md5: c152c79906ee3f83834646cc3afae2ad
   split_seq:
     doc: Whether split the sequence in dataloader
     optional: True

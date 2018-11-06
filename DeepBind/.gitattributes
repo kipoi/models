@@ -1,6 +1,0 @@
-*_files filter=lfs diff=lfs merge=lfs -text
-*model_files/* filter=lfs diff=lfs merge=lfs -text
-template/example_files/intervals.bed~ filter=lfs diff=lfs merge=lfs -text
-template/example_files/hg38_chr22.fa filter=lfs diff=lfs merge=lfs -text
-template/example_files/hg38_chr22.fa.fai filter=lfs diff=lfs merge=lfs -text
-template/example_files/intervals.bed filter=lfs diff=lfs merge=lfs -text

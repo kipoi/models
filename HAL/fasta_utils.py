@@ -1,1 +1,1 @@
-../MaxEntScan/template/fasta_utils.py
+../MaxEntScan/fasta_utils.py

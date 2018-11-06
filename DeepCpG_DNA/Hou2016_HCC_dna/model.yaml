@@ -1,6 +1,11 @@
+type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/model_weights.h5
+  arch:
+    md5: aef1e97c448a217adef4c460a2000a9c
+    url: https://zenodo.org/record/1466079/files/Hou2016_HCC_dna-model?download=1
+  weights:
+    md5: 5a1bd295dc2aa736c136cd8ec2ccdab0
+    url: https://zenodo.org/record/1466079/files/Hou2016_HCC_dna-model_weights.h5?download=1
 default_dataloader: .
 dependencies:
   conda:
@@ -14,25 +19,25 @@ info:
   authors:
   - github: cangermueller
     name: Christof Angermueller
+  cite_as: https://doi.org/10.1186/s13059-017-1189-z, https://doi.org/10.5281/zenodo.1094823
   contributors:
-      - name: Roman Kreuzhuber
-        github: krrome
+  - github: krrome
+    name: Roman Kreuzhuber
   doc: 'This is the extraction of the DNA-part of the a pretrained model by Christof
     Angermueller
 
     '
-  cite_as: https://doi.org/10.1186/s13059-017-1189-z, https://doi.org/10.5281/zenodo.1094823
+  name: DeepCpG
+  tags:
+  - DNA methylation
   trained_on: scBS-seq and scRRBS-seq datasets, https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   training_procedure: Described in https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
-  name: DeepCpG
   version: 1.0.4
-  tags:
-    - DNA methylation
 postprocessing:
   variant_effects:
     seq_input:
     - dna
-    use_rc: True
+    use_rc: true
 schema:
   inputs:
     dna:
@@ -115,4 +120,7 @@ schema:
   - doc: Methylation probability for cpg/Ca25
     name: cpg/Ca25
     shape: (None, 1)
-type: keras
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepCpG_DNA/Hou2016_HCC_dna/predictions.h5
+    md5: 484f3f4a2b0c3e25f5edacf4dc57639e

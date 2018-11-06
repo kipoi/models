@@ -12,16 +12,12 @@ import bio_utils
 
 
 class Model(BaseModel):
-    embd_arch = bio_utils.embd_arch
-    embd_weights = bio_utils.embd_weights
-    arch = bio_utils.arch
-    weights = bio_utils.weights
 
-    def __init__(self):
-        self.embd_model = model_from_json(open(self.embd_arch).read())
-        self.embd_model.load_weights(self.embd_weights)
-        self.model = model_from_json(open(self.arch).read())
-        self.model.load_weights(self.weights)
+    def __init__(self, embd_arch, embd_weights, arch, weights):
+        self.embd_model = model_from_json(open(embd_arch).read())
+        self.embd_model.load_weights(embd_weights)
+        self.model = model_from_json(open(arch).read())
+        self.model.load_weights(weights)
 
     def predict_on_batch(self, inputs):
         # pre-compute the embeddings

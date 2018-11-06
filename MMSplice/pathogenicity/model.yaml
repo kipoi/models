@@ -28,3 +28,7 @@ schema:
         doc: >
           "Pathogenicity score. 0th index represents the probability of
           being benign and 1st index represents the probability for being pathogenic."
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/pathogenicity/predictions.h5
+    md5: b8f71c20ddba3be393ab89e9e8ce5e8c

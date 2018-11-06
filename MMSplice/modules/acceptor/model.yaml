@@ -1,6 +1,8 @@
 type: keras
 args:
-    weights: model_files/Acceptor.h5
+    weights: 
+        url: https://sandbox.zenodo.org/record/248604/files/Acceptor.h5?download=1
+        md5: 0ddfe36828d85bf4012e567932efb9e9
 default_dataloader: . # path to the directory
 info:
     authors:
@@ -25,3 +27,7 @@ schema:
     targets:
         shape: (1,)
         doc: Predicted score for acceptor sequence
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/modules/acceptor/predictions.h5
+    md5: 2bedf15f25e363755dbdc6a52a0b5f2c

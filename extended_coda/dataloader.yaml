@@ -1,49 +1,51 @@
-type: BatchGenerator
-defined_as: dataloader.py::extractor
 args:
-    intervals_file:
-        doc: "tsv file with `chrom start end`"
-        example: "example_files/intervals.tsv"
-        type: str
-    input_data_sources:
-        doc: "{data_name: <path to genomelake directory>}"
-        example: {"H3K27AC_subsampled": "example_files/H3K27AC_subsampled.bw"}
-        type: dict
-    target_data_sources:
-        doc: "optional; {data_name: <path to genomelake directory>}"
-        type: dict
-        optional: True
-    batch_size:
-        doc: "batch size. Default = 128"
-        example: 4
-        optional: True
-info: 
-    authors:
-        - name: Johnny Israeli
-          github: jisraeli
-    name: extended CODA
-    version: 0.1
-    doc: DataLoader for single bp resolution ChIP-seq denoising
-# TODO - enable later
+  batch_size:
+    doc: batch size. Default = 128
+    example: 4
+    optional: true
+  input_data_sources:
+    doc: 'Can either be `{data_name: <path to genomelake directory>}` or the path
+      to the zipped genomelake directory.'
+    example:
+      md5: af6431647fb9acdde48907bfba403a02
+      url: https://zenodo.org/record/1467114/files/example_files-H3K27AC_subsampled.bw.zip?download=1
+    type: dict
+  intervals_file:
+    doc: tsv file with `chrom start end`
+    example:
+      md5: 2fe429341c381e61b82be8b25d46f516
+      url: https://zenodo.org/record/1467114/files/example_files-intervals.tsv?download=1
+    type: str
+  target_data_sources:
+    doc: 'optional; {data_name: <path to genomelake directory>}'
+    optional: true
+    type: dict
+defined_as: dataloader.py::extractor
 dependencies:
-    conda:
-        - bioconda::genomelake
-        - cython
+  conda:
+  - bioconda::genomelake
+  - cython
+info:
+  authors:
+  - github: jisraeli
+    name: Johnny Israeli
+  doc: DataLoader for single bp resolution ChIP-seq denoising
+  name: extended CODA
+  version: 0.1
 output_schema:
-    inputs:
-        H3K27AC_subsampled:
-            shape: (None, 1)
-            special_type: bigwig
-            associated_metadata: ranges
-            doc: Input
-    # doesn't have to be defined
-    targets:
-        H3K27ac:
-            shape: (None, 1)
-            special_type: bigwig
-            doc: Measured track
-    metadata:
-        ranges:
-            type: GenomicRanges
-            doc: Ranges describing inputs.seq
-
+  inputs:
+    H3K27AC_subsampled:
+      associated_metadata: ranges
+      doc: Input
+      shape: (None, 1)
+      special_type: bigwig
+  metadata:
+    ranges:
+      doc: Ranges describing inputs.seq
+      type: GenomicRanges
+  targets:
+    H3K27ac:
+      doc: Measured track
+      shape: (None, 1)
+      special_type: bigwig
+type: BatchGenerator

@@ -1,6 +1,10 @@
 args:
-  arch: model_files/model.json
-  weights: model_files/model_weights.h5
+  arch:
+    md5: b3604063b46b3461e3cfcbc4d38f7828
+    url: https://zenodo.org/record/1466079/files/Smallwood2014_serum_dna-model?download=1
+  weights:
+    md5: 1600148e50d6d21bb59585f6074729c2
+    url: https://zenodo.org/record/1466079/files/Smallwood2014_serum_dna-model_weights.h5?download=1
 default_dataloader: .
 dependencies:
   conda:
@@ -14,26 +18,25 @@ info:
   authors:
   - github: cangermueller
     name: Christof Angermueller
+  cite_as: https://doi.org/10.1186/s13059-017-1189-z, https://doi.org/10.5281/zenodo.1094823
   contributors:
-      - name: Roman Kreuzhuber
-        github: krrome
+  - github: krrome
+    name: Roman Kreuzhuber
   doc: 'This is the extraction of the DNA-part of the a pretrained model by Christof
     Angermueller
 
     '
-  cite_as: https://doi.org/10.1186/s13059-017-1189-z, https://doi.org/10.5281/zenodo.1094823
+  name: DeepCpG
+  tags:
+  - DNA methylation
   trained_on: scBS-seq and scRRBS-seq datasets, https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   training_procedure: Described in https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
-  name: DeepCpG
   version: 1.0.4
-  tags:
-    - DNA methylation
 postprocessing:
   variant_effects:
     seq_input:
     - dna
-    use_rc: True
-
+    use_rc: true
 schema:
   inputs:
     dna:

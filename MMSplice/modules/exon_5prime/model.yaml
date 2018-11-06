@@ -1,6 +1,8 @@
 type: keras
 args:
-    weights: model_files/Exon.h5
+    weights:
+        url: https://sandbox.zenodo.org/record/248604/files/Exon.h5?download=1
+        md5: f5c8b57f74eaa26eb4cc36e6a5c717ca
 default_dataloader: . # path to the directory
 info:
     authors:
