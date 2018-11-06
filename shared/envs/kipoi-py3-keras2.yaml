@@ -25,6 +25,7 @@ dependencies:
 - pip:
   - kipoi_veff
   - kipoi
+  - kipoiseq
   - tensorflow==1.4.1
   - keras==2.1.6
   - pyfaidx
@@ -35,6 +36,6 @@ dependencies:
   - joblib
   - sklearn-pandas
   - tqdm
-  - mmsplice
+  # - mmsplice
   - numpy>=1.13.3
   - concise>=0.6.6

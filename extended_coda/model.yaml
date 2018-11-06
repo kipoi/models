@@ -1,39 +1,41 @@
-type: keras
 args:
-    weights: model_files/weights.h5
-    arch: model_files/model.json
-# default_dataloader: dataloader.yaml # shall we call it just dataloader?
-# dataloader.yaml is used by default
-info:
-    authors:
-        - name: Pang Wei Koh
-          github: kohpangwei
-        - name: Emma Pierson
-        - name: Anshul Kundaje
-          github: akundaje
-    contributors:
-        - name: Johnny Israeli
-          github: jisraeli
-    name: extended CODA
-    version: 0.1
-    doc: Single bp resolution ChIP-seq denoising - https://github.com/kundajelab/coda
-    cite_as: https://doi.org/10.1093/bioinformatics/btx243
-    trained_on: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
-    training_procedure: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
-    tags:
-        - Histone modification
+  arch:
+    md5: 98aedb5d7c8f506e857e751d8c98fa10
+    url: https://zenodo.org/record/1467114/files/model?download=1
+  weights:
+    md5: f56962a65ca58fece967473715ce1f38
+    url: https://zenodo.org/record/1467114/files/weights.h5?download=1
 dependencies:
-    pip:
-      - tensorflow==1.0.0
-      - keras==1.2.2
+  pip:
+  - tensorflow==1.0.0
+  - keras==1.2.2
+info:
+  authors:
+  - github: kohpangwei
+    name: Pang Wei Koh
+  - name: Emma Pierson
+  - github: akundaje
+    name: Anshul Kundaje
+  cite_as: https://doi.org/10.1093/bioinformatics/btx243
+  contributors:
+  - github: jisraeli
+    name: Johnny Israeli
+  doc: Single bp resolution ChIP-seq denoising - https://github.com/kundajelab/coda
+  name: extended CODA
+  tags:
+  - Histone modification
+  trained_on: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
+  training_procedure: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
+  version: 0.1
 schema:
-    inputs:
-        H3K27AC_subsampled:
-            shape: (None, 1)
-            special_type: bigwig
-            doc: Track representing ...
-    targets:
-        H3K27ac:
-            shape: (None, 1)
-            special_type: bigwig
-            doc: Predicted track...
+  inputs:
+    H3K27AC_subsampled:
+      doc: Track representing ...
+      shape: (None, 1)
+      special_type: bigwig
+  targets:
+    H3K27ac:
+      doc: Predicted track...
+      shape: (None, 1)
+      special_type: bigwig
+type: keras

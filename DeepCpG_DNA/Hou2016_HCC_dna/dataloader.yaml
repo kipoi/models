@@ -1,1 +1,43 @@
-../template/dataloader.yaml
+args:
+  fasta_file:
+    doc: Reference genome sequence
+    example:
+      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
+      url: https://zenodo.org/record/1466079/files/Hou2016_HCC_dna-example_files-hg38_chr22.fa?download=1
+  intervals_file:
+    doc: bed3 file with `chrom start end id score strand`
+    example:
+      md5: c5f58345c6f367c36a778e30e677eb65
+      url: https://zenodo.org/record/1466079/files/Hou2016_HCC_dna-example_files-intervals.bed?download=1
+defined_as: dataloader.py::SeqDataset
+dependencies:
+  conda:
+  - bioconda::genomelake
+  - bioconda::pybedtools
+  - python=3.5
+  - numpy
+  - pandas
+  - cython
+info:
+  authors:
+  - github: avsecz
+    name: Ziga Avsec
+  - github: krrome
+    name: Roman Kreuzhuber
+  doc: Dataloader for the DeepCpG.
+output_schema:
+  inputs:
+    dna:
+      associated_metadata: ranges
+      doc: DNA sequence
+      shape: (1001, 4)
+      special_type: DNASeq
+  metadata:
+    ranges:
+      doc: Ranges describing inputs.seq
+      type: GenomicRanges
+postprocessing:
+  variant_effects:
+    bed_input:
+    - intervals_file
+type: Dataset

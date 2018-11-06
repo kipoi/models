@@ -2,8 +2,19 @@ type: tensorflow
 args:
   input_nodes: "inputs"
   target_nodes: "preds"
-  checkpoint_path: "model_files/model.tf"
-  const_feed_dict_pkl: "model_files/const_feed_dict.pkl"
+  checkpoint_path:
+    meta: 
+      url: https://zenodo.org/record/1466066/files/model.tf.meta?download=1
+      md5: a679c3371ece1ac532067bdd61964025
+    index: 
+      url: https://zenodo.org/record/1466066/files/model.tf.index?download=1
+      md5: b9561a2f203a8a1589cc65183dc0898b
+    data:
+      url: https://zenodo.org/record/1466066/files/model.tf.data-00000-of-00001?download=1
+      md5: 155c2047761dbce5a18f00ba9d3fb821
+  const_feed_dict_pkl:
+    url: https://zenodo.org/record/1466066/files/const_feed_dict.pkl?download=1
+    md5: 3a76c37eb9ad255680ba774b110de1be
 # pass  
 info:
   authors:
@@ -27,17 +38,23 @@ info:
     on gene expression align well to causal variants underlying eQTLs in human populations and can
     be useful for generating mechanistic hypotheses to enable fine mapping of disease loci.
   version: 0.1
+  license: Apache License v2
   cite_as: https://doi.org/10.1101/gr.227819.117
   tags:
     - RNA expression
     - Histone modification
     - DNA accessibility
-default_dataloader: .
+default_dataloader: 
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
+  default_args:
+    auto_resize_len: 131072
+    ignore_targets: True  # don't return any output labels using the bed file
 dependencies:
   conda:
     - python=3.5
   pip:
     - tensorflow>=1.4.1
+    - kipoiseq
 schema:
   inputs:
     name: seq

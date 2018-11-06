@@ -1,6 +1,8 @@
 type: keras
 args:
-    weights: model_files/Intron5.h5
+    weights:
+        url: https://sandbox.zenodo.org/record/248604/files/Intron5.h5?download=1
+        md5: c815464eab88029521d80688b30c325c
 default_dataloader: . # path to the directory
 info:
     authors:

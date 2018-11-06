@@ -1,0 +1,48 @@
+defined_as: model.MaxEntModel
+args:
+  side: {{ model }}
+default_dataloader:
+  defined_as: dataloader.SplicingMaxEntDataset
+  default_args:
+    side: {{ model }}
+info:
+    authors:
+       - name: Gene Yeo
+       - name: Christopher B. Burge
+    contributors:
+       - name: Jun Cheng
+         github: s6juncheng
+       - name: Matthias De Smet
+         github: matthdsm
+
+    doc: >
+      {{ model }} MaxEnt Splicing Model (http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) implemented in the
+      maxentpy conda package https://github.com/kepbod/maxentpy.
+    cite_as: https://doi.org/10.1089/1066527041410418
+    trained_on: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
+    training_procedure: Described in http://online.liebertpub.com/doi/pdf/10.1089/1066527041410418
+    license: MIT
+    version: 0.1
+    tags:
+        - RNA splicing
+dependencies:
+    conda:
+      - bioconda::maxentpy
+schema:
+    inputs:
+        name: seq
+        special_type: DNAStringSeq
+        shape: ()
+        doc: Actual junction sequence
+    targets:
+        name: psi
+        shape: (1, )
+        doc: "Predicted psi"
+postprocessing:
+    variant_effects:
+      seq_input:
+        - seq
+test:
+  expect:
+    url: {{ test_expect_url }}
+    md5: {{ test_expect_md5 }}

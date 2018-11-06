@@ -1,33 +1,40 @@
 type: sklearn
 args:
-  pkl_file: model_files/model.pkl
+  pkl_file:
+    md5: e6b97d3034ee84f557e5798168da6011
+    url: https://zenodo.org/record/1466091/files/4-model.pkl?download=1
   predict_method: predict_proba
 default_dataloader: .
-info:
-  authors:
-    - name: Ziga Avsec
-      github: avsecz
-    - name: Roman Kreuzhuber
-      github: krrome
-  cite_as: https://doi.org/10.1101/375345
-  trained_on: >
-    ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign') near
-    the splice sites.
-  doc: >
-    Kipoi ensemble model without conservation.
-    The used models are - MaxEntScan/3prime, MaxEntScan/5primet, labranchor, HAL
-  tags:
-    - RNA splicing
 dependencies:
   pip:
-    - scikit-learn
+  - scikit-learn
+info:
+  authors:
+  - github: avsecz
+    name: Ziga Avsec
+  - github: krrome
+    name: Roman Kreuzhuber
+  cite_as: https://doi.org/10.1101/375345
+  doc: >
+    Kipoi ensemble model without conservation. The used models are - MaxEntScan/3prime,
+    MaxEntScan/5primet, labranchor, HAL
+  tags:
+  - RNA splicing
+  trained_on: >
+    ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign')
+    near the splice sites.
 schema:
-    inputs:
-      shape: (12, )
-      doc: Model predictions of MaxEntscan, HAL and labranchor
-      column_labels: features.txt
-    targets:
-      shape: (2, )
-      doc: >
-        Pathogenicity score. 0th index represents the probability of
-        being benign and 1st index represents the probability for being pathogenic.
+  inputs:
+    column_labels: features.txt
+    doc: Model predictions of MaxEntscan, HAL and labranchor
+    shape: (12, )
+  targets:
+    doc: >
+      Pathogenicity score. 0th index represents the probability of being benign
+      and 1st index represents the probability for being pathogenic.
+    shape: (2, )
+
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/KipoiSplice/4/predictions.h5
+    md5: ce35a540a4e49e386936b7b1d1a9a311

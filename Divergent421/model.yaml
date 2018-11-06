@@ -1,8 +1,12 @@
 type: keras
 args:
-    weights: model_files/model.weights.h5
-    arch: model_files/model.arch.json
-default_dataloader: .
+    weights: 
+        url: https://zenodo.org/record/1452399/files/model.weights.h5?download=1
+        md5: 2a0ae0a29337eb8106d65e1baeda85d1
+    arch: 
+        url: https://zenodo.org/record/1452399/files/model.arch?download=1
+        md5: 6903bcab337a6753ad010f43f208df42
+
 info:
     authors:
         - name: Nancy Xu 
@@ -12,17 +16,30 @@ info:
       Large-scale multi-task convolutional model for predicting chromatin accessility model.
 
       Model was trained genome-wide accessibility measures across 421 cell types.
+      
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+    default_args:
+        auto_resize_len: 1000
+
 dependencies:
     conda:
         - h5py 
     pip:
-        - tensorflow
+        - tensorflow<=1.4.1
         - keras==1.2.2
+        - kipoiseq
+        
 schema:
     inputs:
-        data/genome_data_dir:
-            shape: (1000,4)
-            doc: "1000 base pair sequence of one-hot encoding ACGT"
+        shape: (1000,4)
+        doc: "1000 base pair sequence of one-hot encoding ACGT"
     targets:
         shape: (421,)
         doc: "Binary 0/1 output for chromatin accessibility in the designated range. 0 = inaccessible, 1 = accessible."
+        column_labels: task_names.txt
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/Divergent421/predictions.h5
+    md5: 62da0ac731f323ea54ee6e30c38e0722
+  precision_decimal: 5

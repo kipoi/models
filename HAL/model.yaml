@@ -1,39 +1,45 @@
-type: custom
 args:
-  file: model.py
-  object: HALModel
-default_dataloader: . # relative path to the default dataloader
-info:
-    authors:
-        - name: Alexander B. Rosenberg
-          github: Alex-Rosenberg
-    contributors:
-        - name: Jun Cheng
-          github: s6juncheng
-        - name: Ziga Avsec
-          github: avsecz
-    doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative Splicing from Millions of Random Sequences'
-    cite_as: https://doi.org/10.1016/j.cell.2015.09.054
-    trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes
-    training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
-    tags:
-        - RNA splicing
+  pkl_file:
+    md5: 4db740f6b72345db5303c106ed6aad61
+    url: https://zenodo.org/record/1466088/files/HAL_mer_scores.npz?download=1
+default_dataloader: .
+defined_as: model.HALModel
 dependencies:
-    conda:
-      - numpy
-schema:
-    inputs:
-        name: seq
-        shape: () # TODO  number of k-mers
-        special_type: DNAStringSeq
-        doc: K-mer counts
-    targets:
-        name: psi
-        shape: (1, )
-        doc: "Predicted 3' psi"
+  conda:
+  - numpy
+info:
+  authors:
+  - github: Alex-Rosenberg
+    name: Alexander B. Rosenberg
+  cite_as: https://doi.org/10.1016/j.cell.2015.09.054
+  contributors:
+  - github: s6juncheng
+    name: Jun Cheng
+  - github: avsecz
+    name: Ziga Avsec
+  doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative
+    Splicing from Millions of Random Sequences'
+  tags:
+  - RNA splicing
+  trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes
+  training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
 postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      scoring_functions:
-          - type: diff
+  variant_effects:
+    scoring_functions:
+    - type: diff
+    seq_input:
+    - seq
+schema:
+  inputs:
+    doc: K-mer counts
+    name: seq
+    shape: ()
+    special_type: DNAStringSeq
+  targets:
+    doc: Predicted 3' psi
+    name: psi
+    shape: (1, )
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/HAL/predictions.h5
+    md5: 0d0d397c25e449b02d3e93bc3bcdffb2

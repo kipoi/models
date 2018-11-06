@@ -1,38 +1,45 @@
-type: custom
 args:
-  file: model.py
-  object: Model
-info:
-  authors:
-    - name: Byunghan Lee
-      # TODO - get the github usernames
-    - name: Junghwan Baek
-    - name: Seunghyun Park
-    - name: Sungroh Yoon
-  contributors:
-    - name: Ziga Avsec
-      github: avsecz
-  doc: > 
-    '''deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
-    '''
-  cite_as: 'https://arxiv.org/pdf/1603.09123.pdf'
-  license: GPL-v3
-  tags:
-    - RNA binding
+  arch:
+    md5: ac056615601596bd7ff3b1b62ffac7b6
+    url: https://zenodo.org/record/1466129/files/deepTarget_model?download=1
+  embd_arch:
+    md5: 614926aa9ae69adc0b7f61fd2416840a
+    url: https://zenodo.org/record/1466129/files/deepTarget_embd_model?download=1
+  embd_weights:
+    md5: 9aaef3b90ced8ba5fd5ed4612f801e4a
+    url: https://zenodo.org/record/1466129/files/deepTarget_weights_embd_model.hdf5?download=1
+  weights:
+    md5: 95cac9559e21a908fc6dbd87e985225a
+    url: https://zenodo.org/record/1466129/files/deepTarget_weights_model.hdf5?download=1
+defined_as: model.Model
 dependencies:
   conda:
-    - theano==0.8.2
-    - numpy==1.10.4
+  - theano==0.8.2
+  - numpy==1.10.4
   pip:
-    - keras==0.3.3
+  - keras==0.3.3
+info:
+  authors:
+  - name: Byunghan Lee
+  - name: Junghwan Baek
+  - name: Seunghyun Park
+  - name: Sungroh Yoon
+  cite_as: https://arxiv.org/pdf/1603.09123.pdf
+  contributors:
+  - github: avsecz
+    name: Ziga Avsec
+  doc: deepTarget miRNA target prediction - http://data.snu.ac.kr/pub/deepTarget/
+  license: GPL-v3
+  tags:
+  - RNA binding
 schema:
   inputs:
     mirna_int_seq:
-      shape: (40,)
       doc: 'miRNA query sequences in the integer form: A:1, C:2, G:3, T:4, U:4.'
-    mrna_int_seq:
       shape: (40,)
+    mrna_int_seq:
       doc: 'mRNA target sequence in the integer form: A:1, C:2, G:3, T:4, U:4.'
+      shape: (40,)
   targets:
-    shape: (1,)
     doc: Prediction probability
+    shape: (1,)

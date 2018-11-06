@@ -50,6 +50,9 @@ jobs:
       - run:
           name: run tests
           command: kipoi test-source kipoi --git-range master HEAD
+      - run:
+          name: run tests in common environmnets
+          command: kipoi test-source kipoi --git-range master HEAD --common_env
       - *save_cache
       - *store_artifacts
 
@@ -65,6 +68,9 @@ jobs:
       - run:
           name: run tests
           command: kipoi test-source kipoi --all
+      - run:
+          name: run tests in common environments
+          command: kipoi test-source kipoi --all --common_env
       - *save_cache
       - *store_artifacts
 

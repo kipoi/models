@@ -59,6 +59,8 @@ A correctly formatted VCF file will work with `MMSplice`, however the following 
 Human reference fasta file can be downloaded from ensembl/gencode. Make sure the chromosome names match with the GTF annotation file you use.
 
 
+<!-- We show example with `deltaLogitPSI` model, other models follow the same logic. Kipoi also documented the usage with CLI, python and R [here](http://kipoi.org/models/MMSplice/). Click on the model of interest, for instance, to predict [deltaLogitPsi](http://kipoi.org/models/MMSplice/deltaLogitPSI/). -->
+
 ## Repository
 This repository hosts following models:
 
@@ -76,6 +78,7 @@ This repository hosts following models:
 
 
 ## Publication
+
 Paper: Cheng et al. https://doi.org/10.1101/438986
 
 Package: https://github.com/gagneurlab/MMSplice

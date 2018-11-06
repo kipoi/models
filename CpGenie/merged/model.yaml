@@ -28,7 +28,12 @@ info:
   license: Apache License v2
   trained_on: RRBS (restricted representation bisulfite sequencing) data from ENCODE (https://www.encodeproject.org/)
   training_procedure: RMSprop
-default_dataloader: .
+default_dataloader:
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
+  default_args:
+    auto_resize_len: 1001
+    alphabet_axis: 0
+    dummy_axis: 1
 dependencies:
   conda:
     - python=3.5
@@ -56,3 +61,7 @@ postprocessing:
       seq_input:
         - seq
 
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/CpGenie/merged/predictions.h5
+    md5: bb751d2d68b0675d2bc55a435d12c9ed

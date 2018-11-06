@@ -1,1 +1,0 @@
-wgEncodeOpenChromChipMcf7Pol2AlnRep0_train_gS_11_3_1.model.txt

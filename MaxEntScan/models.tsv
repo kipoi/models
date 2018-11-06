@@ -1,0 +1,3 @@
+model	test_expect_url	test_expect_md5
+5prime	https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MaxEntScan/5prime/predictions.h5	258f3320c4959784ab8552db5b95d420
+3prime	https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MaxEntScan/3prime/predictions.h5	d81813b42fec088fc48e63b635c00916

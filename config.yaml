@@ -2,3 +2,7 @@ test:
   constraints:
     Basenji:
       batch_size: 2
+
+dependencies:
+  pip:
+    kipoi>=0.5.7

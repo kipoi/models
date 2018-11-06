@@ -105,14 +105,23 @@ rule all:
                model=MODELS, gen_file=GENERATE_FILES),
         expand("{model}/tasks.txt", model=MODELS)
 
+rule dataloader_py:
+    input:
+        expand("{model}/dataloader.py", model=MODELS),
+
+rule dataloader_yaml:
+    input:
+        expand("{model}/dataloader.yaml", model=MODELS),        
+
+
 rule git_clone:
     """Clone the FactorNet repo
     """
     # TODO - setup the git clone with a permalink
     output:
-        "FactorNet"
+        "FactorNet/README.md",
     shell:
-        'git clone --depth==1 https://github.com/uci-cbcl/FactorNet.git'
+        'git clone --depth=1 https://github.com/uci-cbcl/FactorNet.git'
 
 rule model_files:
     """Copy over the model files etc for each directory
@@ -229,8 +238,9 @@ rule render_templates:
     input:
         expand("template/template_{gen_file}",
                gen_file=GENERATE_FILES),
-        feat = "FactorNet/models/{tf}/{subtype}/feature.txt",
-        bw = "FactorNet/models/{tf}/{subtype}/bigwig.txt"
+        "FactorNet/README.md",
+        # feat = "FactorNet/models/{tf}/{subtype}/feature.txt",
+        # bw = "FactorNet/models/{tf}/{subtype}/bigwig.txt"
     output:
         ["{tf}/{subtype}/" + gen_file for gen_file in GENERATE_FILES]
     run:
