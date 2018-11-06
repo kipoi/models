@@ -5,4 +5,4 @@ test:
 
 dependencies:
   pip:
-    kipoi>=0.5.7
+    kipoi>=0.5.9
