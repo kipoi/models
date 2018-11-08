@@ -31,7 +31,7 @@ args:
   mappability_file:
     doc: USCS mappability track - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig. by deafult, provide this file with the dataloader, download in background
     example:
-      url: https://github.com/kipoi/models/blob/master/FactorNet/template/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.chr22.bigWig?raw=true
+      url: https://github.com/kipoi/models/blob/92b23ed62956d56eb457488b431fc27550ddbf32/FactorNet/template/dataloader_files/wgEncodeDukeMapabilityUniqueness35bp.chr22.bigWig?raw=true
       md5: 912e1bb77fb67c1a792ac4a05d9416f9
     optional: True
   {%- endif %}
