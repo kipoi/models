@@ -39,3 +39,5 @@ dependencies:
   # - mmsplice
   - numpy>=1.13.3
   - concise>=0.6.6
+  # other 
+  - ipykernel

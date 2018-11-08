@@ -21,3 +21,5 @@ dependencies:
   - tensorflow==1.4.1
   - keras==1.2.2
   - deepcpg==1.0.4
+  # other 
+  - ipykernel
