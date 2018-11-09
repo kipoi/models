@@ -16,7 +16,9 @@ info:
       Large-scale multi-task convolutional model for predicting chromatin accessility model.
 
       Model was trained genome-wide accessibility measures across 421 cell types.
-      
+    tags:
+        - DNA accessibility
+
 default_dataloader:
     defined_as: kipoiseq.dataloaders.SeqIntervalDl
     default_args:
