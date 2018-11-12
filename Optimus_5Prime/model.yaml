@@ -1,0 +1,51 @@
+defined_as: model.PostProcKerasmodel
+args:
+  weights:
+    url: https://zenodo.org/record/1481198/files/retrained_main_MRL_model.hdf5?download=1
+    md5: 373bd0a1defe8e7a45e48162b0f75f09
+  # postprocessing mean and variance
+  postproc_mean: 5.58621521
+  postproc_sd: 1.34657403
+
+default_dataloader: .
+
+dependencies:
+  pip:
+  - tensorflow>=1.0.0
+  - keras>=2.0.4
+
+info:
+  authors:
+  - github: pjsample
+    name: Paul J. Sample
+  cite_as: https://doi.org/10.1101/310375
+  contributors:
+  - github: banwang27
+    name: Ban Wang
+  doc: >
+    Model from Sample et al: Human 5 prime UTR design and variant effect
+    prediction from a massively parallel translation assay.
+  license: MIT
+  tags:
+  - Translation
+
+schema:
+  inputs:
+    name: seq
+    doc: 50nt 5 prime UTR sequence
+    shape: (50, 4)
+    special_type: DNASeq
+  targets:
+    doc: Predicted mean ribosome load
+    shape: (1, )
+
+postprocessing:
+  variant_effects:
+    seq_input:
+      - seq
+
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/individual/5UtrMPRA/expect.human_utrs.h5
+    md5: 4b4ec6150a7183882ab532de26461193
+  precision_decimal: 6
