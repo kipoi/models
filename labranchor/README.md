@@ -1,9 +1,8 @@
-# LSTM Branchpoint Retriever (LaBranchoR)
+## LSTM Branchpoint Retriever (LaBranchoR)
 
-## LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network.
+LaBranchoR predicts RNA splicing branchpoints using a Long Short-Term Memory network.
 
-
-## Description
+### Description
 
 A model to predict branchpoint from sequence by Paggi et al.. 2017(http://bejerano.stanford.edu/labranchor/).
 
