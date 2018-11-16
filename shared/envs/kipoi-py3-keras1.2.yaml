@@ -16,6 +16,7 @@ dependencies:
 - cython
 - pip:
   - kipoi_veff
+  - kipoi_interpret
   - kipoi
   - kipoiseq
   - tensorflow==1.4.1
