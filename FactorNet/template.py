@@ -60,7 +60,7 @@ def parse_context(orig_dir):
             }
 
 
-def write_templates(tf, model_subtype):
+def write_templates(tf, model_subtype, **kwargs):
     """For a particular cell_line:
     - Generate `{cell_line}/model.yaml`
     """
@@ -79,7 +79,8 @@ def write_templates(tf, model_subtype):
            **{"tf": tf,
               "model_subtype": model_subtype,
 
-              }}
+              },
+           **kwargs}
 
     # render the templates
     for gen_file in GENERATE_FILES:

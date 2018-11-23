@@ -1,73 +1,79 @@
+type: keras
 args:
   arch:
-    md5: 53b00322bbd4426c638431ca60fb81af
     url: https://zenodo.org/record/1466084/files/FOXA1-multiTask_DGF-model?download=1
-  image_dim_ordering: tf
+    md5: 53b00322bbd4426c638431ca60fb81af
   weights:
-    md5: 770933e74153db21f1a4a6ec4dc4dfcf
     url: https://zenodo.org/record/1466084/files/FOXA2-multiTask_DGF-best_model.hdf5?download=1
-default_dataloader: .
-dependencies:
-  conda:
-  - python=3.5
-  pip:
-  - tensorflow>=1.4.1
-  - keras>=2.0.4,<2.2.0
+    md5: 770933e74153db21f1a4a6ec4dc4dfcf
+  image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
-  - github: daquang
-    name: Daniel Quang
-  - name: Xiaohui Xie
-  cite_as: https://doi.org/10.1101/151274
+      - name: Daniel Quang
+        github: daquang
+      - name: Xiaohui Xie
   contributors:
-  - github: avsecz
-    name: Ziga Avsec
-  doc: 'FactorNet: a deep learning framework for predicting cell type specific transcription
-    factor binding from nucleotide-resolution sequential data
-
+      - name: Ziga Avsec
+        github: avsecz
+  doc: >
+    FactorNet: a deep learning framework for predicting cell type specific
+    transcription factor binding from nucleotide-resolution sequential data
+  
     Github link - https://github.com/uci-cbcl/FactorNet
 
     Abststract:
-
-    Due to the large numbers of transcription factors (TFs) and cell types, querying
-    binding profiles of all TF/cell type pairs is not experimentally feasible, owing
-    to constraints in time and resources. To address this issue, we developed a convolutional-recurrent
-    neural network model, called FactorNet, to computationally impute the missing
-    binding data. FactorNet trains on binding data from reference cell types to make
-    accurate predictions on testing cell types by leveraging a variety of features,
-    including genomic sequences, genome annotations, gene expression, and single-nucleotide
-    resolution sequential signals, such as DNase I cleavage. To the best of our knowledge,
-    this is the first deep learning method to study the rules governing TF binding
-    at such a fine resolution. With FactorNet, a researcher can perform a single sequencing
-    assay, such as DNase-seq, on a cell type and computationally impute dozens of
-    TF binding profiles. This is an integral step for reconstructing the complex networks
-    underlying gene regulation. While neural networks can be computationally expensive
-    to train, we introduce several novel strategies to significantly reduce the overhead.
-    By visualizing the neural network models, we can interpret how the model predicts
-    binding which in turn reveals additional insights into regulatory grammar. We
-    also investigate the variables that affect cross-cell type predictive performance
-    to explain why the model performs better on some TF/cell types than others, and
-    offer insights to improve upon this field. Our method ranked among the top four
-    teams in the ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction
-    Challenge.
-
-    '
-  tags:
-  - DNA binding
+    
+    Due to the large numbers of transcription factors (TFs) and cell
+    types, querying binding profiles of all TF/cell type pairs is not
+    experimentally feasible, owing to constraints in time and
+    resources. To address this issue, we developed a
+    convolutional-recurrent neural network model, called FactorNet, to
+    computationally impute the missing binding data. FactorNet trains
+    on binding data from reference cell types to make accurate
+    predictions on testing cell types by leveraging a variety of
+    features, including genomic sequences, genome annotations, gene
+    expression, and single-nucleotide resolution sequential signals,
+    such as DNase I cleavage. To the best of our knowledge, this is
+    the first deep learning method to study the rules governing TF
+    binding at such a fine resolution. With FactorNet, a researcher
+    can perform a single sequencing assay, such as DNase-seq, on a
+    cell type and computationally impute dozens of TF binding
+    profiles. This is an integral step for reconstructing the complex
+    networks underlying gene regulation. While neural networks can be
+    computationally expensive to train, we introduce several novel
+    strategies to significantly reduce the overhead. By visualizing
+    the neural network models, we can interpret how the model predicts
+    binding which in turn reveals additional insights into regulatory
+    grammar. We also investigate the variables that affect cross-cell
+    type predictive performance to explain why the model performs
+    better on some TF/cell types than others, and offer insights to
+    improve upon this field. Our method ranked among the top four
+    teams in the ENCODE-DREAM in vivo Transcription Factor Binding
+    Site Prediction Challenge.
   version: 0.1
+  cite_as: https://doi.org/10.1101/151274
+  tags:
+    - DNA binding
+default_dataloader: .
+dependencies:
+  conda:
+    - python=3.5
+  pip:
+    - tensorflow>=1.4.1
+    - keras>=2.0.4,<2.2.0
 schema:
   inputs:
-  - associated_metadata: ranges
-    doc: DNA sequence and other big-wig channels (mappability and DNAseq)
-    name: seq
-    shape: (1002, 5)
-  - associated_metadata: ranges_rc
-    doc: Reverse-complemented DNA sequence and reversed other bigwig channels
-    name: seq_rc
-    shape: (1002, 5)
+    - name: seq
+      shape: (1002, 5)
+      doc: DNA sequence and other big-wig channels (mappability and DNAseq)
+      associated_metadata: ranges
+    - name: seq_rc
+      shape: (1002, 5)
+      doc: Reverse-complemented DNA sequence and reversed other bigwig channels
+      associated_metadata: ranges_rc
   targets:
-    column_labels: tasks.txt
-    doc: TF binding class
     name: is_binding_site
     shape: (19,)
-type: keras
+    doc: TF binding class
+    column_labels: tasks.txt

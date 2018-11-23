@@ -5,6 +5,8 @@ args:
   weights:
     md5: f56962a65ca58fece967473715ce1f38
     url: https://zenodo.org/record/1467114/files/weights.h5?download=1
+  backend: tensorflow
+  image_dim_ordering: tf
 dependencies:
   pip:
   - tensorflow==1.0.0
