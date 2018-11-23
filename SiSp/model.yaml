@@ -21,6 +21,7 @@ info:
     github: LaraUrban
     name: Lara Urban
   cite_as: https://doi.org/10.1101/328138
+  trained_on: Line joxm_1 from single donor in HipSci (Kilpinen 2016) using scM&T-seq. The cassette exons were split into training, validation and test set (60%, 20%, 20%).
   doc: The SiSp model predicts splicing patterns based on a genomic sequence (800bp)
     at the center of the alternative exon of a cassette exon. It takes methylation
     into account by handling methylated cytosine as 5th base, and operates on a single-cell

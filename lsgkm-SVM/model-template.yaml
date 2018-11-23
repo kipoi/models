@@ -12,10 +12,10 @@ info:
     contributors:
         - name: Roman Kreuzhuber
           github: krrome
-    doc: 'lsgkm-SVM model trained on the ENCODE datasets - no sample number limitation as opposed to gkm-SVM publication.'
+    doc: 'lsgkm-SVM model trained on the ENCODE datasets - no sample number limitation as opposed to gkm-SVM publication. Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/. All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19") from the gkmSVM package version 0.79.0. For training all chromosomes except chr8 and chr9 were used.'
     cite_as: https://doi.org/10.1093/bioinformatics/btw142
-    trained_on: 'ENCODE ChIP-seq peaks.'
-    training_procedure: 'Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/. All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19") from the gkmSVM package version 0.79.0. For training all chroomosomes except chr8 and chr9 were used!'
+    trained_on: 'ENCODE ChIP-seq peaks. For training all chromosomes except chr8 and chr9 were used.'
+    training_procedure: 'Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/. All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19") from the gkmSVM package version 0.79.0. For training all chromosomes except chr8 and chr9 were used.'
 dependencies:
     conda:
       - bioconda::ls-gkm=0.0.1

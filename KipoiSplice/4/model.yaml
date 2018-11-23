@@ -20,9 +20,7 @@ info:
     MaxEntScan/5primet, labranchor, HAL
   tags:
   - RNA splicing
-  trained_on: >
-    ClinVar (release 2018-04-29) variants (labelled 'Pathogenic' or 'Benign')
-    near the splice sites.
+  trained_on: "ClinVar (release 2018-04-29) variants in the range [-40nt, 10nt] around the splicing acceptor or variants in the range [-10, 10] nt around the splice donor of a protein coding gene. Only variants labelled 'Pathogenic' or 'Benign' were used. Data from all chromosomes was used for training."
 schema:
   inputs:
     column_labels: features.txt

@@ -19,6 +19,7 @@ info:
         github: jisraeli
   name: DeepBind
   version: 0.1
+  trained_on: "?All chromosomes? Data from protein binding microarrays (Mukherjee et al., 2004), RNAcompete assays (Ray et al., 2009), ChIP-seq (Kharchenko et al., 2008), and HT-SELEX (Jolma et al., 2010)"
   doc: >
     Abstract:
     Knowing the sequence specificities of DNA- and RNA-binding proteins is essential for developing models of the regulatory processes in biological systems and for identifying causal disease variants. Here we show that sequence specificities can be ascertained from experimental data with 'deep learning' techniques, which offer a scalable, flexible and unified computational approach for pattern discovery. Using a diverse array of experimental data and evaluation metrics, we find that deep learning outperforms other state-of-the-art methods, even when training on in vitro data and testing on in vivo data. We call this approach DeepBind and have built a stand-alone software tool that is fully automatic and handles millions of sequences per experiment. Specificities determined by DeepBind are readily visualized as a weighted ensemble of position weight matrices or as a 'mutation map' that indicates how variations affect binding within a specific sequence.

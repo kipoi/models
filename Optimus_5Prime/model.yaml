@@ -25,6 +25,7 @@ info:
   doc: >
     Model from Sample et al: Human 5 prime UTR design and variant effect
     prediction from a massively parallel translation assay.
+  trained_on: "Data from MPRA experiment using eGFP library on HEK293T cells. Trained on  280,000 of the 300,000-member eGFP library. The remaining 20,000 sequences were withheld for testing."
   license: MIT
   tags:
   - Translation
