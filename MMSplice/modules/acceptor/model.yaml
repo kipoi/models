@@ -1,8 +1,11 @@
+
 type: keras
 args:
     weights: 
         url: https://sandbox.zenodo.org/record/248604/files/Acceptor.h5?download=1
         md5: 0ddfe36828d85bf4012e567932efb9e9
+    backend: tensorflow
+    image_dim_ordering: tf
 default_dataloader: . # path to the directory
 info:
     authors:

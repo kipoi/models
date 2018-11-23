@@ -6,6 +6,8 @@ args:
   weights:
     url: {{ args_weights_url }}
     md5: {{ args_weights_md5 }}
+  backend: tensorflow
+  image_dim_ordering: tf
 info:
   authors:
       - name: Haoyang Zeng

@@ -3,6 +3,8 @@ args:
     weights:
         url: https://sandbox.zenodo.org/record/248604/files/Donor.h5?download=1
         md5: f5c8b57f74eaa26eb4cc36e6a5c717ca
+    backend: tensorflow
+    image_dim_ordering: tf
 default_dataloader: . # path to the directory
 info:
     authors:
