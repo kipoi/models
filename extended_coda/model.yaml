@@ -24,7 +24,7 @@ info:
   name: extended CODA
   tags:
   - Histone modification
-  trained_on: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
+  trained_on: "GM12878 (Kasowski et al., 2013), holding out a random 20% subset of the training data for validation."
   training_procedure: Described in https://academic.oup.com/bioinformatics/article/33/14/i225/3953958#100805343
   version: 0.1
 schema:

@@ -9,7 +9,7 @@ info:
           github: s6juncheng
     trained_on: >
       MPRA (Rosenberg 2015), GENCODE annotation 24, ClinVar (release 2018-04-29) 
-      variants (labelled 'Pathogenic' or 'Benign') near the splice sites.
+      variants (labelled 'Pathogenic' or 'Benign') near the splice sites. Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
     doc: >
       Predict splicing variant effect from VCF
     tags:

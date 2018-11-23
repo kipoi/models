@@ -17,11 +17,11 @@ info:
     name: Jun Cheng
   - github: avsecz
     name: Ziga Avsec
-  doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative
+  doc:> 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative
     Splicing from Millions of Random Sequences'
   tags:
   - RNA splicing
-  trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes
+  trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes. Data was split into training and test sets (90%/10% split).
   training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
 postprocessing:
   variant_effects:

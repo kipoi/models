@@ -1,4 +1,4 @@
-type: keras
+defined_as: kipoi.model.KerasModel
 args:
     weights: 
         url: https://zenodo.org/record/1452399/files/model.weights.h5?download=1
@@ -12,10 +12,11 @@ info:
         - name: Nancy Xu 
           github: xnancy
           email: xnancy@stanford.edu
+    trained_on: "Chromosomes 1, 8, and 21 are test set, 9 is validation set, the remaining data is training data."
     doc: >
       Large-scale multi-task convolutional model for predicting chromatin accessility model.
 
-      Model was trained genome-wide accessibility measures across 421 cell types.
+      Model was trained genome-wide accessibility measures across 421 biosamples (cell lines or tissues) from Roadmap and ENCODE.
     tags:
         - DNA accessibility
 
@@ -31,7 +32,7 @@ dependencies:
         - tensorflow<=1.4.1
         - keras==1.2.2
         - kipoiseq
-        
+
 schema:
     inputs:
         shape: (1000,4)

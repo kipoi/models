@@ -20,6 +20,7 @@ info:
     cite_as: https://doi.org/10.1093/bioinformatics/btx727
     trained_on: >
       RBP occupancy peaks measured by eCLIP-seq (Van Nostrand et al., 2016 - https://doi.org/10.1038/nmeth.3810), https://github.com/gagneurlab/Manuscript_Avsec_Bioinformatics_2017
+      4000 training samples, 1000 validation sites, 1000 testing samples.
     training_procedure: Single task training with ADAM
     license: MIT
     tags:

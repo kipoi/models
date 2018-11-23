@@ -23,10 +23,15 @@ info:
   contributors:
   - github: krrome
     name: Roman Kreuzhuber
-  doc: 'This is the extraction of the DNA-part of the a pretrained model by Christof
-    Angermueller
-
-    '
+  trained_on: "Chromosomes 1, 3, 5, 7, 9 and 11 are training set, chromosomes 2, 4, 6, 8, 10 and 12 are test set and the remaining chromosomes are validation set."
+  doc:> "This is the extraction of the DNA-part of the a pretrained model by Christof Angermueller.
+  The DeepCpG models are trained on: scBS-seq-profiled cells contained 18 serum and 12 2i mESCs, which were pre-processed 
+  as described in Smallwood et al. (2014), with reads mapped to the GRCm38 mouse genome. Two serum cells 
+  (RSC27_4, RSC27_7) were excluded since their methylation pattern deviated strongly from the remaining serum cells. scRRBS-seq-profiled 
+  cells were downloaded from the Gene Expression Omnibus (GEO; GSE65364) and contained 25 human HCCs, six human 
+  heptoplastoma-derived cells (HepG2) and six mESCs. Following Hou et al. (2013), one HCC was excluded (Ca26) and the analysis was 
+  restricted to CpG sites that were covered by at least four reads. For HCCs and HepG2 cells, the position of 
+  CpG sites was lifted from GRCh37 to GRCh38, and for mESC cells from NCBIM37 to GRCm38, using the liftOver tool from the UCSC Genome Browser."
   name: DeepCpG
   tags:
   - DNA methylation
