@@ -113,6 +113,9 @@ rule dataloader_yaml:
     input:
         expand("{model}/dataloader.yaml", model=MODELS),        
 
+rule model_yaml:
+    input:
+        expand("{model}/model.yaml", model=MODELS),
 
 rule git_clone:
     """Clone the FactorNet repo

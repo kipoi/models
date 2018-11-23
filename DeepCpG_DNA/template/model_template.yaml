@@ -2,6 +2,8 @@ type: keras
 args:
   arch: model_files/model.json
   weights: model_files/model_weights.h5
+  backend: tensorflow
+  image_dim_ordering: tf
 info:
   authors:
       - name: Christof Angermueller

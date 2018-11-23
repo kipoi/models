@@ -6,6 +6,8 @@ args:
   weights:
     md5: 5a1bd295dc2aa736c136cd8ec2ccdab0
     url: https://zenodo.org/record/1466079/files/Hou2016_HCC_dna-model_weights.h5?download=1
+  backend: tensorflow
+  image_dim_ordering: tf
 default_dataloader: .
 dependencies:
   conda:

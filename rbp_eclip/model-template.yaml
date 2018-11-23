@@ -4,7 +4,8 @@ args:
         url: {{ args_weights_url }}
         md5: {{ args_weights_md5 }}
     custom_objects: custom_keras_objects.py
-
+    backend: tensorflow
+    image_dim_ordering: tf
 default_dataloader: . # relative path to the default dataloader
 
 info:

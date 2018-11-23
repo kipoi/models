@@ -11,6 +11,8 @@ args:
   weights:
     md5: 95cac9559e21a908fc6dbd87e985225a
     url: https://zenodo.org/record/1466129/files/deepTarget_weights_model.hdf5?download=1
+  backend: theano
+  image_dim_ordering: th
 defined_as: model.Model
 dependencies:
   conda:

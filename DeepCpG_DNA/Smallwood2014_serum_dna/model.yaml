@@ -5,6 +5,8 @@ args:
   weights:
     md5: 1600148e50d6d21bb59585f6074729c2
     url: https://zenodo.org/record/1466079/files/Smallwood2014_serum_dna-model_weights.h5?download=1
+  backend: tensorflow
+  image_dim_ordering: tf
 default_dataloader: .
 dependencies:
   conda:

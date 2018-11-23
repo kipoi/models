@@ -2,10 +2,11 @@ args:
   arch:
     md5: 9b0c76ff3d435935380f929c6a9daf07
     url: https://zenodo.org/record/1466084/files/CEBPB-meta_Unique35_DGF-model?download=1
-  image_dim_ordering: tf
   weights:
     md5: e6f2b4ae470f3b70fc3e646fd3374101
     url: https://zenodo.org/record/1466084/files/MAFK-meta_1_Unique35_DGF-best_model.hdf5?download=1
+  backend: tensorflow
+  image_dim_ordering: tf
 default_dataloader: .
 dependencies:
   conda:
