@@ -27,12 +27,12 @@ From: continuumio/miniconda3:4.5.11
     conda config --add channels conda-forge
 
     # install kipoi from the master branch for now
-    # TODO  - use a specific tag for the build
+    # TODO - use a specific tag for the build
     pip install git+https://github.com/kipoi/kipoi
 
     # Create all the environments
     kipoi ls # list all environments to load the remote repo
-    kipoi env create all
+    kipoi env create all --vep
 
     # add write-permission to anyone
     chmod go+r /kipoi/envs.json
