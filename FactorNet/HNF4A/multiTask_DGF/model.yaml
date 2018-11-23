@@ -1,9 +1,13 @@
 type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/best_model.hdf5
-  backend: tensorflow
+  arch:
+    url: https://zenodo.org/record/1466084/files/FOXA1-multiTask_DGF-model?download=1
+    md5: 53b00322bbd4426c638431ca60fb81af
+  weights:
+    url: https://zenodo.org/record/1466084/files/HNF4A-multiTask_DGF-best_model.hdf5?download=1
+    md5: 742c6106c5f2284b928f4a10d32a3907
   image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
       - name: Daniel Quang

@@ -1,9 +1,13 @@
 type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/best_model.hdf5
-  backend: tensorflow
+  arch:
+    url: https://zenodo.org/record/1466084/files/CTCF-metaGENCODE_RNAseq_Unique35_DGF-model?download=1
+    md5: 5813881ff24f260a1f0d31fa1116d136
+  weights:
+    url: https://zenodo.org/record/1466084/files/CTCF-metaGENCODE_RNAseq_Unique35_DGF-best_model.hdf5?download=1
+    md5: 35dd716597748eb2826f09ec61e3be74
   image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
       - name: Daniel Quang
@@ -76,3 +80,7 @@ schema:
     shape: (1,)
     doc: TF binding class
     column_labels: tasks.txt
+test:
+  expect:
+    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/FactorNet/CTCF/metaGENCODE_RNAseq_Unique35_DGF/predictions.h5
+    md5: c168e8b807823c522144cc28b024c9f0

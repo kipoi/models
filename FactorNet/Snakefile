@@ -111,7 +111,7 @@ rule dataloader_py:
 
 rule dataloader_yaml:
     input:
-        expand("{model}/dataloader.yaml", model=MODELS),        
+        expand("{model}/dataloader.yaml", model=MODELS),
 
 rule model_yaml:
     input:
@@ -215,11 +215,11 @@ rule softlink_example_files:
     input:
         fa = "template/example_files/hg38_chr22.fa",
         intervals = "template/example_files/intervals.bed",
-	bw = "template/example_files/dnase_synth.chr22.bw"
+        bw = "template/example_files/dnase_synth.chr22.bw"
     output:
         fa = "{model}/example_files/hg38_chr22.fa",
         intervals = "{model}/example_files/intervals.bed",
-	bw = "{model}/example_files/dnase_synth.chr22.bw"
+        bw = "{model}/example_files/dnase_synth.chr22.bw"
     shell:
         """
         ln -srf {input.fa} {output.fa}
@@ -248,5 +248,27 @@ rule render_templates:
         ["{tf}/{subtype}/" + gen_file for gen_file in GENERATE_FILES]
     run:
         from template import write_templates
+        import pandas as pd
+        df = pd.read_table("models.tsv")
+
+        m = df[df.model == os.path.join(wildcards.tf, wildcards.subtype)].iloc[0]
         write_templates(tf=wildcards.tf,
-                        model_subtype=wildcards.subtype)
+                        model_subtype=wildcards.subtype,
+                        **dict(m))
+
+
+def write_models_tsv():
+    import kipoi
+    from collections import OrderedDict
+    import pandas as pd
+    l = []
+    for m in MODELS:
+        md = kipoi.get_model_descr("FactorNet/" + m)
+        l.append(OrderedDict([
+            ("model", m),
+            ("arch_url", md.args['arch'].url),
+            ("arch_md5", md.args['arch'].md5),
+            ("weights_url", md.args['weights'].url),
+            ("weights_md5", md.args['weights'].md5)
+        ]))
+    pd.DataFrame(l).to_csv("models.tsv", sep='\t', index=False)

@@ -1,9 +1,13 @@
 type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/best_model.hdf5
-  backend: tensorflow
+  arch:
+    url: https://zenodo.org/record/1466084/files/REST-GENCODE_Unique35_DGF-model?download=1
+    md5: 09863776856efa68f2619e8ec081ec84
+  weights:
+    url: https://zenodo.org/record/1466084/files/REST-GENCODE_Unique35_DGF-best_model.hdf5?download=1
+    md5: f1c107faf5a8fc04f7182d5c5968bb84
   image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
       - name: Daniel Quang

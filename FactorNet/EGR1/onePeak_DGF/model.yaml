@@ -1,9 +1,13 @@
 type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/best_model.hdf5
-  backend: tensorflow
+  arch:
+    url: https://zenodo.org/record/1466084/files/EGR1-onePeak_DGF-model?download=1
+    md5: 3a4aeb9140b603602f8ff31d6d767f49
+  weights:
+    url: https://zenodo.org/record/1466084/files/EGR1-onePeak_DGF-best_model.hdf5?download=1
+    md5: 4a34a931cea0656f7e51ea5cdd33c69f
   image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
       - name: Daniel Quang

@@ -1,9 +1,13 @@
 type: keras
 args:
-  arch: model_files/model.json
-  weights: model_files/best_model.hdf5
-  backend: tensorflow
+  arch:
+    url: https://zenodo.org/record/1466084/files/GABPA-metaGENCODE_RNAseq_Unique35_DGF-model?download=1
+    md5: 4a843b4e32b60af1af73de46fbc29342
+  weights:
+    url: https://zenodo.org/record/1466084/files/GABPA-metaGENCODE_RNAseq_Unique35_DGF-best_model.hdf5?download=1
+    md5: bbf19aca094eefc95df72ee74cb873cb
   image_dim_ordering: tf
+  backend: tensorflow
 info:
   authors:
       - name: Daniel Quang

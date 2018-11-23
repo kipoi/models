@@ -10,7 +10,6 @@ from kipoi.model import BaseModel
 from keras.models import model_from_json
 import bio_utils
 import keras.backend as K
-K.set_image_dim_ordering("th")
 
 
 class Model(BaseModel):
