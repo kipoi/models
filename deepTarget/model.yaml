@@ -25,6 +25,7 @@ info:
   - name: Seunghyun Park
   - name: Sungroh Yoon
   cite_as: https://arxiv.org/pdf/1603.09123.pdf
+  trained_on: "4,735 positive and 1,225 negative miRNA-mRNA interactions (Menor et al., 2014)"
   contributors:
   - github: avsecz
     name: Ziga Avsec
