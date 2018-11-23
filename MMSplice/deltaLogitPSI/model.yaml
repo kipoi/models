@@ -8,7 +8,7 @@ info:
         - name: Jun Cheng
           github: s6juncheng
     trained_on: >
-      MPRA (Rosenberg 2015), GENCODE annotation 24, Vex-seq (Adamson et al., 2018)
+      MPRA (Rosenberg 2015), GENCODE annotation 24, Vex-seq (Adamson et al., 2018). Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
     doc: >
       Predict splicing variant effect (delta logit PSI) from VCF
     tags:

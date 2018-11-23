@@ -13,6 +13,7 @@ info:
         github: avsecz
   cite_as: https://doi.org/10.1093/nar/gkv1249
   version: 0.1
+  trained_on: Data from multiple sources including ENCODE ChIPseq, HT-SELEX datasets, etc. 204 to 1000 called peaks used for training.
   doc: >
     '''Simple PWM-scanning model
 

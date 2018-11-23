@@ -13,7 +13,7 @@ info:
           email: s6juncheng@gmail.com
     doc: Intron 5' module of MMSplice model
     trained_on: >
-      MPRA (Rosenberg 2015) intronic random sequence.
+      MPRA (Rosenberg 2015) intronic random sequence. Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
     tags:
         - RNA splicing
 dependencies:

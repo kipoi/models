@@ -14,7 +14,7 @@ info:
           email: s6juncheng@gmail.com
     doc: Acceptor module of MMSplice model
     trained_on: >
-      GENCODE annotation 24, classify annotated acceptor site and random sequence.
+      GENCODE annotation 24, classify annotated acceptor site and random sequence. Chromosome 1 to chromosome 8 were provided as training data. The remaining chromosomes 9 to 22 and chromosome X were held out.
     tags:
         - RNA splicing
 dependencies:
