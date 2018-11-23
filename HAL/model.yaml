@@ -17,7 +17,7 @@ info:
     name: Jun Cheng
   - github: avsecz
     name: Ziga Avsec
-  doc:> 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative
+  doc: 'Model from Rosenberg et al: Learning the Sequence Determinants of Alternative
     Splicing from Millions of Random Sequences'
   tags:
   - RNA splicing
