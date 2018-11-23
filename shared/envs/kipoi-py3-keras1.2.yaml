@@ -6,6 +6,7 @@ channels:
 dependencies:
 - pyvcf
 - cyvcf2
+- bedtools
 - pybedtools
 - pysam
 - python=3.5
