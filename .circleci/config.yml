@@ -67,7 +67,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --all
+          command: kipoi test-source kipoi --all --clean_env
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
