@@ -67,7 +67,8 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --all --clean_env
+          # Use  --clean_env to remove the environment of each model
+          command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
