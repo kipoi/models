@@ -74,6 +74,15 @@ jobs:
           command: kipoi test-source kipoi --all --common_env
       - *save_cache
       - *store_artifacts
+  date_tag:
+    <<: *defaults
+    steps:
+      - run:
+          name: Tag and push
+          command: |
+            tag=$(date "+%Y-%m-%d")
+            git tag $tag
+            git push origin $tag
 
 workflows:
   version: 2
@@ -108,3 +117,15 @@ workflows:
                  - master
      jobs:
        - test_all_models
+
+
+  weekly-tag:
+     triggers:
+       - schedule:
+           cron: "0 0 * * 0"
+           filters:
+             branches:
+               only:
+                 - master
+     jobs:
+       - date_tag
