@@ -80,9 +80,10 @@ jobs:
       - run:
           name: Tag and push
           command: |
-            tag=$(date "+%Y-%m-%d")
-            git tag $tag
-            git push origin $tag
+            VERSION=$(date "+%Y-%m-%d")
+            API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
+            curl --data "$API_JSON" https://api.github.com/repos/kipoi/models/releases?access_token=$GITHUB_TOKEN
+
 
 workflows:
   version: 2
