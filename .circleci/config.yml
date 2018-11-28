@@ -74,7 +74,7 @@ jobs:
           command: kipoi test-source kipoi --all --common_env
       - *save_cache
       - *store_artifacts
-  date_tag:
+  date_release:
     <<: *defaults
     steps:
       - run:
@@ -129,4 +129,4 @@ workflows:
                only:
                  - master
      jobs:
-       - date_tag
+       - date_release
