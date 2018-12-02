@@ -31,6 +31,7 @@ model_sources:
         type: git-lfs
         remote_url: git@github.com:kipoi/models.git
         local_path: ~/.kipoi/models/
+        auto_update: True
 ```
 
 If you wish to keep the models stored elsewhere, edit the `local_path` accordingly.
