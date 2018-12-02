@@ -17,7 +17,7 @@ info:
         github: krrome
   name: CpGenie
   version: 0.1
-  trained_on: "Samples from Chromosome 1–9 and 14–22 were used for training, 12–13 were used for hyper-parameter tuning and model selection, and the rest of the data were held-out for testing. In the analysis of variant-prediction, only meQTL and allele-specific methylation data from the held-out chromosome 10 and 11 were used. The 50 RRBS datasets of immortal cell lines, including GM12878, and the WGBS dataset of GM12878 were downloaded from ENCODE website (https://www.encodeproject.org/)."
+  trained_on: "Samples from Chromosome 1-9 and 14-22 were used for training, 12-13 were used for hyper-parameter tuning and model selection, and the rest of the data were held-out for testing. In the analysis of variant-prediction, only meQTL and allele-specific methylation data from the held-out chromosome 10 and 11 were used. The 50 RRBS datasets of immortal cell lines, including GM12878, and the WGBS dataset of GM12878 were downloaded from ENCODE website (https://www.encodeproject.org/)."
   doc: >
     Abstract:
     DNA methylation plays a crucial role in the establishment of tissue-specific
