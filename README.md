@@ -14,7 +14,7 @@ pip install kipoi
 2. Run `kipoi ls`. This will checkout the `kipoi/models` repo to `~/.kipoi/models`)
 
 
-3. See also our [Getting started](https://kipoi.org/docs/contributing/01_Getting_started/) on contributing models and [docs/tutorials/contributing/models](https://kipoi.org/docs/tutorials/contributing_models/) for more information.
+3. Follow the instructions on [contributing/Getting started](https://kipoi.org/docs/contributing/01_Getting_started/).
 
 ### Using models (to predict, score variants, build new models)
 
