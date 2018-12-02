@@ -8,13 +8,15 @@ info:
   authors:
       - name: Jian Zhou
       - name: Olga G. Troyanskaya
-  license: TODO
+  license: Non-comercial
 
   doc: >
+
     TODO
+    add model description
+    
   cite_as: https://doi.org/10.1038/s41588-018-0160-6
-  trained_on: TODO
-  training_procedure: TODO
+  trained_on: TODO - which chromosomes were in the validation set and which test?
   tags:
     - Histone modification
     - DNA binding
@@ -26,6 +28,7 @@ default_dataloader:
     auto_resize_len: 2000
     alphabet_axis: 0
     dummy_axis: 2
+    alphabet: AGCT
     dtype: np.float32
 
 dependencies:
