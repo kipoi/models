@@ -2,56 +2,19 @@
 
 [![CircleCI](https://circleci.com/gh/kipoi/models.svg?style=svg&circle-token=ee92a92acb288e17399660e66603f700737e7382)](https://circleci.com/gh/kipoi/models) [![DOI](https://zenodo.org/badge/103403966.svg)](https://zenodo.org/badge/latestdoi/103403966)
 
-This repository hosts predictive models for genomics and serves as a model source for [Kipoi](https://github.com/kipoi/kipoi). Each folder containing the following files is considered to be a single model:
-
-```
-├── dataloader.py     # implements the dataloader
-├── dataloader.yaml   # describes the dataloader
-├── dataloader_files/      #/ files required by the dataloader
-│   └── ...
-├── model.yaml        # describes the model
-├── model_files/           #/ files required by the model (like weights.h5 and arch.json)
-│   └── ...
-└── example_files/         #/ small example files used to test the model
-    └── ...
-```
-
-Folders named `*_files` are tracked by Git Large File Storage (LFS). New models are added by simply submitting a pull-request to <https://github.com/kipoi/models>.
+This repository hosts predictive models for genomics and serves as a model source for [Kipoi](https://github.com/kipoi/kipoi). Each folder containing `model.yaml` is considered to be a single model.
 
 ### Contributing models
 
-#### 1. Install Kipoi
+1. Install kipoi:
+```shell
+pip install kipoi
+```
 
-1. Install git-lfs
-    - `conda install -c conda-forge git-lfs && git lfs install` 
-      - alternatively see <https://git-lfs.github.com/>
-2. Install kipoi
-    - `pip install kipoi`
-3. Run `kipoi ls` (this will checkout the `kipoi/models` repo to `~/.kipoi/models`)
+2. Run `kipoi ls`. This will checkout the `kipoi/models` repo to `~/.kipoi/models`)
 
-#### 2. Add the model
 
-0. `cd ~/.kipoi/models`
-1. [Write the model](#how-to-write-the-model): Create a new folder `<my new model>` containing all the required files
-    - Option 1: Copy the existing model: `cp -R <existing model> <my new model>` & edit the copied files
-	- Option 2: Run `kipoi init`, answer the questions & edit the created files
-	- Option 3: `mkdir <my new model>` & write all the files from scratch
-2. [Test the model](#how-to-test-the-model)
-    - Step 1: `kipoi test ~/.kipoi/models/my_new_model`
-	- Step 2: `kipoi test-source kipoi --all -k my_new_model`
-3. Commit your changes
-    - `cd ~/.kipoi/models && git commit -m "Added <my new model>"`
-
-#### 3. Submit the pull-request
-
-1. [Fork](https://guides.github.com/activities/forking/) the <https://github.com/kipoi/models> repo on github (click on the Fork button)
-2. Add your fork as a git remote to `~/.kipoi/models`
-    - `cd ~/.kipoi/models && git remote add fork https://github.com/<username>/models.git`
-3. Push to your fork
-    - `git push fork master`
-4. Submit a pull-request (click the [New pull request](https://help.github.com/articles/creating-a-pull-request/) button on your github fork - `https://github.com/<username>/models>`)
-
-See [docs/contributing getting started](http://kipoi.org/docs/contributing/01_Getting_started/) and [docs/tutorials/contributing/models](http://kipoi.org/docs/tutorials/contributing_models/) for more information.
+3. See also our [Getting started](https://kipoi.org/docs/contributing/01_Getting_started/) on contributing models and [docs/tutorials/contributing/models](https://kipoi.org/docs/tutorials/contributing_models/) for more information.
 
 ### Using models (to predict, score variants, build new models)
 
