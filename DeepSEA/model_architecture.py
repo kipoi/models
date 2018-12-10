@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.legacy.nn as lnn
 import numpy as np
 from functools import reduce
 from torch.autograd import Variable
