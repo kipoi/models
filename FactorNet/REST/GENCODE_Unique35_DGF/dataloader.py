@@ -29,9 +29,9 @@ def download_gencode_dir(output_dir):
     """Download all the required gencode files
     """
     makedir_exist_ok(output_dir)
-    url_template = ("https://github.com/kipoi/models/blob/"
-                    "7648d3fd57def50934835b52acadd26bcaaa275c/FactorNet/"
-                    "template/dataloader_files/gencode_features/{}?raw=true")
+
+    url_template = ("https://s3.eu-central-1.amazonaws.com/kipoi-models/"
+                    "dataloader_files/FactorNet/dataloader_files/gencode_features/{}")
 
     # url_template = "https://github.com/uci-cbcl/FactorNet/blob/master/resources/{}?raw=true"
     fnames = [('cpgisland.bed.gz', 'ac7dc007d7019c05adb7a331d1d6721d'),
@@ -87,8 +87,6 @@ class SeqDataset(Dataset):
 
         self.bt = BT(intervals_file)
 
-
-
         # Fasta
         self.fasta_file = fasta_file
         self.fasta_extractor = None  # initialize later
@@ -97,7 +95,7 @@ class SeqDataset(Dataset):
         self.dnase_extractor = None
         # mappability
         if mappability_file is None:
-        # download the mappability file if not existing
+            # download the mappability file if not existing
             common_dl_dir = os.path.join(this_dir, "../../template/downloaded/dataloader_files")
             makedir_exist_ok(common_dl_dir)
             rf = RemoteFile(url="http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeMapability/wgEncodeDukeMapabilityUniqueness35bp.bigWig",
