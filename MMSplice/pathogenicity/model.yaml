@@ -19,6 +19,7 @@ dependencies:
       - numpy
     pip:
       - scikit-learn
+      - mmsplice>=0.2.7
 schema:
     inputs:
         shape: (10, )
