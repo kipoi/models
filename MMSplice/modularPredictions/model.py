@@ -1,9 +1,8 @@
 from kipoi.model import BaseModel
-import sklearn
-import numpy as np
 
-# Directly give the modular predictions
+
 class MMSpliceModel(BaseModel):
-    
+    '''Directly give the modular predictions'''
+
     def predict_on_batch(self, inputs):
-    	return inputs
+        return inputs
