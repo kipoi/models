@@ -18,7 +18,7 @@ defined_as: dataloader.py::dataset
 dependencies:
   conda:
   - biopython>=1.66
-  - scikit-learn>=0.17.1
+  - scikit-learn>=0.18.2
   - theano==0.8.2
   - numpy>=1.12.0
   pip:
