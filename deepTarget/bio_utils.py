@@ -20,7 +20,7 @@ import itertools
 import numpy as np
 
 from keras.preprocessing import sequence
-from sklearn.cross_validation import KFold
+from sklearn.model_selection import KFold 
 
 
 # definitions for candiate lists
