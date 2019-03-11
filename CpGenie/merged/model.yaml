@@ -38,8 +38,7 @@ dependencies:
   conda:
     - python=3.5
     - h5py
-  pip:
-    - tensorflow
+    - tensorflow>=1.10.0
     - keras==1.2.2
 schema:
   inputs:
@@ -65,5 +64,5 @@ test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/CpGenie/merged/predictions.h5
     md5: bb751d2d68b0675d2bc55a435d12c9ed
-  precision_decimal: 6
+  precision_decimal: 5
 
