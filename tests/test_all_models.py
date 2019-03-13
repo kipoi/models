@@ -11,9 +11,9 @@ import pytest
 import subprocess
 import kipoi
 import logging
-from kipoi.conda import get_kipoi_bin, env_exists, remove_env
+from kipoi_conda import get_kipoi_bin, env_exists, remove_env
 from kipoi.cli.env import conda_env_name
-from kipoi.utils import list_files_recursively, read_txt
+from kipoi_utils.utils import list_files_recursively, read_txt
 
 
 def models_to_test(src):
