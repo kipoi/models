@@ -41,7 +41,6 @@ dependencies:
   pip:
   - pyvcf
   - intervaltree
-  - deepdish
   - joblib
   - scikit-learn
   - sklearn-pandas
