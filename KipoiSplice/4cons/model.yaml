@@ -8,7 +8,7 @@ default_dataloader: .
 dependencies:
   pip:
   - scikit-learn
-  - kipoi # is this really needed?
+  - kipoi
 info:
   authors:
   - github: avsecz
