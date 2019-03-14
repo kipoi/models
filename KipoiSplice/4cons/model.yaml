@@ -9,6 +9,7 @@ dependencies:
   pip:
   - scikit-learn
   - kipoi
+  - h5py
 info:
   authors:
   - github: avsecz
