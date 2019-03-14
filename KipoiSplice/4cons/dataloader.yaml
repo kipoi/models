@@ -37,6 +37,7 @@ dependencies:
   - bioconda::cyvcf2
   - pandas
   - numpy
+  - h5py
   - python=3.5
   pip:
   - pyvcf
