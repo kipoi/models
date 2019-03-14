@@ -6,10 +6,11 @@ args:
   predict_method: predict_proba
 default_dataloader: .
 dependencies:
+  conda:
+  - h5py
   pip:
   - scikit-learn
   - kipoi
-  - h5py
 info:
   authors:
   - github: avsecz
