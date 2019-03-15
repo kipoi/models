@@ -86,7 +86,7 @@ jobs:
           command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
-          command: 
+          command: kipoi test-source kipoi --all --common_env
       - *save_cache
       - *store_artifacts
 
