@@ -50,6 +50,7 @@ jobs:
           name: debug_deep_sea
           command: |
             git clone https://github.com/kipoi/kipoi
+            pip install kipoiseq
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             kipoi test --batch_size=4 --source kipoi DeepSEA/predict
@@ -90,6 +91,7 @@ jobs:
           name: debug_deep_sea
           command: |
             git clone https://github.com/kipoi/kipoi
+            pip install kipoiseq
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             kipoi test --batch_size=4 --source kipoi DeepSEA/predict
