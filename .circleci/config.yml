@@ -47,6 +47,12 @@ jobs:
       - checkout
       - *setup
       - run:
+          name: debug_deep_sea
+          command: |
+            conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
+            source activate kipoi-py3-keras2
+            kipoi test --batch_size=4 --source kipoi DeepSEA/predict
+      - run:
           name: run tests
           command: kipoi test-source kipoi --git-range master HEAD
       - run:
