@@ -53,7 +53,7 @@ jobs:
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             pip install kipoiseq
-            pip install git+https://github.com/DerThorsten/kipoi@verbose
+            pip install --ignore-installed git+https://github.com/DerThorsten/kipoi@verbose
       - run:
           name: debug_deep_sea_b
           command: |
@@ -99,7 +99,7 @@ jobs:
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             pip install kipoiseq
-            pip install git+https://github.com/DerThorsten/kipoi@verbose
+            pip install --ignore-installed git+https://github.com/DerThorsten/kipoi@verbose
       - run:
           name: debug_deep_sea_b
           command: |
