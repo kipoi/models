@@ -47,13 +47,18 @@ jobs:
       - checkout
       - *setup
       - run:
-          name: debug_deep_sea
+          name: debug_deep_sea_a
           command: |
             git clone https://github.com/kipoi/kipoi
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             pip install kipoiseq
             pip install git+https://github.com/DerThorsten/kipoi@verbose
+            kipoi test --batch_size=4 --source kipoi DeepSEA/predict
+      - run:
+          name: debug_deep_sea_b
+          command: |
+            source activate kipoi-py3-keras2
             kipoi test --batch_size=4 --source kipoi DeepSEA/predict
       - run:
           name: run tests
@@ -89,13 +94,18 @@ jobs:
       - checkout
       - *setup
       - run:
-          name: debug_deep_sea
+          name: debug_deep_sea_a
           command: |
             git clone https://github.com/kipoi/kipoi
             conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
             source activate kipoi-py3-keras2
             pip install kipoiseq
             pip install git+https://github.com/DerThorsten/kipoi@verbose
+            kipoi test --batch_size=4 --source kipoi DeepSEA/predict
+      - run:
+          name: debug_deep_sea_b
+          command: |
+            source activate kipoi-py3-keras2
             kipoi test --batch_size=4 --source kipoi DeepSEA/predict
       - run:
           name: run tests
