@@ -37,7 +37,6 @@ variables:
       destination: test-reports
 
 jobs:
-
   # test only the newly added model
   test_new_models:
     <<: *defaults
@@ -81,12 +80,19 @@ jobs:
       - checkout
       - *setup
       - run:
+          name: debug_deep_sea
+          command: |
+            conda env create -f kipoi/example/models/shared/envs/kipoi-py3-keras2.yaml 
+            source activate kipoi-py3-keras2
+            kipoi test --batch_size=4 --source kipoi DeepSEA/predict
+      - run:
           name: run tests
           # Use  --clean_env to remove the environment of each model
           command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
+
       - *save_cache
       - *store_artifacts
   date_release:

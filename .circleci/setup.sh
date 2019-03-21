@@ -47,7 +47,7 @@ echo "Installing Kipoi."
 # install kipoi and others from the master branch for now
 pip install git+https://github.com/kipoi/kipoi-utils
 pip install git+https://github.com/kipoi/kipoi-conda
-pip install git+https://github.com/kipoi/kipoi
+pip install git+https://github.com/DerThorsten/kipoi@verbose
 # pip install kipoi
 
 # fi
