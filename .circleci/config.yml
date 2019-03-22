@@ -56,21 +56,6 @@ jobs:
       - *save_cache
       - *store_artifacts
 
-  # test only the newly added model
-  test_new_models_shared_env:
-    <<: *defaults
-    steps:
-      - *install_sys_deps
-      - *install_gitlfs
-      - *restore_cache
-      - checkout
-      - *setup
-      - run:
-          name: run tests in common environmnets
-          command: kipoi test-source kipoi --git-range master HEAD --common_env
-      - *save_cache
-      - *store_artifacts
-
   # test all models in the repo
   test_all_models:
     <<: *defaults
@@ -112,14 +97,6 @@ workflows:
                ignore:
                  - master
                  - test_all
-  test-shared-new-branch:
-    jobs:
-       - test_new_models_shared_env:
-           filters:
-             branches:
-               only:
-                 - test_new_shared
-
   test-all-branch:
      jobs:
        - test_all_models:
