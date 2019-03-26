@@ -103,6 +103,7 @@ workflows:
            filters:
              branches:
                only:
+                 - master
                  - test_all
 
   # workflow for testing all the models
@@ -110,7 +111,7 @@ workflows:
   kipoi-nightly-test:
      triggers:
        - schedule:
-           cron: "0 * * * *"
+           cron: "0 0 * * *"
            filters:
              branches:
                only:
