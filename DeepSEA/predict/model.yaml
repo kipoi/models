@@ -15,7 +15,6 @@ info:
   name: DeepSEA
   version: 0.94
   license: CC-BY 3.0
-
   doc: >
     This CNN is based on the DeepSEA model from Zhou and Troyanskaya (2015).
     The model has been converted to a pytorch model on a modified version of
