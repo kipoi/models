@@ -3,7 +3,7 @@ version: 2
 variables:
   defaults: &defaults
     docker:
-      - image: continuumio/miniconda3:4.3.14
+      - image: continuumio/miniconda3:4.5.12
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
