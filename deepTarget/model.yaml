@@ -15,7 +15,7 @@ defined_as: model.Model
 dependencies:
   conda:
   - theano==0.8.2
-  - numpy==1.10.4
+  - numpy==1.12.0
   pip:
   - keras==0.3.3
 info:

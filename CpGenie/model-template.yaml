@@ -48,10 +48,8 @@ default_dataloader:
     dummy_axis: 1
 dependencies:
   conda:
-    - python=3.5
     - h5py
-  pip:
-    - tensorflow
+    - tensorflow>=1.10.0
     - keras==1.2.2
 schema:
   inputs:
@@ -82,4 +80,5 @@ test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/CpGenie/{{ model }}/predictions.h5
     md5: 3727f6763f5c8cc2f8a40889c84cf123
+  precision_decimal: 6
 {% endif %}
