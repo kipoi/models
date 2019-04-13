@@ -15,11 +15,18 @@ dependencies:
       - numpy     
 info: # General information about the dataloader
     authors: 
-        - name: Ritambhara Singh, Jack Lanchantin, Arshdeep Sekhon, Yanjun Qi
+        - name: Ritambhara Singh
+          github: rs3zz
+        - name: Jack Lanchantin
           github: jacklanchantin
           email: jjl5sw@virginia.edu
+        - name: Arshdeep Sekhon
+          github: ArshdeepSekhon
+        - name: Yanjun Qi
+          github: qiyanjun
     contributors:
         - name: Jeffrey Yoo
+        - github: jeffreyyoo
     doc: "Dataloader for Gene Expression Prediction"
     cite_as: https://doi.org:/10.1101/329334 
     trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
