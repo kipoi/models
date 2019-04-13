@@ -9,11 +9,18 @@ default_dataloader: ..  # path to the dataloader directory. Or to the dataloader
 
 info: # General information about the model
     authors: 
-        - name: Ritambhara Singh, Jack Lanchantin, Arshdeep Sekhon, Yanjun Qi
+        - name: Ritambhara Singh
+          github: rs3zz
+        - name: Jack Lanchantin
           github: jacklanchantin
           email: jjl5sw@virginia.edu
+        - name: Arshdeep Sekhon
+          github: ArshdeepSekhon
+        - name: Yanjun Qi
+          github: qiyanjun
     contributors:
         - name: Jeffrey Yoo
+        - github: jeffreyyoo
     doc: Gene Expression Prediction
     cite_as: https://doi.org:/10.1101/329334 
     trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
