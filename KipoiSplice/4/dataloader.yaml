@@ -32,12 +32,12 @@ dependencies:
   - bioconda::pybedtools
   - bioconda::cyvcf2
   - pandas
+  - h5py
   - numpy
   - python=3.5
   pip:
   - pyvcf
   - intervaltree
-  - deepdish
   - joblib
   - scikit-learn
   - sklearn-pandas
