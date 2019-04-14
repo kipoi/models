@@ -20,7 +20,7 @@ info: # General information about the model
           github: qiyanjun
     contributors:
         - name: Jeffrey Yoo
-        - github: jeffreyyoo
+          github: jeffreyyoo
     doc: Gene Expression Prediction
     cite_as: https://doi.org:/10.1101/329334 
     trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
