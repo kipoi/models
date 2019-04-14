@@ -26,7 +26,7 @@ info: # General information about the dataloader
           github: qiyanjun
     contributors:
         - name: Jeffrey Yoo
-        - github: jeffreyyoo
+          github: jeffreyyoo
     doc: "Dataloader for Gene Expression Prediction"
     cite_as: https://doi.org:/10.1101/329334 
     trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
