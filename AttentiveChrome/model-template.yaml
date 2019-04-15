@@ -19,6 +19,8 @@ info: # General information about the model
         - name: Yanjun Qi
           github: qiyanjun
     contributors:
+        - name: Jack Lanchantin
+          github: jacklanchantin
         - name: Jeffrey Yoo
           github: jeffreyyoo
     doc: Gene Expression Prediction
