@@ -1,4 +1,4 @@
-cell_type	model	md5
+model	url	md5
 E003	https://zenodo.org/api/files/2bf982b6-143f-49f6-b9ad-1b1e60f67292/E003_attchrome_avgAUC_model.pt?download=1	9b4ff730ac5e70265f7a78162fa76768
 E004	https://zenodo.org/api/files/2bf982b6-143f-49f6-b9ad-1b1e60f67292/E004_attchrome_avgAUC_model.pt?download=1	36edb7c1561bf26c29ebbd72fae9e6a2
 E005	https://zenodo.org/api/files/2bf982b6-143f-49f6-b9ad-1b1e60f67292/E005_attchrome_avgAUC_model.pt?download=1	19f61dca439ffcf7bbe44ca15238ff4d
