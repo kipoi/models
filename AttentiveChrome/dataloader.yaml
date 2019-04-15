@@ -25,6 +25,8 @@ info: # General information about the dataloader
         - name: Yanjun Qi
           github: qiyanjun
     contributors:
+        - name: Jack Lanchantin
+          github: jacklanchantin
         - name: Jeffrey Yoo
           github: jeffreyyoo
     doc: "Dataloader for Gene Expression Prediction"
