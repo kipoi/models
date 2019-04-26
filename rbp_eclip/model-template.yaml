@@ -10,10 +10,10 @@ default_dataloader: . # relative path to the default dataloader
 
 info:
     authors:
-        - name: Žiga Avsec
+        - name: Ziga Avsec
           github: avsecz
     contributors:
-        - name: Žiga Avsec
+        - name: Ziga Avsec
           github: avsecz
     version: 0.1
     doc: >
