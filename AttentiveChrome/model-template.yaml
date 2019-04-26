@@ -1,0 +1,42 @@
+type: pytorch
+args:
+  module_file: models.py
+  module_obj: att_chrome_model
+  weights:
+    url: {{model_url}}
+    md5: {{model_md5}}
+default_dataloader: ..  # path to the dataloader directory. Or to the dataloader class, e.g.: `kipoiseq.dataloaders.SeqIntervalDl
+
+info: # General information about the model
+    authors: 
+        - name: Ritambhara Singh
+          github: rs3zz
+        - name: Jack Lanchantin
+          github: jacklanchantin
+          email: jjl5sw@virginia.edu
+        - name: Arshdeep Sekhon
+          github: ArshdeepSekhon
+        - name: Yanjun Qi
+          github: qiyanjun
+    contributors:
+        - name: Jack Lanchantin
+          github: jacklanchantin
+        - name: Jeffrey Yoo
+          github: jeffreyyoo
+    doc: Gene Expression Prediction
+    cite_as: https://doi.org:/10.1101/329334 
+    trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
+    license: MIT 
+dependencies:
+    conda: # install via conda
+      - python>=3.5
+      - numpy  
+      - pytorch::pytorch-cpu 
+      - pytorch::torchvision-cpu   
+schema:  # Model schema
+    inputs:
+        shape: (100, 5)  # array shape of a single sample (omitting the batch dimension)
+        doc: "Histone Modification Bin Matrix"
+    targets:
+        shape: (1, )
+        doc: "Binary Classification"
