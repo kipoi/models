@@ -1,0 +1,50 @@
+defined_as: kipoi.model.KerasModel
+args: # arguments of kipoi.model.KerasModel
+    arch: 
+        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/DeepFactorizedModel/model.json 
+        md5: 16434a997183d882312ec8e930bd0100
+    weights:
+        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/DeepFactorizedModel/pretrained.hdf5
+        md5: a6c876a82779f44f3c645d5feb0143ae 
+
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        # See also https://kipoi.org/kipoiseq/dataloaders/#seqintervaldl 
+        auto_resize_len: 145 # Automatically resize sequence intervals
+        alphabet_axis: 1
+        # dummy_axis: 2 # Add a dummy axis. Omit in order not to create dummy_axis.
+        alphabet: "ACGT" # Order of letters in 1-hot encoding
+        ignore_targets: False # if True, dont return any target variables
+
+info: # General information about the model
+    authors:
+        - name: Rajiv Movva, Surag Nair
+          github: rmovva, suragnair
+          email: rmovva@mit.edu
+    doc: Deep factorized convolutional neural network for predicting Sharpr-MPRA activity of arbitrary 145bp sequences. Architecture based on https://doi.org/10.1101/229385.
+    cite_as: https://doi.org/10.1101/393926 # preferably a doi url to the paper
+    trained_on: Sharpr-MPRA dataset. chr8 validation, chr18 test. other chromosomes train.
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    conda: # install via conda
+      - python=3.5
+      - h5py
+      # - soumith::pytorch  # <channel>::<package> syntax
+    pip:   # install via pip
+      - keras>=2.2.4
+      - tensorflow>=1.10
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (145,4)  # array shape of a single sample (omitting the batch dimension)
+        doc: "145bp one-hot encoded ACGT sequences (e.g. [1,0,0,0] = 'A')"
+    targets:
+        shape: (12,)
+        doc: "predicts 12 tasks: k562 minP replicate 1, k562 minP replicate 2, k562 minP pooled,
+                                k562 sv40p replicate 1, k562 sv40p replicate 2, k562 sv40p pooled,
+                                hepg2 minP replicate 1, hepg2 minP replicate 2, hepg2 minP pooled,
+                                hepg2 sv40p replicate 1, hepg2 sv40p replicate 2, hepg2 sv40p pooled."
