@@ -12,8 +12,8 @@ from genomelake.extractors import FastaExtractor, BigwigExtractor
 from kipoi.data import Dataset
 from kipoi.metadata import GenomicRanges
 from kipoi.specs import RemoteFile
-from kipoi.external.torchvision.dataset_utils import download_url
-from kipoi.utils import makedir_exist_ok
+from kipoi_utils.external.torchvision.dataset_utils import download_url
+from kipoi_utils.utils import makedir_exist_ok
 import linecache
 from six.moves.urllib.request import urlretrieve
 
