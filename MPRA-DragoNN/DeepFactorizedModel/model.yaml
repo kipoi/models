@@ -1,10 +1,10 @@
 defined_as: kipoi.model.KerasModel
 args: # arguments of kipoi.model.KerasModel
     arch: 
-        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/DeepFactorizedModel/model.json 
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/DeepFactorizedModel/model.json 
         md5: 16434a997183d882312ec8e930bd0100
     weights:
-        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/DeepFactorizedModel/pretrained.hdf5
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/DeepFactorizedModel/pretrained.hdf5
         md5: a6c876a82779f44f3c645d5feb0143ae 
 
 default_dataloader:

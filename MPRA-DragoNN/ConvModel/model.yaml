@@ -1,10 +1,10 @@
 defined_as: kipoi.model.KerasModel
 args: # arguments of kipoi.model.KerasModel
     arch: 
-        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/ConvModel/model.json 
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/ConvModel/model.json 
         md5: 930692182c3fcbb4483115fa4ac386f8 
     weights:
-        url: https://github.com/kundajelab/mpra_minimal/raw/master/kipoi/ConvModel/pretrained.hdf5
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/ConvModel/pretrained.hdf5
         md5: 19fb17f943c3d6bcada8c5dc638092b4 
 
 default_dataloader:
