@@ -9,12 +9,13 @@ dependencies:
 - bedtools
 - pybedtools
 - pysam
-- python=3.5
+- python=3.6
 - h5py
 - genomelake
 - numpy
 - pandas
 - cython
+- pip
 - pip:
   - kipoi_veff
   - kipoi_interpret
