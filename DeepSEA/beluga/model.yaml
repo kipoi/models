@@ -32,7 +32,7 @@ default_dataloader:
 dependencies:
   conda:
     - h5py
-    - pytorch::pytorch-cpu>=0.2.0
+    - pytorch::pytorch-cpu==0.4.1
   pip:
     - kipoiseq
 
