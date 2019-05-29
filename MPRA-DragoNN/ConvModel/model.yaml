@@ -1,0 +1,50 @@
+defined_as: kipoi.model.KerasModel
+args: # arguments of kipoi.model.KerasModel
+    arch: 
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/ConvModel/model.json 
+        md5: 930692182c3fcbb4483115fa4ac386f8 
+    weights:
+        url: https://github.com/kundajelab/mpra_minimal/raw/87197541b/kipoi/ConvModel/pretrained.hdf5
+        md5: 19fb17f943c3d6bcada8c5dc638092b4 
+
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        # See also https://kipoi.org/kipoiseq/dataloaders/#seqintervaldl 
+        auto_resize_len: 145 # Automatically resize sequence intervals
+        alphabet_axis: 1
+        # dummy_axis: 2 # Add a dummy axis. Omit in order not to create dummy_axis.
+        alphabet: "ACGT" # Order of letters in 1-hot encoding
+        ignore_targets: False # if True, dont return any target variables
+
+info: # General information about the model
+    authors:
+        - name: Rajiv Movva, Surag Nair
+          github: rmovva, suragnair
+          email: rmovva@mit.edu
+    doc: Three-layer convolutional neural network for predicting Sharpr-MPRA activity of arbitrary 145bp sequences.
+    cite_as: https://doi.org/10.1101/393926 # preferably a doi url to the paper
+    trained_on: Sharpr-MPRA dataset. chr8 validation, chr18 test. other chromosomes train.
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    conda: # install via conda
+      - python=3.5
+      - h5py
+      # - soumith::pytorch  # <channel>::<package> syntax
+    pip:   # install via pip
+      - keras>=2.2.4
+      - tensorflow>=1.10
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (145,4)  # array shape of a single sample (omitting the batch dimension)
+        doc: "145bp one-hot encoded ACGT sequences (e.g. [1,0,0,0] = 'A')"
+    targets:
+        shape: (12,)
+        doc: "predicts 12 tasks: k562 minP replicate 1, k562 minP replicate 2, k562 minP pooled,
+                                k562 sv40p replicate 1, k562 sv40p replicate 2, k562 sv40p pooled,
+                                hepg2 minP replicate 1, hepg2 minP replicate 2, hepg2 minP pooled,
+                                hepg2 sv40p replicate 1, hepg2 sv40p replicate 2, hepg2 sv40p pooled."
