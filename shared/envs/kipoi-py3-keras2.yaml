@@ -5,6 +5,8 @@ channels:
 - pytorch
 - defaults
 dependencies:
+- python=3.6
+- pip
 - pyvcf
 - cyvcf2
 - bedtools
