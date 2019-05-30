@@ -1,0 +1,36 @@
+defined_as: dataloader.load_gene_expression # load_gene_expression implemented in dataloader.py
+type: PreloadedDataset
+args: # argument description
+    csv_file:
+        doc: csv_file containing gene expression values
+        # Test file URL's
+        example:
+            url: https://drive.google.com/uc?export=download&id=1XoLKLJEgPzHIl8JapjnhhgSMnGlnIUhN
+            md5: 95837720a311f8bf1e201232ee1cd407
+    expected_columns:
+        doc: Expected gene ids
+        default:
+            url: https://drive.google.com/uc?export=download&id=16vtFQGO1Op87Nnu1PzNCrnS_7P2TMrOV
+            md5: 911b606b74b36cf1bbb4dd0db8ee1b91
+
+info:
+    authors: 
+        - name: Your Name
+          github: your_github_account
+          email: your_email@host.org
+    doc: Data-loader loading the gene expression matrix
+
+dependencies:
+    conda:
+      - python=3.6
+      - numpy
+      - pandas
+
+output_schema: # Define the dataloader output schema according to the returned values
+    inputs:
+      shape: (10,)
+      doc: Gene expression values for 10 genes
+    metadata:  # additional information about the samples
+        sample_id:
+            type: str
+            doc: Sample ID

@@ -1,0 +1,39 @@
+defined_as: model.MyModel # MyModel class defined in my_model.py
+args: # Optional. Arguments to be passed to the model initialisation.
+  model_file: 
+      url: https://drive.google.com/uc?export=download&id=1uz68dhFhCfMhIUrqL5j1BzHA361UI2C5
+      md5: c496c062778dc1e9c417df1cc3bec283
+  # some other parameter not specified as a file
+  some_param: 42
+
+default_dataloader: .  # use the dataloader in the same directory (e.g. dataloader.yaml)
+
+info: # General information about the model
+    authors: 
+        - name: Your Name
+          github: your_github_username
+          email: your_email@host.org
+    doc: Model predicting X
+    cite_as: https://doi.org:/... # preferably a doi url to the paper
+    trained_on: Dataset Y. held-out chromosomes chr8, chr9 and chr22.
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    conda: # install via conda
+      - python=3.5
+      - h5py
+      # - soumith::pytorch  # <channel>::<package> syntax
+    pip:   # install via pip
+      - numpy
+      # - keras>=2.0.4
+      # - tensorflow>=1.0
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (10,)  # array shape of a single sample (omitting the batch dimension)
+        doc: gene expression values
+
+    targets:
+        shape: (1,)
+        doc: Some prediction based on gene expression
