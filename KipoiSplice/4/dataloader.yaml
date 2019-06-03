@@ -45,7 +45,7 @@ dependencies:
   - kipoi_veff
   - tqdm
   - tensorflow>=1.0.0
-  - keras>=2.0.4,<=2.2.2
+  - keras==2.2.4
 info:
   authors:
   - github: avsecz
