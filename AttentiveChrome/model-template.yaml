@@ -29,7 +29,7 @@ info: # General information about the model
     license: MIT 
 dependencies:
     conda: # install via conda
-      - python>=3.5
+      - python==3.6
       - numpy  
       - pytorch::pytorch-cpu 
       - pytorch::torchvision-cpu   
