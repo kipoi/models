@@ -27,6 +27,10 @@ def read_txt(file_path):
 class MergedModel(BaseModel):
 
     def __init__(self):
+
+        from keras import backend as K
+        K.clear_session()
+
         self.model_names = read_txt("models.txt")
         # hard-code the path to this models
         # if we'd use `source='dir'`, then the models wouldn't
