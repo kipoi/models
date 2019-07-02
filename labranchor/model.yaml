@@ -7,6 +7,8 @@ args:
   image_dim_ordering: tf
 default_dataloader: .
 dependencies:
+  conda:
+  - pip
   pip:
   - tensorflow>=1.0.0
   - keras>=2.0.4
