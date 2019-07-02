@@ -19,8 +19,9 @@ dependencies:
   conda:
   - biopython>=1.66
   - scikit-learn>=0.18.2
-  - theano==0.8.2
-  - numpy==1.12.0
+  - pandas<=0.23
+  - theano
+  - numpy<=1.12.0
   pip:
   - keras==0.3.3
 info:
