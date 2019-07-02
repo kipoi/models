@@ -14,9 +14,10 @@ args:
 defined_as: model.Model
 dependencies:
   conda:
-  - python==3.6
-  - theano==0.8.2
-  - numpy==1.12.0
+  - python
+  - theano
+  - numpy<=1.12.0
+  - pip
   pip:
   - keras==0.3.3
 info:
