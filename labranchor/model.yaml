@@ -9,6 +9,7 @@ default_dataloader: .
 dependencies:
   conda:
   - pip
+  - bioconda::pysam
   pip:
   - tensorflow>=1.0.0
   - keras>=2.0.4
