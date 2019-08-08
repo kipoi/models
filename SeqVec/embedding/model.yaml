@@ -1,0 +1,41 @@
+defined_as: model.Seqvec
+args: # arguments of kipoi.model.PyTorchModel
+    weights:
+        url: https://rostlab.org/~deepppi/embedding_repo/embedding_models/seqvec/weights.hdf5
+        md5: 0249d59249a50b43b79f641ff2ba7e88
+    options:
+        url: https://rostlab.org/~deepppi/embedding_repo/embedding_models/seqvec/options.json
+        md5: cede355187778de3ac302a83c761f5f9
+
+default_dataloader: .
+
+info: # General information about the model
+    authors: 
+        - name: Michael Heinzinger, Ahmed Elnaggar
+          github: mheinzinger
+          email: mheinzinger@rostlab.org
+    doc: Embeddings from Language Models (ELMo) trained on protein sequences. Allows to convert protein sequence to a vector representation.
+    cite_as: https://doi.org/10.1101/614313  # preferably a doi url to the paper
+    trained_on: UniRef50
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    conda: # install via conda
+      - python=3.6
+      - allennlp
+    pip:   # install via pip
+      - allennlp
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (1,)  # array shape of a single sample (omitting the batch dimension)
+        doc: Path to file containing protein sequences in fasta format.
+    targets:
+       - name: seq
+         shape: (1024,None)
+         doc: Embedding for a protein sequence. Each amino acid in your protein of length L is represented by a vector of length 1024.
+
+test:
+  constraints:
+      batch_size: 1

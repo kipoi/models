@@ -1,0 +1,39 @@
+defined_as: dataloader.SeqDataloader
+args: # MyDataset.__init__ argument description
+    fasta_file:
+        doc: fasta file containing multiple protein sequence(s)
+        # Test file URL's
+        example: 
+            url: https://rostlab.org/~deepppi/test.fasta
+            md5: 3752aecfdfc4c26b9d0e55423ec4e6fd
+    split_char:
+        doc: charcter used for separating header of fasta files (together with id_field used to extract protein identifier)
+        type: str
+        optional: True
+    id_field:
+        doc: index for extracting protein identifier from fasta header after splitting after split_char
+        type: int
+        optional: True
+info:
+    authors: 
+        - name: Michael Heinzinger
+          github: mheinzinger
+          email: mheinzinger@rostlab.org
+    doc: Data-loader returning protein sequence as required by ELMo
+
+dependencies:
+    conda:
+      - python=3.6
+      - allennlp
+    pip:
+      - allennlp
+
+output_schema: # Define the dataloader output schema according to the returned values
+    inputs:
+        shape: (1,)
+        doc: protein sequence of variable length
+    metadata:
+        id:
+            doc: protein identifier extracted from fasta header
+            type: str
+type: Dataset
