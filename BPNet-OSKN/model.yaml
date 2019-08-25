@@ -1,0 +1,67 @@
+defined_as: model.BPNetOldSeqModel
+args:
+    model_file:
+      # TODO - put to Zenodo
+      url: 'http://mitra.stanford.edu/kundaje/avsec/chipnexus/paper/modisco-comparison/v2-output/nexus,peaks,OSNK,0,10,1,FALSE,same,0.5,64,25,0.004,9,FALSE,[1,50],TRUE/model.calibrated.h5'
+      md5: bbe883baef261877bfad07d05feb627d
+
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+    default_args:
+        auto_resize_len: 1000
+        ignore_targets: True
+
+info:
+    authors: 
+        - name: Ziga Avsec
+          github: avsecz
+    doc: BPNet model predicting the ChIP-nexus profiles of Oct4, Sox2, Nanog and Klf4
+    cite_as: TODO
+    trained_on: ChIP-nexus data in mm10. test chromosomes 1, 8, 9, validation chromosomes 2, 3, 4
+    license: MIT
+
+dependencies:
+    channels:
+      - bioconda
+      - pytorch
+      - conda-forge
+      - defaults
+    conda:
+      - python=3.6
+      - bioconda::pybedtools>=0.7.10
+      - bioconda::bedtools>=2.27.1
+      - bioconda::pybigwig>=0.3.10
+      - bioconda::pysam>=0.14.0
+      - bioconda::genomelake>=0.1.4
+
+      - pytorch::pytorch  # optional for data-loading
+      - cython
+      - h5py>=2.7.0
+      - numpy
+
+      - pandas>=0.23.0
+      - fastparquet
+      - python-snappy
+
+      - nb_conda
+    pip:
+      - tensorflow>=1.0
+      - git+https://github.com/kundajelab/DeepExplain.git
+      - bpnet[extras]
+schema:
+    inputs:
+      shape: (1000, 4)
+      doc: "One-hot encoded DNA sequence."
+    targets:
+      Oct4:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Oct4."
+      Sox2:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Sox2."
+      Nanog:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Nanog."
+      Klf4:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Klf4."        
