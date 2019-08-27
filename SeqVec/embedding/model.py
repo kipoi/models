@@ -13,9 +13,9 @@ from kipoi.model import BaseModel
 
 class Seqvec(BaseModel):
     def __init__(self, weights, options):
-        self.seqvec = self.get_model(weights, options)
+        self.seqvec = self._get_model(weights, options)
 
-    def get_model(self, weights, options):
+    def _get_model(self, weights, options):
         # Retrieve pre-trained embedding model
         # use GPU if available. If CPU-usage shall be enforced set cuda_device=-1
         cuda_device = 0 if torch.cuda.is_available() else -1
