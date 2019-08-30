@@ -26,4 +26,4 @@ class TorchModel(BaseModel):
         # torch -> numpy
         if self.use_cuda:
             preds_torch = preds_torch.cpu()
-        return preds_torch.data.numpy()
+        return preds_torch.numpy().copy()
