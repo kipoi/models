@@ -18,6 +18,8 @@ info:
     tags:
         - RNA splicing
 dependencies:
+    conda:
+      - pip
     pip:
         - tensorflow>=1.0.0
         - keras>=2.0.4
@@ -34,3 +36,4 @@ test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/modules/acceptor/predictions.h5
     md5: 2bedf15f25e363755dbdc6a52a0b5f2c
+  precision_decimal: 5

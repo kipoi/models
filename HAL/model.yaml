@@ -6,7 +6,7 @@ default_dataloader: .
 defined_as: model.HALModel
 dependencies:
   conda:
-  - numpy
+    - numpy
 info:
   authors:
   - github: Alex-Rosenberg

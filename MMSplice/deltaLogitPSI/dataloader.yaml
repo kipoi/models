@@ -76,7 +76,7 @@ dependencies:
     - python=3.5
   pip:
     - kipoi
-    - mmsplice>=0.2.7
+    - mmsplice==0.2.7
 output_schema:
     inputs:
       shape: (5, )
