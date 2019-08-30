@@ -1,8 +1,9 @@
-defined_as: model.TorchModel
+defined_as: kipoi.model.PyTorchModel
 args:
-  torch_t7_file:
+  weights:
     url: https://zenodo.org/record/1744799/files/deepsea.beluga.2002.cpu?download=1
     md5: 8ddcd81fa2afb0b59e2b3e83cc36dfb9
+  module_class: model_new.Beluga
 
 info:
   authors:
@@ -50,8 +51,9 @@ schema:
     column_labels:
       - predictor_names.txt
 
-test:
- expect:
-   url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/e988be6b74ad08b63d1b2000b428965828d789e6/DeepSEA/beluga/test.expect.h5
-   md5: d4da3b24d0d596078cbd8b0dac8b9fbc
- precision_decimal: 6
+# TODO - generate the test predictions
+#test:
+#  expect:
+#    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepSEA/predict/predictions.h5
+#    md5: fc60cfb01a4a4415e7a1095e5f7716e5
+#  precision_decimal: 6
