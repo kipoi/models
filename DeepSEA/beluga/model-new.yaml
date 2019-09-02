@@ -1,0 +1,59 @@
+defined_as: kipoi.model.PyTorchModel
+args:
+  weights:
+    url: https://zenodo.org/record/1744799/files/deepsea.beluga.2002.cpu?download=1
+    md5: 8ddcd81fa2afb0b59e2b3e83cc36dfb9
+  module_class: model_new.Beluga
+
+info:
+  authors:
+      - name: Jian Zhou
+      - name: Olga G. Troyanskaya
+  license: Non-comercial
+
+  doc: >
+    This model (DeepSEA Beluga) is a part of the ExPecto model for predicting expression from sequence. The model itself is a deep convolutional network model of TF binding, DNase accessibility and histone marks. Comparing to DeepSEA, this model contains 2x number of convolution layers, takes 2000bp input, and expanded the histone mark collections to all of Roadmap Epigenomics release.
+    
+  cite_as: https://doi.org/10.1038/s41588-018-0160-6
+  trained_on: Chromosome 8 and 9 were excluded from training, and the rest of the autosomes were used for training and validation. 4,000 samples on chromosome 7 spanning the genomic coordinates 30,508,751-35,296,850 were used as the validation set.
+  tags:
+    - Histone modification
+    - DNA binding
+    - DNA accessibility
+
+default_dataloader:
+  defined_as: kipoiseq.dataloaders.SeqIntervalDl
+  default_args:
+    auto_resize_len: 2000
+    alphabet_axis: 0
+    dummy_axis: 2
+    alphabet: AGCT
+    dtype: np.float32
+
+dependencies:
+  conda:
+    - h5py
+    - pytorch::pytorch-cpu==0.4.1
+  pip:
+    - kipoiseq
+
+schema:
+  inputs:
+    name: seq
+    special_type: DNASeq
+    shape: (4, 2000, 1)
+    doc: DNA sequence
+    associated_metadata: ranges
+  targets:
+    name: TFBS_DHS_probs
+    shape: (2002, )
+    doc: Probability of a specific epigentic feature
+    column_labels:
+      - predictor_names.txt
+
+# TODO - generate the test predictions
+#test:
+#  expect:
+#    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepSEA/predict/predictions.h5
+#    md5: fc60cfb01a4a4415e7a1095e5f7716e5
+#  precision_decimal: 6
