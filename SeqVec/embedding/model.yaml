@@ -29,13 +29,10 @@ dependencies:
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
-        shape: (1,)  # array shape of a single sample (omitting the batch dimension)
-        doc: Path to file containing protein sequences in fasta format.
+        shape: (1,)  # array shape of a single sample (omitting the batch dimension). Sequences can have different length so no fixed shape
+        doc: Path to file containing protein sequences in fasta format. Sequences can have different length.
     targets:
        - name: seq
-         shape: (1024,None)
+         shape: (1024,None) # only fixed dimension is feature/embedding dimension
          doc: Embedding for a protein sequence. Each amino acid in your protein of length L is represented by a vector of length 1024.
 
-test:
-  constraints:
-      batch_size: 1

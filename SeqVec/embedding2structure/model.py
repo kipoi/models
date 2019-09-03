@@ -66,11 +66,16 @@ class SeqVec2structure( BaseModel ):
 
 
     def predict_on_batch( self, x ):
-        x = custom_collate( x )
-        Yhat = self.model(x)
-        predictions = self.get_predictions(Yhat[0])
-        Yhat = [ yhat.cpu().detach().numpy() for yhat in Yhat ]
-        return Yhat
+        x, mask = custom_collate( x )
+        Yhat = self.model(x)[0] # debug only 3-state secondary structure
+        #predictions = self.get_predictions(Yhat)
+        
+        Yhat = [ Yhat[sample_idx,:,mask[sample_idx]].cpu().detach().numpy()
+                    for sample_idx in range(Yhat.shape[0]) ]
+        container = np.empty(len(Yhat), dtype=np.object)
+        for idx,yhat in enumerate(Yhat):
+            container[idx] = yhat
+        return container
 
 
 def custom_collate( batch ):
@@ -88,11 +93,17 @@ def custom_collate( batch ):
             max_len = seq_len
     
     X = list()
+    MASK = list()
     for x in batch: # for all samples in the batch
         x = torch.from_numpy(x)
         # get seq_len to calculate the number of residues for zero-padding
         n_to_be_padded = max_len - x.shape[0]
-
+        
+        # create mask to simplify tracking of padded elements
+        mask = torch.ones(max_len, dtype=torch.uint8) 
+        mask[x.shape[0]:] = 0 # set padded elements to 0
+        mask = mask > 0 # convert to boolean array for mask indexing
+ 
         # pad zeros along dimensions Left, Right, Top, Bottom/Seq
         padder = torch.nn.ConstantPad2d( (0, 0, 0, n_to_be_padded), 0)
         
@@ -101,11 +112,11 @@ def custom_collate( batch ):
         x = x.transpose(1,0)
 
         # Add singleton-dimension to fit batch-requirement
-        x = x.unsqueeze(dim=0)
+        x, mask = x.unsqueeze(dim=0), mask.unsqueeze(dim=0)
         
-        X.append( x )    
+        X.append( x ), MASK.append( mask )    
     
     # create single batch with same dimensions after padding
-    X = torch.cat( X, 0).unsqueeze(dim=-1)
+    X, MASK = torch.cat( X, 0).unsqueeze(dim=-1), torch.cat(MASK,0)
 
-    return X
+    return X, MASK

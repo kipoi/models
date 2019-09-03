@@ -1,7 +1,6 @@
 defined_as: model.DeepSeqVec
-args:
-    x: 1
-    
+args:   
+    x : 1 
 default_dataloader: ../embedding
 
 info: # General information about the model
@@ -18,7 +17,6 @@ dependencies:
     conda: # install via conda
       - python=3.6
       - allennlp
-      # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
       - allennlp
 
