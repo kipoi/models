@@ -24,9 +24,9 @@ info:
 dependencies:
     conda:
       - python=3.6
-      - allennlp
-    pip:
-      - allennlp
+      - conda-forge::allennlp
+    # pip:
+    #   - allennlp
 
 output_schema: # Define the dataloader output schema according to the returned values
     inputs:

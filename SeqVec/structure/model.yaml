@@ -16,9 +16,7 @@ info: # General information about the model
 dependencies:
     conda: # install via conda
       - python=3.6
-      - allennlp
-    pip:   # install via pip
-      - allennlp
+      - conda-forge::allennlp
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array

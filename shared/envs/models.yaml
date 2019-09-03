@@ -10,7 +10,8 @@ kipoi-py3-keras2:
 - Basenji
 - Basset
 - DeepBind
-- DeepSEA
+- DeepSEA/variantEffects
+- DeepSEA/predict
 - FactorNet
 - HAL
 - KipoiSplice

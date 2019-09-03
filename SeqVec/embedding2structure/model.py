@@ -42,11 +42,11 @@ class CNN( nn.Module ):
 
 class SeqVec2structure( BaseModel ):
     def __init__(self, weights):
-        self.model = self.load_weights( weights )
+        self.model = self.load_weights(weights)
 
     def load_weights( self, weights ):
         model = CNN()
-        weights = torch.load( weights )
+        weights = torch.load(weights, map_location=None if torch.cuda.is_available() else 'cpu')
         model.load_state_dict(weights)
         return model.eval()
 
