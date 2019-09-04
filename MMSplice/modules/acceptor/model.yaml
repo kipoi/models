@@ -23,6 +23,7 @@ dependencies:
     pip:
         - tensorflow>=1.0.0
         - keras>=2.0.4
+        
 schema:
     inputs:
       ss:
