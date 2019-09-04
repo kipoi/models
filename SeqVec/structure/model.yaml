@@ -1,0 +1,32 @@
+defined_as: model.DeepSeqVec
+args:   
+    x : 1 
+default_dataloader: ../embedding
+
+info: # General information about the model
+    authors: 
+        - name: Michael Heinzinger
+          github: mheinzinger
+          email: mheinzinger@rostlab.org
+    doc: 3-state, 8-state secondary structure and disorder prediction based on SeqVec
+    cite_as: https://doi.org:/10.1101/614313 
+    trained_on: NetSurfP-2.0 data set
+    license: MIT # Software License - if not set defaults to MIT
+
+dependencies:
+    conda: # install via conda
+      - python=3.6
+      - conda-forge::allennlp
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (1,)  # array shape of a single sample (omitting the batch dimension)
+        doc: embeddings derived from SeqVec
+
+    targets:
+       - name: d3_Yhat
+         shape: (None,3)
+       - name: d8_Yhat
+         shape: (None,8)
+       - name: diso
+         shape: (None,2)
