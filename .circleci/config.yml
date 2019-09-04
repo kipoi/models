@@ -3,7 +3,7 @@ version: 2
 variables:
   defaults: &defaults
     docker:
-      - image: continuumio/miniconda3:4.5.12
+      - image: continuumio/miniconda3:4.7.10
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
@@ -49,7 +49,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --git-range master HEAD
+          command: kipoi test-source kipoi --git-range master HEAD --verbose
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
