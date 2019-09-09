@@ -1,8 +1,9 @@
-defined_as: model.TorchModel
+defined_as: kipoi.model.PyTorchModel
 args:
-  torch_t7_file:
-    url: https://zenodo.org/record/1744799/files/deepsea.beluga.2002.cpu?download=1
-    md5: 8ddcd81fa2afb0b59e2b3e83cc36dfb9
+  weights:
+    url: https://zenodo.org/record/3402406/files/deepsea.beluga.pth?download=1
+    md5: 62360f2db4ac96554d28d058b50ab654
+  module_class: model.Beluga
 
 info:
   authors:
@@ -25,14 +26,14 @@ default_dataloader:
   default_args:
     auto_resize_len: 2000
     alphabet_axis: 0
-    dummy_axis: 2
+    dummy_axis: 1
     alphabet: AGCT
     dtype: np.float32
 
 dependencies:
   conda:
     - h5py
-    - pytorch::pytorch-cpu==0.4.1
+    - pytorch::pytorch-cpu>=1.0.0
   pip:
     - kipoiseq
 
@@ -40,7 +41,7 @@ schema:
   inputs:
     name: seq
     special_type: DNASeq
-    shape: (4, 2000, 1)
+    shape: (4, 1, 2000)
     doc: DNA sequence
     associated_metadata: ranges
   targets:
@@ -52,6 +53,6 @@ schema:
 
 test:
  expect:
-   url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/e988be6b74ad08b63d1b2000b428965828d789e6/DeepSEA/beluga/test.expect.h5
-   md5: d4da3b24d0d596078cbd8b0dac8b9fbc
+   url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/e988be6b74ad08b63d1b2000b428965828d789e6/DeepSEA/beluga/test.expect.pytorch.h5
+   md5: d3ac2198d269defd06c0e1ec63f02574
  precision_decimal: 6
