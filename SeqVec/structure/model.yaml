@@ -12,6 +12,8 @@ info: # General information about the model
     cite_as: https://doi.org:/10.1101/614313 
     trained_on: NetSurfP-2.0 data set
     license: MIT # Software License - if not set defaults to MIT
+    tags:
+        - Protein structure
 
 dependencies:
     conda: # install via conda

@@ -3,6 +3,7 @@ args:
   model_file:
     url: {{ args_model_url }}
     md5: {{ args_model_md5 }}
+  threads: 16
 default_dataloader: # relative path to the default dataloader
   defined_as: kipoiseq.dataloaders.StringSeqIntervalDl
 info:
@@ -16,6 +17,8 @@ info:
     cite_as: https://doi.org/10.1093/bioinformatics/btw142
     trained_on: 'ENCODE ChIP-seq peaks. For training all chromosomes except chr8 and chr9 were used.'
     training_procedure: 'Datasets downloaded from http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/spp/optimal/hub/. All files were then processed using genNullSeqs(...,nMaxTrials=20,xfold=1,genomeVersion="hg19") from the gkmSVM package version 0.79.0. For training all chromosomes except chr8 and chr9 were used.'
+    tags:
+        - DNA binding
 dependencies:
     conda:
       - bioconda::ls-gkm=0.0.1

@@ -26,7 +26,9 @@ info: # General information about the model
     doc: Gene Expression Prediction
     cite_as: https://doi.org:/10.1101/329334 
     trained_on: Histone Modidification and RNA Seq Data From Roadmad/REMC database # short dataset description
-    license: MIT 
+    license: MIT
+    tags:
+        - RNA expression
 dependencies:
     conda: # install via conda
       - python==3.6.3
