@@ -19,7 +19,8 @@ info:
     cite_as: https://doi.org/10.1101/737981
     trained_on: ChIP-nexus data in mm10. test chromosomes 1, 8, 9, validation chromosomes 2, 3, 4
     license: MIT
-
+    tags:
+        - DNA binding
 dependencies:
     channels:
       - bioconda

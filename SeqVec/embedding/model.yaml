@@ -17,8 +17,9 @@ info: # General information about the model
     doc: Embeddings from Language Models (ELMo) trained on protein sequences. Allows to convert protein sequence to a vector representation.
     cite_as: https://doi.org/10.1101/614313  # preferably a doi url to the paper
     trained_on: UniRef50
-    license: MIT # Software License - if not set defaults to MIT
-    # You can also specify the license in the LICENSE file
+    license: MIT
+    tags:
+        - Protein properties
 
 dependencies:
     conda: # install via conda
