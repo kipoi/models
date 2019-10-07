@@ -46,8 +46,9 @@ dependencies:
 
       - nb_conda
     pip:
-      - tensorflow>=1.0
+      - tensorflow>=1.0,<1.15
       - git+https://github.com/kundajelab/DeepExplain.git
+      - keras==2.2.5
       - bpnet[extras]
 schema:
     inputs:
