@@ -62,6 +62,7 @@ jobs:
     steps:
       - *install_sys_deps
       - *install_gitlfs
+      - checkout      
       - *restore_cache
       - checkout
       - *setup
