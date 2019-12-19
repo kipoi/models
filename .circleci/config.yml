@@ -42,10 +42,10 @@ jobs:
   test_new_models:
     <<: *defaults
     steps:
+      - checkout    
       - *install_sys_deps
       - *install_gitlfs
       - *restore_cache
-      - checkout
       - *setup
       - run:
           name: run tests
@@ -60,10 +60,10 @@ jobs:
   test_all_models:
     <<: *defaults
     steps:
+      - checkout
       - *install_sys_deps
       - *install_gitlfs
       - *restore_cache
-      - checkout
       - *setup
       - run:
           name: run tests
