@@ -1,0 +1,56 @@
+defined_as: model.UTRVariantEffectModel
+args:
+  weights: #model/Framepool_combined_residual.h5
+     url: https://zenodo.org/record/3584238/files/Framepool_combined_residual.h5?download=1
+     md5: d1e9656725e730d509a09d5371e51bd2
+
+default_dataloader: .
+
+dependencies:
+  conda:
+  - python=3.6.7
+  - numpy>=1.16.2
+  - tensorflow=1.13.1
+  - keras=2.2.4
+  - h5py=2.9.0
+  pip:
+  - kipoi
+
+info:
+  authors:
+  - github: Alex-CompEcon
+    name: Alexander Karollus
+  doc: >
+    This model predicts the log2 fold change in mean ribosome load from introducing variants
+    into the 5' UTR of a sequence. Additionally, the model will provide log2 fold changes
+    due to variants assuming the frame of the sequence has been shifted. High log fold
+    changes after such shifts can provide an indication that a new in-frame start has been
+    created within the 5' UTR, lengthening the canonical protein.
+    The Model adapted from Sample et al: 
+    Human 5 prime UTR design and variant effect prediction from a massively parallel
+    translation assay (https://doi.org/10.1101/310375).
+    Several modifications have been added to allow arbitrary length inputs, 
+    instead of fixed size.
+  trained_on: > 
+    Data from MPRA experiment using eGFP library on HEK293T cells. Trained on eGFP library (260k
+    sequences). 
+    20,000 sequences were withheld for testing, and additional validations on endogenous data were performed.
+  license: MIT
+  tags:
+  - Translation
+
+schema:
+  inputs:
+    name: seq
+    doc: Reference sequence and variant 5UTR sequence, as string
+    shape: (2,)
+  targets:
+    mrl_fold_change:
+        shape: (1,)
+        doc: Log2 Fold Change in predicted mean ribosome load
+    shift_1:
+        shape: (1,)
+        doc: Log2 Fold Change in mrl if frame is shifted by 1
+    shift_2:
+        shape: (1,)
+        doc: Log2 Fold Change in mrl if frame is shifted by 2
