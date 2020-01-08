@@ -42,6 +42,7 @@ dependencies:
   - bioconda::pysam
   - bioconda::genomelake
   - bioconda::pybigwig
+  - bioconda::pyfaidx
   - bioconda::gtfparse>=1.0.7
   - python==3.6
   - cython
