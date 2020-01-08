@@ -40,7 +40,7 @@ dependencies:
   conda:
   - bioconda::pybedtools
   - bioconda::pysam
-  - bioconda::genomelake
+  - bioconda::genomelake==0.1.4
   - bioconda::pybigwig
   - bioconda::pyfaidx
   - bioconda::gtfparse>=1.0.7

@@ -12,7 +12,7 @@ dependencies:
 - bedtools
 - pybedtools
 - pysam
-- genomelake
+- genomelake==0.1.4
 - numpy
 - cython
 - h5py
