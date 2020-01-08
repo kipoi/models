@@ -13,7 +13,7 @@ dependencies:
 - pybedtools
 - pysam
 - genomelake==0.1.4
-- numpy
+- numpy==1.17.5
 - cython
 - h5py
 - pytorch-cpu>=0.2.0
