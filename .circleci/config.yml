@@ -53,6 +53,7 @@ jobs:
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
+          no_output_timeout: 15m
       - *save_cache
       - *store_artifacts
 
