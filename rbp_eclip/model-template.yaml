@@ -32,7 +32,7 @@ dependencies:
         - concise>=0.6.5
         - tensorflow==1.4.1
         - keras==2.1.6
-        - numpy==1.17.5
+        - numpy==1.17.4
 
 schema:
     inputs:
