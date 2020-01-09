@@ -13,7 +13,6 @@ dependencies:
 - pybedtools
 - pysam
 - genomelake==0.1.4
-- numpy==1.17.4
 - cython
 - h5py
 - pytorch-cpu>=0.2.0
@@ -41,7 +40,7 @@ dependencies:
   - sklearn-pandas
   - tqdm
   # - mmsplice
-  - numpy>=1.13.3
+  - numpy==1.17.4
   - concise>=0.6.6
   # other 
   - ipykernel
