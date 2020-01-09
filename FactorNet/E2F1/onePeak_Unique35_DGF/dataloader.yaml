@@ -34,7 +34,7 @@ dependencies:
   conda:
     - bioconda::bedtools
     - bioconda::pybedtools
-    - bioconda::genomelake
+    - bioconda::genomelake==0.1.4
     - numpy
     - cython
 output_schema:
