@@ -9,7 +9,7 @@ args:
   image_dim_ordering: tf
 dependencies:
   pip:
-  - tensorflow==1.0.0
+  - tensorflow==1.13.1
   - keras==1.2.2
 info:
   authors:

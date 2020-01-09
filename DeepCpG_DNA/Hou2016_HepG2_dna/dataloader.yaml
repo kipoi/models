@@ -12,7 +12,7 @@ args:
 defined_as: dataloader.py::SeqDataset
 dependencies:
   conda:
-  - bioconda::genomelake
+  - bioconda::genomelake==0.1.4
   - bioconda::pybedtools
   - python=3.5
   - numpy

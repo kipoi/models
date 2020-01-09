@@ -23,7 +23,7 @@ args:
 defined_as: dataloader.py::extractor
 dependencies:
   conda:
-  - bioconda::genomelake
+  - bioconda::genomelake==0.1.4
   - cython
 info:
   authors:
