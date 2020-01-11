@@ -33,7 +33,7 @@ dependencies:
       - bioconda::bedtools>=2.27.1
       - bioconda::pybigwig>=0.3.10
       - bioconda::pysam>=0.14.0
-      - bioconda::genomelake>=0.1.4
+      - bioconda::genomelake==0.1.4
 
       - pytorch::pytorch  # optional for data-loading
       - cython
