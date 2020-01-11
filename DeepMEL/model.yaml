@@ -32,13 +32,11 @@ dependencies:
 
 schema:  
      inputs: 
-       seq:
-         shape: (500,4)
+       - shape: (500,4)
          doc: DNA sequence
-       seq_rc:
-         shape: (500,4)
+       - shape: (500,4)
          doc: Reverse-complemented DNA sequence
      targets:
-       topic:
-         shape: (24,)
-         doc: Topic Prediction (4-MEL, 7-MES)
+       name: topic
+       shape: (24,)
+       doc: Topic Prediction (4-MEL, 7-MES)
