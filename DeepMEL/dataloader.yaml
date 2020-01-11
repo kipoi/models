@@ -34,16 +34,14 @@ dependencies:
 
 output_schema: # Define the dataloader output schema according to the returned values
     inputs:
-        seq:
-            shape: (500, 4)
-            doc: One-hot encoded DNA sequence
-        seq_rc:
-            shape: (500,4)
-            doc: One-hot encoded reverse-complemented DNA sequence
+        - shape: (500, 4)
+          doc: One-hot encoded DNA sequence
+        - shape: (500,4)
+          doc: One-hot encoded reverse-complemented DNA sequence
     metadata:  
-        ranges:
-            type: GenomicRanges
-            doc: Ranges describing inputs.seq
-        ranges_rc:
-            type: GenomicRanges
-            doc: Ranges describing inputs.seq_rc
+        - name: ranges
+          type: GenomicRanges
+          doc: Ranges describing inputs.seq
+        - name: ranges_rc
+          type: GenomicRanges
+          doc: Ranges describing inputs.seq_rc
