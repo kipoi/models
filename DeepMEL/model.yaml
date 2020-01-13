@@ -1,0 +1,42 @@
+defined_as: kipoi.model.KerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/3592129/files/DeepMEL.json.txt?download=1
+        md5: md5:b66857dec70c159b872804513d64b81f
+    weights:
+        url: https://zenodo.org/record/3592129/files/DeepMEL.hdf5?download=1
+        md5: md5:ed39e3c9ca23998aaabf9e1c060b6fae
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Ibrahim Ihsan Taskiran
+          github: itaskiran
+          email: ibrahimihsan.taskiran@kuleuven.vib.be
+        - name: Liesbeth Minnoye
+        - name: Stein Aerts
+    doc: Model predicting melanoma-specific accessible regions
+    cite_as: https://doi.org/10.1101/2019.12.21.885715
+    trained_on: Accessible genomic sites. Held-out chromosome chr2.
+    license: MIT
+
+dependencies:
+    conda: # install via conda
+      - python=3.6
+      - h5py
+
+    pip:   # install via pip
+      - keras>=2.2.4
+      - tensorflow>=1.14.0
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+       - shape: (500, 4)
+         doc: Reverse-complemented DNA sequence
+     targets:
+       name: topic
+       shape: (24,)
+       doc: Topic Prediction (4-MEL, 7-MES)
