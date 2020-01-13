@@ -9,6 +9,7 @@ __pycache__/
 # OS X rubbish
 **/.DS_Store
 **/._.DS_Store
+**/._*
 
 # Distribution / packaging
 .Python
