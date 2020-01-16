@@ -1,5 +1,0 @@
-acceptor_intron_diff
-acceptor_diff
-exon_diff
-donor_diff
-donor_intron_diff

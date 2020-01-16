@@ -2,7 +2,7 @@ type: custom
 args:
   file: model.py
   object: MMSpliceModel
-default_dataloader: . # relative path to the default dataloader
+default_dataloader: ..
 info:
     authors:
         - name: Jun Cheng
@@ -14,20 +14,52 @@ info:
     tags:
         - RNA splicing
 dependencies:
-    conda:
-      - numpy
     pip:
-      - scikit-learn
-      - mmsplice==0.2.7
+      - mmsplice==1.0.3
 schema:
     inputs:
-        shape: (10, )
-        doc: modular predictions
+      seq:
+        acceptor_intron:
+          doc: alternative sequence of acceptor intron
+          shape: (None,4)
+          special_type: DNASeq
+        acceptor:
+          doc: alternative sequence of acceptor
+          shape: (None,4)
+          special_type: DNASeq        
+        exon:
+          doc: alternative sequence of exon
+          shape: (None,4)
+          special_type: DNASeq
+        donor:
+          doc: alternative sequence of donor
+          shape: (None,4)
+          special_type: DNASeq
+        donor_intron:
+          doc: alternative sequence of donor intron          
+          shape: (None,4)
+          special_type: DNASeq
+      mut_seq: 
+        acceptor_intron:
+          doc: alternative sequence of acceptor intron
+          shape: (None,4)
+          special_type: DNASeq
+        acceptor:
+          doc: alternative sequence of acceptor
+          shape: (None,4)
+          special_type: DNASeq        
+        exon:
+          doc: alternative sequence of exon
+          shape: (None,4)
+          special_type: DNASeq
+        donor:
+          doc: alternative sequence of donor
+          shape: (None,4)
+          special_type: DNASeq
+        donor_intron:
+          doc: alternative sequence of donor intron          
+          shape: (None,4)
+          special_type: DNASeq
     targets:
         shape: (1, )
-        doc: >
-          "Predicted splicing efficiency change."
-test:
-  expect:
-    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/MMSplice/splicingEfficiency/predictions.h5
-    md5: 573127a8531d84272c078239ebc54e53
+        doc: Predicted splicing efficiency change

@@ -1,12 +1,15 @@
 from kipoi.model import BaseModel
-from mmsplice import EFFICIENCY_MODEL
-from mmsplice.utils.postproc import transform
+from mmsplice import MMSplice
+from mmsplice.utils import predict_splicing_efficiency
+
+
+mmsplice = MMSplice()
 
 
 class MMSpliceModel(BaseModel):
     '''Model to predict delta logit PSI'''
 
     def predict_on_batch(self, inputs):
-        '''inputs shape (,10), corresponding to 5 module predictions of mut and wt'''
-        X = transform(inputs[:, :5] - inputs[:, -5:], True)[:, [1, 2, 3, 5]]
-        return EFFICIENCY_MODEL.predict(X)
+        X_ref = mmsplice.predict_on_batch(inputs['seq'])
+        X_alt = mmsplice.predict_on_batch(inputs['mut_seq'])
+        return predict_splicing_efficiency(X_ref, X_alt)
