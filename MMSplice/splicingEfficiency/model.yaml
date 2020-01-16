@@ -15,7 +15,7 @@ info:
         - RNA splicing
 dependencies:
     pip:
-      - mmsplice==1.0.2
+      - mmsplice==1.0.3
 schema:
     inputs:
       seq:

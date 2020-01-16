@@ -69,7 +69,7 @@ dependencies:
     - bioconda::pysam=0.15.3
     - python=3.6
   pip:
-    - mmsplice==1.0.2
+    - mmsplice==1.0.3
 output_schema:
     inputs:
       seq:
@@ -149,7 +149,7 @@ output_schema:
           doc: intron length at the left side of the retrieved sequence
         right_overhang:
           type: int
-          doc: intron right at the left side of the retrieved sequence
+          doc: intron right at the right side of the retrieved sequence
         annotation:
           type: str
           doc: Annotation of exon
