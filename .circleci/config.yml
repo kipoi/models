@@ -18,13 +18,13 @@ variables:
   restore_cache: &restore_cache
     restore_cache:
       keys:
-        - source-v1-{{ .Branch }}-{{ .Revision }}
-        - source-v1-{{ .Branch }}-
-        - source-v1-master-
-        - source-v1-
+        - source-v2-{{ .Branch }}-{{ .Revision }}
+        - source-v2-{{ .Branch }}-
+        - source-v2-master-
+        - source-v2-
   save_cache: &save_cache
     save_cache:
-      key: source-v1-{{ .Branch }}-{{ .Revision }}
+      key: source-v2-{{ .Branch }}-{{ .Revision }}
       paths:
         - ".git"
   setup: &setup

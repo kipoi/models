@@ -1,10 +1,15 @@
 from kipoi.model import BaseModel
-from mmsplice import LINEAR_MODEL
-from mmsplice.utils.postproc import transform
+from mmsplice import MMSplice
+from mmsplice.utils import predict_deltaLogitPsi
+
+
+mmsplice = MMSplice()
 
 
 class MMSpliceModel(BaseModel):
     '''Model to predict delta logit PSI'''
 
     def predict_on_batch(self, inputs):
-        return LINEAR_MODEL.predict(transform(inputs, False))
+        X_ref = mmsplice.predict_on_batch(inputs['seq'])
+        X_alt = mmsplice.predict_on_batch(inputs['mut_seq'])
+        return predict_deltaLogitPsi(X_ref, X_alt)
