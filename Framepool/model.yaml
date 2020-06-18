@@ -1,25 +1,25 @@
 defined_as: model.UTRVariantEffectModel
 args:
   weights: #model/Framepool_combined_residual.h5
-     url: https://zenodo.org/record/3584238/files/Framepool_combined_residual.h5?download=1
-     md5: d1e9656725e730d509a09d5371e51bd2
+    url: https://zenodo.org/record/3584238/files/Framepool_combined_residual.h5?download=1
+    md5: d1e9656725e730d509a09d5371e51bd2
 
 default_dataloader: .
 
 dependencies:
   conda:
-  - python=3.6.7
-  - numpy>=1.16.2
-  - tensorflow=1.13.1
-  - keras=2.2.4
-  - h5py=2.9.0
+    - python=3.6.7
+    - numpy>=1.16.2
+    - tensorflow=1.13.1
+    - keras=2.2.4
+    - h5py=2.9.0
   pip:
-  - kipoi
+    - kipoi
 
 info:
   authors:
-  - github: Alex-CompEcon
-    name: Alexander Karollus
+    - github: Alex-CompEcon
+      name: Alexander Karollus
   doc: >
     This model predicts the log2 fold change in mean ribosome load from introducing variants
     into the 5' UTR of a sequence. Additionally, the model will provide log2 fold changes
@@ -31,26 +31,35 @@ info:
     translation assay (https://doi.org/10.1101/310375).
     Several modifications have been added to allow arbitrary length inputs, 
     instead of fixed size.
-  trained_on: > 
+  trained_on: >
     Data from MPRA experiment using eGFP library on HEK293T cells. Trained on eGFP library (260k
     sequences). 
     20,000 sequences were withheld for testing, and additional validations on endogenous data were performed.
   license: MIT
   tags:
-  - Translation
+    - Translation
 
 schema:
   inputs:
-    name: seq
-    doc: Reference sequence and variant 5UTR sequence, as string
-    shape: (2,)
+    ref_seq:
+      name: ref_seq
+      shape: ()
+      special_type: DNAStringSeq
+      doc: reference sequence of 5' UTR
+      associated_metadata: ranges
+    alt_seq:
+      name: alt_seq
+      doc: alternative sequence of 5' UTR
+      shape: ()
+      special_type: DNAStringSeq
+      associated_metadata: ranges, variants
   targets:
     mrl_fold_change:
-        shape: (1,)
-        doc: Log2 Fold Change in predicted mean ribosome load
+      shape: (1,)
+      doc: Log2 Fold Change in predicted mean ribosome load
     shift_1:
-        shape: (1,)
-        doc: Log2 Fold Change in mrl if frame is shifted by 1
+      shape: (1,)
+      doc: Log2 Fold Change in mrl if frame is shifted by 1
     shift_2:
-        shape: (1,)
-        doc: Log2 Fold Change in mrl if frame is shifted by 2
+      shape: (1,)
+      doc: Log2 Fold Change in mrl if frame is shifted by 2

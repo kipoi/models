@@ -15,6 +15,7 @@ from kipoiseq.utils import to_scalar
 import pybedtools
 from pybedtools import BedTool, Interval
 
+
 class StrandedSequenceVariantDataloader(Dataset):
     """ This Dataloader requires the following input files:
         1. bed3+ where a specific user-specified column (>3, 1-based) of the bed denotes the strand
@@ -39,6 +40,7 @@ class StrandedSequenceVariantDataloader(Dataset):
         np.array([reference_sequence, variant_sequence]). 
         Region metadata is additionally provided
 """
+
     def __init__(self,
                  intervals_file,
                  fasta_file,
@@ -48,88 +50,88 @@ class StrandedSequenceVariantDataloader(Dataset):
                  strand_column=6,
                  id_column=4,
                  num_chr=True
-                ):
+                 ):
 
         # workaround for test
         if vcf_file_tbi is not None and vcf_file_tbi.endswith("vcf_file_tbi"):
             os.rename(vcf_file_tbi, vcf_file_tbi.replace("vcf_file_tbi", "vcf_file.tbi"))
-        
+
         self.num_chr_fasta = num_chr
         self.intervals_file = intervals_file
         self.fasta_file = fasta_file
         self.vcf_file = vcf_file
         self.chr_order_file = chr_order_file
-       
+
         self.strand_column = strand_column - 1
         self.id_column = id_column - 1
 
         self.force_upper = True
-       
+
         # "Parse" bed file
         self.bed = BedDataset(self.intervals_file,
                               num_chr=self.num_chr_fasta,
                               bed_columns=3,
                               label_dtype=str,
                               ignore_targets=False)
-        
+
         # Intersect bed and vcf using bedtools
         # bedtools c flag: for each bed interval, counts number of vcf entries it overlaps
         bed_tool = pybedtools.BedTool(self.intervals_file)
-        intersect_counts = list(bed_tool.intersect(self.vcf_file, c=True, sorted=True, 
+        intersect_counts = list(bed_tool.intersect(self.vcf_file, c=True, sorted=True,
                                                    g=self.chr_order_file))
         intersect_counts = np.array([isect.count for isect in intersect_counts])
-                
+
         # Retain only those transcripts that intersect a variant
         utr5_bed = self.bed.df
-        id_col = utr5_bed.iloc[:,self.id_column]
-        retain_transcripts = utr5_bed[intersect_counts > 0].iloc[:,self.id_column]
-        utr5_bed = utr5_bed[utr5_bed.iloc[:,self.id_column].isin(retain_transcripts)]
-        
+        id_col = utr5_bed.iloc[:, self.id_column]
+        retain_transcripts = utr5_bed[intersect_counts > 0].iloc[:, self.id_column]
+        utr5_bed = utr5_bed[utr5_bed.iloc[:, self.id_column].isin(retain_transcripts)]
+
         # Aggregate 5utr positions per transcript
-        tuples = list(zip(utr5_bed.iloc[:,1], utr5_bed.iloc[:,2]))
+        tuples = list(zip(utr5_bed.iloc[:, 1], utr5_bed.iloc[:, 2]))
         pos = [[x] for x in tuples]
-        id_chr_strand = list(zip(utr5_bed.iloc[:,self.id_column], utr5_bed.iloc[:,0],
-                          utr5_bed.iloc[:,self.strand_column]))
-        utr5_bed_posaggreg = pd.DataFrame({"pos":pos, "id_chr_strand": id_chr_strand})
+        id_chr_strand = list(zip(utr5_bed.iloc[:, self.id_column], utr5_bed.iloc[:, 0],
+                                 utr5_bed.iloc[:, self.strand_column]))
+        utr5_bed_posaggreg = pd.DataFrame({"pos": pos, "id_chr_strand": id_chr_strand})
         utr5_bed_posaggreg = utr5_bed_posaggreg.groupby("id_chr_strand").agg({'pos': 'sum'})
-        
+
         # Rebuild "bed"
         utr5_bed_posaggreg["id"] = [x[0] for x in utr5_bed_posaggreg.index]
         utr5_bed_posaggreg["chr"] = [x[1] for x in utr5_bed_posaggreg.index]
         utr5_bed_posaggreg["strand"] = [x[2] for x in utr5_bed_posaggreg.index]
         self.bed = utr5_bed_posaggreg.reset_index()[["id", "chr", "pos", "strand"]]
-        
+
         self.fasta_extractor = None
         self.vcf = None
         self.vcf_extractor = None
-        
+
     def __len__(self):
         return len(self.bed)
 
     def __getitem__(self, idx):
         if self.fasta_extractor is None:
             self.fasta_extractor = FastaStringExtractor(self.fasta_file, use_strand=True,
-                                                         force_upper=self.force_upper)
+                                                        force_upper=self.force_upper)
         if self.vcf is None:
             self.vcf = MultiSampleVCF(self.vcf_file)
         if self.vcf_extractor is None:
             self.vcf_extractor = VariantSeqExtractor(self.fasta_file)
-        
+
         entry = self.bed.iloc[idx]
         entry_id = entry["id"]
         entry_chr = entry["chr"]
         entry_pos = entry["pos"]
         entry_strand = entry["strand"]
-        
+
         ref_exons = []
         var_exons = []
         exon_pos_strings = []
         exon_var_strings = []
         for exon in entry_pos:
             # We get the interval
-            interval = pybedtools.Interval(to_scalar(entry_chr), to_scalar(exon[0]), 
+            interval = pybedtools.Interval(to_scalar(entry_chr), to_scalar(exon[0]),
                                            to_scalar(exon[1]), strand=to_scalar(entry_strand))
-            exon_pos_strings.append("%s-%s" % (str(exon[0]),str(exon[1])))
+            exon_pos_strings.append("%s-%s" % (str(exon[0]), str(exon[1])))
 
             # We get the reference sequence
             ref_seq = self.fasta_extractor.extract(interval)
@@ -141,13 +143,13 @@ class StrandedSequenceVariantDataloader(Dataset):
                 var_exons.append(ref_seq)
             else:
                 var_seq = self.vcf_extractor.extract(interval, variants=variants,
-                    anchor=0, fixed_len=False)
+                                                     anchor=0, fixed_len=False)
                 var_string = ";".join([str(var) for var in variants])
 
                 ref_exons.append(ref_seq)
                 var_exons.append(var_seq)
                 exon_var_strings.append(var_string)
-        
+
         # Combine
         if entry_strand == "-":
             ref_exons.reverse()
@@ -156,9 +158,12 @@ class StrandedSequenceVariantDataloader(Dataset):
         var_seq = "".join(var_exons)
         pos_string = ";".join(exon_pos_strings)
         var_string = ";".join(exon_var_strings)
-        
+
         return {
-            "inputs": np.array([ref_seq, var_seq]),
+            "inputs": {
+                "ref_seq": ref_seq,
+                "alt_seq": var_seq,
+            },
             "metadata": {
                 "id": entry_id,
                 "chr": entry_chr,
@@ -167,10 +172,6 @@ class StrandedSequenceVariantDataloader(Dataset):
                 "variants": var_string
             }
         }
-
-    
-
-    
 
 
 """    def __del__(self):
