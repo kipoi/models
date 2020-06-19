@@ -67,7 +67,7 @@ class UTRVariantEffectModel(BaseModel):
         ref_seq = inputs["ref_seq"]
         alt_seq = inputs["alt_seq"]
 
-        if np.size(ref_seq) == 1:
+        if np.isscalar(ref_seq) :
             ref_seq = [ref_seq]
             alt_seq = [alt_seq]
 
