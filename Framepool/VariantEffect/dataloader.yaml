@@ -1,0 +1,82 @@
+defined_as: kipoiseq.dataloaders.SingleVariantUTRDataLoader
+
+type: SampleIterator
+
+args:
+  gtf_file:
+    doc: file path; Genome annotation GTF file
+    example:
+      url: https://github.com/kipoi/kipoiseq/blob/ddeb4eefc15ebf8a9b88fca4ce99d9b315d54f34/tests/data/chr22_ENST00000319363.gtf?raw=true
+      md5: 8a1f158e17379773fcab21628fc3910f
+      name: gtf_file.gtf
+  fasta_file:
+    doc: Reference Genome sequence in fasta format
+    example:
+      url: https://github.com/kipoi/kipoiseq/blob/ddeb4eefc15ebf8a9b88fca4ce99d9b315d54f34/tests/data/chr22.fa.gz?raw=true
+      md5: 5ebe034256ecc5689989a96387c5a65e
+      name: fasta_file.fa.gz
+  vcf_file:
+    doc: Genomic variants to evaluate in VCF format
+    example:
+      url: https://github.com/kipoi/kipoiseq/blob/ddeb4eefc15ebf8a9b88fca4ce99d9b315d54f34/tests/data/chr22_ENST00000319363.vcf.gz?raw=true
+      md5: c45e75fb75326c2be514d2dcea52e585
+      name: vcf_file.vcf.gz
+  vcf_file_tbi:
+    doc: tabix index of vcf (just to make kipoi tests work - leave as None in normal usage)
+    example:
+      url: https://github.com/kipoi/kipoiseq/blob/ddeb4eefc15ebf8a9b88fca4ce99d9b315d54f34/tests/data/chr22_ENST00000319363.vcf.gz.tbi?raw=true
+      md5: 9aebc88287a3d6b8517ace9e0fc427af
+      name: vcf_file.vcf.gz.tbi
+  feature_type:
+    doc: >
+      Needs to be "5UTR"
+    default: 5UTR
+    example: 5UTR
+    type: str
+  infer_from_cds:
+    doc: infer UTR regions from coding sequence
+    optional: True
+    default: False
+    type: bool
+  on_error_warn:
+    doc: print warning instead of throwing an error on malformed input
+    optional: True
+    default: True
+    type: bool
+default_args:
+  feature_type: 5UTR
+
+output_schema:
+  inputs:
+    ref_seq:
+      name: ref_seq
+      shape: ()
+      special_type: DNAStringSeq
+      doc: reference sequence of UTR
+      associated_metadata: ranges
+    alt_seq:
+      name: alt_seq
+      doc: alternative sequence of 5' UTR
+      shape: ()
+      special_type: DNAStringSeq
+      associated_metadata: ranges, variants
+  metadata:
+    transcript_id:
+      type: str
+      doc: transcript id
+    variant:
+      chrom:
+        type: str
+        doc: chromsome of variant
+      pos:
+        type: int
+        doc: variant position
+      ref:
+        type: str
+        doc: variant reference
+      alt:
+        type: str
+        doc: variant alternative string
+      str:
+        type: str
+        doc: string representation of the variant
