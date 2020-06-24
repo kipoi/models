@@ -77,6 +77,9 @@ output_schema:
       alt:
         type: str
         doc: variant alternative string
+      id:
+        type: str
+        doc: variant id
       str:
         type: str
         doc: string representation of the variant
