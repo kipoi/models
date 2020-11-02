@@ -49,7 +49,7 @@ dependencies:
       - tensorflow>=1.0,<1.15
       - git+https://github.com/kundajelab/DeepExplain.git
       - keras==2.2.5
-      - bpnet[extras]
+      - git+https://github.com/kundajelab/bpnet.git#egg=bpnet
 schema:
     inputs:
       shape: (1000, 4)
