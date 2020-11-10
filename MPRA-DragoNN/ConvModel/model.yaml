@@ -32,7 +32,7 @@ info: # General information about the model
 dependencies:
     conda: # install via conda
       - cython=0.28.5=py35hf484d3e_0
-      - h5py==2.10.0
+      - h5py==2.8.0
       - python=3.5
       # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
