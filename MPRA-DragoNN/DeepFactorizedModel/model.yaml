@@ -31,11 +31,12 @@ info: # General information about the model
         - RNA expression
 dependencies:
     conda: # install via conda
+      - cython=0.28.5=py35hf484d3e_0
       - python=3.5
-      - h5py==2.9.0
+      - h5py==2.8.0
       # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
-      - keras==2.2.4
+      - keras==2.3.1
       - tensorflow==1.14.0
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
