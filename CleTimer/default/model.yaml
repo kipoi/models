@@ -29,7 +29,7 @@ info:
 dependencies:
     pip:
         - scikit-learn
-        - keras>=2.0.4
+        - keras==2.2.4
         - tensorflow>=1.0.0
 schema:
     inputs:
