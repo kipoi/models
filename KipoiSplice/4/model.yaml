@@ -7,7 +7,7 @@ args:
 default_dataloader: .
 dependencies:
   pip:
-  - scikit-learn
+  - scikit-learn == 0.22.2
 info:
   authors:
   - github: avsecz
