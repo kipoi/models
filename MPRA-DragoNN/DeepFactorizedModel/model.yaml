@@ -32,11 +32,11 @@ info: # General information about the model
 dependencies:
     conda: # install via conda
       - python=3.5
-      - h5py
+      - h5py==2.9.0
       # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
-      - keras>=2.2.4
-      - tensorflow>=1.10
+      - keras==2.2.4
+      - tensorflow==1.14.0
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
