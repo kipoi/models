@@ -39,7 +39,7 @@ variables:
 jobs:
 
   # test only the newly added model
-  test_all_models:
+  test_new_models:
     <<: *defaults
     steps:
       - checkout    
@@ -92,7 +92,7 @@ workflows:
   # workflow for testing pushes and PRs
   test-models:
      jobs:
-       - test_new_models:
+       - test_all_models:
            filters:
              branches:
                ignore:
