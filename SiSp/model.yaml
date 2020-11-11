@@ -17,6 +17,7 @@ dependencies:
   pip:
   - keras==2.1.6
   - tensorflow==1.4.1
+  - h5py==2.9.0
 info:
   authors:
   - email: lara.h.urban@gmail.com
