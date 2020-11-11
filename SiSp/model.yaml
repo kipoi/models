@@ -12,11 +12,11 @@ default_dataloader: .
 dependencies:
   conda:
   - python=3.6
-  - numpy
-  - pandas
+  - numpy==1.17.4
+  - pandas==0.24.2
   pip:
-  - keras>=2.0.4
-  - tensorflow
+  - keras==2.1.6
+  - tensorflow==1.4.1
 info:
   authors:
   - email: lara.h.urban@gmail.com
