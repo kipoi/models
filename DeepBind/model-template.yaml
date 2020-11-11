@@ -40,6 +40,7 @@ dependencies:
     - h5py
     - tensorflow>=1.4
     - keras>=2.0.6
+    - python=3.6
 schema:
   inputs:
     name: seq
