@@ -23,6 +23,7 @@ dependencies:
     conda:
       - bioconda::ls-gkm=0.0.1
       - numpy
+      - python=3.6
 schema:
     inputs:
         name: seq

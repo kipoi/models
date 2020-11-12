@@ -25,6 +25,8 @@ dependencies:
     conda: # install via conda
       - python=3.6
       - conda-forge::allennlp
+    pip:
+      - scikit-learn==0.22.2.post1
     #   - allennlp
     # pip:   # install via pip
     #   - allennlp

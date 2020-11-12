@@ -29,10 +29,11 @@ info:
 
 dependencies:
     pip:
-        - concise>=0.6.5
+        - concise==0.6.9
         - tensorflow==1.4.1
         - keras==2.1.6
         - numpy==1.17.4
+        - h5py==2.10.0
 
 schema:
     inputs:
