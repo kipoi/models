@@ -7,7 +7,9 @@ args:
 default_dataloader: .
 dependencies:
   pip:
-  - scikit-learn
+  - scikit-learn==0.22.2.post1
+  - sklearn-pandas==1.8.0
+  - tensorflow==1.13.1
 info:
   authors:
   - github: avsecz

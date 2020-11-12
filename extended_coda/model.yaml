@@ -8,6 +8,8 @@ args:
   backend: tensorflow
   image_dim_ordering: tf
 dependencies:
+  conda:
+  - python=3.6
   pip:
   - tensorflow==1.13.1
   - keras==1.2.2

@@ -57,9 +57,12 @@ info:
     - DNA binding
 default_dataloader: .
 dependencies:
+  conda:
+    - python=3.6
   pip:
+    - h5py==2.10.0
     - tensorflow>=1.4.1,<2.0.0
-    - keras>=2.0.4,<2.2.0
+    - keras==2.1.6
 schema:
   inputs:
     - name: seq
