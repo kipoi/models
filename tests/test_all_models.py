@@ -54,18 +54,8 @@ def test_model(model_name, caplog):
 
     source_name = "kipoi"
     assert source_name == "kipoi"
-    
-    model_to_shared_env_name_dict = {
-      "DeepBind" : "kipoi-shared__envs__kipoi-py3-keras2",
-      "FactorNet": "kipoi-shared__envs__kipoi-py3-keras2",
-      "HAL": "kipoi-shared__envs__kipoi-py3-keras2",
-      "SiSp": "kipoi-shared__envs__kipoi-py3-keras2",
-      "labranchor":" kipoi-shared__envs__kipoi-py3-keras2",
-      "lsgkm-SVM": "kipoi-shared__envs__kipoi-py3-keras2"      
-    }
 
-    env_name = model_to_shared_env_name_dict.get(model_name, conda_env_name(model_name, model_name, source_name))
-    print(f"model_name={model_name}, env_name={env_name}")
+    env_name = conda_env_name(model_name, model_name, source_name)
     env_name = "test-" + env_name  # prepend "test-"
 
     # if environment already exists, remove it
