@@ -1,8 +1,7 @@
 defined_as: model.BPNetOldSeqModel
 args:
     model_file:
-      # TODO - put to Zenodo
-      url: 'http://mitra.stanford.edu/kundaje/avsec/chipnexus/paper/modisco-comparison/v2-output/nexus,peaks,OSNK,0,10,1,FALSE,same,0.5,64,25,0.004,9,FALSE,[1,50],TRUE/model.calibrated.h5'
+      url: 'https://zenodo.org/record/4294904/files/bpnet.model.h5?download=1'
       md5: bbe883baef261877bfad07d05feb627d
 
 default_dataloader:
