@@ -8,7 +8,9 @@ import numpy as np
 class Xpresso(BaseModel):
         def __init__(self, weights):
             self.nuc_dict = {'A':[1 ,0 ,0 ,0 ],'C':[0 ,1 ,0 ,0 ],'G':[0 ,0 ,1 ,0 ],
-                             'T':[0 ,0 ,0 ,1 ],'N':[0 ,0 ,0 ,0 ]}
+                             'T':[0 ,0 ,0 ,1 ],'N':[0 ,0 ,0 ,0 ],'a':[1 ,0 ,0 ,0 ],
+                             'c':[0 ,1 ,0 ,0 ],'g':[0 ,0 ,1 ,0 ],'t':[0 ,0 ,0 ,1 ],
+                             'n':[0 ,0 ,0 ,0 ]}
             self.weights = weights
             self.model = load_model(weights)
 
