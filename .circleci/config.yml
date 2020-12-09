@@ -49,8 +49,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test SeqVec/structure --source=kipoi \ 
-                   kipoi test SeqVec/embedded --source=kipoi
+          command: kipoi test SeqVec/structure --source=kipoi
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
