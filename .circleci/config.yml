@@ -106,6 +106,7 @@ workflows:
                only:
                  - master
                  - test_all
+                 - fix-seqvec
 
   # workflow for testing all the models
   # on the master branch overnight
