@@ -39,7 +39,7 @@ variables:
 jobs:
 
   # test only the newly added model
-  test_new_models:
+test_new_models:
     <<: *defaults
     steps:
       - checkout    
@@ -49,7 +49,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test SeqVec/structure --source=kipoi
+          command: kipoi test-source kipoi --git-range master HEAD --verbose
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
