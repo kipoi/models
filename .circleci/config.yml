@@ -39,7 +39,7 @@ variables:
 jobs:
 
   # test only the newly added model
-test_new_models:
+  test_new_models:
     <<: *defaults
     steps:
       - checkout    
