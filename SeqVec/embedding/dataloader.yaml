@@ -4,7 +4,7 @@ args: # MyDataset.__init__ argument description
         doc: fasta file containing multiple protein sequence(s)
         # Test file URL's
         example: 
-            url: https://rostlab.org/~deepppi/test.fasta
+            url: https://rostlab.org/~deepppi/kipoi_test/kipoi_test.fasta
             md5: 3752aecfdfc4c26b9d0e55423ec4e6fd
     split_char:
         doc: charcter used for separating header of fasta files (together with id_field used to extract protein identifier)

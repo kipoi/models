@@ -47,8 +47,8 @@ dependencies:
     pip:
       - tensorflow>=1.0,<1.15
       - git+https://github.com/kundajelab/DeepExplain.git
-      - keras==2.2.5
-      - git+https://github.com/kundajelab/bpnet.git#egg=bpnet
+      - keras==2.2.4
+      - git+https://github.com/kundajelab/bpnet.git@0cb7277b736260f8b4084c9b0c5bd62b9edb5266
 schema:
     inputs:
       shape: (1000, 4)
