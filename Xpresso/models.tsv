@@ -1,0 +1,6 @@
+model	model_weights_url	model_weights_md5
+human_GM12878	https://zenodo.org/record/4075690/files/GM12878_trainepoch.06-0.5062.h5	a4ed48f207408ff99358d9b24cd0b632
+human_median	https://zenodo.org/record/4075690/files/humanMedian_trainepoch.11-0.426.h5	9d00a3bc614da81655328b6e278569e2
+human_K562	https://zenodo.org/record/4075690/files/K562_trainepoch.11-0.4917.h5	142990996e762e9a5c6e529a0f294ba6
+mouse_ESCs	https://zenodo.org/record/4075690/files/mESC_trainepoch.10-0.3867.h5	07f21238bff057ae9865fd9bb89565a8
+mouse_median	https://zenodo.org/record/4075690/files/mouseMedian_trainepoch.05-0.278.h5	938f5979c90f726b06f4b4e5b1919c16
