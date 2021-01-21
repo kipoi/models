@@ -15,18 +15,7 @@ variables:
     run:
       name: Install git-lfs
       command: conda install --yes -c conda-forge git-lfs && git lfs install
-  restore_cache: &restore_cache
-    restore_cache:
-      keys:
-        - source-v2-{{ .Branch }}-{{ .Revision }}
-        - source-v2-{{ .Branch }}-
-        - source-v2-master-
-        - source-v2-
-  save_cache: &save_cache
-    save_cache:
-      key: source-v2-{{ .Branch }}-{{ .Revision }}
-      paths:
-        - ".git"
+
   setup: &setup
     run: 
       name: Setup Kipoi
@@ -45,7 +34,6 @@ jobs:
       - checkout    
       - *install_sys_deps
       - *install_gitlfs
-      - *restore_cache
       - *setup
       - run:
           name: run tests
@@ -54,7 +42,6 @@ jobs:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
           no_output_timeout: 15m
-      - *save_cache
       - *store_artifacts
 
   # test all models in the repo
@@ -64,7 +51,6 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
-      - *restore_cache
       - *setup
       - run:
           name: run tests
@@ -73,7 +59,6 @@ jobs:
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
-      - *save_cache
       - *store_artifacts
   date_release:
     <<: *defaults
