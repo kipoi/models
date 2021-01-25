@@ -15,7 +15,13 @@ variables:
     run:
       name: Install git-lfs
       command: conda install --yes -c conda-forge git-lfs && git lfs install
-
+  restore_cache: &restore_cache
+    restore_cache:
+      keys:
+        - source-v2-{{ .Branch }}-{{ .Revision }}
+        - source-v2-{{ .Branch }}-
+        - source-v2-master-
+        - source-v2-
   setup: &setup
     run: 
       name: Setup Kipoi
@@ -34,6 +40,7 @@ jobs:
       - checkout    
       - *install_sys_deps
       - *install_gitlfs
+      # - *restore_cache
       - *setup
       - run:
           name: run tests
@@ -51,6 +58,7 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
+      # - *restore_cache
       - *setup
       - run:
           name: run tests
