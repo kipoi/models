@@ -28,9 +28,11 @@ default_dataloader:
 
 dependencies:
   conda:
-    - python=3.5
+    - python=3.6
     - h5py=2.10.0
     - pip=20.3.3
+    - bedtools=2.29.2
+    - pybedtools=0.8.1
   pip:
     - tensorflow==1.4.1
     - keras==2.0.4

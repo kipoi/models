@@ -41,6 +41,7 @@ dependencies:
     - tensorflow=1.4.1
     - keras=2.1.6
     - python=3.6
+    - pysam=0.15.3
 schema:
   inputs:
     name: seq
