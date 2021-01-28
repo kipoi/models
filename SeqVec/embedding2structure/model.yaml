@@ -5,7 +5,7 @@ args: # arguments of kipoi.model.PyTorchModel
         url: https://rostlab.org/~deepppi/embedding_repo/feature_models/seqvec/per_residue/state_dict.pt
         md5: 2e0524182a30ab93f3a6b2f3ba803194
 
-default_dataloader: 
+default_dataloader: ../embedding
 
 info: # General information about the model
     authors: 

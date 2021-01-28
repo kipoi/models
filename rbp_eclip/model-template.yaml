@@ -28,6 +28,8 @@ info:
         - RNA binding
 
 dependencies:
+    conda:
+        - pip=20.3.3
     pip:
         - concise==0.6.9
         - tensorflow==1.4.1

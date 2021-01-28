@@ -23,6 +23,7 @@ dependencies:
   conda:
   - bioconda::pysam
   - python=3.5
+  - pip=20.3.3
 info:
   authors:
   - github: s6juncheng

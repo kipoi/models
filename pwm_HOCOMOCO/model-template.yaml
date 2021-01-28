@@ -29,9 +29,10 @@ default_dataloader:
 dependencies:
   conda:
     - python=3.5
-    - h5py
+    - h5py=2.10.0
+    - pip=20.3.3
   pip:
-    - tensorflow<=1.9.0
+    - tensorflow==1.4.1
     - keras==2.0.4
 schema:
   inputs:

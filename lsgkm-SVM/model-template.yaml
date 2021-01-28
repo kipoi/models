@@ -24,7 +24,8 @@ dependencies:
       - bioconda::ls-gkm=0.0.1
       - numpy
       - python=3.6
-      - numpy=1.19.2  
+      - numpy=1.19.2 
+      - pip=20.3.3 
     pip:
       - arrow==0.17.0
       - attrs==20.2.0
