@@ -27,7 +27,7 @@ info:
         - RNA splicing
 dependencies:
     conda:
-      - bioconda::maxentpy
+      - maxentpy=0.0.1=py36_2
 schema:
     inputs:
         name: seq
