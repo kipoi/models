@@ -54,7 +54,7 @@ dependencies:
     - python=3.5
     - pip=20.3.3
   pip:
-    - tensorflow>=1.4.1
+    - tensorflow==1.4.1
     - kipoiseq
 schema:
   inputs:
