@@ -30,7 +30,7 @@ dependencies:
     - _libgcc_mutex=0.1=main
     - _pytorch_select=0.2=gpu_0
     - bcolz=1.2.1=py36h04863e7_0
-    - bedtools=2.29.2=hc088bd4_0
+    - bedtools=2.29.2
     - blas=1.0=mkl
     - blosc=1.20.1=hd408876_0
     - bokeh=2.2.3=py36_0
@@ -51,7 +51,7 @@ dependencies:
     - distributed=2.30.1=py36h06a4308_0
     - freetype=2.10.4=h5ab3b9f_0
     - fsspec=0.8.3=py_0
-    - genomelake=0.1.4=py36h516909a_2
+    - genomelake=0.1.4
     - hdf5=1.10.4=hb1b8bf9_0
     - heapdict=1.0.1=py_0
     - immutables=0.14=py36h7b6447c_0
@@ -62,7 +62,6 @@ dependencies:
     - lcms2=2.11=h396b838_0
     - ld_impl_linux-64=2.33.1=h53a641e_7
     - libcurl=7.71.1=h20c2e04_1
-    - libdeflate=1.0=h14c3975_1
     - libedit=3.1.20191231=h14c3975_1
     - libffi=3.3=he6710b0_2
     - libgcc-ng=9.1.0=hdf63c60_0
@@ -72,11 +71,10 @@ dependencies:
     - libstdcxx-ng=9.1.0=hdf63c60_0
     - libtiff=4.1.0=h2733197_1
     - locket=0.2.0=py36_1
-    - ls-gkm=0.0.1=h2d50403_1
     - lz4-c=1.9.2=heb0550a_3
     - lzo=2.10=h7b6447c_2
     - markupsafe=1.1.1=py36h7b6447c_0
-    - maxentpy=0.0.1=py36_2
+    - maxentpy=0.0.1
     - mkl=2020.2=256
     - mkl-service=2.3.0=py36he904b0f_0
     - mkl_fft=1.2.0=py36h23d657b_0
@@ -94,11 +92,11 @@ dependencies:
     - pillow=8.0.1=py36he98fc37_0
     - pip=20.2.4=py36h06a4308_0
     - psutil=5.7.2=py36h7b6447c_0
-    - pybedtools=0.8.1=py36he513fc3_0
-    - pybigwig=0.3.17=py36hc013797_0
+    - pybedtools=0.8.1
+    - pybigwig=0.3.17
     - pycparser=2.20=py_2
     - pyparsing=2.4.7=py_0
-    - pysam=0.15.3=py36hda2845c_1
+    - pysam=0.15.3
     - pytables=3.6.1=py36h71ec239_0
     - python=3.6.12=hcff3b4d_2
     - python-dateutil=2.8.1=py_0
@@ -109,7 +107,7 @@ dependencies:
     - six=1.15.0=py36h06a4308_0
     - sortedcontainers=2.2.2=py_0
     - sqlite=3.33.0=h62c20be_0
-    - tabix=0.2.6=ha92aebf_0
+    - tabix=0.2.6
     - tblib=1.7.0=py_0
     - tk=8.6.10=hbc83047_0
     - toolz=0.11.1=py_0
