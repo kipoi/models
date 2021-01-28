@@ -28,6 +28,8 @@ info:
 dependencies:
     conda:
       - maxentpy=0.0.1=py36_2
+      - pip=20.3.3
+      - pysam=0.15.3
 schema:
     inputs:
         name: seq
