@@ -40,6 +40,7 @@ dependencies:
     - h5py=2.10.0
     - tensorflow=1.10.0
     - keras=1.2.2
+    - pysam=0.15.3
 schema:
   inputs:
     name: seq
