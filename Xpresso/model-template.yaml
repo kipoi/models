@@ -31,6 +31,7 @@ dependencies:
       - h5py=2.10
       - numpy=1.19.2
       - pip=20.3.3
+      - pysam=0.15.3
     pip:   # install via pip
       - keras==2.4.3
       - tensorflow==2.4.1
