@@ -8,11 +8,11 @@ args:
 
 default_dataloader:
     defined_as: kipoiseq.dataloaders.SeqIntervalDl
-
     default_args:
+        auto_resize_len: 10500
         alphabet_axis: 1
         alphabet: "ACGT" # Order of letters in 1-hot encoding
-        use_strand: True
+        use_strand: False
         ignore_targets: False # if True, dont return any target variables
 
 info: # General information about the model
@@ -27,12 +27,14 @@ info: # General information about the model
 
 dependencies:
     conda: # install via conda
-      - python=3.5
-      - h5py
-      - numpy
+      - python=3.6
+      - h5py=2.10
+      - numpy=1.19.2
+      - pip=20.3.3
+      - pysam=0.15.3
     pip:   # install via pip
-      - keras>=2.2.4
-      - tensorflow>=1.15.0
+      - keras==2.4.3
+      - tensorflow==2.4.1
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
