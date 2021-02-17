@@ -100,7 +100,6 @@ workflows:
              branches:
                only:
                  - master
-                 - fix-ci
                  - test_all
 
   # workflow for testing all the models
