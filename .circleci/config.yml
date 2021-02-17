@@ -63,6 +63,7 @@ jobs:
       - run:
           name: run tests
           # Use  --clean_env to remove the environment of each model
+          no_output_timeout: 30m
           command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
