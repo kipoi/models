@@ -15,6 +15,7 @@ info:
         - RNA splicing
 dependencies:
     pip:
+      - h5py==2.10.0
       - mmsplice==2.0.0
 schema:
     inputs:

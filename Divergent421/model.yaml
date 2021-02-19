@@ -29,9 +29,11 @@ default_dataloader:
 
 dependencies:
     conda:
-        - h5py 
+        - h5py=2.10.0
         - tensorflow<=1.4.1
-        - keras==1.2.2
+        - keras=1.2.2
+        - pip=20.3.3
+        - pysam=0.15.3
     pip:
         - kipoiseq
 

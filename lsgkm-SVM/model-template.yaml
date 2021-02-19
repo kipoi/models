@@ -23,6 +23,43 @@ dependencies:
     conda:
       - bioconda::ls-gkm=0.0.1
       - numpy
+      - python=3.6
+      - numpy=1.19.2 
+      - pip=20.3.3 
+      - pysam=0.15.3
+    pip:
+      - arrow==0.17.0
+      - attrs==20.2.0
+      - binaryornot==0.4.4
+      - chardet==3.0.4
+      - click==7.1.2
+      - colorlog==4.4.0
+      - cookiecutter==1.7.2
+      - deprecation==2.1.0
+      - future==0.18.2
+      - h5py==2.10.0
+      - idna==2.10
+      - jinja2==2.11.2
+      - jinja2-time==0.2.0
+      - kipoi==0.6.29
+      - kipoi-conda==0.2.2
+      - kipoi-utils==0.3.8
+      - markupsafe==1.1.1
+      - packaging==20.4
+      - pandas==1.1.3
+      - poyo==0.5.0
+      - pyparsing==2.4.7
+      - python-dateutil==2.8.1
+      - python-slugify==4.0.1
+      - pytz==2020.1
+      - pyyaml==5.3.1
+      - related==0.7.2
+      - requests==2.24.0
+      - six==1.15.0
+      - text-unidecode==1.3
+      - tinydb==4.2.0
+      - tqdm==4.51.0
+      - urllib3==1.25.11
 schema:
     inputs:
         name: seq

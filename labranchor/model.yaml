@@ -11,8 +11,9 @@ dependencies:
   - pip
   - bioconda::pysam
   pip:
-  - tensorflow>=1.0.0
-  - keras>=2.0.4
+  - tensorflow==1.4.1
+  - keras==2.1.6
+  - h5py==2.9.0
 info:
   authors:
   - github: jpaggi
