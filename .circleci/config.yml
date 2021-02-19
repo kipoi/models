@@ -10,7 +10,7 @@ variables:
   install_sys_deps: &install_sys_deps
     run:
       name: install build-essential
-      command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev
+      command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev curl
   install_gitlfs: &install_gitlfs
     run:
       name: Install git-lfs
@@ -22,11 +22,6 @@ variables:
         - source-v2-{{ .Branch }}-
         - source-v2-master-
         - source-v2-
-  save_cache: &save_cache
-    save_cache:
-      key: source-v2-{{ .Branch }}-{{ .Revision }}
-      paths:
-        - ".git"
   setup: &setup
     run: 
       name: Setup Kipoi
@@ -45,7 +40,7 @@ jobs:
       - checkout    
       - *install_sys_deps
       - *install_gitlfs
-      - *restore_cache
+      # - *restore_cache
       - *setup
       - run:
           name: run tests
@@ -54,7 +49,6 @@ jobs:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
           no_output_timeout: 15m
-      - *save_cache
       - *store_artifacts
 
   # test all models in the repo
@@ -64,20 +58,21 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
-      - *restore_cache
+      # - *restore_cache
       - *setup
       - run:
           name: run tests
           # Use  --clean_env to remove the environment of each model
+          no_output_timeout: 30m
           command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
-      - *save_cache
       - *store_artifacts
   date_release:
     <<: *defaults
     steps:
+      - *install_sys_deps
       - run:
           name: Tag and push
           command: |

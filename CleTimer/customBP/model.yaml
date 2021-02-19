@@ -29,8 +29,10 @@ info:
       - RNA splicing
 
 dependencies:
+    conda:
+      - pip=20.3.3
     pip:
-        - scikit-learn
+      - scikit-learn==0.22.2.post1
 
 schema:
     inputs:
