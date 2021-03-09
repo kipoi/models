@@ -10,7 +10,6 @@ from kipoiseq.transforms.functional import resize_interval
 
 class MyDataset(Dataset):
     """Example re-implementation of kipoiseq.dataloaders.SeqIntervalDl
-
     Args:
         intervals_file: bed3 file containing intervals
         fasta_file: file path; Genome sequence
