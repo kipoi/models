@@ -1,0 +1,42 @@
+defined_as: kipoi.model.KerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/4590308/files/DeepMEL2.json.txt?download=1
+        md5: md5:38faa21aa88a2198e6e0a2a910694a3d
+    weights:
+        url: https://zenodo.org/record/4590308/files/DeepMEL2.hdf5?download=1
+        md5: md5:bf95fa12678c7f284905eddf69b4fbc9
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Ibrahim Ihsan Taskiran
+          github: itaskiran
+          email: ibrahimihsan.taskiran@kuleuven.be
+        - name: Zeynep Kalender Atak
+        - name: Stein Aerts
+    doc: Specialized deep learning model on melanoma chromatin accessibility data
+    cite_as: https://doi.org/10.1101/2019.12.21.885806
+    trained_on: Accessible genomic sites.
+    license: MIT
+
+dependencies:
+    conda: # install via conda
+      - python=3.6
+      - h5py==2.10.0
+
+    pip:   # install via pip
+      - keras>=2.2.4
+      - tensorflow>=1.14.0
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+       - shape: (500, 4)
+         doc: Reverse-complemented DNA sequence
+     targets:
+       name: topic
+       shape: (47,)
+       doc: Topic Prediction
