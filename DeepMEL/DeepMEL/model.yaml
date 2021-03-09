@@ -13,11 +13,11 @@ info:
     authors: 
         - name: Ibrahim Ihsan Taskiran
           github: itaskiran
-          email: ibrahimihsan.taskiran@kuleuven.vib.be
+          email: ibrahimihsan.taskiran@kuleuven.be
         - name: Liesbeth Minnoye
         - name: Stein Aerts
     doc: Model predicting melanoma-specific accessible regions
-    cite_as: https://doi.org/10.1101/2019.12.21.885715
+    cite_as: https://doi.org/10.1101/gr.260844.120
     trained_on: Accessible genomic sites. Held-out chromosome chr2.
     license: MIT
 
