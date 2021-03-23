@@ -27,6 +27,12 @@ args:
             url: https://github.com/kipoi/kipoiseq/blob/ddeb4eefc15ebf8a9b88fca4ce99d9b315d54f34/tests/data/chr22_ENST00000319363.vcf.gz.tbi?raw=true
             md5: 9aebc88287a3d6b8517ace9e0fc427af
             name: vcf_file.vcf.gz.tbi
+    feature_type:
+        doc: specify your "feature_type" as given in the GTF file which you are using
+        optional: True
+        default: "5UTR"
+        example: "5UTR"
+        type: str
     infer_from_cds:
         doc: infer UTR regions from coding sequence
         optional: True
