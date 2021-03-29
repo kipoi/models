@@ -48,7 +48,7 @@ jobs:
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
-          no_output_timeout: 15m
+          no_output_timeout: 60m
       - *store_artifacts
 
   # test all models in the repo
@@ -63,7 +63,7 @@ jobs:
       - run:
           name: run tests
           # Use  --clean_env to remove the environment of each model
-          no_output_timeout: 30m
+          no_output_timeout: 60m
           command: kipoi test-source kipoi --all
       - run:
           name: run tests in common environments
