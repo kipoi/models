@@ -11,8 +11,10 @@ default_dataloader: .
 
 dependencies:
   conda:
-  - tensorflow>=1.0.0
-  - keras>=2.0.4
+  - tensorflow=1.4.1
+  - keras=2.1.6
+  - python=3.6
+  - pip=20.2.4
 
 info:
   authors:
