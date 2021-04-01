@@ -10,12 +10,13 @@ args:
 default_dataloader: .
 dependencies:
   conda:
-  - python=3.5
-  - h5py
+    - python=3.6.12
+    - h5py=2.10.0
+    - pip=20.2.4
   pip:
-  - tensorflow==1.4.1
-  - keras==1.2.2
-  - deepcpg==1.0.4
+    - tensorflow==1.10.0
+    - keras==1.2.2
+    - deepcpg==1.0.4
 info:
   authors:
   - github: cangermueller
