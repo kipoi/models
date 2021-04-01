@@ -15,9 +15,12 @@ info:
     tags:
         - RNA splicing
 dependencies:
-    pip:
-      - h5py==2.10.0
-      - mmsplice==1.0.3
+  conda:
+    - python=3.6.13
+    - pip=21.0.1
+  pip:
+    - h5py==2.10.0
+    - mmsplice==1.0.3
 schema:
     inputs:
       seq:

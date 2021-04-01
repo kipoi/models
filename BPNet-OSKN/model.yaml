@@ -34,18 +34,18 @@ dependencies:
       - bioconda::pysam>=0.14.0
       - bioconda::genomelake==0.1.4
 
-      - pytorch::pytorch  # optional for data-loading
-      - cython
-      - h5py>=2.7.0
-      - numpy
+      - pytorch::pytorch=1.4.0  # optional for data-loading
+      - cython=0.29.22
+      - h5py=2.10.0
+      - numpy=1.19.2
 
-      - pandas>=0.23.0
-      - fastparquet
-      - python-snappy
-
-      - nb_conda
+      - pandas=1.1.5
+      - fastparquet=0.5.0
+      - python-snappy=0.6.0
+      - pip=21.0.1
+      - nb_conda=2.2.1
     pip:
-      - tensorflow>=1.0,<1.15
+      - tensorflow==1.14.0
       - git+https://github.com/kundajelab/DeepExplain.git
       - keras==2.2.4
       - git+https://github.com/kundajelab/bpnet.git@0cb7277b736260f8b4084c9b0c5bd62b9edb5266

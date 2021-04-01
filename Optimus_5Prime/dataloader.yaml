@@ -19,11 +19,13 @@ defined_as: dataloader.py::FixedSeq5UtrDl
 
 dependencies:
   conda:
-    - bioconda::pybedtools
+    - python=3.6
+    - pip=20.2.4
+    - bioconda::pybedtools=0.8.1
   pip:
     - kipoi
     - kipoiseq
-    - gffutils
+    - gffutils==0.10.1
 
 info:
   authors:

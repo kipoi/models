@@ -8,6 +8,7 @@ dependencies:
   conda:
     - numpy=1.19.2
     - python=3.6
+    - pip=20.2.4
   pip:
     - arrow==0.17.0
     - attrs==20.2.0
