@@ -27,6 +27,7 @@ info:
         - RNA splicing
 dependencies:
     conda:
+      - pip=20.2.4
       - bioconda::maxentpy=0.0.1
 schema:
     inputs:
