@@ -13,6 +13,7 @@ dependencies:
     - tensorflow=1.13.1
     - keras=2.2.4
     - h5py=2.9.0
+    - pip=20.2.4
   pip:
     - kipoi
 
