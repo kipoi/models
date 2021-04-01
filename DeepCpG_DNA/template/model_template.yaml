@@ -23,7 +23,7 @@ info:
 default_dataloader: .
 dependencies:
   conda:
-    - python=3.6.12
+    - python=3.5
     - h5py=2.10.0
     - pip=20.2.4
   pip:
