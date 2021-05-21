@@ -30,7 +30,7 @@ info: # General information about the model
           github: vervacity
           email: danielskim@stanford.edu
     doc: Model predicting accessibility/chromatin marks from sequence
-    cite_as: https://doi.org:/... # preferably a doi url to the paper
+    cite_as: https://doi.org/10.1101/2020.10.16.342857
     trained_on: see README
     license: MIT # Software License - if not set defaults to MIT
     # You can also specify the license in the LICENSE file
