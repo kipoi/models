@@ -36,12 +36,13 @@ info: # General information about the model
     # You can also specify the license in the LICENSE file
 
 dependencies:
-    conda: # install via conda
-      - python=2.7
-      - h5py
-    pip:   # install via pip
-      #- keras>=2.0.4
-      - tensorflow>=1.8
+  conda: # install via conda
+    - python=3.6
+    - h5py=2.10.0
+    - pip=20.2.4
+  pip:   # install via pip
+    - kipoiseq
+    - tensorflow==1.8    
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
