@@ -7,7 +7,7 @@ args:
         #md5: 9d00a3bc614da81655328b6e278569e2
 
 default_dataloader:
-    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+    defined_as: kipoiseq.dataloaders.AnchoredGTFDl
     default_args:
         auto_resize_len: 10500
         alphabet_axis: 1
