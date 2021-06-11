@@ -68,8 +68,7 @@ def test_model(model_name, caplog):
             "--source", source_name,
             "--env", env_name,
             model_name]
-    output = subprocess.check_output(args=args)
-    print(output)
+    returncode = subprocess.call(args=args)
     assert returncode == 0
 
     if model_name == "basenji":
