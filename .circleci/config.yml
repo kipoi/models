@@ -14,7 +14,7 @@ variables:
   install_python3.6_env: &install_python3.6_env
     run:
       name: Install python3.6 environment
-      command: conda create -n py36 python=3.6 && conda activate py36
+      command: conda create -n -y py36 python=3.6 && conda activate py36
   install_gitlfs: &install_gitlfs
     run:
       name: Install git-lfs
@@ -64,6 +64,7 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
+      - *install_python3.6_env
       # - *restore_cache
       - *setup
       - run:
