@@ -4,7 +4,6 @@ variables:
   defaults: &defaults
     docker:
       - image: continuumio/miniconda3:4.7.10
-    resource_class: xlarge
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
@@ -45,11 +44,12 @@ jobs:
       - *setup
       - run:
           name: run tests
+          no_output_timeout: 60m
           command: kipoi test-source kipoi --git-range master HEAD --verbose
       - run:
           name: run tests in common environmnets
-          command: kipoi test-source kipoi --git-range master HEAD --common_env
           no_output_timeout: 60m
+          command: kipoi test-source kipoi --git-range master HEAD --common_env
       - *store_artifacts
 
   # test all models in the repo
