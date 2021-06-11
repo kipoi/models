@@ -19,6 +19,7 @@ WORKSPACE=`pwd`
 
 # Make sure the CircleCI config is up to date.
 # add upstream as some semi-randomly named temporary remote to diff against
+source activate py36
 UPSTREAM_REMOTE=__upstream__$(tr -dc a-z < /dev/urandom | head -c10)
 git remote add -t master $UPSTREAM_REMOTE https://github.com/kipoi/models.git
 git fetch $UPSTREAM_REMOTE
