@@ -3,7 +3,7 @@ version: 2
 variables:
   defaults: &defaults
     docker:
-      - image: continuumio/miniconda3:4.6.14
+      - image: continuumio/miniconda3:4.7.10
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
@@ -11,6 +11,10 @@ variables:
     run:
       name: install build-essential
       command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev curl
+  install_python3.6_env:
+    run:
+      name: Install python3.6 environment
+      command: conda create -n py36 python=3.6 && conda activate py36
   install_gitlfs: &install_gitlfs
     run:
       name: Install git-lfs
