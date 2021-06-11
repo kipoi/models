@@ -21,12 +21,12 @@ info:
           email: mheinzinger@rostlab.org
     doc: Data-loader returning protein sequence as required by ELMo
 
-dependencies:
-    conda:
-      - python=3.6
-      - conda-forge::allennlp
-    # pip:
-    #   - allennlp
+# dependencies:
+#     conda:
+#       - python=3.6
+#       - conda-forge::allennlp
+#     # pip:
+#     #   - allennlp
 
 output_schema: # Define the dataloader output schema according to the returned values
     inputs:
