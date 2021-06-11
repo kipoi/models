@@ -11,7 +11,7 @@ variables:
     run:
       name: install build-essential
       command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev curl
-  install_python3.6_env:
+  install_python3.6_env: &install_python3.6_env
     run:
       name: Install python3.6 environment
       command: conda create -n py36 python=3.6 && conda activate py36
@@ -44,6 +44,7 @@ jobs:
       - checkout    
       - *install_sys_deps
       - *install_gitlfs
+      - *install_python3.6_env
       # - *restore_cache
       - *setup
       - run:
