@@ -122,14 +122,12 @@ workflows:
                only:
                  - master
                  - test_all
-                 - parallel-test-source-cli
        - test_all_models_common_env:
            filters:
              branches:
                only:
                  - master
                  - test_all
-                 - parallel-test-source-cli
 
 
   # workflow for testing all the models
