@@ -1,4 +1,5 @@
-version: 2.0
+version: 2.1
+
 
 variables:
   defaults: &defaults
@@ -53,11 +54,12 @@ jobs:
 
   # test all models in the repo
   test_all_models:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
     <<: *defaults
-    matrix:
-      parameters:
-        num_of_shards: 4
-        shard_id: ["0", "1", "2", "3"]
     steps:
       - checkout
       - *install_sys_deps
@@ -68,7 +70,7 @@ jobs:
           name: run tests
           # Use  --clean_env to remove the environment of each model
           no_output_timeout: 60m
-          command: kipoi test-source kipoi --all --num_of_shards << matrix.num_of_shards >> --shard_id << matrix.shard_id >>
+          command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
@@ -86,7 +88,7 @@ jobs:
 
 
 workflows:
-  version: 2.0
+  version: 2.1
 
   # workflow for testing pushes and PRs
   test-models:
@@ -100,6 +102,10 @@ workflows:
   test-all-branch:
      jobs:
        - test_all_models:
+           matrix:
+             parameters:
+               num_of_shards: [4]
+               shard_id: [0, 1, 2, 3]
            filters:
              branches:
                only:
@@ -118,7 +124,11 @@ workflows:
                only:
                  - master
      jobs:
-       - test_all_models
+       - test_all_models:
+          matrix:
+            parameters:
+              num_of_shards: [4]
+              shard_id: [0, 1, 2, 3]
 
 
   weekly-tag:
