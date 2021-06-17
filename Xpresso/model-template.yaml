@@ -9,13 +9,11 @@ args:
 default_dataloader:
     defined_as: kipoiseq.dataloaders.AnchoredGTFDl
     default_args:
-        gtf_file: "https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf?download=1"
-        fasta_file: "https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa?download=1"
         num_upstream: 7000 
         num_downstream: 3500
-        gtf_filter: 'gene_type == "protein_coding"'
-        anchor: "tss"
-        transform: kipoiseq.transforms.functional.one_hot_dna # if True, dont return any target variables
+        gtf_filter: gene_type == "protein_coding"
+        anchor: tss
+        # transform: kipoiseq.transforms.functional.one_hot_dna # if True, dont return any target variables
         interval_attrs: ["gene_id", "Strand"]
         use_strand: True
 
