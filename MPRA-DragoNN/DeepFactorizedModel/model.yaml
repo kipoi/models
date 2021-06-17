@@ -31,9 +31,9 @@ info: # General information about the model
         - RNA expression
 dependencies:
     conda: # install via conda
-      - cython=0.28.5=py35hf484d3e_0
-      - python=3.5
-      - h5py==2.8.0
+      - cython=0.28.5
+      - python=3.6
+      - h5py=2.8.0
       - pip=20.3.3
       # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
