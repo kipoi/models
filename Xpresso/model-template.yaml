@@ -8,14 +8,7 @@ args:
 
 default_dataloader:
     defined_as: kipoiseq.dataloaders.AnchoredGTFDl
-    default_args:
-        num_upstream: 7000 
-        num_downstream: 3500
-        gtf_filter: gene_type == "protein_coding"
-        anchor: tss
-        # transform: kipoiseq.transforms.functional.one_hot_dna # if True, dont return any target variables
-        interval_attrs: ["gene_id", "Strand"]
-        use_strand: True
+
 
 info: # General information about the model
     authors:
