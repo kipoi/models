@@ -31,7 +31,7 @@ dependencies:
     pip:   # install via pip
       - keras==2.4.3
       - tensorflow==2.4.1
-      - git+https://github.com/kipoi/kipoiseq.git@add-xpresso-dataloader 
+      - git+https://github.com/kipoi/kipoiseq.git
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
