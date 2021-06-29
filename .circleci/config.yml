@@ -122,12 +122,14 @@ workflows:
                only:
                  - master
                  - test_all
+                 - add-test-predictions
        - test_all_models_common_env:
            filters:
              branches:
                only:
                  - master
                  - test_all
+                 - add-test-predictions
 
 
   # workflow for testing all the models
