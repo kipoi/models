@@ -8,8 +8,9 @@ args:
 default_dataloader: .
 dependencies:
   conda:
-  - pip
-  - bioconda::pysam
+  - pip=20.2.4
+  - python=3.6
+  - bioconda::pysam=0.15.3
   pip:
   - tensorflow==1.4.1
   - keras==2.1.6

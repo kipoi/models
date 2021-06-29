@@ -7,13 +7,8 @@ args:
         #md5: 9d00a3bc614da81655328b6e278569e2
 
 default_dataloader:
-    defined_as: kipoiseq.dataloaders.SeqIntervalDl
-    default_args:
-        auto_resize_len: 10500
-        alphabet_axis: 1
-        alphabet: "ACGT" # Order of letters in 1-hot encoding
-        use_strand: False
-        ignore_targets: False # if True, dont return any target variables
+    defined_as: kipoiseq.dataloaders.AnchoredGTFDl
+
 
 info: # General information about the model
     authors:
@@ -32,9 +27,11 @@ dependencies:
       - numpy=1.19.2
       - pip=20.3.3
       - pysam=0.15.3
+      - cython=0.29.23
     pip:   # install via pip
       - keras==2.4.3
       - tensorflow==2.4.1
+      - kipoiseq==0.6.0
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array

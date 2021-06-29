@@ -1,0 +1,14 @@
+to make models Kipoi compatible, first generated a file of the original
+models with checkpoints - `models_orig.tsv`.
+
+this was the input to `run_kipoi_compatibility.py`, which inserted placeholder
+ops into the metagraph. these new graphs were saved to a new dir, and
+confirmed to run with kipoi test.
+
+these files were uploaded to zenodo with `upload_zenodo.py`.
+
+then the links were put into a new models.tsv table with update_w_zenodo_links.py.
+
+these links were then used with the files to generate a folder for each model.
+
+testing is done per folder, see script `run_tests.py`.

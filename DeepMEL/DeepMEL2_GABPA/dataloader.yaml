@@ -24,6 +24,7 @@ info:
 dependencies:
     conda:
       - python=3.6
+      - cython=0.29.23
       - bioconda::pybedtools
       - bioconda::pysam
       - bioconda::pyfaidx

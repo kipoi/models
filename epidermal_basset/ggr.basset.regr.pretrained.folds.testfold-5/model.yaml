@@ -1,0 +1,61 @@
+defined_as: kipoi.model.TensorFlowModel
+args: # arguments of kipoi.model.TensorFlowModel
+  input_nodes: "inputs"
+  target_nodes: "basset/logits/biases/RMSProp_1"
+  checkpoint_path:
+    meta:
+      url: https://zenodo.org/record/4777310/files/ggr.basset.regr.pretrained.folds.testfold-5.model.meta/?download=1
+      md5: aecbc5165666647f2ad9d5113e056156
+    index:
+      url: https://zenodo.org/record/4777310/files/ggr.basset.regr.pretrained.folds.testfold-5.model.index/?download=1
+      md5: dd56fde6d5dd0078c462c916119392dc
+    data:
+      url: https://zenodo.org/record/4777310/files/ggr.basset.regr.pretrained.folds.testfold-5.model.data-00000-of-00001/?download=1
+      md5: 948789840faf196eff94ee0ecbfb3ad1
+
+default_dataloader: 
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        # See also https://kipoi.org/kipoiseq/dataloaders/#seqintervaldl 
+        auto_resize_len: 1000 # Automatically resize sequence intervals
+        alphabet_axis: 2
+        dummy_axis: 0 # Add a dummy axis. Omit in order not to create dummy_axis.
+        alphabet: "ACGT" # Order of letters in 1-hot encoding
+        ignore_targets: False # if True, dont return any target variables
+
+info: # General information about the model
+    authors: 
+        - name: Daniel Kim
+          github: vervacity
+          email: danielskim@stanford.edu
+    doc: Model predicting accessibility/chromatin marks from sequence
+    cite_as: https://doi.org:/... # preferably a doi url to the paper
+    trained_on: see README
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+  conda: # install via conda
+    - python=3.6
+    - h5py=2.10.0
+    - pip=20.2.4
+  pip:   # install via pip
+    - kipoiseq
+    - tensorflow==1.8
+    
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (1,1000,4)  # array shape of a single sample (omitting the batch dimension)
+        doc: input feature description
+
+    # inputs:  # input = dictionary of fields
+    #   seq:
+    #     shape: (100,4)
+    #     doc: input feature description
+    #   other_track:
+    #     shape: (50,)
+    #     doc: input feature description
+    targets:
+        shape: (1996,)
+        doc: model prediction description

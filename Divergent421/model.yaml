@@ -34,6 +34,7 @@ dependencies:
         - keras=1.2.2
         - pip=20.3.3
         - pysam=0.15.3
+        - cython=0.29.23
     pip:
         - kipoiseq
 

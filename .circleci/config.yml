@@ -1,4 +1,5 @@
-version: 2
+version: 2.1
+
 
 variables:
   defaults: &defaults
@@ -48,11 +49,16 @@ jobs:
       - run:
           name: run tests in common environmnets
           command: kipoi test-source kipoi --git-range master HEAD --common_env
-          no_output_timeout: 15m
+          no_output_timeout: 60m
       - *store_artifacts
-
+  
   # test all models in the repo
   test_all_models:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
     <<: *defaults
     steps:
       - checkout
@@ -63,12 +69,23 @@ jobs:
       - run:
           name: run tests
           # Use  --clean_env to remove the environment of each model
-          no_output_timeout: 30m
-          command: kipoi test-source kipoi --all
+          no_output_timeout: 60m
+          command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
+      - *store_artifacts
+
+  test_all_models_common_env:
+    <<: *defaults
+    steps:
+      - checkout
+      - *install_sys_deps
+      - *install_gitlfs
+      # - *restore_cache
+      - *setup
       - run:
           name: run tests in common environments
           command: kipoi test-source kipoi --all --common_env
       - *store_artifacts
+
   date_release:
     <<: *defaults
     steps:
@@ -82,7 +99,7 @@ jobs:
 
 
 workflows:
-  version: 2
+  version: 2.1
 
   # workflow for testing pushes and PRs
   test-models:
@@ -96,11 +113,22 @@ workflows:
   test-all-branch:
      jobs:
        - test_all_models:
+           matrix:
+             parameters:
+               num_of_shards: [4]
+               shard_id: [0, 1, 2, 3]
            filters:
              branches:
                only:
                  - master
                  - test_all
+       - test_all_models_common_env:
+           filters:
+             branches:
+               only:
+                 - master
+                 - test_all
+
 
   # workflow for testing all the models
   # on the master branch overnight
@@ -113,7 +141,12 @@ workflows:
                only:
                  - master
      jobs:
-       - test_all_models
+       - test_all_models:
+          matrix:
+            parameters:
+              num_of_shards: [4]
+              shard_id: [0, 1, 2, 3]
+       - test_all_models_common_env
 
 
   weekly-tag:
