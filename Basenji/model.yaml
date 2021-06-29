@@ -78,3 +78,11 @@ postprocessing:
       seq_input:
         - seq
       use_rc: True
+writers:
+    hdf5_chunk_size: 1
+test:
+  expect:
+    url: https://zenodo.org/record/5041879/files/Basenji.predictions.h5?download=1
+    md5: bad3138ed6cee4c934e2c93544410d45
+    
+  
