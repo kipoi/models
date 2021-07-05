@@ -11,8 +11,6 @@ default_dataloader:
     default_args:
         num_upstream: 7000
         num_downstream: 3500
-        anchor: "stt"
-
 
 info: # General information about the model
     authors:
@@ -35,6 +33,7 @@ dependencies:
     pip:   # install via pip
       - keras==2.4.3
       - tensorflow==2.4.1
+      - git+https://github.com/kipoi/kipoi-utils.git@fix-override
       - git+https://github.com/kipoi/kipoiseq.git@remove-default
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
