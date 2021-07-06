@@ -8,7 +8,9 @@ args:
 
 default_dataloader:
     defined_as: kipoiseq.dataloaders.AnchoredGTFDl
-
+    default_args:
+        num_upstream: 7000
+        num_downstream: 3500
 
 info: # General information about the model
     authors:
@@ -31,7 +33,7 @@ dependencies:
     pip:   # install via pip
       - keras==2.4.3
       - tensorflow==2.4.1
-      - kipoiseq==0.6.0
+      - git+https://github.com/kipoi/kipoiseq.git
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
