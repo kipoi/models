@@ -121,14 +121,12 @@ workflows:
              branches:
                only:
                  - master
-                 - add-default-argument-xpresso
                  - test_all
        - test_all_models_common_env:
            filters:
              branches:
                only:
                  - master
-                 - add-default-argument-xpresso
                  - test_all
 
 
