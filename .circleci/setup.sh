@@ -45,8 +45,8 @@ model_sources:
 
 echo "Installing Kipoi."
 # install kipoi and others from the master branch for now
-pip install git+https://github.com/kipoi/kipoi-utils.git@fix-override
-pip install git+https://github.com/kipoi/kipoi-conda
+pip install git+https://github.com/kipoi/kipoi-utils.git
+pip install git+https://github.com/kipoi/kipoi-conda.git
 pip install git+https://github.com/kipoi/kipoi.git
 # pip install kipoi
 
