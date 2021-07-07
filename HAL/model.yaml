@@ -17,6 +17,7 @@ dependencies:
     - click==7.1.2
     - colorlog==4.4.0
     - cookiecutter==1.7.2
+    - cython=0.29.23
     - deprecation==2.1.0
     - future==0.18.2
     - h5py==2.10.0
