@@ -9,6 +9,7 @@ dependencies:
     - numpy=1.19.2
     - python=3.6
     - pip=20.2.4
+    - cython=0.29.23
   pip:
     - arrow==0.17.0
     - attrs==20.2.0
@@ -17,7 +18,6 @@ dependencies:
     - click==7.1.2
     - colorlog==4.4.0
     - cookiecutter==1.7.2
-    - cython=0.29.23
     - deprecation==2.1.0
     - future==0.18.2
     - h5py==2.10.0
