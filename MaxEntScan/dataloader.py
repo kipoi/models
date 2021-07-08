@@ -81,7 +81,7 @@ class SplicingMaxEntDataset(Dataset):
     dependencies:
       conda:
         - pysam=0.15.2
-        - python=3.5.6
+        - python=3.6.6
     info:
       authors:
         - github: s6juncheng
