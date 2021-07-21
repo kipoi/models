@@ -83,6 +83,7 @@ jobs:
       - *setup
       - run:
           name: run tests in common environments
+          no_output_timeout: 60m
           command: kipoi test-source kipoi --all --common_env
       - *store_artifacts
 
