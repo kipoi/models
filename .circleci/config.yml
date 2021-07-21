@@ -83,6 +83,7 @@ jobs:
       - *setup
       - run:
           name: run tests in common environments
+          no_output_timeout: 60m
           command: kipoi test-source kipoi --all --common_env
       - *store_artifacts
 
@@ -128,7 +129,6 @@ workflows:
                only:
                  - master
                  - test_all
-
 
   # workflow for testing all the models
   # on the master branch overnight
