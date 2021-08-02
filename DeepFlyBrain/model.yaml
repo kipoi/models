@@ -1,0 +1,41 @@
+defined_as: kipoi.model.KerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/5153337/files/DeepFlyBrain.json?download=1
+        md5: md5:8f432571469dc779e3c5141e33da068a
+    weights:
+        url: https://zenodo.org/record/5153337/files/DeepFlyBrain.hdf5?download=1
+        md5: md5:3de4f58d0c54117c17ba9a8a733cb002
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Ibrahim Ihsan Taskiran
+          github: itaskiran
+          email: ibrahimihsan.taskiran@kuleuven.be
+        - name: Jasper Janssens
+        - name: Sara Aibar
+        - name: Stein Aerts
+    doc: Specialized deep learning model on Kenyon cells, T neurons, and glia chromatin accessibility data of adult fly brain 
+    cite_as: TBA
+    trained_on: Accessible genomic sites.
+    license: MIT
+
+dependencies:
+    conda: # install via conda
+      - python=3.6
+      - h5py==2.10.0
+
+    pip:   # install via pip
+      - keras>=2.2.4
+      - tensorflow>=1.14.0
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+     targets:
+       name: topic
+       shape: (81,)
+       doc: Topic Prediction
