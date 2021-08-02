@@ -29,6 +29,7 @@ dependencies:
       - bioconda::pyfaidx
       - numpy
       - pandas
+      - cython=0.29.23
     pip:
       - kipoiseq
 
