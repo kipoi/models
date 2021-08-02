@@ -1,0 +1,42 @@
+defined_as: dataloader.MyDataset # MyDataset impolemented in dataloader.py
+args: # MyDataset.__init__ argument description
+        intervals_file: 
+         doc: intervals file bed3
+         example: 
+             url: https://zenodo.org/record/5153317/files/input.bed?download=1
+             md5: md5:d472b24986f8d8af0866dec971425280
+        fasta_file:
+         doc: Reference genome FASTA file path.
+         example:
+             url: https://zenodo.org/record/5153317/files/chr2L_20040502_20041072.fa?download=1
+             md5: md5:8efbb9df55d31623950b6884f92e0571
+        ignore_targets:
+         doc: if True, don't return any target variables
+         optional: True  # if not present, the "targets" will not be present
+
+info:
+    authors: 
+        - name: Ibrahim Ihsan Taskiran
+          github: itaskiran
+          email: ibrahimihsan.taskiran@kuleuven.vib.be
+    doc: Data-loader returning one-hot encoded sequences given genome intervals
+
+dependencies:
+    conda:
+      - python=3.6
+      - bioconda::pybedtools
+      - bioconda::pysam
+      - bioconda::pyfaidx
+      - numpy
+      - pandas
+    pip:
+      - kipoiseq
+
+output_schema: # Define the dataloader output schema according to the returned values
+    inputs:
+        - shape: (500, 4)
+          doc: One-hot encoded DNA sequence
+    metadata:  
+        - name: ranges
+          type: GenomicRanges
+          doc: Ranges describing inputs.seq
