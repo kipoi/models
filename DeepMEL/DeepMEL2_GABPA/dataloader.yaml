@@ -25,11 +25,11 @@ dependencies:
     conda:
       - python=3.6
       - cython=0.29.23
-      - bioconda::pybedtools
-      - bioconda::pysam
-      - bioconda::pyfaidx
-      - numpy
-      - pandas
+      - bioconda::pybedtools=0.8.2
+      - bioconda::pysam=0.16.0.1
+      - bioconda::pyfaidx=0.6.1
+      - numpy=1.19.5
+      - pandas=1.1.5
     pip:
       - kipoiseq
 
