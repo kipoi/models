@@ -11,7 +11,7 @@ variables:
   install_sys_deps: &install_sys_deps
     run:
       name: install build-essential
-      command: apt-get update && apt-get install -y build-essential libz-dev libcurl3-dev curl
+      command: apt-get update --allow-releaseinfo-change && apt-get install -y build-essential libz-dev libcurl3-dev curl
   install_gitlfs: &install_gitlfs
     run:
       name: Install git-lfs
