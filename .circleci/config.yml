@@ -19,7 +19,7 @@ variables:
   install_additional_pkgs: &install_additional_pkgs
     run:
       name: Install hdf5 and pkgconfig
-      command: conda install --yes -c conda-forge hdf5 pkgconfig
+      command: conda install --yes -c conda-forge hdf5=1.10.6 pkgconfig
   restore_cache: &restore_cache
     restore_cache:
       keys:
