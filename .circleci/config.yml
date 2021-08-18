@@ -4,7 +4,7 @@ version: 2.1
 variables:
   defaults: &defaults
     docker:
-      - image: continuumio/miniconda3:4.7.10
+      - image: continuumio/miniconda3:latest
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
@@ -16,6 +16,10 @@ variables:
     run:
       name: Install git-lfs
       command: conda install --yes -c conda-forge git-lfs && git lfs install
+  install_additional_pkgs: &install_additional_pkgs
+    run:
+      name: Install hdf5 and pkgconfig
+      command: conda install --yes -c conda-forge hdf5=1.10.6 pkgconfig
   restore_cache: &restore_cache
     restore_cache:
       keys:
@@ -41,6 +45,7 @@ jobs:
       - checkout    
       - *install_sys_deps
       - *install_gitlfs
+      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -64,6 +69,7 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
+      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -79,6 +85,7 @@ jobs:
       - checkout
       - *install_sys_deps
       - *install_gitlfs
+      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
