@@ -38,7 +38,7 @@ model_sources:
   kipoi:
     type: git-lfs
     remote_url: git@github.com:kipoi/models.git
-    local_path: /root/repo/
+    local_path: /home/circleci/repo
 " > ~/.kipoi/config.yaml
 
 # ---
