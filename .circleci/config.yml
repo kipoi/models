@@ -145,12 +145,14 @@ workflows:
                only:
                  - master
                  - test_all
+                 - add-seqvec-back
        - test_all_models_common_env:
            filters:
              branches:
                only:
                  - master
                  - test_all
+                 - add-seqvec-back
 
   # workflow for testing all the models
   # on the master branch overnight
