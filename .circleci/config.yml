@@ -145,14 +145,12 @@ workflows:
                only:
                  - master
                  - test_all
-                 - add-machine-executor
        - test_all_models_common_env:
            filters:
              branches:
                only:
                  - master
                  - test_all
-                 - add-machine-executor
 
   # workflow for testing all the models
   # on the master branch overnight
