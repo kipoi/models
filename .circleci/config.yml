@@ -2,12 +2,6 @@ version: 2.1
 
 
 variables:
-  defaults: &defaults
-    machine: # executor type
-      image: ubuntu-2004:202104-01
-    working_directory: ~/repo
-    environment:
-      GIT_LFS_SKIP_SMUDGE: "1"
   install_conda: &install_conda
     run:
       name: Install miniconda3
@@ -52,7 +46,11 @@ jobs:
 
   # test only the newly added model
   test_new_models:
-    <<: *defaults
+    machine: # executor type
+      image: ubuntu-2004:202104-01
+    working_directory: ~/repo
+    environment:
+      GIT_LFS_SKIP_SMUDGE: "1"
     steps:
       - checkout
       - *install_conda   
@@ -72,12 +70,16 @@ jobs:
   
   # test all models in the repo
   test_all_models:
+    machine: # executor type
+      image: ubuntu-2004:202104-01
+    working_directory: ~/repo
+    environment:
+      GIT_LFS_SKIP_SMUDGE: "1"
     parameters:
       num_of_shards: 
         type: integer
       shard_id:
         type: integer 
-    <<: *defaults
     steps:
       - checkout
       - *install_conda   
@@ -94,7 +96,11 @@ jobs:
       - *store_artifacts
 
   test_all_models_common_env:
-    <<: *defaults
+    machine: # executor type
+      image: ubuntu-2004:202104-01
+    working_directory: ~/repo
+    environment:
+      GIT_LFS_SKIP_SMUDGE: "1"
     steps:
       - checkout
       - *install_conda   
@@ -110,7 +116,11 @@ jobs:
       - *store_artifacts
 
   date_release:
-    <<: *defaults
+    machine: # executor type
+      image: ubuntu-2004:202104-01
+    working_directory: ~/repo
+    environment:
+      GIT_LFS_SKIP_SMUDGE: "1"
     steps:
       - *install_sys_deps
       - run:
