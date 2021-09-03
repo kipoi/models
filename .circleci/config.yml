@@ -3,11 +3,23 @@ version: 2.1
 
 variables:
   defaults: &defaults
-    docker:
-      - image: continuumio/miniconda3:latest
+    machine: # executor type
+      image: ubuntu-2004:202104-01
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
+  install_conda: &install_conda
+    run:
+      name: Install miniconda3
+      command: |
+        sudo apt-get update && sudo apt-get install -y build-essential libz-dev libcurl3-dev libarchive-dev gcc && \
+        wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+        /usr/bin/bash ~/miniconda.sh -b && \
+        rm ~/miniconda.sh && \
+        ~/miniconda3/bin/conda clean -tipsy && \
+        sudo ln -s ~/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+        echo ". ~/miniconda3/etc/profile.d/conda.sh" >> $BASH_ENV && \
+        echo "conda activate base" >> $BASH_ENV
   install_sys_deps: &install_sys_deps
     run:
       name: install build-essential
@@ -42,8 +54,9 @@ jobs:
   test_new_models:
     <<: *defaults
     steps:
-      - checkout    
-      - *install_sys_deps
+      - checkout
+      - *install_conda   
+      # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
       # - *restore_cache
@@ -67,7 +80,8 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *install_sys_deps
+      - *install_conda   
+      # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
       # - *restore_cache
@@ -83,7 +97,8 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *install_sys_deps
+      - *install_conda   
+      # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
       # - *restore_cache
