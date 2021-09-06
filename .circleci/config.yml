@@ -132,12 +132,6 @@ workflows:
                ignore:
                  - master
                  - test_all
-       - date_release:
-           filters:
-             branches:
-               only:
-                 - master
-                 - fix-date-release
   test-all-branch:
      jobs:
        - test_all_models:
