@@ -112,7 +112,6 @@ jobs:
   date_release:
     <<: *defaults
     steps:
-      - *install_sys_deps
       - run:
           name: Tag and push
           command: |
@@ -179,5 +178,6 @@ workflows:
              branches:
                only:
                  - master
+                 - fix-date-release
      jobs:
        - date_release
