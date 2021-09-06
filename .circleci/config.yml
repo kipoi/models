@@ -112,7 +112,6 @@ jobs:
   date_release:
     <<: *defaults
     steps:
-      - *install_sys_deps
       - run:
           name: Tag and push
           command: |
