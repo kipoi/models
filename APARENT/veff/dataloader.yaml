@@ -52,7 +52,7 @@ info:
     name: Muhammed Hasan Çelik
   - github: hoeze
     name: Florian R. Hölzlwimmer
-  doc: Dataloader for APARENT
+  doc: Dataloader for APARENT variant effect prediction
 
 output_schema:
 

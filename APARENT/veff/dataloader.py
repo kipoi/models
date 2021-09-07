@@ -21,6 +21,7 @@ class APARENT_DL(SampleIterator):
         self.regions_of_interest = regions_of_interest
         self.reference_sequence = reference_sequence
         self.variants = variants
+        self.interval_attrs = interval_attrs
 
         self.variant_seq_extractor = VariantSeqExtractor(reference_sequence=reference_sequence)
 
@@ -47,8 +48,7 @@ class APARENT_DL(SampleIterator):
                 },
                 "metadata": {
                     "ranges": GenomicRanges.from_interval(interval),
-                    "gene_id": interval.attrs.get('gene_id', ''),
-                    "transcript_id": interval.attrs.get('transcript_id', ''),
+                    **{k: interval.attrs.get(k, '') for k in self.interval_attrs},
                 }
             }
 

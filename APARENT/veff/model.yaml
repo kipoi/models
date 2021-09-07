@@ -10,6 +10,7 @@ dependencies:
   conda:
   - tensorflow>=1.0.0
   - keras>=2.0.4
+  - numpy
   - scipy
 
 info:
@@ -46,14 +47,12 @@ schema:
       name: ref_seq
       shape: (205, 4)
       special_type: DNAStringSeq
-      doc: reference sequence of PolyA-cut-site
-      associated_metadata: ranges
+      doc: 205bp long reference sequence of PolyA-cut-site
     alt_seq:
       name: alt_seq
-      doc: alternative sequence of PolyA-cut-site
+      doc: 205bp long alternative sequence of PolyA-cut-site
       shape: (205, 4)
       special_type: DNAStringSeq
-      associated_metadata: ranges, variants
   targets:
     delta_logit_polya_prob:
       shape: (1, )
