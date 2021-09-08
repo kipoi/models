@@ -7,9 +7,13 @@ args:
 default_dataloader: ./
 
 dependencies:
+  channels:
+    - conda-forge
+    - bioconda
+    - defaults
   conda:
-  - tensorflow>=1.0.0
-  - keras>=2.0.4
+  - tensorflow>=1<2
+  - keras>=2.0.4<3
   - numpy
   - scipy
 

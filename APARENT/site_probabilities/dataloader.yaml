@@ -16,10 +16,17 @@ args:
 defined_as: dataloader.py::Kipoi_APARENT_DL
 
 dependencies:
+  channels:
+    - conda-forge
+    - bioconda
+    - defaults
   conda:
     - kipoi
-    - kipoiseq
+#    - kipoiseq
     - pyranges
+    - pip>=21.0.1
+  pip:
+    - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
 
 info:
   authors:

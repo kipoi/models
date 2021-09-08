@@ -37,10 +37,17 @@ args:
 defined_as: dataloader.py::Kipoi_APARENT_DL
 
 dependencies:
+  channels:
+    - conda-forge
+    - bioconda
+    - defaults
   conda:
     - kipoi
-    - kipoiseq
+#    - kipoiseq
     - pyranges
+    - pip>=21.0.1
+  pip:
+    - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
 
 info:
   authors:
@@ -52,6 +59,8 @@ info:
     name: Muhammed Hasan Çelik
   - github: hoeze
     name: Florian R. Hölzlwimmer
+  - github: Tdsone
+    name: Timon Schneider
   doc: Dataloader for APARENT variant effect prediction
 
 output_schema:
