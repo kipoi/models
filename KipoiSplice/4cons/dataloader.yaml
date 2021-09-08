@@ -38,14 +38,14 @@ dependencies:
   - pandas
   - numpy
   - h5py
-  - python=3.6
+  - python=3.5
   pip:
   - pyvcf
   - intervaltree
   - joblib
   - scikit-learn
   - sklearn-pandas
-  - kipoi
+  - kipoi==0.6.30 
   - kipoi_veff
   - tqdm
   - tensorflow>=1.0.0
