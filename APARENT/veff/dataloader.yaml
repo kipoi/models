@@ -42,9 +42,9 @@ dependencies:
     - bioconda
     - defaults
   conda:
-    - kipoi
-#    - kipoiseq
-    - pyranges
+    - bioconda::kipoi
+#    - bioconda::kipoiseq
+    - bioconda::pyranges
     - pip>=21.0.1
   pip:
     - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
