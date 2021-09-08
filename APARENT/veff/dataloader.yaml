@@ -44,6 +44,7 @@ dependencies:
   conda:
     - bioconda::kipoi
 #    - bioconda::kipoiseq
+    - bioconda::cyvcf2
     - bioconda::pyranges
     - pip>=21.0.1
   pip:
