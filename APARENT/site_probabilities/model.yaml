@@ -12,7 +12,7 @@ dependencies:
     - bioconda
     - defaults
   conda:
-  - tensorflow>=1,<2
+  - tensorflow
   - keras>=2.0.4,<3
 
 info:
