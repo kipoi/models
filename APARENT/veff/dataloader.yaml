@@ -42,6 +42,7 @@ dependencies:
     - bioconda
     - defaults
   conda:
+    - python=3.9
     - bioconda::kipoi
 #    - bioconda::kipoiseq
     - bioconda::cyvcf2
