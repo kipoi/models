@@ -1,0 +1,64 @@
+defined_as: model.APARENTModel
+args:
+  weights:
+    url: https://github.com/johli/aparent/raw/8a884f0bc4073ed0edd588f71b61a5be4a37e831/saved_models/aparent_large_lessdropout_all_libs_no_sampleweights.h5
+    md5: 31902fb40125679e655b8b6d2747ada7
+  
+default_dataloader: ./
+
+dependencies:
+  channels:
+    - conda-forge
+    - bioconda
+    - defaults
+  conda:
+  - tensorflow>=1,<2
+  - keras>=2.0.4,<3
+
+info:
+  authors:
+  - name: Nicholas Bogard
+  - name: Johannes Linder
+  cite_as: https://doi.org/10.1101/300061
+  contributors:
+  - github: shabnamsadegh
+    name: Shabnam Sadegharmaki
+  - github: avsecz
+    name: Ziga Avsec
+  - github: MuhammedHasan
+    name: Muhammed Hasan Çelik
+  - github: hoeze
+    name: Florian R. Hölzlwimmer
+  doc: >
+    Predicting the Impact of cis-Regulatory Variation on Alternative Polyadenylation
+    
+    Abstract
+    Alternative polyadenylation (APA) is a major driver of transcriptome diversity in human cells.
+    Here, we use deep learning to predict APA from DNA sequence alone.
+    We trained our model (APARENT, APA REgression NeT) on isoform expression data from over three million APA reporters, built by inserting random sequence into twelve distinct 3′UTR contexts.
+    Predictions are highly accurate across both synthetic and genomic contexts; when tasked with inferring APA in human 3′UTRs, APARENT outperforms models trained exclusively on endogenous data.
+    Visualizing features learned across all network layers reveals that APARENT recognizes sequence motifs known to recruit APA regulators, discovers previously unknown sequence determinants of cleavage site selection, and integrates these features into a comprehensive, interpretable cis-regulatory code.
+    Finally, we use APARENT to quantify the impact of genetic variants on APA.
+    Our approach detects pathogenic variants in a wide range of disease contexts, expanding our understanding of the genetic origins of disease.
+
+  trained_on: "isoform expression data from over 3 million APA reporters, built by inserting random sequence into 12 distinct 3'UTR contexts."
+
+schema:
+  inputs:
+    name: seq
+    doc: 205bp long sequence of PolyA-cut-site
+    shape: (205, 4)
+    special_type: DNASeq
+  targets:
+    doc: >
+      Predicts 206 features:
+      1 prediction for % proximal isoform + 205 predictions for % cleavage at each position
+    shape: (206, )
+    logit_polya_prob:
+      shape: (1, )
+      doc: >
+        Predicts logit probability of having a PolyA cut site in the specified DNA range
+    logit_site_probs:
+      shape: (205, )
+      doc: >
+        Predicts logit probability of having a PolyA cut site for each position in the specified DNA range
