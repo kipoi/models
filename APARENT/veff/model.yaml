@@ -12,8 +12,8 @@ dependencies:
     - bioconda
     - defaults
   conda:
-  - python=3.9
-  - tensorflow
+  - python=3.7
+  - tensorflow>=1,<2
   - keras>=2.0.4,<3
   - numpy
   - scipy
@@ -67,3 +67,8 @@ schema:
       shape: (205, )
       doc: >
         Predicts logit percentage difference to reference of having a PolyA cut site for each position in the specified DNA range
+
+test:
+  expect:
+    url: https://zenodo.org/record/5512004/files/APARENT.veff.predictions.hdf5?download=1
+    md5: f70ae0b9ec5f7bdd917d718b19a9e83b

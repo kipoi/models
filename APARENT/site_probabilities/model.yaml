@@ -63,3 +63,9 @@ schema:
       shape: (205, )
       doc: >
         Predicts logit probability of having a PolyA cut site for each position in the specified DNA range
+
+test:
+  expect:
+    url: https://zenodo.org/record/5511940/files/APARENT.site_probabilities.predictions.hdf5?download=1
+    md5: 1adb12be84240ffb7d7ca556eeb19e01
+        
