@@ -35,8 +35,8 @@ output_schema:
     ranges:
       doc: Ranges describing inputs.seq
       type: GenomicRanges
-postprocessing:
-  variant_effects:
-    bed_input:
-    - intervals_file
+# postprocessing:
+#   variant_effects:
+#     bed_input:
+#     - intervals_file
 type: Dataset
