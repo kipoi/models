@@ -71,13 +71,13 @@ schema:
         name: lsgkmsvm_scr
         shape: (1, )
         doc: "lsgkm-SVM score"
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: true
-      scoring_functions:
-          - type: diff
+# postprocessing:
+#     variant_effects:
+#       seq_input:
+#         - seq
+#       use_rc: true
+#       scoring_functions:
+#           - type: diff
 {% if model == 'Tfbs/Nanogsc33759/H1hesc/Haib_V0416102' %}
 test:
   expect:
