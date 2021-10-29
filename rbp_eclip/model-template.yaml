@@ -71,14 +71,14 @@ schema:
         shape: (1, )
         doc: Predicted binding strength
 
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: true
-      scoring_functions:
-        - type: diff
-        - type: logit
+# postprocessing:
+#     variant_effects:
+#       seq_input:
+#         - seq
+#       use_rc: true
+#       scoring_functions:
+#         - type: diff
+#         - type: logit
 {% if model == 'AARS' %}
 test:
   expect:
