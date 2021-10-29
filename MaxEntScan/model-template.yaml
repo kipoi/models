@@ -39,10 +39,10 @@ schema:
         name: psi
         shape: (1, )
         doc: "Predicted psi"
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
+# postprocessing:
+#     variant_effects:
+#       seq_input:
+#         - seq
 test:
   expect:
     url: {{ test_expect_url }}
