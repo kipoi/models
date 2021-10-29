@@ -5,6 +5,7 @@ variables:
   defaults: &defaults
     machine: # executor type
       image: ubuntu-2004:202104-01
+    resource_class: medium
     working_directory: ~/repo
     environment:
       GIT_LFS_SKIP_SMUDGE: "1"
