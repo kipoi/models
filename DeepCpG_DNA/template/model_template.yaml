@@ -36,8 +36,8 @@ schema:
       shape: (1001, 4)
       special_type: DNASeq
   targets:
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: True
+# postprocessing:
+#     variant_effects:
+#       seq_input:
+#         - seq
+#       use_rc: True
