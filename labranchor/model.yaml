@@ -35,13 +35,13 @@ info:
   trained_on: "High confidence set of branchpoints reported by Mercer et. al. 2015. Chromosome 1 was used for testing, chromosomes 2, 3, 4 for model selection and the remaining data were used for model training."
   tags:
   - RNA splicing
-# postprocessing:
-#   variant_effects:
-#     scoring_functions:
-#     - type: diff
-#     - type: logit
-#     seq_input:
-#     - bidirectional_1_input
+postprocessing:
+  variant_effects:
+    scoring_functions:
+    - type: diff
+    - type: logit
+    seq_input:
+    - bidirectional_1_input
 schema:
   inputs:
     bidirectional_1_input:
