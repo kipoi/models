@@ -45,11 +45,7 @@ schema:
     name: pwm_match
     shape: (1, )
     doc: Best PWM match log-odds score
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: True
+
 {% if model == 'human/AHR' %}
 test:
   expect:
