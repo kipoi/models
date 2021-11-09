@@ -39,11 +39,6 @@ dependencies:
     pip:   # install via pip
       - keras==2.3.1
       - tensorflow==1.14.0
-
-postprocessing:
-  variant_effects:
-    seq_input:
-      - seq
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
         shape: (145,4)  # array shape of a single sample (omitting the batch dimension)

@@ -39,11 +39,6 @@ info:
   trained_on: scBS-seq and scRRBS-seq datasets, https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   training_procedure: Described in https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1189-z#Sec7
   version: 1.0.4
-postprocessing:
-  variant_effects:
-    seq_input:
-    - dna
-    use_rc: true
 schema:
   inputs:
     dna:

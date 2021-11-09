@@ -42,16 +42,6 @@ info:
   tags:
   - DNA accessibility
   version: 0.1.0
-postprocessing:
-  variant_effects:
-    scoring_functions:
-    - default: true
-      type: diff
-    - default: true
-      type: logit
-    seq_input:
-    - seq
-    use_rc: true
 schema:
   inputs:
     associated_metadata: ranges

@@ -74,8 +74,3 @@ schema:
     doc: >
       * 960 bins corresponding to 128bp regions on input sequence 
       * 4229 different output tracks ordered according to https://storage.googleapis.com/131k/sample_wigs.txt
-postprocessing:
-    variant_effects:
-      seq_input:
-        - seq
-      use_rc: True
