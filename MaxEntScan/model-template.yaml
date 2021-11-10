@@ -29,6 +29,8 @@ dependencies:
     conda:
       - pip=20.2.4
       - bioconda::maxentpy=0.0.1
+    pip:
+      - kipoi==0.6.35
 schema:
     inputs:
         name: seq
@@ -39,6 +41,10 @@ schema:
         name: psi
         shape: (1, )
         doc: "Predicted psi"
+postprocessing:
+  variant_effects:
+    seq_input:
+      - seq
 test:
   expect:
     url: {{ test_expect_url }}
