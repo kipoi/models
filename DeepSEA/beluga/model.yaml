@@ -54,16 +54,6 @@ schema:
     column_labels:
       - predictor_names.txt
 
-postprocessing:
-     variant_effects:
-       seq_input:
-         - seq
-       use_rc: true
-       scoring_functions:
-         - type: diff
-           default: true
-         - type: logit
-           default: true
 
 test:
  expect:

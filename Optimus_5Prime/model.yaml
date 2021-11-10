@@ -42,10 +42,6 @@ schema:
     doc: Predicted mean ribosome load
     shape: (1, )
 
-# postprocessing:
-#   variant_effects:
-#     seq_input:
-#       - seq
 
 test:
   expect:

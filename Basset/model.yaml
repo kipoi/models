@@ -20,6 +20,7 @@ dependencies:
   - pytorch=1.3.1=cuda100py36h53c1284_0
   - pip=20.3.3
   - pysam=0.15.3
+  - cython=0.29.23
   pip:
   - kipoiseq
 info:
@@ -42,16 +43,6 @@ info:
   tags:
   - DNA accessibility
   version: 0.1.0
-postprocessing:
-  variant_effects:
-    scoring_functions:
-    - default: true
-      type: diff
-    - default: true
-      type: logit
-    seq_input:
-    - seq
-    use_rc: true
 schema:
   inputs:
     associated_metadata: ranges

@@ -68,16 +68,7 @@ schema:
     column_labels:
             - methylation_prob
             - unmethylation_prob
-# postprocessing:
-#     variant_effects:
-#       seq_input:
-#         - seq
-#       use_rc: True
-#       scoring_functions:
-#         - type: diff
-#           default: true
-#         - type: logit
-#           default: true
+
 {% if model == 'GM19239_ENCSR000DGH' %}
 test:
   expect:
