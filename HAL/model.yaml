@@ -59,12 +59,6 @@ info:
   - RNA splicing
   trained_on: MPRA data of 2M synthetic alternatively spliced mini-genes. Data was split into training and test sets (90%/10% split).
   training_procedure: Described in http://www.cell.com/cms/attachment/2057151419/2061575818/mmc1.pdf
-postprocessing:
-  variant_effects:
-    scoring_functions:
-    - type: diff
-    seq_input:
-    - seq
 schema:
   inputs:
     doc: K-mer counts
