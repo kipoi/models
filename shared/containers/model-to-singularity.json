@@ -4,11 +4,11 @@
         "name": "kipoi-docker_sharedpy3keras2"
     },
     "CpGenie": {
-        "url": "https://zenodo.org/api/files/909c448f-0740-44bb-959a-21e643e0440a/kipoi-docker_sharedpy3keras1.2.sif?versionId=ef87d9b5-da51-49ec-9661-0a30ae59a20f",
+        "url": "https://zenodo.org/record/5644005/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2"
     },
     "Divergent421": {
-        "url": "https://zenodo.org/api/files/909c448f-0740-44bb-959a-21e643e0440a/kipoi-docker_sharedpy3keras1.2.sif?versionId=ef87d9b5-da51-49ec-9661-0a30ae59a20f",
+        "url": "https://zenodo.org/record/5644005/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2"
     },
     "Basenji": {
@@ -72,23 +72,23 @@
         "name": "kipoi-docker_mpra-dragonn"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/api/files/e48e60fa-544a-4721-821c-37450be3cf5c/kipoi-docker_extended_coda.sif?versionId=88d8d2a2-9bbf-46b4-a802-0c4534405ade",
+        "url": "https://zenodo.org/record/5643936/files/kipoi-docker_extended_coda.sif?download=1",
         "name": "kipoi-docker_extended_coda"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/api/files/9474d673-ac4a-47b3-b6ba-6c6581db479a/kipoi-docker_mmsplice.sif?versionId=9ca56f66-8535-4179-a7cc-3817dcaf9b9b",
+        "url": "https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/api/files/9474d673-ac4a-47b3-b6ba-6c6581db479a/kipoi-docker_mmsplice.sif?versionId=9ca56f66-8535-4179-a7cc-3817dcaf9b9b",
+        "url": "https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/api/files/9474d673-ac4a-47b3-b6ba-6c6581db479a/kipoi-docker_mmsplice.sif?versionId=9ca56f66-8535-4179-a7cc-3817dcaf9b9b",
+        "url": "https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/api/files/9474d673-ac4a-47b3-b6ba-6c6581db479a/kipoi-docker_mmsplice.sif?versionId=9ca56f66-8535-4179-a7cc-3817dcaf9b9b",
+        "url": "https://zenodo.org/record/5643976/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice"
     },
     "MMSplice/mtsplice": {
@@ -128,7 +128,7 @@
         "name": "kipoi-docker_sharedpy3keras2"
     },
     "epidermal_basset": {
-        "url": "https://zenodo.org/api/files/909c448f-0740-44bb-959a-21e643e0440a/kipoi-docker_sharedpy3keras1.2.sif?versionId=ef87d9b5-da51-49ec-9661-0a30ae59a20f",
+        "url": "https://zenodo.org/api/files/909c448f-0740-44bb-959a-21e643e0440a/kipoi-docker_sharedpy3keras1.2.sif",
         "name": "kipoi-docker_sharedpy3keras1.2"
     },
     "DeepFlyBrain": {
