@@ -128,7 +128,7 @@
         "name": "kipoi-docker_sharedpy3keras2"
     },
     "epidermal_basset": {
-        "url": "https://zenodo.org/api/files/909c448f-0740-44bb-959a-21e643e0440a/kipoi-docker_sharedpy3keras1.2.sif",
+        "url": "https://zenodo.org/record/5644005/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2"
     },
     "DeepFlyBrain": {
