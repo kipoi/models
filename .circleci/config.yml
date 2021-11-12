@@ -33,6 +33,11 @@ variables:
     run:
       name: Install hdf5 and pkgconfig
       command: conda install --yes -c conda-forge hdf5=1.10.6 pkgconfig
+  install_singularity: &install_singularity
+    run:
+      name: Install Singularity
+      command: |
+        conda install --yes -c conda-forge singularity
   restore_cache: &restore_cache
     restore_cache:
       keys:
@@ -71,6 +76,24 @@ jobs:
           command: kipoi test-source kipoi --git-range master HEAD --common_env
           no_output_timeout: 60m
       - *store_artifacts
+    
+  # test only the newly added model with singularity
+  test_new_models_singularity:
+    <<: *defaults
+    steps:
+      - checkout
+      - *install_conda   
+      # - *install_sys_deps
+      - *install_gitlfs
+      - *install_additional_pkgs
+      - *install_singularity
+      # - *restore_cache
+      - *setup
+      - run:
+          name: run tests
+          command: kipoi test-source kipoi --git-range master HEAD --verbose --singularity
+          no_output_timeout: 60m
+      - *store_artifacts
   
   # test all models in the repo
   test_all_models:
@@ -94,6 +117,31 @@ jobs:
           no_output_timeout: 60m
           command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
+
+  # test all models in the repo
+  test_all_models_singularity:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
+    <<: *defaults
+    steps:
+      - checkout
+      - *install_conda   
+      # - *install_sys_deps
+      - *install_gitlfs
+      - *install_additional_pkgs
+      - *install_singularity
+      # - *restore_cache
+      - *setup
+      - run:
+          name: run tests
+          # Use  --clean_env to remove the environment of each model
+          no_output_timeout: 60m
+          command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >> --singularity
+      - *store_artifacts
+
 
   test_all_models_common_env:
     <<: *defaults
@@ -134,6 +182,13 @@ workflows:
                ignore:
                  - master
                  - test_all
+       - test_new_models_singularity:
+           filters:
+             branches:
+               ignore:
+                 - master
+                 - test_all
+                 - add-singularity-tests
   test-all-branch:
      jobs:
        - test_all_models:
@@ -146,6 +201,17 @@ workflows:
                only:
                  - master
                  - test_all
+       - test_all_models_singularity:
+           matrix:
+             parameters:
+               num_of_shards: [4]
+               shard_id: [0, 1, 2, 3]
+           filters:
+             branches:
+               only:
+                 - master
+                 - test_all
+                 - add-singularity-tests
        - test_all_models_common_env:
            filters:
              branches:
@@ -164,6 +230,11 @@ workflows:
                only:
                  - master
      jobs:
+       - test_all_models:
+          matrix:
+            parameters:
+              num_of_shards: [4]
+              shard_id: [0, 1, 2, 3]
        - test_all_models:
           matrix:
             parameters:
