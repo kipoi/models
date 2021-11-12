@@ -1,8 +1,8 @@
 {
     "DeepCpG_DNA": {
-        "url": "https://zenodo.org/record/5644007/files/kipoi-docker_sharedpy3keras2.sif?download=1",
-        "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "0e5354145f54c2c8c7efc3bb265aebac"
+        "url": "https://zenodo.org/record/5644005/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "name": "kipoi-docker_sharedpy3keras1.2",
+        "md5": "cd748bae471b6af0b2cdaecca1e1c6ac"
     },
     "CpGenie": {
         "url": "https://zenodo.org/record/5644005/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
