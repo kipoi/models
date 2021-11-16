@@ -210,7 +210,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - fix-ci
        - test_all_models_common_env:
            filters:
              branches:
