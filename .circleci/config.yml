@@ -203,13 +203,14 @@ workflows:
        - test_all_models_singularity:
            matrix:
              parameters:
-               num_of_shards: [4]
-               shard_id: [0, 1, 2, 3]
+               num_of_shards: [6]
+               shard_id: [0, 1, 2, 3, 4, 5]
            filters:
              branches:
                only:
                  - master
                  - test_all
+                 - fix-ci
        - test_all_models_common_env:
            filters:
              branches:
@@ -236,8 +237,8 @@ workflows:
        - test_all_models_singularity:
           matrix:
             parameters:
-              num_of_shards: [4]
-              shard_id: [0, 1, 2, 3]
+              num_of_shards: [6]
+              shard_id: [0, 1, 2, 3, 4, 5]
        - test_all_models_common_env
 
 
