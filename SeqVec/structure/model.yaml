@@ -20,7 +20,6 @@ dependencies:
       - python=3.6
       - conda-forge::allennlp=0.7.2
       - pip=9.0.3
-    pip:
       - scikit-learn==0.22.2.post1
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
