@@ -29,6 +29,7 @@ dependencies:
       - pyparsing=2.4.7
       - scikit-learn==0.22.2.post1
       - pycparser=2.20
+      - overrides=3.1.0
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
