@@ -34,6 +34,7 @@ dependencies:
         - scikit-learn==0.22.2.post1
         - keras==2.2.4
         - tensorflow==1.14.0
+        - h5py==2.10.0
 schema:
     inputs:
         name: soi
