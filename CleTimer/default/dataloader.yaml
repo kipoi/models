@@ -35,6 +35,8 @@ dependencies:
         - python=3.6
         - bioconda::gffutils
         - scipy
+    pip:
+        - h5py==2.10.0
 output_schema:
     inputs:
         name: soi
