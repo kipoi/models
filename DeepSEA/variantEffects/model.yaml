@@ -65,16 +65,7 @@ schema:
     doc: Probability of a specific epigentic feature
     column_labels:
       - ../predictor_names.txt
-postprocessing:
-     variant_effects:
-       seq_input:
-         - seq
-       use_rc: true
-       scoring_functions:
-         - type: diff
-           default: true
-         - type: logit
-           default: true
+
 test:
   expect:
     url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/14f9bf4b49e21c7b31e8f6d6b9fc69ed88e25f43/DeepSEA/variantEffects/predictions.h5

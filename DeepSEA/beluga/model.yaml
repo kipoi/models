@@ -55,17 +55,6 @@ schema:
     column_labels:
       - predictor_names.txt
 
-postprocessing:
-     variant_effects:
-       seq_input:
-         - seq
-       use_rc: true
-       scoring_functions:
-         - type: diff
-           default: true
-         - type: logit
-           default: true
-
 test:
  expect:
    url: https://s3.eu-central-1.amazonaws.com/kipoi-models/predictions/e988be6b74ad08b63d1b2000b428965828d789e6/DeepSEA/beluga/test.expect.pytorch.h5
