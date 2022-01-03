@@ -18,14 +18,14 @@ class APARENTModel(BaseModel):
 
         _, pred = self.model.predict_on_batch([input_1, input_2, input_3])
 
-        site_probs = pred[:, 1:]
-        polya_prob = pred[:, 0]
-        return site_probs, polya_prob
+        site_props = pred[:, :-1]
+        distal_prop = pred[:, -1]
+        return site_props, distal_prop
 
     def predict_on_batch(self, inputs):
-        site_probs, polya_prob = self._predict(inputs)
+        site_props, distal_prop = self._predict(inputs)
 
         return {
-            "logit_polya_prob": polya_prob,
-            "logit_site_probs": site_probs,
+            "distal_prop": distal_prop,
+            "site_props": site_props,
         }
