@@ -210,7 +210,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - update-singularity-link
        - test_all_models_common_env:
            filters:
              branches:
