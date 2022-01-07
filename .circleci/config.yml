@@ -59,6 +59,7 @@ variables:
       command: |
         curl -X POST https://api.github.com/repos/kipoi/kipoi-containers/dispatches \
         -H 'Accept: application/vnd.github.v3+json' \
+        -u ${{ secrets.SYNC_TOKEN }} \
         --data '{"event_type": "sync"}'
 
 
