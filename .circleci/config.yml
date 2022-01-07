@@ -59,7 +59,7 @@ variables:
       command: |
         curl -X POST https://api.github.com/repos/kipoi/kipoi-containers/dispatches \
         -H 'Accept: application/vnd.github.v3+json' \
-        -u ${{ secrets.SYNC_TOKEN }} \
+        -u $SYNC_TOKEN \
         --data '{"event_type": "sync"}'
 
 
@@ -187,6 +187,8 @@ workflows:
   test-models:
      jobs:
        - test_new_models:
+           context:
+              - Sync 
            filters:
              branches:
                ignore:
