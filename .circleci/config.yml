@@ -53,6 +53,15 @@ variables:
     store_artifacts:
       path: test-reports
       destination: test-reports
+  sync: &sync
+    run:
+      name: Sync kipoi models and containers repo
+      command: |
+        curl -X POST https://api.github.com/repos/kipoi/kipoi-containers/dispatches \
+        -H 'Accept: application/vnd.github.v3+json' \
+        -u $SYNC_TOKEN \
+        --data '{"event_type": "sync"}'
+
 
 jobs:
 
@@ -117,6 +126,7 @@ jobs:
           no_output_timeout: 60m
           command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
+      - *sync
 
   # test all models in the repo
   test_all_models_singularity:
@@ -195,6 +205,8 @@ workflows:
              parameters:
                num_of_shards: [5]
                shard_id: [0, 1, 2, 3, 4]
+           context:
+              - sync-kipoi-containers
            filters:
              branches:
                only:
