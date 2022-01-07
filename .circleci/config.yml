@@ -53,6 +53,14 @@ variables:
     store_artifacts:
       path: test-reports
       destination: test-reports
+  sync: &sync
+    run:
+      name: Sync kipoi models and containers repo
+      command: |
+        curl -X POST https://api.github.com/repos/kipoi/kipoi-containers/dispatches \
+        -H 'Accept: application/vnd.github.v3+json' \
+        --data '{"event_type": "sync"}'
+
 
 jobs:
 
@@ -76,6 +84,7 @@ jobs:
           command: kipoi test-source kipoi --git-range master HEAD --common_env
           no_output_timeout: 60m
       - *store_artifacts
+      - *sync
     
   # test only the newly added model with singularity
   test_new_models_singularity:
