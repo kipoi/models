@@ -202,7 +202,7 @@ workflows:
                ignore:
                  - master
                  - test_all
-      - sync_containers:
+       - sync_containers:
            context:
              - sync-kipoi-containers
            filters:
@@ -211,7 +211,7 @@ workflows:
                  - master
                  - test_all
                  - fix-sync-workflow
-                     
+                      
   test-all-branch:
      jobs:
        - test_all_models:
@@ -240,15 +240,15 @@ workflows:
                only:
                  - master
                  - test_all
-        - sync_containers:
-            context:
-              - sync-kipoi-containers
-            filters:
-              branches:
-                only:
-                  - master
-                  - test_all
-                  - fix-sync-workflow
+       - sync_containers:
+           context:
+             - sync-kipoi-containers
+           filters:
+             branches:
+               only:
+                 - master
+                 - test_all
+                 - fix-sync-workflow
 
           
 
