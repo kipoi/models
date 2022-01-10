@@ -234,6 +234,9 @@ workflows:
        - sync_containers:
            context:
              - sync-kipoi-containers
+           requires:
+             - test_all_models
+             - test_all_models_common_env
            filters:
              branches:
                only:
