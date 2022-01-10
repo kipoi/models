@@ -64,6 +64,11 @@ variables:
 
 
 jobs:
+  sync_containers:
+    <<: *defaults
+    steps:
+      - *install_conda  
+      - *sync
 
   # test only the newly added model
   test_new_models:
@@ -126,7 +131,6 @@ jobs:
           no_output_timeout: 60m
           command: kipoi test-source kipoi --all --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
-      - *sync
 
   # test all models in the repo
   test_all_models_singularity:
@@ -198,6 +202,7 @@ workflows:
                ignore:
                  - master
                  - test_all
+                      
   test-all-branch:
      jobs:
        - test_all_models:
@@ -205,8 +210,6 @@ workflows:
              parameters:
                num_of_shards: [5]
                shard_id: [0, 1, 2, 3, 4]
-           context:
-              - sync-kipoi-containers
            filters:
              branches:
                only:
@@ -228,6 +231,15 @@ workflows:
                only:
                  - master
                  - test_all
+       - sync_containers:
+           context:
+             - sync-kipoi-containers
+           filters:
+             branches:
+               only:
+                 - master
+                 - test_all
+          
 
   # workflow for testing all the models
   # on the master branch overnight
