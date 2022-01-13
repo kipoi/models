@@ -30,11 +30,11 @@ info:
 dependencies:
     conda:
       - python=3.7
-      - h5py=2.10.0
-      - pip=20.3.3
+      - h5py=3.6.0
+      - pip=21.2.2
     pip:
-      - keras==2.2.4
-      - tensorflow==1.14.0
+      - keras==2.7.0
+      - tensorflow==2.7.0
 
 schema:
     inputs:
