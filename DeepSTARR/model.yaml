@@ -1,0 +1,46 @@
+defined_as: kipoi.model.KerasModel
+args: # arguments of kipoi.model.KerasModel
+    arch:
+        url: https://zenodo.org/record/5502060/files/DeepSTARR.model.json?download=1
+        md5: 9b796f79441e53dc75dd79b911fff872
+    weights:
+        url: https://zenodo.org/record/5502060/files/DeepSTARR.model.h5?download=1
+        md5: 7e53a9351b2520a4713a5ffdb5f1566c
+
+default_dataloader: 
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        auto_resize_len: 249
+        alphabet_axis: 1
+        dummy_axis: 2
+        alphabet: "ACGT"
+        ignore_targets: False
+
+info:
+    authors: 
+        - name: Bernardo P. de Almeida
+          github: bernardo-de-almeida
+          email: bernardo.almeida94@gmail.com
+    doc: Model predicting the activities of developmental and housekeeping enhancers in Drosophila S2 cells
+    cite_as: https://doi.org/10.1101/2021.10.05.463203
+    trained_on: Developmental and housekeeping quantitative enhancer activity. Held-out second half of chromosome 2R.
+    license: MIT
+
+dependencies:
+    conda:
+      - python=3.7
+      - h5py=3.6.0
+      - pip=21.2.2
+    pip:
+      - keras==2.7.0
+      - tensorflow==2.7.0
+
+schema:
+    inputs:
+        shape: (249,4,1)
+        doc: DNA sequence
+
+    targets:
+        shape: (2,)
+        doc: Developmental and housekeeping enhancer activity
