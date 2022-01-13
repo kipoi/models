@@ -30,15 +30,15 @@ info:
 dependencies:
     conda:
       - python=3.7
-      - h5py
-      - pip
+      - h5py=2.10.0
+      - pip=20.3.3
     pip:
-      - keras>=2.0.4
-      - tensorflow>=1.0
+      - keras==2.2.4
+      - tensorflow==1.14.0
 
 schema:
     inputs:
-        shape: (249,4)
+        shape: (249,4,1)
         doc: DNA sequence
 
     targets:
