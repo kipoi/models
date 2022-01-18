@@ -34,5 +34,6 @@
     "epidermal_basset": "kipoi/kipoi-docker:sharedpy3keras1.2",
     "DeepFlyBrain": "kipoi/kipoi-docker:deepflybrain",
     "APARENT/site_probabilities": "kipoi/kipoi-docker:aparent-site_probabilities",
-    "APARENT/veff": "kipoi/kipoi-docker:aparent-veff"
+    "APARENT/veff": "kipoi/kipoi-docker:aparent-veff",
+    "DeepSTARR": "kipoi/kipoi-docker:deepstarr"
 }
