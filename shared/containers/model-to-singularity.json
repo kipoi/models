@@ -178,5 +178,10 @@
         "url": "https://zenodo.org/record/5820889/files/kipoi-docker_aparent-veff.sif?download=1",
         "name": "kipoi-docker_aparent-veff",
         "md5": "c7f2f0b70e643362bcb2c1e93602b149"
+    },
+    "DeepSTARR": {
+        "url": "https://zenodo.org/record/5874507/files/kipoi-docker_deepstarr.sif?download=1", 
+        "md5": "303a1e81c5380bc7ace5062ea6565dac", 
+        "name": "kipoi-docker_deepstarr"
     }
 }
