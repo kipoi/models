@@ -22,26 +22,27 @@ class APARENTModel(BaseModel):
 
         _, pred = self.model.predict_on_batch([input_1, input_2, input_3])
 
-        site_probs = pred[:, :-1]
-        distal_prob = pred[:, -1]
-        return site_probs, distal_prob
+        site_props = pred[:, :-1]
+        distal_prop = pred[:, -1]
+        return site_props, distal_prop
 
     def predict_on_batch(self, inputs):
-        site_probs_ref, distal_prob_ref = self._predict(inputs["ref_seq"])
-        site_probs_alt, distal_prob_alt = self._predict(inputs["alt_seq"])
+        site_props_ref, distal_prop_ref = self._predict(inputs["ref_seq"])
+        site_props_alt, distal_prop_alt = self._predict(inputs["alt_seq"])
 
-        distal_prob_ref = logit(distal_prob_ref)
-        distal_prob_alt = logit(distal_prob_alt)
-        proximal_prob_ref = logit(np.sum(
-            site_probs_ref[:, self.isoform_window_start:self.isoform_window_end],
+        logit_distal_prop_ref = logit(distal_prop_ref)
+        logit_distal_prop_alt = logit(distal_prop_alt)
+
+        logit_proximal_prop_ref = logit(np.sum(
+            site_props_ref[:, self.isoform_window_start:self.isoform_window_end],
             axis=1
         ))
-        proximal_prob_alt = logit(np.sum(
-            site_probs_alt[:, self.isoform_window_start:self.isoform_window_end],
+        logit_proximal_prop_alt = logit(np.sum(
+            site_props_alt[:, self.isoform_window_start:self.isoform_window_end],
             axis=1
         ))
 
         return {
-            "delta_logit_distal_prob": distal_prob_alt - distal_prob_ref,
-            "delta_logit_proximal_prob": proximal_prob_alt - proximal_prob_ref,
+            "delta_logit_distal_prop": logit_distal_prop_alt - logit_distal_prop_ref,
+            "delta_logit_proximal_prop": logit_proximal_prop_alt - logit_proximal_prop_ref,
         }

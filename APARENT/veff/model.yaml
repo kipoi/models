@@ -62,11 +62,11 @@ schema:
       shape: (205, 4)
       special_type: DNAStringSeq
   targets:
-    delta_logit_distal_prob:
+    delta_logit_distal_prop:
       shape: (1, )
       doc: >
-        Predicts logit percentage difference to reference of having a PolyA cut site outside of the specified DNA range
-    delta_logit_proximal_prob:
+        Predicts logit difference to reference of having a PolyA cut site **outside** of the specified DNA range
+    delta_logit_proximal_prop:
       shape: (1, )
       doc: >
-        Predicts logit percentage difference to reference of having a PolyA cut site for each position in the specified DNA range
+        Predicts logit difference to reference of having a PolyA cut site for each position in the specified DNA range
