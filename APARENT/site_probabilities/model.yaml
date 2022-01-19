@@ -53,8 +53,8 @@ schema:
   targets:
     doc: >
       Predicts 206 features:
-      1 prediction for % distal cleavage + 205 predictions for % cleavage at each position
-    shape: (206, )
+      205 predictions for % cleavage at each position + 1 prediction for % distal cleavage.
+      The sum of all features will be 1.
     distal_prop:
       shape: (1, )
       doc: >
