@@ -170,18 +170,18 @@
         "md5": "9699380805ba83aa3960087d2a8adc97"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/5821954/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
+        "url": "https://zenodo.org/record/5884780/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities",
-        "md5": "3e628d8ece64fc175c477f826c46fcd0"
+        "md5": "1bc80ff848601b36cb24160f26b6aaaf"
     },
     "APARENT/veff": {
-        "url": "https://zenodo.org/record/5820889/files/kipoi-docker_aparent-veff.sif?download=1",
+        "url": "https://zenodo.org/record/5884862/files/kipoi-docker_aparent-veff.sif?download=1",
         "name": "kipoi-docker_aparent-veff",
-        "md5": "c7f2f0b70e643362bcb2c1e93602b149"
+        "md5": "b4b0f50e62d2e7a144dd326a1508fd62"
     },
     "DeepSTARR": {
-        "url": "https://zenodo.org/record/5874507/files/kipoi-docker_deepstarr.sif?download=1", 
-        "md5": "303a1e81c5380bc7ace5062ea6565dac", 
+        "url": "https://zenodo.org/record/5874507/files/kipoi-docker_deepstarr.sif?download=1",
+        "md5": "303a1e81c5380bc7ace5062ea6565dac",
         "name": "kipoi-docker_deepstarr"
     }
 }
