@@ -51,10 +51,10 @@ schema:
     shape: (205, 4)
     special_type: DNASeq
   targets:
-    doc: >
-      Predicts 206 features:
-      1 prediction for % distal cleavage + 205 predictions for % cleavage at each position
-    shape: (206, )
+#    doc: >
+#      Predicts 206 features:
+#      205 predictions for % cleavage at each position + 1 prediction for % distal cleavage.
+#      The sum of all features will be 1.
     distal_prop:
       shape: (1, )
       doc: >
@@ -62,7 +62,8 @@ schema:
     site_props:
       shape: (205, )
       doc: >
-        Predicts proportion of cleavage occuring at each position in the specified DNA range
+        Predicts proportion of cleavage occuring at each position in the specified DNA range.
+        Sum of all site props + distal_prop = 1
 
 test:
   expect:
