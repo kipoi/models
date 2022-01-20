@@ -3,6 +3,8 @@ args:
   weights:
     url: https://github.com/johli/aparent/raw/8a884f0bc4073ed0edd588f71b61a5be4a37e831/saved_models/aparent_large_lessdropout_all_libs_no_sampleweights.h5
     md5: 31902fb40125679e655b8b6d2747ada7
+  isoform_window_start: 0
+  isoform_window_end: 205
   
 default_dataloader: ./
 
@@ -44,7 +46,8 @@ info:
     Finally, we use APARENT to quantify the impact of genetic variants on APA.
     Our approach detects pathogenic variants in a wide range of disease contexts, expanding our understanding of the genetic origins of disease.
 
-  trained_on: "isoform expression data from over 3 million APA reporters, built by inserting random sequence into 12 distinct 3'UTR contexts."
+  trained_on: >
+    isoform expression data from over 3 million APA reporters, built by inserting random sequence into 12 distinct 3'UTR contexts.
 
 schema:
   inputs:
@@ -59,11 +62,11 @@ schema:
       shape: (205, 4)
       special_type: DNAStringSeq
   targets:
-    delta_logit_polya_prob:
+    delta_logit_distal_prop:
       shape: (1, )
       doc: >
-        Predicts logit percentage difference to reference of having a PolyA cut site in the specified DNA range
-    delta_logit_site_probs:
-      shape: (205, )
+        Predicts logit difference to reference of having a PolyA cut site **outside** of the specified DNA range
+    delta_logit_proximal_prop:
+      shape: (1, )
       doc: >
-        Predicts logit percentage difference to reference of having a PolyA cut site for each position in the specified DNA range
+        Predicts logit difference to reference of having a PolyA cut site for each position in the specified DNA range

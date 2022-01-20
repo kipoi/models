@@ -23,12 +23,12 @@ dependencies:
   conda:
     - python=3.9
     - bioconda::kipoi
-#    - bioconda::kipoiseq
+    - bioconda::kipoiseq>=0.7.1
     - bioconda::cyvcf2
     - bioconda::pyranges
-    - pip>=21.0.1
-  pip:
-    - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
+#    - pip>=21.0.1
+#  pip:
+#    - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
 
 info:
   authors:
