@@ -3,8 +3,9 @@ args:
   weights:
     url: https://zenodo.org/record/3402406/files/deepsea.beluga.pth?download=1
     md5: 62360f2db4ac96554d28d058b50ab654
-  module_class: model.Beluga
-
+  module_class: Beluga
+  model_file: model.py
+  
 info:
   authors:
       - name: Jian Zhou
