@@ -231,6 +231,7 @@ workflows:
                only:
                  - master
                  - test_all
+                 - fix-ci
        - sync_containers:
            context:
              - sync-kipoi-containers
