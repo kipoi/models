@@ -82,6 +82,28 @@ output_schema:
       special_type: DNAStringSeq
       associated_metadata: ranges, variants
   metadata:
+    variant:
+      chrom:
+        type: str
+        doc: chromsome of variant
+      start:
+        type: int
+        doc: variant start (0-based)
+      end:
+        type: int
+        doc: variant end (1-based)
+      ref:
+        type: str
+        doc: variant reference
+      alt:
+        type: str
+        doc: variant alternative string
+      id:
+        type: str
+        doc: variant id
+      str:
+        type: str
+        doc: string representation of the variant
     ranges:
       doc: Ranges describing inputs.seq
       type: GenomicRanges

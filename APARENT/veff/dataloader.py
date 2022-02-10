@@ -47,6 +47,15 @@ class APARENT_DL(SampleIterator):
                     )),
                 },
                 "metadata": {
+                    "variant": {
+                        "chrom": variant.chrom,
+                        "start": variant.start,
+                        "end": variant.end,
+                        "ref": variant.end,
+                        "alt": variant.end,
+                        "id": variant.id,
+                        "str": str(variant),
+                    },
                     "ranges": GenomicRanges.from_interval(interval),
                     **{k: interval.attrs.get(k, '') for k in self.interval_attrs},
                 }
