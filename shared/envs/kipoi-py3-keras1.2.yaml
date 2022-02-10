@@ -15,7 +15,7 @@ dependencies:
 - numpy
 - pandas
 - cython
-- pip
+- pip=21.3.1
 - pip:
   - kipoi_veff
   - kipoi_interpret
