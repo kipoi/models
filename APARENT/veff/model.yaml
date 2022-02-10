@@ -14,8 +14,8 @@ dependencies:
     - bioconda
     - defaults
   conda:
-  - python=3.6
-  - tensorflow=1.13
+  - python=3.9
+  - tensorflow
   - keras>=2.0.4,<3
   - numpy
   - scipy

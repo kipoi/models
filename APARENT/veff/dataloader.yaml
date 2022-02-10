@@ -26,6 +26,7 @@ args:
       url: https://zenodo.org/record/5483589/files/gnomad.v3.1.1.chr22_15518158-20127355.vcf.gz.tbi?download=1
       md5: 2a06eb48d4fdc0f32b6d171595869fb8
       name: vcf_file.tbi
+    optional: true
   vcf_lazy:
     doc: decode VCF in lazy manner (see cyvcf2 docs)
     example: True
@@ -42,7 +43,7 @@ dependencies:
     - bioconda
     - defaults
   conda:
-    - python=3.6
+    - python=3.9
     - bioconda::kipoi
     - bioconda::kipoiseq>=0.7.1
     - bioconda::cyvcf2
