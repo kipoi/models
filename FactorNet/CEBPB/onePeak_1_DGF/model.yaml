@@ -10,7 +10,7 @@ args:
 default_dataloader: .
 dependencies:
   conda:
-  - python=3.6
+  - python=3.7
   pip:
   - tensorflow>=1.4.1,<2.0.0
   - keras>=2.0.4,<2.2.0
