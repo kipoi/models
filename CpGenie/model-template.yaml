@@ -48,7 +48,7 @@ default_dataloader:
     dummy_axis: 1
 dependencies:
   conda:
-    - python=3.6.12
+    - python=3.7
     - h5py=2.10.0
     - tensorflow=1.10.0
     - keras=1.2.2

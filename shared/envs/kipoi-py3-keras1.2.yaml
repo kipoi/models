@@ -9,7 +9,7 @@ dependencies:
 - bedtools
 - pybedtools
 - pysam
-- python=3.6
+- python=3.7
 - h5py
 - genomelake==0.1.4
 - numpy

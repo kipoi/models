@@ -44,7 +44,7 @@ dependencies:
   - bioconda::pybigwig
   - bioconda::pyfaidx
   - bioconda::gtfparse>=1.0.7
-  - python=3.6
+  - python=3.7
   - cython
   - scikit-learn=0.18.1
   - pandas=0.23.4

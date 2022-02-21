@@ -8,7 +8,7 @@ default_dataloader: .
 
 dependencies:
   conda:
-    - python=3.6.7
+    - python=3.7
     - numpy>=1.16.2
     - tensorflow=1.13.1
     - keras=2.2.4

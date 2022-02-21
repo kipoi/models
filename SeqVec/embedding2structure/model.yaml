@@ -21,7 +21,7 @@ info: # General information about the model
         
 dependencies:
     conda: # install via conda
-      - python=3.6
+      - python=3.7
       - conda-forge::allennlp=0.7.2
       - pip=9.0.3
     pip:
