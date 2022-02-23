@@ -23,7 +23,7 @@ info:
 
 dependencies:
     conda:
-      - python=3.7
+      - python=3.6
       - conda-forge::allennlp=0.7.2
     # pip:
     #   - allennlp
