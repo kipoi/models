@@ -1,187 +1,187 @@
 {
     "DeepCpG_DNA": {
-        "url": "https://zenodo.org/record/5821746/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6344945/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "33cec44c44e8f9865a7da902ad265717"
+        "md5": "5e1cf85ff1a4bf1c081d251e8c141085"
     },
     "CpGenie": {
-        "url": "https://zenodo.org/record/5821746/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6344945/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "33cec44c44e8f9865a7da902ad265717"
+        "md5": "5e1cf85ff1a4bf1c081d251e8c141085"
     },
     "Divergent421": {
-        "url": "https://zenodo.org/record/5821746/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6344945/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "33cec44c44e8f9865a7da902ad265717"
+        "md5": "5e1cf85ff1a4bf1c081d251e8c141085"
     },
     "Basenji": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "Basset": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "HAL": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "DeepSEA": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "Optimus_5Prime": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "labranchor": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "CleTimer": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "SiSp": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "FactorNet": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "pwm_HOCOMOCO": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "MaxEntScan": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "DeepBind": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "lsgkm-SVM": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "rbp_eclip": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/5820760/files/kipoi-docker_mpra-dragonn.sif?download=1",
+        "url": "https://zenodo.org/record/6358267/files/kipoi-docker_mpra-dragonn.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn",
-        "md5": "dba444623fed01b1043f6fa788c6a75a"
+        "md5": "cfec7517d8edc201886a0c05bd5aea70"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6327275/files/kipoi-docker_extended_coda.sif?download=1",
+        "url": "https://zenodo.org/record/6358441/files/kipoi-docker_extended_coda.sif?download=1",
         "name": "kipoi-docker_extended_coda",
-        "md5": "b26a0ade10e145958767328a8e201111"
+        "md5": "eb9873af96321534081b31118bbc8568"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/5821728/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "a4fad2e5343fd76d54ecbb97fb1a4a4e"
+        "md5": "59267e386d5d6c9cb7039a336c08a880"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/5821728/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "a4fad2e5343fd76d54ecbb97fb1a4a4e"
+        "md5": "59267e386d5d6c9cb7039a336c08a880"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/5821728/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "a4fad2e5343fd76d54ecbb97fb1a4a4e"
+        "md5": "59267e386d5d6c9cb7039a336c08a880"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/5821728/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "a4fad2e5343fd76d54ecbb97fb1a4a4e"
+        "md5": "59267e386d5d6c9cb7039a336c08a880"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/5821738/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6358560/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice",
-        "md5": "a42e7e725d28db9fa80751cef011baad"
+        "md5": "0b583f16ee0326bb64f17dd488afc8ce"
     },
     "DeepMEL": {
-        "url": "https://zenodo.org/record/5821147/files/kipoi-docker_deepmel.sif?download=1",
+        "url": "https://zenodo.org/record/6358597/files/kipoi-docker_deepmel.sif?download=1",
         "name": "kipoi-docker_deepmel",
-        "md5": "c62f3a9bd85027e33a3b97e10bb54112"
+        "md5": "80b8cb1a6fbf100369c47e6c08e6cc12"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/5821680/files/kipoi-docker_framepool.sif?download=1",
+        "url": "https://zenodo.org/record/6358862/files/kipoi-docker_framepool.sif?download=1",
         "name": "kipoi-docker_framepool",
-        "md5": "e8107040e1a4bea7713e1cc81f7c7e69"
+        "md5": "6ac432b1cd393a9438f5767016720a69"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/5821947/files/kipoi-docker_kipoisplice.sif?download=1",
+        "url": "https://zenodo.org/record/6359024/files/kipoi-docker_kipoisplice.sif?download=1",
         "name": "kipoi-docker_kipoisplice",
-        "md5": "4b5151aa6c512872ef6ea55a45c85657"
+        "md5": "76502a819a983bddd2cb9923a686eac1"
     },
     "deepTarget": {
-        "url": "https://zenodo.org/record/5821666/files/kipoi-docker_deeptarget.sif?download=1",
+        "url": "https://zenodo.org/record/6359252/files/kipoi-docker_deeptarget.sif?download=1",
         "name": "kipoi-docker_deeptarget",
-        "md5": "d0958cc549df5e8996790c8a02d77fbf"
+        "md5": "2cd2009a1d8a67b3d71139b3e9c101d4"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/5821045/files/kipoi-docker_attentivechrome.sif?download=1",
+        "url": "https://zenodo.org/record/6359734/files/kipoi-docker_attentivechrome.sif?download=1",
         "name": "kipoi-docker_attentivechrome",
-        "md5": "fdea226fc85d4e5073994a141fa8c4b9"
+        "md5": "e1087e4faaafaace30fec5a05aed3e1a"
     },
     "BPNet-OSKN": {
-        "url": "https://zenodo.org/record/5821670/files/kipoi-docker_bpnet-oskn.sif?download=1",
+        "url": "https://zenodo.org/record/6359772/files/kipoi-docker_bpnet-oskn.sif?download=1",
         "name": "kipoi-docker_bpnet-oskn",
-        "md5": "53a47fb857fe5fc56ec26b28b87a5714"
+        "md5": "829573dd8545174dd504bda42ca3d637"
     },
     "SeqVec": {
-        "url": "https://zenodo.org/record/5820771/files/kipoi-docker_seqvec.sif?download=1",
+        "url": "https://zenodo.org/record/6360088/files/kipoi-docker_seqvec.sif?download=1",
         "name": "kipoi-docker_seqvec",
-        "md5": "fc4a817f7e0421ed4c7cb8abd2de4c63"
+        "md5": "6bbbf7f637e51bb1881718c2b24ad9ef"
     },
     "Xpresso": {
-        "url": "https://zenodo.org/record/5821949/files/kipoi-docker_sharedpy3keras2.sif?download=1",
+        "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2",
-        "md5": "a9bd6fc22a5f9e1f912a46a2e52c2ba5"
+        "md5": "1e521efd04a9c017283c8a6327f0caaf"
     },
     "epidermal_basset": {
-        "url": "https://zenodo.org/record/5821746/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6344945/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "33cec44c44e8f9865a7da902ad265717"
+        "md5": "5e1cf85ff1a4bf1c081d251e8c141085"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/5821069/files/kipoi-docker_deepflybrain.sif?download=1",
+        "url": "https://zenodo.org/record/6360149/files/kipoi-docker_deepflybrain.sif?download=1",
         "name": "kipoi-docker_deepflybrain",
-        "md5": "9699380805ba83aa3960087d2a8adc97"
+        "md5": "e6614f49e1a04a43d73cc4d4bb2ce584"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/5884780/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
+        "url": "https://zenodo.org/record/6360159/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities",
-        "md5": "1bc80ff848601b36cb24160f26b6aaaf"
+        "md5": "bc3fcc8e8d9d02a20762fdc60d607c14"
     },
     "APARENT/veff": {
-        "url": "https://zenodo.org/record/6335551/files/kipoi-docker_aparent-veff.sif?download=1",
+        "url": "https://zenodo.org/record/6360365/files/kipoi-docker_aparent-veff.sif?download=1",
         "name": "kipoi-docker_aparent-veff",
-        "md5": "c3d3bc49d0b2034f4d305b460ef6f121"
+        "md5": "a0b6c647ddfbd3d1c4f8f029414ed2b3"
     },
     "DeepSTARR": {
-        "url": "https://zenodo.org/record/5874507/files/kipoi-docker_deepstarr.sif?download=1",
-        "md5": "303a1e81c5380bc7ace5062ea6565dac",
+        "url": "https://zenodo.org/record/6360246/files/kipoi-docker_deepstarr.sif?download=1",
+        "md5": "c381fd81b5507724848c383f0d3cb882",
         "name": "kipoi-docker_deepstarr"
     }
 }
