@@ -46,6 +46,7 @@ dependencies:
   - scikit-learn
   - sklearn-pandas
   - kipoi==0.6.30 
+  - kipoi_utils==0.7.2
   - kipoi_veff
   - tqdm
   - tensorflow>=1.0.0
