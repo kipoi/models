@@ -130,9 +130,9 @@
         "md5": "6ac432b1cd393a9438f5767016720a69"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6359024/files/kipoi-docker_kipoisplice.sif?download=1",
+        "url": "https://zenodo.org/record/6366113/files/kipoi-docker_kipoisplice.sif?download=1",
         "name": "kipoi-docker_kipoisplice",
-        "md5": "76502a819a983bddd2cb9923a686eac1"
+        "md5": "5aa970040126fd88fd5e53fc6f0d567b"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6359252/files/kipoi-docker_deeptarget.sif?download=1",
@@ -150,9 +150,9 @@
         "md5": "829573dd8545174dd504bda42ca3d637"
     },
     "SeqVec": {
-        "url": "https://zenodo.org/record/6360088/files/kipoi-docker_seqvec.sif?download=1",
+        "url": "https://zenodo.org/record/6366170/files/kipoi-docker_seqvec.sif?download=1",
         "name": "kipoi-docker_seqvec",
-        "md5": "6bbbf7f637e51bb1881718c2b24ad9ef"
+        "md5": "d68b575498210706c1f11b0d40078dba"
     },
     "Xpresso": {
         "url": "https://zenodo.org/record/6360284/files/kipoi-docker_sharedpy3keras2.sif?download=1",
