@@ -10,13 +10,36 @@ import sys
 import kipoi
 
 # shared utils
-from utils import read_json, onehot, elongate_intron
+# from utils import read_json, onehot, elongate_intron
 
 # access the absolute path to this script
 # https://stackoverflow.com/questions/3718657/how-to-properly-determine-current-script-directory-in-python
 import inspect
 this_file_path = os.path.abspath(inspect.getframeinfo(inspect.currentframe()).filename)
 this_dir = os.path.dirname(this_file_path)
+
+def read_json(path):
+    with open(path) as fh:
+        info = json.load(fh)
+    return info
+
+
+def onehot(seq):
+    bases = ['A', 'C', 'G', 'T']
+    X = np.zeros((len(seq), len(bases)))
+    for i, char in enumerate(seq):
+        if char != "N":
+            X[i, bases.index(char.upper())] = 1
+    return X
+
+
+def elongate_intron(intron):
+    """
+    Elongate intron to be able to predict branchpoints with labranchor.
+    Elongation is with T nucleotide after all donor features up to 94bp.
+    """
+    insertion = (94 - len(intron)) * "T"
+    return ''.join([intron[0:19], insertion, intron[19:]])
 
 
 class CleavageTimeModel(BaseModel):
