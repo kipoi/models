@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 from kipoi.model import BaseModel
-
+import numpy as np
 # Simple CNN, taking SeqVec embeddings for a given protein as input.
 # Returns predictions for 3-state and 8-state secondary structure
 # as well as for disorder for each residue in the given protein.
