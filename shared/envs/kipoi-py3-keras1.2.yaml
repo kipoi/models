@@ -21,7 +21,7 @@ dependencies:
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow==1.4.1
+  - tensorflow==1.15
   - keras==1.2.2
   - deepcpg==1.0.4
   # other 
