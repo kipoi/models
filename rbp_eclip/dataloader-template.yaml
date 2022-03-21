@@ -40,14 +40,14 @@ dependencies:
   conda:
   - bioconda::pybedtools
   - bioconda::pysam=0.15.3
-  - bioconda::genomelake=0.1.4
+  - bioconda::genomelake
   - bioconda::pybigwig
   - bioconda::pyfaidx
   - bioconda::gtfparse>=1.0.7
   - python=3.7
   - cython
-  - scikit-learn=0.18.1
-  - pandas=0.23.4
+  - scikit-learn<1.*
+  - pandas
   - pip=20.3.3
   pip:
   - concise>=0.6.6
