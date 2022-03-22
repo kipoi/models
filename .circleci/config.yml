@@ -4,7 +4,7 @@ version: 2.1
 variables:
   defaults: &defaults
     machine: # executor type
-      image: ubuntu-2004:202104-01
+      image: ubuntu-2004:current
     resource_class: medium
     working_directory: ~/repo
     environment:
