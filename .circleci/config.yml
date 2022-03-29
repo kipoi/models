@@ -37,7 +37,7 @@ variables:
     run:
       name: Install Singularity
       command: |
-        conda install --yes -c conda-forge singularity
+        conda install --yes -c conda-forge singularity=3.8.6
   restore_cache: &restore_cache
     restore_cache:
       keys:
