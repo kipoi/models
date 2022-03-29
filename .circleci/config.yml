@@ -208,8 +208,8 @@ workflows:
        - test_all_models:
            matrix:
              parameters:
-               num_of_shards: [5]
-               shard_id: [0, 1, 2, 3, 4]
+               num_of_shards: [7]
+               shard_id: [0, 1, 2, 3, 4, 5, 6]
            filters:
              branches:
                only:
@@ -258,8 +258,8 @@ workflows:
        - test_all_models:
           matrix:
             parameters:
-              num_of_shards: [5]
-              shard_id: [0, 1, 2, 3, 4]
+              num_of_shards: [7]
+              shard_id: [0, 1, 2, 3, 4, 5, 6]
        - test_all_models_singularity:
           matrix:
             parameters:
