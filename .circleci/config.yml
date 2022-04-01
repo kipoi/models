@@ -37,7 +37,16 @@ variables:
     run:
       name: Install Singularity
       command: |
-        conda install --yes -c conda-forge singularity=3.8.6
+        conda install --yes -c conda-forge singularity
+  install_apptainer: &install_apptainer
+    run:
+      name: Install Apptainer from source
+      command: |
+        echo 'export CI_JOB_PY_YAML="$CI_JOB_PY_YAML"' >> $BASH_ENV
+        sudo apt-get -q update && sudo apt-get install -y build-essential squashfs-tools libseccomp-dev cryptsetup libhdf5-serial-dev pkg-config
+        wget https://github.com/apptainer/apptainer/releases/download/v1.0.1/apptainer_1.0.1_amd64.deb 
+        sudo apt install ~/repo/apptainer_1.0.1_amd64.deb
+        apptainer --version    
   restore_cache: &restore_cache
     restore_cache:
       keys:
@@ -96,11 +105,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - *install_apptainer
       - *install_conda   
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
-      - *install_singularity
       # - *restore_cache
       - *setup
       - run:
@@ -142,11 +151,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - *install_apptainer
       - *install_conda   
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
-      - *install_singularity
       # - *restore_cache
       - *setup
       - run:
