@@ -234,7 +234,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - add-apptainer
        - test_all_models_common_env:
            filters:
              branches:
