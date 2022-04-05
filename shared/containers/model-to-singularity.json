@@ -115,9 +115,9 @@
         "md5": "59267e386d5d6c9cb7039a336c08a880"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6358560/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6414567/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice",
-        "md5": "0b583f16ee0326bb64f17dd488afc8ce"
+        "md5": "2b7893832c0d890144d199ef372539d2"
     },
     "DeepMEL": {
         "url": "https://zenodo.org/record/6358597/files/kipoi-docker_deepmel.sif?download=1",
