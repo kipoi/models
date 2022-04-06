@@ -95,24 +95,24 @@
         "md5": "eb9873af96321534081b31118bbc8568"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "59267e386d5d6c9cb7039a336c08a880"
+        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "59267e386d5d6c9cb7039a336c08a880"
+        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "59267e386d5d6c9cb7039a336c08a880"
+        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/6358535/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "59267e386d5d6c9cb7039a336c08a880"
+        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/mtsplice": {
         "url": "https://zenodo.org/record/6414567/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
