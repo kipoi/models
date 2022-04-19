@@ -21,6 +21,14 @@ variables:
         sudo ln -s ~/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
         echo ". ~/miniconda3/etc/profile.d/conda.sh" >> $BASH_ENV && \
         echo "conda activate base" >> $BASH_ENV
+  update_conda: &update_conda
+    run:
+      name: Update conda
+      command: conda update -n base conda
+  install_mamba_solver: &install_mamba_solver
+    run:
+      name: Install mamba solver (experimental)
+      command: conda install -n base conda-libmamba-solver
   install_sys_deps: &install_sys_deps
     run:
       name: install build-essential
@@ -84,7 +92,9 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *install_conda   
+      - *install_conda
+      - *update_conda   
+      - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
@@ -106,7 +116,9 @@ jobs:
     steps:
       - checkout
       - *install_apptainer
-      - *install_conda   
+      - *install_conda
+      - *update_conda   
+      - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
@@ -128,7 +140,9 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *install_conda   
+      - *install_conda 
+      - *update_conda
+      - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
@@ -152,7 +166,9 @@ jobs:
     steps:
       - checkout
       - *install_apptainer
-      - *install_conda   
+      - *install_conda
+      - *update_conda   
+      - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
@@ -170,7 +186,9 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *install_conda   
+      - *install_conda 
+      - *update_conda  
+      - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
       - *install_additional_pkgs
