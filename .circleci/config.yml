@@ -242,7 +242,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - add-update-conda
        - test_all_models_singularity:
            matrix:
              parameters:
