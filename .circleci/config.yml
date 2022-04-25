@@ -230,8 +230,8 @@ workflows:
        - test_new_models:
            matrix:
             parameters:
-              num_of_shards: [5]
-              shard_id: [0, 1, 2, 3, 4]
+              num_of_shards: [8]
+              shard_id: [0, 1, 2, 3, 4, 5, 6, 7]
            filters:
              branches:
                ignore:
@@ -247,6 +247,7 @@ workflows:
                ignore:
                  - master
                  - test_all
+                 - drop3.6
                       
   test-all-branch:
      jobs:
