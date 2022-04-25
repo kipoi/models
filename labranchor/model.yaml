@@ -12,7 +12,7 @@ dependencies:
   - python=3.7
   - bioconda::pysam=0.15.3
   pip:
-  - tensorflow
+  - tensorflow==1.15
   - keras==2.1.6
   - h5py==2.9.0
   - kipoi==0.6.35
