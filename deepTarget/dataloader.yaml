@@ -17,12 +17,10 @@ args:
 defined_as: dataloader.py::dataset
 dependencies:
   conda:
-  - biopython>=1.66
-  - scikit-learn>=0.18.2
-  - pandas<=0.23
-  - theano
-  - numpy<=1.12.0
+  - biopython
   pip:
+  - theano
+  - scikit-learn==0.19.2
   - keras==0.3.3
 info:
   authors:
