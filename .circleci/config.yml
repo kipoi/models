@@ -244,7 +244,7 @@ workflows:
                  - master
                  - test_all
                  - drop3.6
-        - test_all_models_common_env
+       - test_all_models_common_env
 
                       
   test-all-branch:
