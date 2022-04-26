@@ -50,3 +50,8 @@ schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to
                                 k562 sv40p replicate 1, k562 sv40p replicate 2, k562 sv40p pooled,
                                 hepg2 minP replicate 1, hepg2 minP replicate 2, hepg2 minP pooled,
                                 hepg2 sv40p replicate 1, hepg2 sv40p replicate 2, hepg2 sv40p pooled."
+test:
+  expect:
+    url: https://zenodo.org/record/6492191/files/MPRA-DragoNN__DeepFactorizedModel.predictions.h5?download=1
+    md5: 8c7f7ebdea5208675c2ba75fea039038
+                                  
