@@ -43,3 +43,12 @@ schema:  # Model schema
     targets:
         shape: (1, )
         doc: "Binary Classification"
+
+
+{% if model == 'E003' %}
+test:
+  expect:
+    url: https://zenodo.org/record/6492433/files/AttentiveChrome__E003.predictions.h5?download=1
+    md5: b23ee2431c25691ed3391ceceb1dc4dd
+{% endif %}
+        

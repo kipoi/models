@@ -40,3 +40,7 @@ schema:
        name: topic
        shape: (47,)
        doc: Topic Prediction
+test:
+  expect:
+    url: https://zenodo.org/record/6492364/files/DeepMEL__DeepMEL2.predictions.h5?download=1
+    md5: a202fb891ba49f0e2e52be0681ce23ba

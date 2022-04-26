@@ -40,3 +40,8 @@ schema:
        name: topic
        shape: (48,)
        doc: Topic Prediction
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492385/files/DeepMEL__DeepMEL2_GABPA.predictions.h5?download=1
+    md5: 464527f641557d63bd1f3d4f78a587d3

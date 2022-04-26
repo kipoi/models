@@ -45,3 +45,9 @@ schema:
   targets:
     doc: Prediction probability
     shape: (1,)
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492309/files/deepTarget.predictions.h5?download=1
+    md5: 13194cc73986706d656d771d74e4a60a
+  precision_decimal: 5

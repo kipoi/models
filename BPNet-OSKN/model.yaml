@@ -66,3 +66,8 @@ schema:
       Klf4:
         shape: (1000,2)
         doc: "Strand-specific ChIP-nexus data for Klf4."        
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492419/files/BPNet-OSKN.predictions.h5?download=1
+    md5: b2372e90e6611ff1def4e216c1e26320
