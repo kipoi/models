@@ -189,6 +189,11 @@ jobs:
 
 
   test_all_models_common_env:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
     <<: *defaults
     steps:
       - checkout
@@ -203,7 +208,7 @@ jobs:
       - run:
           name: run tests in common environments
           no_output_timeout: 60m
-          command: kipoi test-source kipoi --all --common_env
+          command: kipoi test-source kipoi --all --common_env --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >> --singularity
       - *store_artifacts
 
   date_release:
@@ -236,15 +241,18 @@ workflows:
        - test_new_models_singularity:
            matrix:
             parameters:
-              num_of_shards: [5]
-              shard_id: [0, 1, 2, 3, 4]
+              num_of_shards: [12]
+              shard_id: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
            filters:
              branches:
                ignore:
                  - master
                  - test_all
-                 - drop3.6
-       - test_all_models_common_env
+       - test_all_models_common_env: #TODO: write test_new_models_common_env
+           matrix:
+            parameters:
+              num_of_shards: [3]
+              shard_id: [0, 1, 2]
 
                       
   test-all-branch:
@@ -270,6 +278,10 @@ workflows:
                  - master
                  - test_all
        - test_all_models_common_env:
+           matrix:
+             parameters:
+               num_of_shards: [3]
+               shard_id: [0, 1, 2]
            filters:
              branches:
                only:
@@ -309,7 +321,11 @@ workflows:
             parameters:
               num_of_shards: [11]
               shard_id: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-       - test_all_models_common_env
+       - test_all_models_common_env:
+          matrix:
+            parameters:
+              num_of_shards: [3]
+              shard_id: [0, 1, 2]
 
 
   weekly-tag:
