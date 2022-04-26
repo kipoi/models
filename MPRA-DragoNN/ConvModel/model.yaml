@@ -54,4 +54,5 @@ test:
   expect:
     url: https://zenodo.org/record/6492201/files/MPRA-DragoNN__ConvModel.predictions.h5?download=1
     md5: 34242ec19bd5e41bb5c6f5f06c2e6c41
-                                    
+  precision_decimal: 4
+                                
