@@ -69,4 +69,5 @@ test:
   expect:
     url: https://zenodo.org/record/6492255/files/Framepool.predictions.h5?download=1
     md5: 3d836e1150a7f2b9156fa43f2fbf22c5
-      
+  precision_decimal: 5
+   

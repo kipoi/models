@@ -54,4 +54,5 @@ test:
   expect:
     url: https://zenodo.org/record/6492191/files/MPRA-DragoNN__DeepFactorizedModel.predictions.h5?download=1
     md5: 8c7f7ebdea5208675c2ba75fea039038
-                                  
+  precision_decimal: 4
+                                
