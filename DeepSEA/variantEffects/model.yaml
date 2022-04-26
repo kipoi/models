@@ -50,7 +50,7 @@ dependencies:
     - pip=20.2.4
     - cython=0.29.23
   pip:
-    - kipoi<=0.6.35
+    - kipoi
     - kipoiseq
 schema:
   inputs:

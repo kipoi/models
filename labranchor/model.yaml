@@ -15,7 +15,7 @@ dependencies:
   - tensorflow==1.15
   - keras==2.1.6
   - h5py==2.9.0
-  - kipoi==0.6.35
+  - kipoi
 info:
   authors:
   - github: jpaggi

@@ -41,7 +41,7 @@ dependencies:
   - joblib
   - scikit-learn
   - sklearn-pandas
-  - kipoi==0.6.30
+  - kipoi
   - kipoi_utils==0.7.2
   - kipoi_veff
   - tqdm

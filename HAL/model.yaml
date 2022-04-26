@@ -40,7 +40,7 @@ dependencies:
     - tinydb==4.2.0
     - tqdm==4.51.0
     - urllib3==1.25.11
-    - kipoi==0.6.35
+    - kipoi
     - kipoi-conda
     - kipoi-utils
 info:
