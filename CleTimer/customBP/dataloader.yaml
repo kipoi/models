@@ -38,7 +38,7 @@ info:
 
 dependencies:
     conda:
-        - python=3.6
+        - python=3.7
         - bioconda::gffutils
         - scipy
 output_schema:

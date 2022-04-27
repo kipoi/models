@@ -23,7 +23,7 @@ info:
 
 dependencies:
     conda:
-      - python=3.6
+      - python=3.7
       - cython=0.29.23
       - bioconda::pybedtools=0.8.2
       - bioconda::pysam=0.16.0.1

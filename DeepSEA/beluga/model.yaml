@@ -33,13 +33,13 @@ default_dataloader:
 
 dependencies:
   conda:
-    - python=3.6.12
+    - python=3.7
     - pip=20.2.4
     - h5py=2.10.0
     - pytorch::pytorch-cpu=1.3.1
     - cython=0.29.23
   pip:
-    - kipoi<=0.6.35
+    - kipoi
     - kipoiseq
 
 schema:

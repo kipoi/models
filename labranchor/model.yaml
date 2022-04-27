@@ -9,13 +9,13 @@ default_dataloader: .
 dependencies:
   conda:
   - pip=20.2.4
-  - python=3.6
+  - python=3.7
   - bioconda::pysam=0.15.3
   pip:
-  - tensorflow==1.4.1
+  - tensorflow==1.15
   - keras==2.1.6
   - h5py==2.9.0
-  - kipoi==0.6.35
+  - kipoi
 info:
   authors:
   - github: jpaggi

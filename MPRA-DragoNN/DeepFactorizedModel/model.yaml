@@ -32,7 +32,7 @@ info: # General information about the model
 dependencies:
     conda: # install via conda
       - cython=0.28.5
-      - python=3.6
+      - python=3.7
       - h5py=2.8.0
       - pip=20.3.3
       # - soumith::pytorch  # <channel>::<package> syntax
@@ -50,3 +50,9 @@ schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to
                                 k562 sv40p replicate 1, k562 sv40p replicate 2, k562 sv40p pooled,
                                 hepg2 minP replicate 1, hepg2 minP replicate 2, hepg2 minP pooled,
                                 hepg2 sv40p replicate 1, hepg2 sv40p replicate 2, hepg2 sv40p pooled."
+test:
+  expect:
+    url: https://zenodo.org/record/6492191/files/MPRA-DragoNN__DeepFactorizedModel.predictions.h5?download=1
+    md5: 8c7f7ebdea5208675c2ba75fea039038
+  precision_decimal: 4
+                                

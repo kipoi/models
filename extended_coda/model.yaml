@@ -9,7 +9,7 @@ args:
   image_dim_ordering: tf
 dependencies:
   conda:
-  - python=3.6
+  - python=3.7
   - pip=20.3.3
   - pysam=0.15.3
   pip:
@@ -45,3 +45,9 @@ schema:
       shape: (None, 1)
       special_type: bigwig
 type: keras
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492281/files/extended_coda.predictions.h5?download=1
+    md5: bdb294f95a511c1766e65803e6fb03d6
+      
