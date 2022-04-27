@@ -4,26 +4,23 @@ channels:
 - conda-forge
 - defaults
 dependencies:
-- pyvcf
-- cyvcf2
-- bedtools
-- pybedtools
-- pysam
-- python=3.6
-- h5py
-- genomelake=0.1.4
+- cyvcf2=0.11.6
+- bedtools=2.30.0
+- pybedtools=0.8.1
+- pysam=0.15.3
+- python=3.7
+- genomelake==0.1.4
 - numpy
 - pandas
-- cython
+- cython=0.29.28
 - pip=21.3.1
 - pip:
+  - pyvcf==0.4.3
   - kipoi_veff
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow==1.4.1
+  - tensorflow==1.15
   - keras==1.2.2
   - deepcpg==1.0.4
-  # other 
-  - ipykernel
-  - typing-extensions==4.1.1
+  - h5py==3.6.0

@@ -67,7 +67,7 @@ dependencies:
     - bioconda::cyvcf2=0.11.5
     - bioconda::pyranges=0.0.66
     - bioconda::pysam=0.15.3
-    - python=3.6
+    - python=3.7
   pip:
     - mmsplice==1.0.3
 output_schema:

@@ -58,7 +58,7 @@ info:
 default_dataloader: .
 dependencies:
   conda:
-    - python=3.6
+    - python=3.7
     - pip=20.3.3
     - pysam=0.15.2
   pip:

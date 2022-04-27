@@ -8,7 +8,7 @@ default_dataloader: .
 
 dependencies:
   conda:
-    - python=3.6.7
+    - python=3.7
     - numpy>=1.16.2
     - tensorflow=1.13.1
     - keras=2.2.4
@@ -64,3 +64,10 @@ schema:
     shift_2:
       shape: (1,)
       doc: Log2 Fold Change in mrl if frame is shifted by 2
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492255/files/Framepool.predictions.h5?download=1
+    md5: 3d836e1150a7f2b9156fa43f2fbf22c5
+  precision_decimal: 5
+   

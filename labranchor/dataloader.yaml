@@ -15,9 +15,10 @@ args:
 defined_as: dataloader.py::BranchPointDataset
 dependencies:
   conda:
-  - python=3.6
+  - python=3.7
+  - bioconda::pysam=0.15.3
+  - pip=20.2.4
   pip:
-  - pysam
   - numpy
 info:
   authors:

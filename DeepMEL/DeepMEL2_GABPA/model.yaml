@@ -23,12 +23,12 @@ info:
 
 dependencies:
     conda: # install via conda
-      - python=3.6
-      - h5py=2.10.0
+      - python=3.7
+      - h5py=3.6.0
       - pip=20.2.4
     pip:   # install via pip
-      - keras==2.4.3
-      - tensorflow==2.3.1
+      - keras==2.8.0
+      - tensorflow==2.8.0
       
 schema:  
      inputs: 
@@ -40,3 +40,8 @@ schema:
        name: topic
        shape: (48,)
        doc: Topic Prediction
+
+test:
+  expect:
+    url: https://zenodo.org/record/6492385/files/DeepMEL__DeepMEL2_GABPA.predictions.h5?download=1
+    md5: 464527f641557d63bd1f3d4f78a587d3
