@@ -10,8 +10,8 @@ args:
     optional: true
 dependencies:
     conda: # install via conda
-      - python==3.7
-      - pytorch::pytorch-cpu
+      - python=3.8
+      - pytorch::pytorch
       - numpy     
 info: # General information about the dataloader
     authors: 
