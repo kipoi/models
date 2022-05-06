@@ -85,9 +85,9 @@
         "md5": "2343ced647f9f06d9eab1c0ff9999696"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6418228/files/kipoi-docker_mpra-dragonn.sif?download=1",
+        "url": "https://zenodo.org/record/6524048/files/kipoi-docker_mpra-dragonn.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn",
-        "md5": "9eea6e4a062f0d2cd9a46dbf9408e6ad"
+        "md5": "21332e7849c447be6ef792198132ae71"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6414574/files/kipoi-docker_extended_coda.sif?download=1",
@@ -165,9 +165,9 @@
         "md5": "5b1710f8aaccfadfe54c020cd507ebbc"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6524047/files/kipoi-docker_deepflybrain.sif?download=1",
+        "url": "https://zenodo.org/record/6414569/files/kipoi-docker_deepflybrain.sif?download=1",
         "name": "kipoi-docker_deepflybrain",
-        "md5": "928982a3f3f4d265e8eb32ec1cbdd5a7"
+        "md5": "f8c69d531cc749a43bcfc53eb0e067a2"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6523942/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
