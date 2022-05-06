@@ -90,9 +90,9 @@
         "md5": "9eea6e4a062f0d2cd9a46dbf9408e6ad"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6524056/files/kipoi-docker_extended_coda.sif?download=1",
+        "url": "https://zenodo.org/record/6414574/files/kipoi-docker_extended_coda.sif?download=1",
         "name": "kipoi-docker_extended_coda",
-        "md5": "e37ddf48d75889c2b70d8fb8e1af0a6a"
+        "md5": "6c9d94257bde7533aa1b991b37eb318e"
     },
     "MMSplice/pathogenicity": {
         "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
@@ -130,9 +130,9 @@
         "md5": "df2caf2f8c7cf8d8c0ed799e2e69cbd4"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6418839/files/kipoi-docker_kipoisplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524063/files/kipoi-docker_kipoisplice.sif?download=1",
         "name": "kipoi-docker_kipoisplice",
-        "md5": "9eff5325fb78f91d8ac4caadafe76e32"
+        "md5": "3b888a2313efcff7a41147eccd8bfd89"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6414587/files/kipoi-docker_deeptarget.sif?download=1",
