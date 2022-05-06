@@ -17,7 +17,7 @@ dependencies:
   - python=3.8
   - h5py
   - pytorch::pytorch
-  - pip
+  - pip=22.0.4
   - pysam
   - cython
   pip:
