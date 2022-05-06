@@ -180,8 +180,8 @@
         "md5": "cbee3ef2abd2bedb1b805e21a6940d56"
     },
     "DeepSTARR": {
-        "url": "https://zenodo.org/record/6414584/files/kipoi-docker_deepstarr.sif?download=1",
-        "md5": "d5fe2598096a70a4c80972eeb8a773d6",
-        "name": "kipoi-docker_deepstarr"
+        "url": "https://zenodo.org/record/6523874/files/kipoi-docker_deepstarr.sif?download=1",
+        "name": "kipoi-docker_deepstarr",
+        "md5": "6e4c94fd45402a2c9586eb904f635fd5"
     }
 }
