@@ -33,7 +33,7 @@ dependencies:
     conda: # install via conda
       - python=3.8
       - numpy=1.19.2
-      - pytorch::pytorch-cpu=1.3.1
+      - pytorch::pytorch
       - pip=21.0.1  
 schema:  # Model schema
     inputs:
