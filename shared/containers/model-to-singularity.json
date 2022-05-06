@@ -115,9 +115,9 @@
         "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6524055/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6414567/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice",
-        "md5": "35f3823e0c2036f63f5383555cc92895"
+        "md5": "2b7893832c0d890144d199ef372539d2"
     },
     "DeepMEL": {
         "url": "https://zenodo.org/record/6418760/files/kipoi-docker_deepmel.sif?download=1",
@@ -125,9 +125,9 @@
         "md5": "d8d5b60621e2db50aaf2f018cf8920ec"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/6418662/files/kipoi-docker_framepool.sif?download=1",
+        "url": "https://zenodo.org/record/6524061/files/kipoi-docker_framepool.sif?download=1",
         "name": "kipoi-docker_framepool",
-        "md5": "df2caf2f8c7cf8d8c0ed799e2e69cbd4"
+        "md5": "948c138f764b474d57daf13aed1d4b59"
     },
     "KipoiSplice": {
         "url": "https://zenodo.org/record/6418839/files/kipoi-docker_kipoisplice.sif?download=1",
