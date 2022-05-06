@@ -170,9 +170,9 @@
         "md5": "f8c69d531cc749a43bcfc53eb0e067a2"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/6418872/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
+        "url": "https://zenodo.org/record/6523942/files/kipoi-docker_aparent-site_probabilities.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities",
-        "md5": "60b5b06eaf8e5b5029d01145a2a86b90"
+        "md5": "437ac03f9fda7f83519e3a7649eba759"
     },
     "APARENT/veff": {
         "url": "https://zenodo.org/record/6523833/files/kipoi-docker_aparent-veff.sif?download=1",
