@@ -7,7 +7,7 @@ defined_as: model.HALModel
 dependencies:
   conda:
     - numpy=1.19.2
-    - python=3.7
+    - python=3.8
     - pip=20.2.4
     - cython=0.29.23
   pip:

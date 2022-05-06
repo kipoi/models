@@ -14,7 +14,7 @@ args:
 defined_as: model.Model
 dependencies:
   conda:
-  - python=3.7
+  - python=3.8
   - pip=21.0.1
   pip:
   - theano
