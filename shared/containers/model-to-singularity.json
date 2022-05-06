@@ -1,18 +1,18 @@
 {
     "DeepCpG_DNA": {
-        "url": "https://zenodo.org/record/6414622/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6525149/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "5b1710f8aaccfadfe54c020cd507ebbc"
+        "md5": "8cba18674d7de7924e26471a0c435d5d"
     },
     "CpGenie": {
-        "url": "https://zenodo.org/record/6414622/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6525149/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "5b1710f8aaccfadfe54c020cd507ebbc"
+        "md5": "8cba18674d7de7924e26471a0c435d5d"
     },
     "Divergent421": {
-        "url": "https://zenodo.org/record/6414622/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6525149/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "5b1710f8aaccfadfe54c020cd507ebbc"
+        "md5": "8cba18674d7de7924e26471a0c435d5d"
     },
     "Basenji": {
         "url": "https://zenodo.org/record/6524136/files/kipoi-docker_sharedpy3keras2.sif?download=1",
@@ -160,9 +160,9 @@
         "md5": "55bf2c9f065c52a731aca023f373a6a7"
     },
     "epidermal_basset": {
-        "url": "https://zenodo.org/record/6414622/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
+        "url": "https://zenodo.org/record/6525149/files/kipoi-docker_sharedpy3keras1.2.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras1.2",
-        "md5": "5b1710f8aaccfadfe54c020cd507ebbc"
+        "md5": "8cba18674d7de7924e26471a0c435d5d"
     },
     "DeepFlyBrain": {
         "url": "https://zenodo.org/record/6414569/files/kipoi-docker_deepflybrain.sif?download=1",
