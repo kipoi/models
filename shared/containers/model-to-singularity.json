@@ -120,9 +120,9 @@
         "md5": "2b7893832c0d890144d199ef372539d2"
     },
     "DeepMEL": {
-        "url": "https://zenodo.org/record/6418760/files/kipoi-docker_deepmel.sif?download=1",
+        "url": "https://zenodo.org/record/6524303/files/kipoi-docker_deepmel.sif?download=1",
         "name": "kipoi-docker_deepmel",
-        "md5": "d8d5b60621e2db50aaf2f018cf8920ec"
+        "md5": "3131acc734013dca40ae133117b237ef"
     },
     "Framepool": {
         "url": "https://zenodo.org/record/6418662/files/kipoi-docker_framepool.sif?download=1",
