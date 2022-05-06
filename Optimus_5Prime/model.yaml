@@ -14,7 +14,7 @@ dependencies:
   - tensorflow=2.6.0
   - keras=2.6.0
   - python=3.8
-  - pip=20.2.4
+  - pip=22.0.4
 
 info:
   authors:
