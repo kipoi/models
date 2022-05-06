@@ -15,12 +15,11 @@ default_dataloader:
 dependencies:
   conda:
   - python=3.8
-  - h5py=3.6.0
-  - _pytorch_select=0.1
-  - pytorch=1.8.1
-  - pip=20.3.3
-  - pysam=0.15.3
-  - cython=0.29.25
+  - h5py
+  - pytorch::pytorch
+  - pip
+  - pysam
+  - cython
   pip:
   - kipoi
   - kipoiseq
