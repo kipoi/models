@@ -85,9 +85,9 @@
         "md5": "2343ced647f9f06d9eab1c0ff9999696"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6524048/files/kipoi-docker_mpra-dragonn.sif?download=1",
+        "url": "https://zenodo.org/record/6418228/files/kipoi-docker_mpra-dragonn.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn",
-        "md5": "21332e7849c447be6ef792198132ae71"
+        "md5": "9eea6e4a062f0d2cd9a46dbf9408e6ad"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6414574/files/kipoi-docker_extended_coda.sif?download=1",
@@ -115,9 +115,9 @@
         "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6414567/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524055/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice",
-        "md5": "2b7893832c0d890144d199ef372539d2"
+        "md5": "35f3823e0c2036f63f5383555cc92895"
     },
     "DeepMEL": {
         "url": "https://zenodo.org/record/6418760/files/kipoi-docker_deepmel.sif?download=1",
