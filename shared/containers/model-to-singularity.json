@@ -130,9 +130,9 @@
         "md5": "df2caf2f8c7cf8d8c0ed799e2e69cbd4"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6524063/files/kipoi-docker_kipoisplice.sif?download=1",
+        "url": "https://zenodo.org/record/6418839/files/kipoi-docker_kipoisplice.sif?download=1",
         "name": "kipoi-docker_kipoisplice",
-        "md5": "3b888a2313efcff7a41147eccd8bfd89"
+        "md5": "9eff5325fb78f91d8ac4caadafe76e32"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6414587/files/kipoi-docker_deeptarget.sif?download=1",
@@ -145,9 +145,9 @@
         "md5": "7e70f5361a2e5b4126f454cfd66e2f33"
     },
     "BPNet-OSKN": {
-        "url": "https://zenodo.org/record/6414598/files/kipoi-docker_bpnet-oskn.sif?download=1",
+        "url": "https://zenodo.org/record/6524083/files/kipoi-docker_bpnet-oskn.sif?download=1",
         "name": "kipoi-docker_bpnet-oskn",
-        "md5": "faf79e5e814b9f545c631908505ee0f4"
+        "md5": "3f1e346955f104a6d9fcae2cac0e57e1"
     },
     "SeqVec": {
         "url": "https://zenodo.org/record/6414599/files/kipoi-docker_seqvec.sif?download=1",
