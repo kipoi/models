@@ -95,24 +95,24 @@
         "md5": "6c9d94257bde7533aa1b991b37eb318e"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524038/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
+        "md5": "cad8fdb2e7f1d6de114501d64c1b381f"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524038/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
+        "md5": "cad8fdb2e7f1d6de114501d64c1b381f"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524038/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
+        "md5": "cad8fdb2e7f1d6de114501d64c1b381f"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/6418330/files/kipoi-docker_mmsplice.sif?download=1",
+        "url": "https://zenodo.org/record/6524038/files/kipoi-docker_mmsplice.sif?download=1",
         "name": "kipoi-docker_mmsplice",
-        "md5": "21bfe7348ae9f6633d11f1470e5d6f88"
+        "md5": "cad8fdb2e7f1d6de114501d64c1b381f"
     },
     "MMSplice/mtsplice": {
         "url": "https://zenodo.org/record/6414567/files/kipoi-docker_mmsplice-mtsplice.sif?download=1",
@@ -140,9 +140,9 @@
         "md5": "872513aa310d180dd35a0da7de4e27a0"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6524036/files/kipoi-docker_attentivechrome.sif?download=1",
+        "url": "https://zenodo.org/record/6418538/files/kipoi-docker_attentivechrome.sif?download=1",
         "name": "kipoi-docker_attentivechrome",
-        "md5": "b8364e1f42efa6a1cc8d38e3f118f749"
+        "md5": "7e70f5361a2e5b4126f454cfd66e2f33"
     },
     "BPNet-OSKN": {
         "url": "https://zenodo.org/record/6414598/files/kipoi-docker_bpnet-oskn.sif?download=1",
