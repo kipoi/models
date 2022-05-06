@@ -31,7 +31,7 @@ info: # General information about the model
         - RNA expression
 dependencies:
     conda: # install via conda
-      - python=3.7
+      - python=3.8
       - numpy=1.19.2
       - pytorch::pytorch-cpu=1.3.1
       - pip=21.0.1  

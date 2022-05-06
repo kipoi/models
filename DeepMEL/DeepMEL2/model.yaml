@@ -23,7 +23,7 @@ info:
 
 dependencies:
   conda: # install via conda
-    - python=3.7
+    - python=3.8
     - h5py=3.6.0
     - pip=20.2.4
   pip:   # install via pip

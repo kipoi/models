@@ -20,7 +20,7 @@ defined_as: dataloader.py::SplicingKmerDataset
 dependencies:
   conda:
   - bioconda::pysam
-  - python=3.7
+  - python=3.8
 info:
   authors:
   - github: s6juncheng
