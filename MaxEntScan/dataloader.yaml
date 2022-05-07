@@ -22,7 +22,7 @@ defined_as: dataloader.py::SplicingMaxEntDatasetSpec
 dependencies:
   conda:
   - pip=22.0.4
-  - pysam
+  - bioconda::pysam=0.17
   - python=3.8
 info:
   authors:
