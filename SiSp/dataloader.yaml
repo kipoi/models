@@ -23,8 +23,8 @@ args:
 defined_as: dataloader.py::data
 dependencies:
   conda:
-  - bioconda::pysam
-  - bioconda::tabix
+  - bioconda::pysam=0.17
+  - bioconda::tabix=1.11
   - python=3.8
   - numpy
   - pandas

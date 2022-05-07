@@ -18,7 +18,7 @@ dependencies:
   - h5py
   - pytorch::pytorch
   - pip=22.0.4
-  - pysam
+  - bioconda::pysam=0.17
   - cython
   pip:
   - kipoi
