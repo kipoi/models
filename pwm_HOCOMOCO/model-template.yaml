@@ -30,7 +30,7 @@ dependencies:
   conda:
     - python=3.8
     - h5py
-    - pip
+    - pip=22.0.4
   pip:
     - tensorflow
     - keras
