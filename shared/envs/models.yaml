@@ -7,16 +7,13 @@ kipoi-py3-keras1.2:
 - DeepCpG_DNA
 - Divergent421
 kipoi-py3-keras2:
-- Basenji
 - Basset
 - DeepBind
 - DeepSEA/variantEffects
 - DeepSEA/predict
-- FactorNet
 - HAL
 - MaxEntScan
 - SiSp
 - labranchor
-- lsgkm-SVM
 - pwm_HOCOMOCO
 - Optimus_5Prime
