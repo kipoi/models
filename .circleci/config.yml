@@ -223,11 +223,15 @@ workflows:
   test-models:
      jobs:
        - test_new_models:
-           filters:
-             branches:
-               ignore:
-                 - master
-                 - test_all
+          matrix:
+            parameters:
+              num_of_shards: [4]
+              shard_id: [0, 1, 2, 3]
+          filters:
+            branches:
+              ignore:
+                - master
+                - test_all
        - test_new_models_singularity:
            filters:
              branches:
