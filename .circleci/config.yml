@@ -88,7 +88,12 @@ jobs:
       - *sync
 
   # test only the newly added model
-  test_new_models: 
+  test_new_models:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer  
     <<: *defaults
     steps:
       - checkout
@@ -102,7 +107,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --git-range master HEAD --verbose
+          command: kipoi test-source kipoi --git-range master HEAD --verbose --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
           no_output_timeout: 60m
       - *store_artifacts
     
