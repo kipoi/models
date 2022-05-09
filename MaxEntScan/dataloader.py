@@ -80,7 +80,7 @@ class SplicingMaxEntDataset(Dataset):
         doc: 5 or 3prime splice-site
     dependencies:
       conda:
-        - pysam
+        - bioconda::pysam=0.17
         - python=3.8
     info:
       authors:

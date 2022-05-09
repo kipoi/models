@@ -28,7 +28,7 @@ dependencies:
       - h5py=2.10
       - numpy
       - pip=22.0.4
-      - pysam
+      - bioconda::pysam=0.17
       - cython
     pip:   # install via pip
       - keras==2.4.3
