@@ -48,4 +48,5 @@ test:
     expect: 
       url: https://zenodo.org/record/6553345/files/Xpresso-{{ model }}.predictions.h5?download=1
       md5: d7f0a2a8665a755b2b637389b60b373a
+    precision_decimal: 4
 {% endif %}
