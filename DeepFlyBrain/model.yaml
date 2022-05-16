@@ -41,3 +41,4 @@ test:
   expect:
     url: https://zenodo.org/record/6553263/files/DeepFlyBrain.predictions.h5?download=1
     md5: ca6cd935840a6117c754c715a5904af4
+  precision_decimal: 4
