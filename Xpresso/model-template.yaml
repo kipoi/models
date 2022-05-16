@@ -42,3 +42,10 @@ schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to
     targets:
         shape: (1,)
         doc: predicted log10(RNA expression level)
+
+{% if model == 'human_GM12878' %}
+test:
+    expect: 
+      url: https://zenodo.org/record/6553345/files/Xpresso-{{ model }}.predictions.h5?download=1
+      md5: d7f0a2a8665a755b2b637389b60b373a
+{% endif %}
