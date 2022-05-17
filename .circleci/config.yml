@@ -93,7 +93,7 @@ jobs:
       num_of_shards: 
         type: integer
       shard_id:
-        type: integer
+        type: integer  
     <<: *defaults
     steps:
       - checkout
