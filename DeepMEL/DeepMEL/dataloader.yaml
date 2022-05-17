@@ -23,7 +23,7 @@ info:
 
 dependencies:
     conda:
-      - python=3.7
+      - python=3.8
       - bioconda::pybedtools=0.8.2
       - bioconda::pysam=0.18.0
       - bioconda::pyfaidx=0.6.4
