@@ -70,3 +70,8 @@ schema:
       shape: (1, )
       doc: >
         Predicts logit difference to reference of having a PolyA cut site for each position in the specified DNA range
+test:
+  expect:
+    url: https://zenodo.org/record/6553313/files/APARENT-veff.predictions.h5?download=1
+    md5: faad23c55571036a3378423e811dba60
+  precision_decimal: 4

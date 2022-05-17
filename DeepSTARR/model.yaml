@@ -45,5 +45,8 @@ schema:
         shape: (2,)
         doc: Developmental and housekeeping enhancer activity
         
-
-
+test:
+    expect:
+        url: https://zenodo.org/record/6553385/files/DeepSTARR.predictions.h5?download=1
+        md5: 7331a9f1c25ce8ecff96fc0640c64a4a
+    precision_decimal: 4
