@@ -228,6 +228,11 @@ workflows:
                ignore:
                  - master
                  - test_all
+       - test_all_models_common_env:
+           matrix:
+             parameters:
+               num_of_shards: [3]
+               shard_id: [0, 1, 2]
 
                       
   test-all-branch:
