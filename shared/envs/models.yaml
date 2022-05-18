@@ -6,7 +6,12 @@ kipoi-py3-keras1.2:
 - CpGenie
 - DeepCpG_DNA
 - Divergent421
-kipoi-py3-keras2:
+kipoi-py3-keras2-tf1:
+- lsgkm-SVM
+- FactorNet
+- DeepBind
+- Basenji
+kipoi-py3-keras2-tf2:
 - Basset
 - DeepSEA/variantEffects
 - DeepSEA/predict
