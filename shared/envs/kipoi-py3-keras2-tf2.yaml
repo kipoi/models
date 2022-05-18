@@ -1,4 +1,4 @@
-name: kipoi-py3-keras2
+name: kipoi-py3-keras2-tf2
 channels:
 - pytorch
 - bioconda
