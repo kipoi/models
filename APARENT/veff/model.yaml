@@ -19,6 +19,7 @@ dependencies:
   - keras>=2.0.4,<3
   - numpy
   - scipy
+
 info:
   authors:
   - name: Nicholas Bogard
