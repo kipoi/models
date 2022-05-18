@@ -228,7 +228,6 @@ workflows:
                ignore:
                  - master
                  - test_all
-
                       
   test-all-branch:
      jobs:
