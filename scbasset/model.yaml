@@ -14,7 +14,8 @@ default_dataloader:
 dependencies:
   conda:
   - python=3.7
-  - tensorflow==2.8.0
+  - tensorflow==2.6.0
+  - keras
   - h5py
   - pip=22.0.4
   - bioconda::pysam=0.17
