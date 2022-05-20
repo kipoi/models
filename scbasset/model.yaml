@@ -61,4 +61,3 @@ test:
   expect:
     url: https://zenodo.org/record/6568000/files/scbasset.predictions.h5?download=1
     md5: 5f3cda400d627be36d48b9c5931075f4
-  precision_decimal: 4
