@@ -183,5 +183,10 @@
         "url": "https://zenodo.org/record/6560816/files/kipoi-docker_deepstarr-slim.sif?download=1",
         "name": "kipoi-docker_deepstarr-slim",
         "md5": "1dd306da7c31afd59bbfe49cebdb1b2e"
+    },
+    "scbasset": {
+        "url": "https://zenodo.org/record/6569219/files/kipoi-docker_scbasset.sif?download=1",
+        "name": "kipoi-docker_scbasset",
+        "md5": "36d1d8569558a912819502a30f093087"
     }
 }
