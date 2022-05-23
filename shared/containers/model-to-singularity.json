@@ -85,9 +85,9 @@
         "md5": "bb081137b68f24434ccfb596ffc202f8"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6560730/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6574322/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn-slim",
-        "md5": "465b0ebd5a6abc48db3723b0a54def6d"
+        "md5": "fc7b10a8c25cac2ce84373456efe76c5"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6574310/files/kipoi-docker_extended_coda-slim.sif?download=1",
