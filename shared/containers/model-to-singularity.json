@@ -135,9 +135,9 @@
         "md5": "33e64cc14a055adbc3f2a1537e057dd8"
     },
     "deepTarget": {
-        "url": "https://zenodo.org/record/6560775/files/kipoi-docker_deeptarget-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6574561/files/kipoi-docker_deeptarget-slim.sif?download=1",
         "name": "kipoi-docker_deeptarget-slim",
-        "md5": "c83b131767ec056d4a9ee1fa1c158d54"
+        "md5": "e2523b4c40285ea3a79540756d99d1ea"
     },
     "AttentiveChrome": {
         "url": "https://zenodo.org/record/6573522/files/kipoi-docker_attentivechrome-slim.sif?download=1",
