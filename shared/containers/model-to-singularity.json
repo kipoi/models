@@ -90,9 +90,9 @@
         "md5": "465b0ebd5a6abc48db3723b0a54def6d"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6560733/files/kipoi-docker_extended_coda-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6574310/files/kipoi-docker_extended_coda-slim.sif?download=1",
         "name": "kipoi-docker_extended_coda-slim",
-        "md5": "504085ee4e6ce04f7935bc1f7ecfbddf"
+        "md5": "62d88cf2ed8a3a4f5324fca37388e677"
     },
     "MMSplice/pathogenicity": {
         "url": "https://zenodo.org/record/6574274/files/kipoi-docker_mmsplice-slim.sif?download=1",
