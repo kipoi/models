@@ -150,9 +150,9 @@
         "md5": "fdc0b248c18e399c7aae5dc6d33c44ad"
     },
     "SeqVec": {
-        "url": "https://zenodo.org/record/6560789/files/kipoi-docker_seqvec-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6574015/files/kipoi-docker_seqvec-slim.sif?download=1",
         "name": "kipoi-docker_seqvec-slim",
-        "md5": "3b06ebb467f4a5586b957c27b10b90aa"
+        "md5": "74724020a5a8a6c83f6a98ea15ba55fe"
     },
     "Xpresso": {
         "url": "https://zenodo.org/record/6560646/files/kipoi-docker_sharedpy3keras2tf2-slim.sif?download=1",
