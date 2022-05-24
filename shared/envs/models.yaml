@@ -1,23 +1,25 @@
-# kipoi-py27-keras1.2: []
-# kipoi-py27-keras2: []
-# kipoi-MMSplice:
-# - MMSplice
 kipoi-py3-keras1.2:
 - CpGenie
 - DeepCpG_DNA
 - Divergent421
+- epidermal_basset
 kipoi-py3-keras2-tf1:
 - lsgkm-SVM
+- CleTimer
 - FactorNet
 - DeepBind
 - Basenji
+- rbp_eclip
 kipoi-py3-keras2-tf2:
 - Basset
 - DeepSEA/variantEffects
 - DeepSEA/predict
+- DeepSEA/beluga
 - HAL
 - MaxEntScan
 - SiSp
 - labranchor
 - pwm_HOCOMOCO
 - Optimus_5Prime
+- Xpresso
+- scbasset
