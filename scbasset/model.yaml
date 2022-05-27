@@ -2,8 +2,8 @@ type: keras
 args:
   arch: model.json
   weights:
-    md5: 2f6d44c9ccb579295700859aaee697bc
-    url: https://storage.googleapis.com/scbasset_tutorial_data/buen_model.h5
+    md5: 1d3cfccac295f79e51b5b3ae94761a60
+    url: https://storage.googleapis.com/scbasset_tutorial_data/buen_model_sc.h5
   custom_objects: custom_objects.py
 default_dataloader:
   defined_as: kipoiseq.dataloaders.SeqIntervalDl
@@ -31,11 +31,12 @@ info:
   contributors:
   - github: https://github.com/calico/scBasset
     name: Han Yuan
-  trained_on: "From 126,719 total peaks, 6,336 randomly reserved for testing and 6,335 for validation, leaving 114,048 for training."
+  trained_on: "From 103,151 total peaks, 5,158 randomly reserved for testing and 5,157 for validation, leaving 92,836 for training."
   doc: "This is the scBasset model published by Han Yuan and David Kelley. It predicted\
     \ scATAC binary peak-by-cell accessibility matrix from DNA sequences. This dataset is\
-    \ trained on the scATAC binary matrix and peak set provided by GSE96769, which contains\
-    \ 126,719 peaks and 2,034 cells after filtering out peaks accessible in <1% cells. The\
+    \ trained on the scATAC binary matrix and peak set provided by Chen et al. at\
+    \ (https://github.com/pinellolab/scATAC-benchmarking/blob/master/Real_Data/Buenrostro_2018/input).\ 
+    \ which contains 103,151 peaks and 2,034 cells after filtering out peaks accessible in <1% cells. The\
     \ sequence length the model uses as input is 1344bp. The input of the tensor has to be\
     \ (N, 1344, 4) for N samples, 1344bp window size and 4 nucleotides. Per sample, 2034\
     \ probabilities of accessible chromatin will be predicted. \n"
@@ -57,8 +58,3 @@ schema:
     doc: scATAC observed read counts
     name: reads
     shape: (2034, )
-test:
-  expect:
-    url: https://zenodo.org/record/6568000/files/scbasset.predictions.h5?download=1
-    md5: 5f3cda400d627be36d48b9c5931075f4
-  precision_decimal: 6
