@@ -58,3 +58,8 @@ schema:
     doc: scATAC observed read counts
     name: reads
     shape: (2034, )
+test:
+  expect:
+    url: https://zenodo.org/record/6586722/files/scbasset.predictions.h5?download=1
+    md5: 6be7b244c1327723610235b1a61cef58
+  precision_decimal: 6
