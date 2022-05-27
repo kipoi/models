@@ -38,7 +38,7 @@ dependencies:
 
 schema:
     inputs:
-        shape: (249,4,1)
+        shape: (249,4)
         doc: DNA sequence
 
     targets:
