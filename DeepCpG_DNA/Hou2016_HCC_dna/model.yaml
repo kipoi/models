@@ -17,6 +17,8 @@ dependencies:
   pip:
     - tensorflow==1.13.1
     - keras==1.2.2
+    - sorted-nearest==0.0.33
+    - protobuf==3.20
 info:
   authors:
   - github: cangermueller
