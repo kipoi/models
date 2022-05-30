@@ -29,6 +29,8 @@ dependencies:
   pip:
     - tensorflow==1.10.0
     - keras==1.2.2
+    - sorted-nearest==0.0.33
+    - protobuf==3.20
 schema:
   inputs:
     dna:
