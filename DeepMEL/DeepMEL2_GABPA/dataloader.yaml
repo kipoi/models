@@ -32,7 +32,7 @@ dependencies:
       - cython=0.29.28
     pip:
       - kipoiseq
-
+      - sorted-nearest==0.0.33
 output_schema: # Define the dataloader output schema according to the returned values
     inputs:
         - shape: (500, 4)

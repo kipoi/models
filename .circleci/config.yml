@@ -89,6 +89,11 @@ jobs:
 
   # test only the newly added model
   test_new_models:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
     <<: *defaults
     steps:
       - checkout
@@ -102,11 +107,16 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --git-range master HEAD --verbose
+          command: kipoi test-source kipoi --git-range master HEAD --verbose --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
     
   # test only the newly added model with singularity
   test_new_models_singularity:
+    parameters:
+      num_of_shards: 
+        type: integer
+      shard_id:
+        type: integer 
     <<: *defaults
     steps:
       - checkout
@@ -121,7 +131,7 @@ jobs:
       - *setup
       - run:
           name: run tests
-          command: kipoi test-source kipoi --git-range master HEAD --verbose --singularity
+          command: kipoi test-source kipoi --git-range master HEAD --verbose --singularity --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
   
   # test all models in the repo
@@ -217,12 +227,20 @@ workflows:
   test-models:
      jobs:
        - test_new_models:
+           matrix:
+             parameters:
+               num_of_shards: [7]
+               shard_id: [0, 1, 2, 3, 4, 5, 6]
            filters:
              branches:
                ignore:
                  - master
                  - test_all
        - test_new_models_singularity:
+           matrix:
+             parameters:
+               num_of_shards: [7]
+               shard_id: [0, 1, 2, 3, 4, 5, 6]
            filters:
              branches:
                ignore:

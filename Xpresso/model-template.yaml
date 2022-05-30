@@ -34,6 +34,7 @@ dependencies:
       - keras==2.4.3
       - tensorflow==2.4.1
       - kipoiseq
+      - sorted-nearest==0.0.33
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
