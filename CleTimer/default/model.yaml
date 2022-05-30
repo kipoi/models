@@ -36,6 +36,7 @@ dependencies:
         - tensorflow==1.14.0
         - h5py==2.10.0
         - sorted-nearest==0.0.33
+        - protobuf==3.20
 schema:
     inputs:
         name: soi
