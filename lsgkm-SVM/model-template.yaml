@@ -61,6 +61,7 @@ dependencies:
       - kipoi
       - kipoi-conda
       - kipoi-utils
+      - sorted-nearest==0.0.33
 schema:
     inputs:
         name: seq

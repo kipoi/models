@@ -55,6 +55,8 @@ dependencies:
     - h5py==2.10.0
     - tensorflow==1.15
     - keras==1.2.2
+    - sorted-nearest==0.0.33
+    - protobuf==3.20
 schema:
   inputs:
     name: seq

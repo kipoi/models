@@ -23,6 +23,7 @@ dependencies:
   pip:
   - kipoi
   - kipoiseq
+  - sorted-nearest==0.0.33
 info:
   authors:
   - github: https://github.com/calico/scBasset

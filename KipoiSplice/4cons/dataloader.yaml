@@ -51,6 +51,7 @@ dependencies:
   - tqdm
   - tensorflow>=1.0.0
   - keras==2.2.4
+  - protobuf==3.19.4
 info:
   authors:
   - github: avsecz

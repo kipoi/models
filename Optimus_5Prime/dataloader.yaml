@@ -26,7 +26,8 @@ dependencies:
     - kipoi
     - kipoiseq
     - gffutils==0.10.1
-
+    - sorted-nearest==0.0.33
+    
 info:
   authors:
   - github: avsecz
