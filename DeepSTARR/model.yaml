@@ -35,7 +35,7 @@ dependencies:
     pip:
       - keras==2.7.0
       - tensorflow==2.7.0
-
+      - sorted-nearest==0.0.33
 schema:
     inputs:
         shape: (249,4,1)
