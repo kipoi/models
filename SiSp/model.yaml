@@ -19,7 +19,7 @@ dependencies:
   - keras==2.8.0
   - tensorflow==2.8.0
   - h5py
-  - protobuf==3.2.0
+  - protobuf==3.20
 info:
   authors:
   - email: lara.h.urban@gmail.com
