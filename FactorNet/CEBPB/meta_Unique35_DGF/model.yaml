@@ -14,6 +14,7 @@ dependencies:
   pip:
   - tensorflow>=1.4.1,<2.0.0,<=1.14.0
   - keras>=2.0.4,<2.2.0
+  - protobuf==3.20
 info:
   authors:
   - github: daquang
