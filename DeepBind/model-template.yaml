@@ -43,6 +43,8 @@ dependencies:
     - python=3.7
     - bioconda::pysam=0.18.0
     - pip=20.2.4
+  pip:
+    - sorted-nearest==0.0.33
 schema:
   inputs:
     name: seq
