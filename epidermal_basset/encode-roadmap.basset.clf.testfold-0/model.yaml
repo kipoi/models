@@ -42,6 +42,7 @@ dependencies:
     - pip=20.2.4
   pip:   # install via pip
     - kipoiseq
+    - sorted-nearest==0.0.33
     - tensorflow
     
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.

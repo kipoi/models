@@ -58,6 +58,8 @@ dependencies:
   pip:
     - tensorflow<2
     - kipoiseq
+    - sorted-nearest==0.0.33
+    - protobuf==3.20
 schema:
   inputs:
     name: seq
