@@ -107,6 +107,7 @@ jobs:
       - *setup
       - run:
           name: run tests
+          no_output_timeout: 30m
           command: kipoi test-source kipoi --git-range master HEAD --verbose --num_of_shards << parameters.num_of_shards >> --shard_id << parameters.shard_id >>
       - *store_artifacts
     
