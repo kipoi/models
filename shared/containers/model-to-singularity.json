@@ -150,9 +150,9 @@
         "md5": "8eb91d9b5364d3f47d3dff4a03e96bb9"
     },
     "SeqVec": {
-        "url": "https://zenodo.org/record/6574015/files/kipoi-docker_seqvec-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600780/files/kipoi-docker_seqvec-slim.sif?download=1",
         "name": "kipoi-docker_seqvec-slim",
-        "md5": "74724020a5a8a6c83f6a98ea15ba55fe"
+        "md5": "7e03bfe87c7a8e005bb08c4cc1c51ed5"
     },
     "Xpresso": {
         "url": "https://zenodo.org/record/6574483/files/kipoi-docker_sharedpy3keras2tf2-slim.sif?download=1",
@@ -165,9 +165,9 @@
         "md5": "8cbf28f1a8b39651fc1dded06c08455e"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6600769/files/kipoi-docker_deepflybrain-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6573788/files/kipoi-docker_deepflybrain-slim.sif?download=1",
         "name": "kipoi-docker_deepflybrain-slim",
-        "md5": "5479bb0395cef5a6450933fd29169d42"
+        "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6573748/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
