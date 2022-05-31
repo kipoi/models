@@ -165,9 +165,9 @@
         "md5": "8cbf28f1a8b39651fc1dded06c08455e"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6573788/files/kipoi-docker_deepflybrain-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600769/files/kipoi-docker_deepflybrain-slim.sif?download=1",
         "name": "kipoi-docker_deepflybrain-slim",
-        "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
+        "md5": "5479bb0395cef5a6450933fd29169d42"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6573748/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
