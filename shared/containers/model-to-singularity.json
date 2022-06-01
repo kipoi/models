@@ -130,9 +130,9 @@
         "md5": "7cb3953af85645b24001a2dcd55ededf"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6574088/files/kipoi-docker_kipoisplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
         "name": "kipoi-docker_kipoisplice-slim",
-        "md5": "33e64cc14a055adbc3f2a1537e057dd8"
+        "md5": "db9f0b02e4a74da2d3c112ed3feb653f"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6600806/files/kipoi-docker_deeptarget-slim.sif?download=1",
