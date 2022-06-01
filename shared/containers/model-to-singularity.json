@@ -125,9 +125,9 @@
         "md5": "3c46c460eaa096f04b01d6a715757d52"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/6574164/files/kipoi-docker_framepool-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
         "name": "kipoi-docker_framepool-slim",
-        "md5": "7cb3953af85645b24001a2dcd55ededf"
+        "md5": "85c63a025076741924451925ec239319"
     },
     "KipoiSplice": {
         "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
