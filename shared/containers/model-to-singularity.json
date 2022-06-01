@@ -140,9 +140,9 @@
         "md5": "f19f4b2d27a89b1685ae79d7dfe756b5"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6573522/files/kipoi-docker_attentivechrome-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602384/files/kipoi-docker_attentivechrome-slim.sif?download=1",
         "name": "kipoi-docker_attentivechrome-slim",
-        "md5": "0b18579e15d2566c7138a706d1d72cee"
+        "md5": "b604b024b5f8e866948b2ab801799573"
     },
     "BPNet-OSKN": {
         "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
