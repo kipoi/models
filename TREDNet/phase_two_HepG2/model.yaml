@@ -50,4 +50,4 @@ test:
     expect:
         url: https://zenodo.org/record/6603641/files/TREDNet_phase_two_HepG2.h5?download=1
         md5: faadd61d8dbd9875e1a90a4d9d52b9c6
-    precision_decimal: 5
+    precision_decimal: 6

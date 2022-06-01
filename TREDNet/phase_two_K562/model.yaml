@@ -49,4 +49,4 @@ test:
     expect:
         url: https://zenodo.org/record/6603641/files/TREDNet_phase_two_K562.h5?download=1
         md5: b11a0226cd515e48ace1fd50894b1b5c
-    precision_decimal: 5
+    precision_decimal: 6
