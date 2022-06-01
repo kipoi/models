@@ -145,9 +145,9 @@
         "md5": "0b18579e15d2566c7138a706d1d72cee"
     },
     "BPNet-OSKN": {
-        "url": "https://zenodo.org/record/6574048/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
         "name": "kipoi-docker_bpnet-oskn-slim",
-        "md5": "8eb91d9b5364d3f47d3dff4a03e96bb9"
+        "md5": "fe8391af863a8ddfeecc73674a680eac"
     },
     "SeqVec": {
         "url": "https://zenodo.org/record/6574015/files/kipoi-docker_seqvec-slim.sif?download=1",
