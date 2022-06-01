@@ -1,0 +1,51 @@
+#defined_as: kipoi.model.KerasModel
+defined_as: model.PhaseOneModel
+args: # arguments of kipoi.model.KerasModel
+    arch:
+        url: https://ftp.ncbi.nlm.nih.gov/pub/Dcode/TREDNet/phase_one_model.json
+        md5: 299b7d6df3e226f7b6992cc6b50d5d0e
+    weights:
+        url: https://zenodo.org/record/6463875/files/TREDNet_weights_phase_one.hdf5
+        md5: 1e38d75e3596d404efcfb47614b8d49f
+
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        # See also https://kipoi.org/kipoiseq/dataloaders/#seqintervaldl
+        auto_resize_len: 2000 # Automatically resize sequence intervals
+        alphabet_axis: 1
+        # dummy_axis: 2 # Add a dummy axis. Omit in order not to create dummy_axis.
+        alphabet: "ACGT" # Order of letters in 1-hot encoding
+        ignore_targets: False # if True, dont return any target variables
+
+info: # General information about the model
+    authors:
+        - name: Sanjarbek Hudaiberdiev
+          github: okurman
+          email: kyrgyzbala@gmail.com
+    doc: Model predicting DHS, histone marks, TFs
+    cite_as: https://medrxiv.org/cgi/content/short/2022.05.13.22275035v1
+    trained_on: Dataset on autosomal chromosomes. held-out chromosomes chr7,8,9
+    license: CC-BY-ND # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    conda: # install via conda
+      - python
+      - h5py
+      - pip
+    pip:   # install via pip
+      - keras>=2.0.4
+      - tensorflow>=1.0
+      - sorted-nearest==0.0.33
+      - protobuf==3.20
+
+schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (2000,4)  # array shape of a single sample (omitting the batch dimension)
+        doc: 2kb regions to be encoded one-hot.
+
+    targets:
+        shape: (1924,)
+        doc: model prediction description
