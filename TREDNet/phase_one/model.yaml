@@ -54,5 +54,5 @@ test:
     expect:
         url: https://zenodo.org/record/6603641/files/TREDNet_phase_one.h5?download=1
         md5: 76a71c3af302c780e03bd1541f9d41bc
-    precision_decimal: 6
+    precision_decimal: 5
           
