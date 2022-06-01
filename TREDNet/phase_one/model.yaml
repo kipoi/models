@@ -32,12 +32,12 @@ info: # General information about the model
 
 dependencies:
     conda: # install via conda
-      - python
-      - h5py
-      - pip
+      - python=3.9
+      - h5py=3.6
+      - pip=21.2.4
     pip:   # install via pip
-      - keras>=2.0.4
-      - tensorflow>=1.0
+      - keras==2.9.0
+      - tensorflow==2.9.0
       - sorted-nearest==0.0.33
       - protobuf==3.20
 
@@ -49,3 +49,10 @@ schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to
     targets:
         shape: (1924,)
         doc: model prediction description
+
+test:
+    expect:
+        url: https://zenodo.org/record/6603641/files/TREDNet_phase_one.h5?download=1
+        md5: 76a71c3af302c780e03bd1541f9d41bc
+    precision_decimal: 5
+          
