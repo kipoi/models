@@ -175,9 +175,9 @@
         "md5": "d4b09bdf10d85971674e663bd96358a6"
     },
     "APARENT/veff": {
-        "url": "https://zenodo.org/record/6573696/files/kipoi-docker_aparent-veff-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
         "name": "kipoi-docker_aparent-veff-slim",
-        "md5": "14de364de3a410e66d009a93d4143f42"
+        "md5": "2ce04d6d7a51c1bce7c90fc461463bdd"
     },
     "DeepSTARR": {
         "url": "https://zenodo.org/record/6600775/files/kipoi-docker_deepstarr-slim.sif?download=1",
