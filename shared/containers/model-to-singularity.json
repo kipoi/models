@@ -188,5 +188,10 @@
         "url": "https://zenodo.org/record/6602710/files/kipoi-docker_sharedpy3keras2tf2-slim.sif?download=1",
         "name": "kipoi-docker_sharedpy3keras2tf2-slim",
         "md5": "1d4d53ec947db503e1bd948e3f197c98"
+    },
+    "TREDNet": {
+        "url": "https://zenodo.org/record/6606579/files/kipoi-docker_trednet-slim.sif?download=1",
+        "name": "kipoi-docker_trednet-slim",
+        "md5": "4d1b1c3fbf1033bf05e2af13963711b5"
     }
 }
