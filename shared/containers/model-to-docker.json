@@ -36,5 +36,6 @@
     "APARENT/site_probabilities": "kipoi/kipoi-docker:aparent-site_probabilities",
     "APARENT/veff": "kipoi/kipoi-docker:aparent-veff",
     "DeepSTARR": "kipoi/kipoi-docker:deepstarr",
-    "scbasset": "kipoi/kipoi-docker:sharedpy3keras2tf2"
+    "scbasset": "kipoi/kipoi-docker:sharedpy3keras2tf2",
+    "TREDNet": "kipoi/kipoi-docker:trednet"
 }
