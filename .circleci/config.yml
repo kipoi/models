@@ -222,13 +222,14 @@ workflows:
                ignore:
                  - master
                  - test_all
+                 - move-tf-keras-to-conda
        - test_new_models_singularity:
            filters:
              branches:
                ignore:
                  - master
                  - test_all
-                      
+                 - move-tf-keras-to-conda  
   test-all-branch:
      jobs:
        - test_all_models:
@@ -241,6 +242,7 @@ workflows:
                only:
                  - master
                  - test_all
+                 - move-tf-keras-to-conda
        - test_all_models_singularity:
            matrix:
              parameters:

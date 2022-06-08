@@ -31,9 +31,7 @@ info:
 dependencies:
     conda:
       - pip=20.3.3
-    pip:
-      - scikit-learn==0.22.2.post1
-
+      - scikit-learn=0.22.2.post1
 schema:
     inputs:
         soi:
