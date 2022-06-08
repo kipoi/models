@@ -37,6 +37,8 @@ dependencies:
   - bioconda::cyvcf2
   - pandas
   - numpy
+  - keras=2.2.4
+  - tensorflow=1.13
   - h5py
   - python=3.5
   pip:
@@ -49,8 +51,6 @@ dependencies:
   - kipoi_utils==0.7.2
   - kipoi_veff
   - tqdm
-  - tensorflow>=1.0.0
-  - keras==2.2.4
   - protobuf==3.19.4
 info:
   authors:

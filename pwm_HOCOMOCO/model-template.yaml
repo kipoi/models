@@ -31,9 +31,9 @@ dependencies:
     - python=3.8
     - h5py
     - pip=22.0.4
-  pip:
     - tensorflow
     - keras
+  pip:
     - sorted-nearest==0.0.33
 schema:
   inputs:

@@ -40,9 +40,9 @@ dependencies:
     - python=3.7
     - h5py=2.10.0
     - pip=20.2.4
+    - tensorflow<2
   pip:   # install via pip
     - kipoiseq
-    - tensorflow==1.8
     - sorted-nearest==0.0.33
 
     

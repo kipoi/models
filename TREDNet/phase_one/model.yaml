@@ -35,9 +35,9 @@ dependencies:
       - python=3.9
       - h5py=3.6
       - pip=21.2.4
+      - keras=2.9
+      - tensorflow=2.9
     pip:   # install via pip
-      - keras==2.9.0
-      - tensorflow==2.9.0
       - sorted-nearest==0.0.33
       - protobuf==3.20
 

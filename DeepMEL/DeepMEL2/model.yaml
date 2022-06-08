@@ -25,10 +25,9 @@ dependencies:
   conda: # install via conda
     - python=3.8
     - h5py=3.6.0
-    - pip=20.2.4
-  pip:   # install via pip
-    - keras==2.8.0
-    - tensorflow==2.8.0
+    - pip=22.1.2
+    - keras=2.8.0
+    - tensorflow=2.8.0
       
 schema:  
      inputs: 
