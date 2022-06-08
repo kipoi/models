@@ -44,10 +44,10 @@ dependencies:
       - python-snappy=0.6.0
       - pip=21.0.1
       - nb_conda=2.2.1
+      - tensorflow
+      - keras
     pip:
-      - tensorflow==1.14.0
       - git+https://github.com/kundajelab/DeepExplain.git
-      - keras==2.2.4
       - git+https://github.com/kundajelab/bpnet.git@0cb7277b736260f8b4084c9b0c5bd62b9edb5266
       - sorted-nearest==0.0.33
       - protobuf==3.20
