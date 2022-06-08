@@ -30,10 +30,10 @@ info:
 dependencies:
     conda:
         - pip=20.3.3
-        - tensorflow=1.15
-        - keras=2.1
     pip:
         - concise
+        - tensorflow==1.15
+        - keras==2.1.6
         - h5py==2.10.0
         - protobuf==3.20
 schema:
