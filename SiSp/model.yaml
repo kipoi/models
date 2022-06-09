@@ -15,9 +15,9 @@ dependencies:
   - numpy
   - pandas
   - pip=22.0.4
+  - keras=2.8
+  - tensorflow=2.8
   pip:
-  - keras==2.8.0
-  - tensorflow==2.8.0
   - h5py
   - protobuf==3.20
 info:

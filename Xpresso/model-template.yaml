@@ -30,9 +30,9 @@ dependencies:
       - pip=22.0.4
       - bioconda::pysam=0.17
       - cython
+      - keras=2.4
+      - tensorflow=2.4
     pip:   # install via pip
-      - keras==2.4.3
-      - tensorflow==2.4.1
       - kipoiseq
       - sorted-nearest==0.0.33
       - protobuf==3.20
