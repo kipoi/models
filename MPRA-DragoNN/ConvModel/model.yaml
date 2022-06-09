@@ -35,10 +35,9 @@ dependencies:
       - h5py=2.8.0
       - python=3.7
       - pip=20.3.3
-      # - soumith::pytorch  # <channel>::<package> syntax
+      - keras=2.3
+      - tensorflow=1.14
     pip:   # install via pip
-      - keras==2.3.1
-      - tensorflow==1.14.0
       - sorted-nearest==0.0.33
       - protobuf==3.20
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.

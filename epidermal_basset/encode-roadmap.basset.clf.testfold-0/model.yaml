@@ -40,10 +40,10 @@ dependencies:
     - python=3.7
     - h5py
     - pip=20.2.4
+    - tensorflow<2
   pip:   # install via pip
     - kipoiseq
     - sorted-nearest==0.0.33
-    - tensorflow
     
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
