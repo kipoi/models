@@ -43,7 +43,6 @@ dependencies:
     - tensorflow<2
   pip:   # install via pip
     - kipoiseq
-    - sorted-nearest==0.0.33    
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
         shape: (1,1000,4)  # array shape of a single sample (omitting the batch dimension)

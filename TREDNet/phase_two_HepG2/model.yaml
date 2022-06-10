@@ -33,7 +33,6 @@ dependencies:
         - keras=2.8
         - tensorflow=2.8
     pip:   # install via pip
-        - sorted-nearest==0.0.33
         - protobuf==3.20
     
 

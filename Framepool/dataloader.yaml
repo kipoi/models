@@ -62,7 +62,6 @@ dependencies:
   pip:
     - kipoi
     - kipoiseq
-    - sorted-nearest==0.0.33
 
 info:
   doc: >
