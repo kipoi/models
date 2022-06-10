@@ -16,7 +16,7 @@ dependencies:
   - keras==2.1.6
   - h5py==2.9.0
   - kipoi
-  - protobuf==3.20
+  
 info:
   authors:
   - github: jpaggi

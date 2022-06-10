@@ -49,7 +49,7 @@ dependencies:
     pip:
       - git+https://github.com/kundajelab/DeepExplain.git
       - git+https://github.com/kundajelab/bpnet.git@0cb7277b736260f8b4084c9b0c5bd62b9edb5266         
-      - protobuf==3.20
+      
 schema:
     inputs:
       shape: (1000, 4)
