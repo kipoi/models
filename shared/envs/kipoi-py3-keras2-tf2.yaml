@@ -22,8 +22,8 @@ dependencies:
 - pysam=0.17
 - joblib=1.1.0
 - scikit-learn=1.0.2
-- tensorflow
-- keras
+- tensorflow>=2.8
+- keras>=2.2
 - pip:
   - gtfparse>=1.0.7
   - pyvcf==0.4.3
@@ -33,13 +33,9 @@ dependencies:
   - kipoiseq
   - gffutils==0.10.1
   - pyfaidx==0.6.4
-  # - scikit-learn
   - intervaltree==2.1.0
-  # - sklearn-pandas
   - tqdm==4.64.0
-  # - mmsplice
   - concise>=0.6.6
-  # other 
   - ipykernel==6.13.0
   - sorted-nearest==0.0.33
   - protobuf==3.20
