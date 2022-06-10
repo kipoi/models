@@ -39,7 +39,6 @@ dependencies:
       - tensorflow=1.14
       # - soumith::pytorch  # <channel>::<package> syntax
     pip:   # install via pip
-      - sorted-nearest==0.0.33
       - protobuf==3.20
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array

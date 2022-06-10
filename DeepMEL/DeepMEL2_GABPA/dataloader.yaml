@@ -32,7 +32,6 @@ dependencies:
       - cython=0.29.28
     pip:
       - kipoiseq
-      - sorted-nearest==0.0.33
       - protobuf==3.20
 output_schema: # Define the dataloader output schema according to the returned values
     inputs:
