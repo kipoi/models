@@ -63,7 +63,7 @@ dependencies:
   pip:
     - tensorflow==1.4.1
     - keras=2.1.6
-    
+    - protobuf==3.20
 schema:
   inputs:
     - name: seq

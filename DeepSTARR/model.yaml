@@ -34,7 +34,8 @@ dependencies:
       - pip=22.0.4
       - keras=2.7.0
       - tensorflow=2.7.0
-      
+    pip:
+      - protobuf==3.20
 schema:
     inputs:
         shape: (249,4,1)
