@@ -10,8 +10,6 @@ dependencies:
 - pysam=0.15.3
 - python=3.7
 - genomelake==0.1.4
-- numpy
-- pandas
 - cython=0.29.28
 - pip=21.3.1
 - tensorflow=1.14
