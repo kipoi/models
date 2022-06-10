@@ -22,5 +22,4 @@ dependencies:
   - kipoiseq
   - deepcpg==1.0.4
   - h5py==3.6.0
-  - sorted-nearest==0.0.33
   - protobuf==3.20
