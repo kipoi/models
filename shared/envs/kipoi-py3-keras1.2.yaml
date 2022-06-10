@@ -14,14 +14,14 @@ dependencies:
 - pandas
 - cython=0.29.28
 - pip=21.3.1
+- tensorflow<2
+- keras<2
 - pip:
   - pyvcf==0.4.3
   - kipoi_veff
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow==1.15
-  - keras==1.2.2
   - deepcpg==1.0.4
   - h5py==3.6.0
   - sorted-nearest==0.0.33
