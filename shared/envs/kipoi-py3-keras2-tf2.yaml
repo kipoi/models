@@ -22,6 +22,8 @@ dependencies:
 - pysam=0.17
 - joblib=1.1.0
 - scikit-learn=1.0.2
+- tensorflow
+- keras
 - pip:
   - gtfparse>=1.0.7
   - pyvcf==0.4.3
@@ -29,8 +31,6 @@ dependencies:
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow
-  - keras
   - gffutils==0.10.1
   - pyfaidx==0.6.4
   # - scikit-learn
