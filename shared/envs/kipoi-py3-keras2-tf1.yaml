@@ -43,4 +43,4 @@ dependencies:
   - concise>=0.6.6
   # other 
   - ipykernel==6.13.0
-  - protobuf==3.20
+  

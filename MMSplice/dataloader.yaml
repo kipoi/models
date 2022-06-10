@@ -70,7 +70,7 @@ dependencies:
     - python=3.7
   pip:
     - mmsplice==1.0.3
-    - protobuf==3.20
+    
 output_schema:
     inputs:
       seq:
