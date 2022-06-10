@@ -34,7 +34,7 @@ dependencies:
       - tensorflow=2.4
     pip:   # install via pip
       - kipoiseq
-      
+      - protobuf==3.20
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array

@@ -19,7 +19,7 @@ dependencies:
   - tensorflow=2.8
   pip:
   - h5py
-  
+  - protobuf==3.20
 info:
   authors:
   - email: lara.h.urban@gmail.com
