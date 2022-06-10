@@ -33,8 +33,6 @@ dependencies:
     - pip=22.0.4
     - tensorflow
     - keras
-  pip:
-    - sorted-nearest==0.0.33
 schema:
   inputs:
     name: seq

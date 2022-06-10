@@ -34,7 +34,6 @@ dependencies:
       - tensorflow=2.4
     pip:   # install via pip
       - kipoiseq
-      - sorted-nearest==0.0.33
       - protobuf==3.20
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
