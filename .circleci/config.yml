@@ -222,14 +222,12 @@ workflows:
                ignore:
                  - master
                  - test_all
-                 - revert-sorted-nearest
        - test_new_models_singularity:
            filters:
              branches:
                ignore:
                  - master
                  - test_all
-                 - revert-sorted-nearest
                       
   test-all-branch:
      jobs:
@@ -243,7 +241,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - revert-sorted-nearest
        - test_all_models_singularity:
            matrix:
              parameters:
@@ -264,7 +261,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - revert-sorted-nearest
        - sync_containers:
            context:
              - sync-kipoi-containers
