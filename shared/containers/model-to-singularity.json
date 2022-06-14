@@ -175,14 +175,14 @@
         "md5": "c36f7a64e2628ca626c529a8c3883b9c"
     },
     "APARENT/veff": {
-        "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639242/files/kipoi-docker_aparent-veff-slim.sif?download=1",
         "name": "kipoi-docker_aparent-veff-slim",
-        "md5": "2ce04d6d7a51c1bce7c90fc461463bdd"
+        "md5": "913abf59e69605fdfa6cc5c0a7290479"
     },
     "DeepSTARR": {
-        "url": "https://zenodo.org/record/6639247/files/kipoi-docker_deepstarr-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600775/files/kipoi-docker_deepstarr-slim.sif?download=1",
         "name": "kipoi-docker_deepstarr-slim",
-        "md5": "fd841a722bbbdee1eb84fa683b7d9605"
+        "md5": "5246a01c215afa01e4ebe277cfa9faa9"
     },
     "scbasset": {
         "url": "https://zenodo.org/record/6602710/files/kipoi-docker_sharedpy3keras2tf2-slim.sif?download=1",
