@@ -85,9 +85,9 @@
         "md5": "fc7271fcaf16884ec7f306a5b12e34c7"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6602597/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639253/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn-slim",
-        "md5": "f9517066497cbe83d8eda19df1d8f5f1"
+        "md5": "82edf4575347b9b5635c41fb6a4c1b8f"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
@@ -95,24 +95,24 @@
         "md5": "51f7d11a9a45af47397e979614220473"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/6639239/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "5555e3a6a628b32cbc4acaa481f77477"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/6639239/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "5555e3a6a628b32cbc4acaa481f77477"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/6639239/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "5555e3a6a628b32cbc4acaa481f77477"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/6639239/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "5555e3a6a628b32cbc4acaa481f77477"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/mtsplice": {
         "url": "https://zenodo.org/record/6602525/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
