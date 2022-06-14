@@ -130,9 +130,9 @@
         "md5": "85c63a025076741924451925ec239319"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642393/files/kipoi-docker_kipoisplice-slim.sif?download=1",
         "name": "kipoi-docker_kipoisplice-slim",
-        "md5": "db9f0b02e4a74da2d3c112ed3feb653f"
+        "md5": "a09f2779e5f0b05b94fb3036ec9b560e"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6639419/files/kipoi-docker_deeptarget-slim.sif?download=1",
@@ -190,8 +190,8 @@
         "md5": "99cf6f9aa01845b98a7d556f8a5851ea"
     },
     "TREDNet": {
-        "url": "https://zenodo.org/record/6642374/files/kipoi-docker_trednet-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6606579/files/kipoi-docker_trednet-slim.sif?download=1",
         "name": "kipoi-docker_trednet-slim",
-        "md5": "3c66aab1d3284020414ca80b856aa502"
+        "md5": "4d1b1c3fbf1033bf05e2af13963711b5"
     }
 }
