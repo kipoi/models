@@ -125,14 +125,14 @@
         "md5": "82c6d8f7b15e124b53cf8ab31dc1460c"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/6641276/files/kipoi-docker_framepool-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
         "name": "kipoi-docker_framepool-slim",
-        "md5": "bd363778cf68088a36b86ff62f85c5de"
+        "md5": "85c63a025076741924451925ec239319"
     },
     "KipoiSplice": {
-        "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639255/files/kipoi-docker_kipoisplice-slim.sif?download=1",
         "name": "kipoi-docker_kipoisplice-slim",
-        "md5": "db9f0b02e4a74da2d3c112ed3feb653f"
+        "md5": "bc9fae9ada176e027e4ebf1151efef78"
     },
     "deepTarget": {
         "url": "https://zenodo.org/record/6639419/files/kipoi-docker_deeptarget-slim.sif?download=1",
