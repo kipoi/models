@@ -90,9 +90,9 @@
         "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639241/files/kipoi-docker_extended_coda-slim.sif?download=1",
         "name": "kipoi-docker_extended_coda-slim",
-        "md5": "51f7d11a9a45af47397e979614220473"
+        "md5": "1b28d5f4d6b2e6f9c514cd4f03ddd6cc"
     },
     "MMSplice/pathogenicity": {
         "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
@@ -170,9 +170,9 @@
         "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/6639245/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities-slim",
-        "md5": "ad45c0f43034a970e171e217699357e7"
+        "md5": "c36f7a64e2628ca626c529a8c3883b9c"
     },
     "APARENT/veff": {
         "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
