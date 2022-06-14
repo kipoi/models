@@ -85,9 +85,9 @@
         "md5": "fc7271fcaf16884ec7f306a5b12e34c7"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6639253/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602597/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn-slim",
-        "md5": "82edf4575347b9b5635c41fb6a4c1b8f"
+        "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
@@ -170,9 +170,9 @@
         "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639245/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities-slim",
-        "md5": "c36f7a64e2628ca626c529a8c3883b9c"
+        "md5": "ad45c0f43034a970e171e217699357e7"
     },
     "APARENT/veff": {
         "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
