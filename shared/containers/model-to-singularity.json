@@ -140,9 +140,9 @@
         "md5": "0318ff15a146fbd142f856f491b5d9e6"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6639240/files/kipoi-docker_attentivechrome-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602384/files/kipoi-docker_attentivechrome-slim.sif?download=1",
         "name": "kipoi-docker_attentivechrome-slim",
-        "md5": "25b3704ca7a44f6def34c614df17314f"
+        "md5": "b604b024b5f8e866948b2ab801799573"
     },
     "BPNet-OSKN": {
         "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
@@ -190,8 +190,8 @@
         "md5": "1d4d53ec947db503e1bd948e3f197c98"
     },
     "TREDNet": {
-        "url": "https://zenodo.org/record/6606579/files/kipoi-docker_trednet-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6639250/files/kipoi-docker_trednet-slim.sif?download=1",
         "name": "kipoi-docker_trednet-slim",
-        "md5": "4d1b1c3fbf1033bf05e2af13963711b5"
+        "md5": "e55db232f6c376753fc63b6b5a7c160c"
     }
 }
