@@ -125,9 +125,9 @@
         "md5": "82c6d8f7b15e124b53cf8ab31dc1460c"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6641276/files/kipoi-docker_framepool-slim.sif?download=1",
         "name": "kipoi-docker_framepool-slim",
-        "md5": "85c63a025076741924451925ec239319"
+        "md5": "bd363778cf68088a36b86ff62f85c5de"
     },
     "KipoiSplice": {
         "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
@@ -165,9 +165,9 @@
         "md5": "e50c102f0faab7e030b582cb396b02e5"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6639252/files/kipoi-docker_deepflybrain-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6573788/files/kipoi-docker_deepflybrain-slim.sif?download=1",
         "name": "kipoi-docker_deepflybrain-slim",
-        "md5": "c5313dfb5b93e2927cd3ab3f444b0969"
+        "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
