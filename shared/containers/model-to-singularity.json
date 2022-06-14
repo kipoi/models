@@ -140,14 +140,14 @@
         "md5": "0318ff15a146fbd142f856f491b5d9e6"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6642403/files/kipoi-docker_attentivechrome-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602384/files/kipoi-docker_attentivechrome-slim.sif?download=1",
         "name": "kipoi-docker_attentivechrome-slim",
-        "md5": "9aa1af63d1ffff997efb8152b1b4cec8"
+        "md5": "b604b024b5f8e866948b2ab801799573"
     },
     "BPNet-OSKN": {
-        "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642406/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
         "name": "kipoi-docker_bpnet-oskn-slim",
-        "md5": "fe8391af863a8ddfeecc73674a680eac"
+        "md5": "a2de30e0e79e7aec878682b168246eaf"
     },
     "SeqVec": {
         "url": "https://zenodo.org/record/6574015/files/kipoi-docker_seqvec-slim.sif?download=1",
