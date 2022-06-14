@@ -85,9 +85,9 @@
         "md5": "fc7271fcaf16884ec7f306a5b12e34c7"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6642357/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602597/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn-slim",
-        "md5": "029fc7ebc7bf94d85481a8753ed58393"
+        "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
@@ -175,9 +175,9 @@
         "md5": "c36f7a64e2628ca626c529a8c3883b9c"
     },
     "APARENT/veff": {
-        "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642372/files/kipoi-docker_aparent-veff-slim.sif?download=1",
         "name": "kipoi-docker_aparent-veff-slim",
-        "md5": "2ce04d6d7a51c1bce7c90fc461463bdd"
+        "md5": "319a7c232e774e62deaf5ad7c24a8d61"
     },
     "DeepSTARR": {
         "url": "https://zenodo.org/record/6600775/files/kipoi-docker_deepstarr-slim.sif?download=1",
