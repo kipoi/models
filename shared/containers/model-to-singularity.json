@@ -95,29 +95,29 @@
         "md5": "51f7d11a9a45af47397e979614220473"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "afd166fd177648f588280c4c014ba17d"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "afd166fd177648f588280c4c014ba17d"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "afd166fd177648f588280c4c014ba17d"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "afd166fd177648f588280c4c014ba17d"
+        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6602525/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642626/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice-slim",
-        "md5": "9fdeca0688df85666affdad2b784f5ba"
+        "md5": "9f8e797b7e4729d3132ac47b88c6b6ac"
     },
     "DeepMEL": {
         "url": "https://zenodo.org/record/6602476/files/kipoi-docker_deepmel-slim.sif?download=1",
