@@ -90,9 +90,9 @@
         "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6642638/files/kipoi-docker_extended_coda-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
         "name": "kipoi-docker_extended_coda-slim",
-        "md5": "66dc5e997f9b0cca4c59f668af41c1c5"
+        "md5": "51f7d11a9a45af47397e979614220473"
     },
     "MMSplice/pathogenicity": {
         "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
@@ -165,9 +165,9 @@
         "md5": "e50c102f0faab7e030b582cb396b02e5"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6573788/files/kipoi-docker_deepflybrain-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642639/files/kipoi-docker_deepflybrain-slim.sif?download=1",
         "name": "kipoi-docker_deepflybrain-slim",
-        "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
+        "md5": "76213b00d5e3d755fc2f67bf7afe79f9"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
