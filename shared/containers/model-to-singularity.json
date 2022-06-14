@@ -95,24 +95,24 @@
         "md5": "51f7d11a9a45af47397e979614220473"
     },
     "MMSplice/pathogenicity": {
-        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
+        "md5": "afd166fd177648f588280c4c014ba17d"
     },
     "MMSplice/splicingEfficiency": {
-        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
+        "md5": "afd166fd177648f588280c4c014ba17d"
     },
     "MMSplice/deltaLogitPSI": {
-        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
+        "md5": "afd166fd177648f588280c4c014ba17d"
     },
     "MMSplice/modularPredictions": {
-        "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642625/files/kipoi-docker_mmsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-slim",
-        "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
+        "md5": "afd166fd177648f588280c4c014ba17d"
     },
     "MMSplice/mtsplice": {
         "url": "https://zenodo.org/record/6602525/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
@@ -180,9 +180,9 @@
         "md5": "2ce04d6d7a51c1bce7c90fc461463bdd"
     },
     "DeepSTARR": {
-        "url": "https://zenodo.org/record/6642619/files/kipoi-docker_deepstarr-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6600775/files/kipoi-docker_deepstarr-slim.sif?download=1",
         "name": "kipoi-docker_deepstarr-slim",
-        "md5": "852a4f151f0b990b2c310a61fb92d911"
+        "md5": "5246a01c215afa01e4ebe277cfa9faa9"
     },
     "scbasset": {
         "url": "https://zenodo.org/record/6639326/files/kipoi-docker_sharedpy3keras2tf2-slim.sif?download=1",
