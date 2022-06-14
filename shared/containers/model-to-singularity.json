@@ -170,9 +170,9 @@
         "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
-        "url": "https://zenodo.org/record/6642381/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
         "name": "kipoi-docker_aparent-site_probabilities-slim",
-        "md5": "651b1c57a6587f19406de6f161091c02"
+        "md5": "c36f7a64e2628ca626c529a8c3883b9c"
     },
     "APARENT/veff": {
         "url": "https://zenodo.org/record/6600778/files/kipoi-docker_aparent-veff-slim.sif?download=1",
@@ -190,8 +190,8 @@
         "md5": "99cf6f9aa01845b98a7d556f8a5851ea"
     },
     "TREDNet": {
-        "url": "https://zenodo.org/record/6606579/files/kipoi-docker_trednet-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642374/files/kipoi-docker_trednet-slim.sif?download=1",
         "name": "kipoi-docker_trednet-slim",
-        "md5": "4d1b1c3fbf1033bf05e2af13963711b5"
+        "md5": "3c66aab1d3284020414ca80b856aa502"
     }
 }
