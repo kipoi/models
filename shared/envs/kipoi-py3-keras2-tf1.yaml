@@ -22,7 +22,9 @@ dependencies:
 - pybedtools=0.8.1
 - pysam=0.15.3
 - joblib=1.1.0
+- tensorflow=1.14
 - pip:
+  - keras==2.1.6 # Only FactorNet can not work with keras 2.2.4 wich is the least available option in conda-forge with python=3.7. Keeping keras in pip.
   - scikit-learn==0.19.2
   - gtfparse>=1.0.7
   - pyvcf==0.4.3
@@ -30,17 +32,10 @@ dependencies:
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow==1.15
-  - keras==2.1.6
   - gffutils==0.10.1
   - pyfaidx==0.6.4
-  # - scikit-learn
   - intervaltree==2.1.0
-  # - sklearn-pandas
   - tqdm==4.64.0
-  # - mmsplice
-  - numpy
   - concise>=0.6.6
-  # other 
   - ipykernel==6.13.0
   - protobuf==3.20
