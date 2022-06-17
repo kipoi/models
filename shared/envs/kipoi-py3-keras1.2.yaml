@@ -14,7 +14,7 @@ dependencies:
 - pip=21.3.1
 - tensorflow=1.14
 - pip:
-  - keras==1.2.2
+  - keras==1.2.2 # keras 1.2.2 is not available with python 3.7 in conda-forge
   - pyvcf==0.4.3
   - kipoi_veff
   - kipoi_interpret
