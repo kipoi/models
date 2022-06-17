@@ -217,14 +217,13 @@ workflows:
                ignore:
                  - master
                  - test_all
-                 - sharedenvupdate
        - test_new_models_singularity:
            filters:
              branches:
                ignore:
                  - master
                  - test_all
-                 - sharedenvupdate                      
+                      
   test-all-branch:
      jobs:
        - test_all_models:
@@ -257,7 +256,6 @@ workflows:
                only:
                  - master
                  - test_all
-                 - sharedenvupdate
        - sync_containers:
            context:
              - sync-kipoi-containers
