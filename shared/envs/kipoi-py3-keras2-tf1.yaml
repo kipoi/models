@@ -24,7 +24,7 @@ dependencies:
 - joblib=1.1.0
 - tensorflow=1.14
 - pip:
-  - keras==2.1.6
+  - keras==2.1.6 # Only FactorNet can not work with keras 2.2.4 wich is the least available option in conda-forge with python=3.7. Keeping keras in pip.
   - scikit-learn==0.19.2
   - gtfparse>=1.0.7
   - pyvcf==0.4.3
