@@ -120,9 +120,9 @@
         "md5": "9fdeca0688df85666affdad2b784f5ba"
     },
     "DeepMEL": {
-        "url": "https://zenodo.org/record/6642627/files/kipoi-docker_deepmel-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6659908/files/kipoi-docker_deepmel-slim.sif?download=1",
         "name": "kipoi-docker_deepmel-slim",
-        "md5": "d8ecb052ca6d465983e86bc4efeb0439"
+        "md5": "87e6e74cfee5f0f1d43ff44a0d493d4b"
     },
     "Framepool": {
         "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
@@ -140,9 +140,9 @@
         "md5": "35f7789de9c58f9df5bef9631e1a0930"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6659903/files/kipoi-docker_attentivechrome-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602384/files/kipoi-docker_attentivechrome-slim.sif?download=1",
         "name": "kipoi-docker_attentivechrome-slim",
-        "md5": "1207491ed8ab6b5604a8528048b49c12"
+        "md5": "b604b024b5f8e866948b2ab801799573"
     },
     "BPNet-OSKN": {
         "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
