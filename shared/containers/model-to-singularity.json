@@ -90,9 +90,9 @@
         "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
-        "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6659907/files/kipoi-docker_extended_coda-slim.sif?download=1",
         "name": "kipoi-docker_extended_coda-slim",
-        "md5": "51f7d11a9a45af47397e979614220473"
+        "md5": "081d5bec503d1eca7246aa409169440a"
     },
     "MMSplice/pathogenicity": {
         "url": "https://zenodo.org/record/6603220/files/kipoi-docker_mmsplice-slim.sif?download=1",
@@ -115,9 +115,9 @@
         "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6659900/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602525/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice-slim",
-        "md5": "c04350da245c2d08165157a099d670ab"
+        "md5": "9fdeca0688df85666affdad2b784f5ba"
     },
     "DeepMEL": {
         "url": "https://zenodo.org/record/6642627/files/kipoi-docker_deepmel-slim.sif?download=1",
