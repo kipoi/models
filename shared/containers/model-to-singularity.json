@@ -115,14 +115,14 @@
         "md5": "1f2ee90e10c762cf20dd2f768a4aac97"
     },
     "MMSplice/mtsplice": {
-        "url": "https://zenodo.org/record/6602525/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6659900/files/kipoi-docker_mmsplice-mtsplice-slim.sif?download=1",
         "name": "kipoi-docker_mmsplice-mtsplice-slim",
-        "md5": "9fdeca0688df85666affdad2b784f5ba"
+        "md5": "c04350da245c2d08165157a099d670ab"
     },
     "DeepMEL": {
-        "url": "https://zenodo.org/record/6659908/files/kipoi-docker_deepmel-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6642627/files/kipoi-docker_deepmel-slim.sif?download=1",
         "name": "kipoi-docker_deepmel-slim",
-        "md5": "87e6e74cfee5f0f1d43ff44a0d493d4b"
+        "md5": "d8ecb052ca6d465983e86bc4efeb0439"
     },
     "Framepool": {
         "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
