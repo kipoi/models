@@ -140,9 +140,9 @@
         "md5": "35f7789de9c58f9df5bef9631e1a0930"
     },
     "AttentiveChrome": {
-        "url": "https://zenodo.org/record/6602384/files/kipoi-docker_attentivechrome-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6659903/files/kipoi-docker_attentivechrome-slim.sif?download=1",
         "name": "kipoi-docker_attentivechrome-slim",
-        "md5": "b604b024b5f8e866948b2ab801799573"
+        "md5": "1207491ed8ab6b5604a8528048b49c12"
     },
     "BPNet-OSKN": {
         "url": "https://zenodo.org/record/6600795/files/kipoi-docker_bpnet-oskn-slim.sif?download=1",
@@ -165,9 +165,9 @@
         "md5": "253b65d96eff17f6acef91772f38a341"
     },
     "DeepFlyBrain": {
-        "url": "https://zenodo.org/record/6659905/files/kipoi-docker_deepflybrain-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6573788/files/kipoi-docker_deepflybrain-slim.sif?download=1",
         "name": "kipoi-docker_deepflybrain-slim",
-        "md5": "18d87069694d48d2d68754b9eafca70d"
+        "md5": "bc638fd09bdaa5d16dd24df1a245f3cb"
     },
     "APARENT/site_probabilities": {
         "url": "https://zenodo.org/record/6603287/files/kipoi-docker_aparent-site_probabilities-slim.sif?download=1",
