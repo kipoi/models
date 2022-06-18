@@ -85,9 +85,9 @@
         "md5": "fc7271fcaf16884ec7f306a5b12e34c7"
     },
     "MPRA-DragoNN": {
-        "url": "https://zenodo.org/record/6659968/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6602597/files/kipoi-docker_mpra-dragonn-slim.sif?download=1",
         "name": "kipoi-docker_mpra-dragonn-slim",
-        "md5": "83f67a55cde6fde59941964623dddc36"
+        "md5": "f9517066497cbe83d8eda19df1d8f5f1"
     },
     "extended_coda": {
         "url": "https://zenodo.org/record/6602577/files/kipoi-docker_extended_coda-slim.sif?download=1",
@@ -125,9 +125,9 @@
         "md5": "d8ecb052ca6d465983e86bc4efeb0439"
     },
     "Framepool": {
-        "url": "https://zenodo.org/record/6602452/files/kipoi-docker_framepool-slim.sif?download=1",
+        "url": "https://zenodo.org/record/6659971/files/kipoi-docker_framepool-slim.sif?download=1",
         "name": "kipoi-docker_framepool-slim",
-        "md5": "85c63a025076741924451925ec239319"
+        "md5": "f87b2571097682bb5366379e9231496d"
     },
     "KipoiSplice": {
         "url": "https://zenodo.org/record/6602421/files/kipoi-docker_kipoisplice-slim.sif?download=1",
