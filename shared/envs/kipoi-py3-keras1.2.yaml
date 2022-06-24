@@ -10,18 +10,16 @@ dependencies:
 - pysam=0.15.3
 - python=3.7
 - genomelake==0.1.4
-- numpy
-- pandas
 - cython=0.29.28
 - pip=21.3.1
+- tensorflow=1.14
 - pip:
+  - keras==1.2.2 # keras 1.2.2 is not available with python 3.7 in conda-forge
   - pyvcf==0.4.3
   - kipoi_veff
   - kipoi_interpret
   - kipoi
   - kipoiseq
-  - tensorflow==1.15
-  - keras==1.2.2
   - deepcpg==1.0.4
   - h5py==3.6.0
   - protobuf==3.20
