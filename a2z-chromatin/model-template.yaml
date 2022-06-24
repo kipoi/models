@@ -37,3 +37,11 @@ schema:
         shape: (1,)
         doc: is accessible or is unmethylated (DNA), depending on model
 
+{% if model == 'a2z-accessibility' %}
+test: 
+    expect: 
+        url: https://zenodo.org/record/6724196/files/a2z-chromatin-a2z-accessibility.predictions.h5?download=1
+        md5: 8aed39b4c9eff8ba0550ff8faff5cf46
+    # precision_decimal: 5
+{% endif %}
+                
