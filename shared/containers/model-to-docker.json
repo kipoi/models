@@ -37,5 +37,6 @@
     "APARENT/veff": "kipoi/kipoi-docker:aparent-veff",
     "DeepSTARR": "kipoi/kipoi-docker:deepstarr",
     "scbasset": "kipoi/kipoi-docker:sharedpy3keras2tf2",
-    "TREDNet": "kipoi/kipoi-docker:trednet"
+    "TREDNet": "kipoi/kipoi-docker:trednet",
+    "a2z-chromatin": "kipoi/kipoi-docker:sharedpy3keras2tf2"
 }
