@@ -1,0 +1,39 @@
+defined_as: kipoi.model.KerasModel
+args:
+    weights:
+        url: {{ model_weights_url }}
+        md5: {{ model_weights_md5 }}
+default_dataloader:
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+    default_args:
+        auto_resize_len: 600
+info:
+    authors:
+        - name: Travis Wrightsman
+          github: twrightsman
+          email: tw493@cornell.edu
+    doc: Model predicting chromatin accessibility or lack of DNA methylation from Angiosperm DNA sequence
+    cite_as: https://doi.org/10.1101/2021.11.11.468292
+    trained_on: ATAC-Seq data from 12 angiosperms and UMR calls from 10 angiosperms
+    license: MIT
+    tags:
+        - DNA accessibility
+        - DNA methylation
+        - Plants
+dependencies:
+    conda:
+        - python =3.9
+        - cython =0.29
+        - tensorflow =2.6
+        - keras =2.6
+        - pip
+    pip:
+        - kipoiseq
+schema:
+    inputs:
+        shape: (600,4)
+        doc: one-hot encoded DNA sequence
+    targets:
+        shape: (1,)
+        doc: is accessible or is unmethylated (DNA), depending on model
+
