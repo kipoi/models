@@ -21,7 +21,9 @@ class APARENT_DL(SampleIterator):
         self.reference_sequence = reference_sequence
         self.interval_attrs = interval_attrs
 
-        self.variant_seq_extractor = VariantSeqExtractor(reference_sequence=reference_sequence)
+        if not self.reference_sequence.use_strand:
+            raise ValueError(
+                "Reference sequence fetcher does not use strand but this is needed to obtain correct sequences!")
 
         self.one_hot = OneHot()
 
@@ -134,5 +136,5 @@ class Kipoi_APARENT_DL(APARENT_DL):
 
         super().__init__(
             regions_of_interest=roi,
-            reference_sequence=FastaStringExtractor(fasta_file),
+            reference_sequence=FastaStringExtractor(fasta_file, use_strand=True),
         )
