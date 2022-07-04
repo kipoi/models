@@ -23,6 +23,9 @@ class APARENT_DL(SampleIterator):
         self.variants = variants
         self.interval_attrs = interval_attrs
 
+        if not self.reference_sequence.use_strand:
+            raise ValueError(
+                "Reference sequence fetcher does not use strand but this is needed to obtain correct sequences!")
         self.variant_seq_extractor = VariantSeqExtractor(reference_sequence=reference_sequence)
 
         self.matcher = SingleVariantMatcher(
@@ -155,6 +158,6 @@ class Kipoi_APARENT_DL(APARENT_DL):
         from kipoiseq.extractors import MultiSampleVCF
         super().__init__(
             regions_of_interest=roi,
-            reference_sequence=FastaStringExtractor(fasta_file),
+            reference_sequence=FastaStringExtractor(fasta_file, use_strand=True),
             variants=MultiSampleVCF(vcf_file, lazy=vcf_lazy)
         )
