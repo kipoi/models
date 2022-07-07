@@ -37,10 +37,6 @@ variables:
     run:
       name: Install git-lfs
       command: conda install --yes -c conda-forge git-lfs && git lfs install
-  install_additional_pkgs: &install_additional_pkgs
-    run:
-      name: Install hdf5 and pkgconfig
-      command: conda install --yes -c conda-forge hdf5=1.10.6 pkgconfig
   install_singularity: &install_singularity
     run:
       name: Install Singularity
@@ -92,7 +88,6 @@ jobs:
       - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
-      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -111,7 +106,6 @@ jobs:
       - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
-      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -134,7 +128,6 @@ jobs:
       - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
-      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -160,7 +153,6 @@ jobs:
       - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
-      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
@@ -185,7 +177,6 @@ jobs:
       - *install_mamba_solver
       # - *install_sys_deps
       - *install_gitlfs
-      - *install_additional_pkgs
       # - *restore_cache
       - *setup
       - run:
