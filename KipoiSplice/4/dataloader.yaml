@@ -35,6 +35,7 @@ dependencies:
   - h5py
   - numpy
   - python=3.5
+  - attrs=17.4.0
   pip:
   - pyvcf
   - intervaltree

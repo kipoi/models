@@ -38,6 +38,7 @@ dependencies:
   - pandas
   - numpy
   - h5py
+  - attrs=17.4.0
   - python=3.5
   pip:
   - pyvcf
