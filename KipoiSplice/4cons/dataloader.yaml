@@ -38,6 +38,7 @@ dependencies:
   - pandas
   - numpy
   - h5py
+  - attrs=17.4.0
   - python=3.5
   pip:
   - pyvcf
@@ -52,7 +53,6 @@ dependencies:
   - tensorflow>=1.0.0
   - keras==2.2.4
   - protobuf==3.19.4
-  - attrs==21.4.0
 info:
   authors:
   - github: avsecz
