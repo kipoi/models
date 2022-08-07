@@ -13,7 +13,7 @@ info:
           github: twrightsman
           email: tw493@cornell.edu
     doc: Model predicting chromatin accessibility or lack of DNA methylation from Angiosperm DNA sequence
-    cite_as: https://doi.org/10.1101/2021.11.11.468292
+    cite_as: https://doi.org/10.1002/tpg2.20249
     trained_on: ATAC-Seq data from 12 angiosperms and UMR calls from 10 angiosperms
     license: MIT
     tags:
@@ -43,4 +43,3 @@ test:
         url: https://zenodo.org/record/6724196/files/a2z-chromatin-a2z-accessibility.predictions.h5?download=1
         md5: 8aed39b4c9eff8ba0550ff8faff5cf46
 {% endif %}
-                
