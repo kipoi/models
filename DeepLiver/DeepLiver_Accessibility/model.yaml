@@ -1,0 +1,40 @@
+defined_as: kipoi.model.KerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Accessibility.json?download=1
+        md5: md5:d83414502531ac59401a3fdc478e6e20
+    weights:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Accessibility.hdf5?download=1
+        md5: md5:b26d8290f5205ad25ecf9a5f54fc4073
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Carmen Bravo
+          github: cbravo93
+          email: carmen.bravogonzalezblas@kuleuven.be
+        - name: Stein Aerts
+    doc: Specialized deep learning model to predict region accessibility (as topics) across cell types in the mouse liver. 
+    cite_as: Bravo González-Blas, Carmen. (2022). Enhancer grammar of liver cell types and hepatocyte zonation states. https://doi.org/10.1101/2022.12.08.519575
+    trained_on: Accessible genomic sites in the mouse liver grouped into regulatory topics inferred from scATAC-seq data. 
+    license: Other / Non-commercial (see LICENSE.txt)
+
+dependencies:
+    conda: # install via conda
+      - python=3.7
+      - numpy==1.19.5
+      - h5py==2.10.0
+
+    pip:   # install via pip
+      - tensorflow==1.15.0
+      - keras==2.2.4
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+     targets:
+       name: topic
+       shape: (82,)
+       doc: Topic Prediction
