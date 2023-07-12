@@ -1,0 +1,40 @@
+defined_as: kipoi.model.KerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Activity.json?download=1
+        md5: md5:1e43dfc0b5163be854d223be9b12eee2
+    weights:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Activity.hdf5?download=1
+        md5: md5:10a58dcb8dfc2e8fac6ab6b8297380a8
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Carmen Bravo
+          github: cbravo93
+          email: carmen.bravogonzalezblas@kuleuven.be
+        - name: Stein Aerts
+    doc: Specialized deep learning model to predict hepatocyte enhancer activity in the mouse liver. 
+    cite_as: Bravo González-Blas, Carmen. (2022). Enhancer grammar of liver cell types and hepatocyte zonation states. https://doi.org/10.1101/2022.12.08.519575
+    trained_on: Binarized enhancer activity measured in 12K enhancers in the mouse liver using MPRA. 
+    license: Other / Non-commercial (see LICENSE.txt)
+
+dependencies:
+    conda: # install via conda
+      - python=3.7
+      - numpy==1.19.5
+      - h5py==2.10.0
+
+    pip:   # install via pip
+      - tensorflow>=1.15.0
+      - keras>=2.2.4
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+     targets:
+       name: topic
+       shape: (2,)
+       doc: Activity Prediction (0:Active, 1:Not active)
