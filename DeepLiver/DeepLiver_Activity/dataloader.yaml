@@ -4,12 +4,12 @@ args: # MyDataset.__init__ argument description
          doc: intervals file bed3
          example: 
              url: https://zenodo.org/record/8139953/files/Input.bed?download=1
-             md5: md5:baf890c6f9faf490b2a59e86a2d241a6
+             md5: baf890c6f9faf490b2a59e86a2d241a6
         fasta_file:
          doc: Reference genome FASTA file path.
          example:
              url: https://zenodo.org/record/8139953/files/Input.fa?download=1
-             md5: md5:fb8795c77d1b11bec74544bc06bd3e34
+             md5: fb8795c77d1b11bec74544bc06bd3e34
         ignore_targets:
          doc: if True, don't return any target variables
          optional: True  # if not present, the "targets" will not be present

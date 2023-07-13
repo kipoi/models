@@ -1,11 +1,11 @@
-defined_as: kipoi.model.KerasModel
+defined_as: tf_keras_model.tfKerasModel
 args:
     arch:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Zonation.json?download=1
-        md5: md5:28c0ef421fe8eee4037f1d20b812e819 
+        md5: 28c0ef421fe8eee4037f1d20b812e819 
     weights:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Zonation.hdf5?download=1
-        md5: md5:730e2f62a34434d229e8c250854b3c8b
+        md5: 730e2f62a34434d229e8c250854b3c8b
 
 default_dataloader: .
 
@@ -28,7 +28,7 @@ dependencies:
 
     pip:   # install via pip
       - tensorflow>=1.15.0
-      - keras>=2.2.4
+      - protobuf==3.20
 
 schema:  
      inputs: 
@@ -37,4 +37,4 @@ schema:
      targets:
        name: topic
        shape: (3,)
-       doc: Zonation Prediction (0: General, 1: Pericentral, 2: Periportal)
+       doc: Zonation Prediction (0:General, 1:Pericentral, 2:Periportal)

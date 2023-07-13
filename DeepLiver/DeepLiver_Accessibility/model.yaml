@@ -1,11 +1,11 @@
-defined_as: kipoi.model.KerasModel
+defined_as: tf_keras_model.tfKerasModel
 args:
     arch:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Accessibility.json?download=1
-        md5: md5:d83414502531ac59401a3fdc478e6e20
+        md5: d83414502531ac59401a3fdc478e6e20
     weights:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Accessibility.hdf5?download=1
-        md5: md5:b26d8290f5205ad25ecf9a5f54fc4073
+        md5: b26d8290f5205ad25ecf9a5f54fc4073
 
 default_dataloader: .
 
@@ -28,7 +28,7 @@ dependencies:
 
     pip:   # install via pip
       - tensorflow==1.15.0
-      - keras==2.2.4
+      - protobuf==3.20
 
 schema:  
      inputs: 

@@ -1,11 +1,11 @@
-defined_as: kipoi.model.KerasModel
+defined_as: tf_keras_model.tfKerasModel
 args:
     arch:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Activity.json?download=1
-        md5: md5:1e43dfc0b5163be854d223be9b12eee2
+        md5: 1e43dfc0b5163be854d223be9b12eee2
     weights:
         url: https://zenodo.org/record/8139953/files/DeepLiver_Activity.hdf5?download=1
-        md5: md5:10a58dcb8dfc2e8fac6ab6b8297380a8
+        md5: 10a58dcb8dfc2e8fac6ab6b8297380a8
 
 default_dataloader: .
 
@@ -28,7 +28,7 @@ dependencies:
 
     pip:   # install via pip
       - tensorflow>=1.15.0
-      - keras>=2.2.4
+      - protobuf==3.20
 
 schema:  
      inputs: 
