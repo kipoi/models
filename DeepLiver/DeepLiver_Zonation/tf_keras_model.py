@@ -173,7 +173,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         #   - keras.layers.core.Dense object
         # for  keras 2.2.x  this will be a single layer
         #   - keras.layers.core.Dense
-        import keras
+        import tensorflow.keras
         try:
             first_layer = self.model.get_layer(index=0)
         except:
@@ -199,7 +199,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
             layer: layer index (int) or name (non-int)
             use_final_layer:  instead of using `layer` return the final model layer(s) + outputs
         """
-        import keras
+        import tensorflow.keras
         sel_outputs = []
         sel_output_dims = []
 
@@ -266,7 +266,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
 
     @staticmethod
     def get_pre_activation_output(layer, output):
-        import keras
+        import tensorflow.keras
         # if the current layer uses an activation function then grab the input to the activation function rather
         # than the output from the activation function.
         # This can lead to confusion if the activation function translates to backend operations that are not a
@@ -334,9 +334,9 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
                 `filter_func` are defined, then `filter_slices` will be applied first and then `filter_func`.
             filter_func_kwargs: keyword argument dict passed on to `filter_func`
         """
-        import keras
+        import tensorflow.keras
         import copy
-        from keras.models import Model
+        from tensorflow.keras.models import Model
         # Generate the gradient functions according to the layer / filter definition
         gradient_function = None
 
@@ -413,7 +413,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
                 raise Exception("Either filter_slices or filter_func have to be set!")
 
             # generate the actual gradient function
-            from keras import backend as K
+            from tensorflow.keras import backend as K
             saliency = K.gradients(output_oi, inp)
 
             if self.model.uses_learning_phase and not isinstance(K.learning_phase(), int):
@@ -427,8 +427,8 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         return gradient_function
 
     def _get_feed_input_names(self):
-        import keras
-        from keras import backend as K
+        import tensorflow.keras
+        from tensorflow.keras import backend as K
         feed_input_names = None
         if keras.__version__[0] == '1':
             feed_input_names = self.model.input_names
@@ -441,27 +441,27 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
 
     @staticmethod
     def _get_standardize_input_data_func():
-        import keras
+        import tensorflow.keras
         if keras.__version__[0] == '1':
-            from keras.engine.training import standardize_input_data as _standardize_input_data
+            from tensorflow.keras.engine.training import standardize_input_data as _standardize_input_data
         elif hasattr(keras.engine.training, "_standardize_input_data"):
-            from keras.engine.training import _standardize_input_data
+            from tensorflow.keras.engine.training import _standardize_input_data
         elif hasattr(keras.engine.training_utils, "standardize_input_data"):
-            from keras.engine.training_utils import standardize_input_data as _standardize_input_data
+            from tensorflow.keras.engine.training_utils import standardize_input_data as _standardize_input_data
         else:
             raise Exception("This Keras version is not supported!")
         return _standardize_input_data
 
     def _batch_to_list(self, x):
-        import keras
-        from keras import backend as K
+        import tensorflow.keras
+        from tensorflow.keras import backend as K
         feed_input_names = self._get_feed_input_names()
 
         # depending on the version this function needs to be imported from different places
         _standardize_input_data = KerasModel._get_standardize_input_data_func()
 
         if keras.__version__[0] == '1':
-            from keras.engine.training import standardize_input_data as _standardize_input_data
+            from tensorflow.keras.engine.training import standardize_input_data as _standardize_input_data
             if not self.model.built:
                 self.model.build()
             iis = None
@@ -500,7 +500,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
 
     def _input_grad(self, x, layer=None, use_final_layer=False, filter_slices=None,
                     filter_func=None, filter_func_kwargs=None, pre_nonlinearity=False):
-        """Adapted from keras.engine.training.predict_on_batch. Returns gradients for a single batch of samples.
+        """Adapted from tensorflow.keras.engine.training.predict_on_batch. Returns gradients for a single batch of samples.
 
         # Arguments
             x: Input samples, as a Numpy array.
@@ -508,8 +508,8 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         # Returns
             Numpy array(s) of predictions.
         """
-        import keras
-        from keras import backend as K
+        import tensorflow.keras
+        from tensorflow.keras import backend as K
         x_standardized = self._batch_to_list(x)
         if self.model.uses_learning_phase and not isinstance(K.learning_phase(), int):
             ins = x_standardized + [0.]
@@ -540,7 +540,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
             pre_nonlinearity: Try to use the layer output prior to activation (will not always be possible in an
             automatic way)
         """
-        import tensorflow.keras.tensorflow.backend as K
+        import tensorflow.keras.backend as K
         _avg_funcs = {"sum": K.sum, "min": K.min, "max": K.max, "absmax": lambda x: K.max(K.abs(x))}
         if avg_func is not None:
             assert avg_func in _avg_funcs
@@ -574,7 +574,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         # Can't we have multiple outputs for the function?
         output_oi = sel_outputs  # list of outputs should work: https://keras.io/backend/#backend-functions -> backend.function
 
-        from keras import backend as K
+        from tensorflow.keras import backend as K
 
         if self.model.uses_learning_phase and not isinstance(K.learning_phase(), int):
             inp.append(K.learning_phase())
@@ -587,7 +587,7 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         return activation_function
 
     def predict_activation_on_batch(self, x, layer, pre_nonlinearity=False):
-        """Adapted from keras.engine.training.predict_on_batch. Returns gradients for a single batch of samples.
+        """Adapted from tensorflow.keras.engine.training.predict_on_batch. Returns gradients for a single batch of samples.
 
         Arguments
             x: Input samples, as a Numpy array.
@@ -595,8 +595,8 @@ class tfKerasModel(BaseModel, GradientMixin, LayerActivationMixin):
         Returns
             Numpy array(s) of predictions.
         """
-        import keras
-        from keras import backend as K
+        import tensorflow.keras
+        from tensorflow.keras import backend as K
 
         # depending on the keras version this functions needs to be imported from
         # different places
