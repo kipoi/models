@@ -35,9 +35,9 @@ dependencies:
   conda:
     - python=3.8
     - pip=22.0.4
-    - h5py=2.10.0
-    - pytorch::pytorch
-    - cython
+    - h5py=3.9.0
+    - pytorch::pytorch=2.0.1
+    - cython=3.0.0
   pip:
     - kipoi
     - kipoiseq
