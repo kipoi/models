@@ -1,8 +1,8 @@
 defined_as: model.PhaseTwoModel
 args:
     weights:
-        url: https://zenodo.org/record/8161621/files/TREDNet_weights_phase_two_HepG2.hdf5
-        md5: 8da5c7d5a5f5b6399d10650698ff20c3
+        url: https://zenodo.org/record/6463875/files/TREDNet_weights_phase_two_HepG2.hdf5
+        md5: 30c4ed98c0b5479322647bb9c16755b3
 
 default_dataloader:
     defined_as: kipoiseq.dataloaders.SeqIntervalDl
@@ -34,7 +34,7 @@ dependencies:
         - tensorflow=2.8
     pip:   # install via pip
         - protobuf==3.20
-
+    
 
 schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to work.
     inputs:  # input = single numpy array
@@ -44,3 +44,9 @@ schema:  # Model schema. The schema defintion is essential for kipoi plug-ins to
     targets:
         shape: (1,)
         doc: model prediction description
+
+test:
+    expect:
+        url: https://zenodo.org/record/6603641/files/TREDNet_phase_two_HepG2.h5?download=1
+        md5: faadd61d8dbd9875e1a90a4d9d52b9c6
+    precision_decimal: 6
