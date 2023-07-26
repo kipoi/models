@@ -4,14 +4,41 @@ args:
     url: https://zenodo.org/record/1466088/files/HAL_mer_scores.npz?download=1
 default_dataloader: .
 defined_as: model.HALModel
+channels:
+- pytorch
+- bioconda
+- conda-forge
+- defaults
 dependencies:
   conda:
-    - numpy=1.19.2
+    - bioconda::bedtools=2.30.0
+    - cython=0.29.24
+    - bioconda::cyvcf2=0.30.11
+    - h5py=2.10.0
+    - bioconda::maxentpy=0.0.1
+    - numpy=1.21.1
+    - pandas=1.4.2
+    - pip=21.2.4
+    - bioconda::pybedtools=0.8.2
+    - bioconda::pybigwig=0.3.18
+    - bioconda::pysam=0.17.0
     - python=3.8
-    - pip=22.0.4
-    - cython
+    - pytorch=1.4.0
+    - scikit-learn=1.0.2
+    - scipy=1.7.0
+    - bioconda::sorted_nearest=0.0.33
   pip:
-    - h5py==2.10.0
+    - keras
+    - tensorflow
+    - kipoi
+    - kipoi-conda
+    - kipoi-interpret
+    - kipoi-utils
+    - kipoi-veff
+    - kipoiseq
+    - pyfaidx==0.6.4
+    - pyvcf==0.4.3
+    - protobuf==3.20
 
 info:
   authors:
