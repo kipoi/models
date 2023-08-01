@@ -1,0 +1,79 @@
+defined_as: model.BPNetOldSeqModel
+args: # arguments of kipoi.model.TensorFlowModel
+  model_file:
+        url: https://zenodo.org/record/8075860/files/ZDTBCG_model.h5?download=1
+        md5: md5:18119aa2cbf80009c0bf2b260fea0514
+
+default_dataloader: 
+    defined_as: kipoiseq.dataloaders.SeqIntervalDl
+
+    default_args: # Optional arguments to the SeqIntervalDl dataloader
+        # See also https://kipoi.org/kipoiseq/dataloaders/#seqintervaldl 
+        auto_resize_len: 1000 # Automatically resize sequence intervals
+        alphabet: "ACGT" # Order of letters in 1-hot encoding
+        ignore_targets: True # if True, dont return any target variables
+
+info: # General information about the model
+    authors: 
+        - name: Melanie Weilert and Kaelan Brennan
+          github: mlweilert
+          email: mweilert@stowers.org
+    doc: BPNet model predicting the ChIP-nexus profiles of Zelda, Dorsal, Twist, GAGA-factor, Caudal and Bicoid in 2-3hr OreR D.mel embryos.
+    cite_as: https://doi.org/10.1101/2022.12.20.520743
+    trained_on: 2-3hr OreR D.mel embryos (validation chrom=chr2L, test chrom=chrX)
+    license: MIT # Software License - if not set defaults to MIT
+    # You can also specify the license in the LICENSE file
+
+dependencies:
+    channels:
+      - bioconda
+      - pytorch
+      - conda-forge
+      - defaults
+    conda:
+      - python=3.7
+      - bioconda::pybedtools>=0.7.10
+      - bioconda::bedtools>=2.27.1
+      - bioconda::pybigwig>=0.3.10
+      - bioconda::pysam>=0.14.0
+      - bioconda::genomelake==0.1.4
+
+      - pytorch::pytorch=1.4.0  # optional for data-loading
+      - cython=0.29.22
+      - h5py=2.10.0
+      - numpy=1.19.2
+
+      - pandas=1.1.5
+      - fastparquet=0.5.0
+      - python-snappy=0.6.0
+      - pip=21.0.1
+      - nb_conda=2.2.1
+      - tensorflow=1.14
+      - keras=2.2.4
+    pip:
+      - git+https://github.com/kundajelab/DeepExplain.git
+      - git+https://github.com/kundajelab/bpnet.git@0cb7277b736260f8b4084c9b0c5bd62b9edb5266         
+      - protobuf==3.20
+schema:
+    inputs:
+      shape: (1000, 4)
+      doc: "One-hot encoded DNA sequence."
+    targets:
+      Bcd:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Bicoid."
+      Cad:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Caudal."
+      Dl:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Dorsal."
+      GAF:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for GAGA-factor."   
+      Twi:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Twist."   
+      Zld:
+        shape: (1000,2)
+        doc: "Strand-specific ChIP-nexus data for Zelda."   
