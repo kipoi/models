@@ -15,10 +15,10 @@ dependencies:
     - defaults
   conda:
   - python=3.9
-  - tensorflow
+  - tensorflow=2.7
   - keras>=2.0.4,<3
-  - numpy
-  - scipy
+  - numpy=1.25.1
+  - scipy=1.10.1
 
 info:
   authors:
