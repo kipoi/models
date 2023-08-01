@@ -46,8 +46,8 @@ dependencies:
     - python=3.9
     - bioconda::kipoi
     - bioconda::kipoiseq>=0.7.1
-    - bioconda::cyvcf2
-    - bioconda::pyranges
+    - bioconda::cyvcf2=0.30
+    - bioconda::pyranges=0.0.129
 #    - pip>=21.0.1
 #  pip:
 #    - git+https://github.com/hoeze/kipoiseq.git@generalize_variant_source
