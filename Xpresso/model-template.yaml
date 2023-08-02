@@ -26,7 +26,7 @@ dependencies:
     conda: # install via conda
       - python=3.8
       - h5py=2.10
-      - numpy
+      - numpy=1.19.5
       - pip=22.0.4
       - bioconda::pysam=0.17
       - cython
