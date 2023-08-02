@@ -22,11 +22,12 @@ info:
         - Plants
 dependencies:
     conda:
-        - python=3.9
+        - python=3.7
         - cython=0.29
-        - tensorflow=2.6
-        - keras=2.6
+        - tensorflow=2.6.0
+        - keras=2.6.0
         - pip=21.2.4
+        - numpy=1.19.5
     pip:
         - kipoiseq
 schema:
