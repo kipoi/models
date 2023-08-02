@@ -1,0 +1,40 @@
+defined_as: tf_keras_model.tfKerasModel
+args:
+    arch:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Zonation.json?download=1
+        md5: 28c0ef421fe8eee4037f1d20b812e819 
+    weights:
+        url: https://zenodo.org/record/8139953/files/DeepLiver_Zonation.hdf5?download=1
+        md5: 730e2f62a34434d229e8c250854b3c8b
+
+default_dataloader: .
+
+info: 
+    authors: 
+        - name: Carmen Bravo
+          github: cbravo93
+          email: carmen.bravogonzalezblas@kuleuven.be
+        - name: Stein Aerts
+    doc: Specialized deep learning model to predict zonated region accessibility patterns across hepatocytes in the mouse liver. 
+    cite_as: Bravo González-Blas, Carmen. (2022). Enhancer grammar of liver cell types and hepatocyte zonation states. https://doi.org/10.1101/2022.12.08.519575
+    trained_on: Accessible genomic sites in hepatocytes in the mouse liver grouped based on the zonation patterns (generally accessible, pericentral or periportal). 
+    license: Other / Non-commercial (see LICENSE.txt)
+
+dependencies:
+    conda: # install via conda
+      - python=3.7
+      - numpy==1.19.5
+      - h5py==2.10.0
+
+    pip:   # install via pip
+      - tensorflow>=1.15.0
+      - protobuf==3.20
+
+schema:  
+     inputs: 
+       - shape: (500, 4)
+         doc: DNA sequence
+     targets:
+       name: topic
+       shape: (3,)
+       doc: Zonation Prediction (0:General, 1:Pericentral, 2:Periportal)
