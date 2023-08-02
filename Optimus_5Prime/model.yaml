@@ -11,10 +11,12 @@ default_dataloader: .
 
 dependencies:
   conda:
-  - tensorflow=2.6.0
-  - keras=2.6.0
-  - python=3.8
-  - pip=22.0.4
+  - tensorflow=1.4.1
+  - keras=2.1.6
+  - python=3.6
+  - pip=21.0.0
+  pip:
+  - kipoi
 
 info:
   authors:
