@@ -43,11 +43,11 @@ dependencies:
   - bioconda::genomelake
   - bioconda::pybigwig
   - bioconda::pyfaidx
+  - bioconda::gtfparse=1.0.7
   - python=3.7
   - cython
   - pip=20.3.3
   pip:
-  - gtfparse>=1.0.7
   - concise>=0.6.6
   - scikit-learn==0.19.2
 
