@@ -1,0 +1,57 @@
+type: Dataset
+args:
+  gtf_file:
+    doc: file path; Genome annotation GTF file
+    example:
+      url: https://zenodo.org/record/1466102/files/example_files-gencode.v24.annotation_chr22.gtf?download=1
+      md5: c0d1bf7738f6a307b425e4890621e7d9
+  fasta_file:
+    doc: Reference genome sequence
+    example:
+      url: https://zenodo.org/record/1466102/files/example_files-hg38_chr22.fa?download=1
+      md5: b0f5cdd4f75186f8a4d2e23378c57b5b
+  disable_infer_transcripts:
+    doc: option to disable infering transcripts. Can be True if the gtf file has transcripts annotated.
+  disable_infer_genes:
+    doc: option to disable infering genes. Can be True if the gtf file has genes annotated.
+
+defined_as: dataloader.py::FixedSeq5UtrDl
+
+dependencies:
+  conda:
+    - python=3.6
+    - pip=21.0.0
+    - bioconda::pybedtools
+  pip:
+    - kipoi
+    - kipoiseq
+    - gffutils==0.10.1
+    
+info:
+  authors:
+  - github: avsecz
+    name: Ziga Avsec
+  doc: Dataloader for 5-prime UTR
+
+output_schema:
+
+  inputs:
+    name: seq
+    associated_metadata: ranges
+    doc: One-hot encoded RNA sequence
+    shape: (50, 4)
+    special_type: DNASeq
+
+  metadata:
+    ranges:
+      doc: Ranges describing inputs.seq
+      type: GenomicRanges
+    gene_biotype:
+      doc: gene biotype, can be used to filter protein coding genes for instance
+      type: str
+    gene_id:
+      doc: gene ID
+      type: str
+    transcript_id:
+      doc: transcript ID
+      type: str
