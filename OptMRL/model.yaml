@@ -25,9 +25,9 @@ info: # General information about the model
 
 dependencies:
     conda: # install via conda
-      - python==3.9.10
-      - keras==2.4.3
-      - tensorflow==2.4.3
+      - python=3.9
+      - keras=2.4.3
+      - tensorflow=2.4.3
       - h5py
       - pip
     pip:   # install via pip
