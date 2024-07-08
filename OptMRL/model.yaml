@@ -28,6 +28,7 @@ dependencies:
       - python=3.9
       - keras=2.4.3
       - tensorflow=2.4.3
+      - numpy==1.19.5
       - h5py
       - pip
     pip:   # install via pip
