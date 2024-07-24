@@ -1,0 +1,43 @@
+defined_as: kipoi.model.KerasModel
+args: # arguments of kipoi.model.KerasModel
+    arch:
+        url: https://zenodo.org/records/11258762/files/OptMRL-arch.json
+        md5: ecd4879e2d9810f220732e59015d4e8f
+    weights:
+        url: https://zenodo.org/records/11258762/files/OptMRL-weights.h5
+        md5: 7ee6242c16a5f718179a084cacc4caea
+
+default_dataloader: .
+
+
+
+
+info: # General information about the model
+    authors: 
+        - name: Frederick Korbel, Ekaterina Eroshok, Uwe Ohler
+          github: https://github.com/ohlerlab/mlcis
+          email: Frederick.Korbel@mdc-berlin.de
+    version: 0.1
+    doc: Model predicting mean ribosome load (MRL) of an mRNA from the 50 nucleotides upstream of the coding sequence.
+    cite_as: https://doi.org/10.1101/2023.06.02.543405
+    trained_on: 260.000 random 5'UTR reporters (pre-trained) + 20.000 human 5'UTR reporters (fine-tuned) 
+    license: GPL-3
+
+dependencies:
+    conda: # install via conda
+      - python=3.9
+      - keras
+      - tensorflow
+      - h5py
+      - pip
+    pip:   # install via pip
+      - kipoi
+
+schema:  # Model schema. The schema definition is essential for kipoi plug-ins to work.
+    inputs:  # input = single numpy array
+        shape: (50,4)  # array shape of a single sample (omitting the batch dimension)
+        doc: 50 nucleotide 5'UTR sequence
+
+    targets:
+        shape: (1,)
+        doc: mean ribosome load of the mRNA (MRL) as measured by polysome profiling
