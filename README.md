@@ -1,5 +1,22 @@
 ## Kipoi models
 
+> [!WARNING]
+> ### **Kipoi Project - Sunset Announcement**
+> 
+> After several impactful years, we have made the decision to **archive the Kipoi repositories and end active maintenance** of the project.
+> 
+> This is a bittersweet moment. While it’s always a little sad to sunset a project, the field of machine learning in genomics has evolved rapidly, with new technologies and platforms emerging that better meet current needs. Kipoi played an important role in its time, helping researchers **share, reuse, and benchmark trained models** in regulatory genomics. We’re proud of what it accomplished and grateful for the strong community support that made it possible.
+> 
+> Kipoi’s impact continues, however:
+> 
+> *   [The Kipoi webinar series](seminar.html) will carry on, supporting discussions around model reuse and interpretability.
+> *   [Kipoiseq](https://github.com/kipoi/kipoiseq), our standard set of data-loaders for sequence-based modeling, also remains active and relevant.
+> 
+> Thanks to everyone who contributed, used, or supported Kipoi. It’s been a fantastic journey, and we're glad the project helped shape how models are shared in the field.
+> 
+> \- The Kipoi Team
+
+
 [![CircleCI](https://circleci.com/gh/kipoi/models.svg?style=svg&circle-token=ee92a92acb288e17399660e66603f700737e7382)](https://circleci.com/gh/kipoi/models) [![DOI](https://zenodo.org/badge/103403966.svg)](https://zenodo.org/badge/latestdoi/103403966)
 
 This repository hosts predictive models for genomics and serves as a model source for [Kipoi](https://github.com/kipoi/kipoi). Each folder containing `model.yaml` is considered to be a single model.
